@@ -145,7 +145,7 @@ class Magazine extends Component {
                       <ReactStars {...firstExample} />
                     </div>
                     <h5 className="align-center">
-                      <b>$80.00</b>
+                      <b>$85git add.00</b>
                     </h5>
                   </div>
                 </div>
