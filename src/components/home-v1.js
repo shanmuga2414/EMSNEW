@@ -27,6 +27,7 @@ const Home_V1 = () => {
       <CollectionBanner />
       <WebChannel />
       <Books />
+
       <Magazine />
 
       {/* <NewArrival />
