@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
+import * as homeServices from "../../Services/home-page-services";
 
 class Brand extends Component {
+  state = {
+    activity: {},
+  };
+
+  componentDidMount() {
+    console.log(homeServices.getActivities);
+  }
+
   render() {
     let publicUrl = process.env.PUBLIC_URL + "/";
     let imagealt = "image";
