@@ -10,6 +10,7 @@ export async function getActivities() {
     .then(function (response) {
       // handle success
       console.log(response);
+      console.log("sdfsdfsdf");
       console.log("sdkfhsdkfj");
     });
 }
