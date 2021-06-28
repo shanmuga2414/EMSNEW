@@ -244,7 +244,7 @@ class Navbar extends Component {
                   <a href="/">Register</a>
                   <span className="space">|</span>
                   <a href="/">Login</a>
-                  <button type="button" class="btn btn-sm btn-tvchannel">
+                  <button type="button" className="btn btn-sm btn-tvchannel">
                     <i className="fa fa-play-circle fa-lg" /> EMS Web TV Channel
                   </button>
                 </div>
@@ -252,7 +252,7 @@ class Navbar extends Component {
             </div>
           </div>
           <div className="container-fluid bg-grey ">
-            <div class="row">
+            <div className="row">
               <div className="col-lg-9">
                 <div className="logo">
                   <Link to="/">
@@ -285,8 +285,8 @@ class Navbar extends Component {
                         <a href="#">
                           எங்களைப் பற்றி <i className="fa fa-angle-down" />
                         </a>
-                        <ul class="sub-menu">
-                          <li class="menu-item-has-children">
+                        <ul className="sub-menu">
+                          <li className="menu-item-has-children">
                             <a href="/">நிறுவனர்</a>
                           </li>
                           <li>
@@ -305,7 +305,7 @@ class Navbar extends Component {
                         <a href="#">
                           நூற்கள் <i className="fa fa-angle-down" />
                         </a>
-                        <ul class="sub-menu">
+                        <ul className="sub-menu">
                           <li>
                             <a href="/akarathi">அகராதி</a>
                           </li>
@@ -354,7 +354,7 @@ class Navbar extends Component {
                         <a href="#">
                           நிகழ்ச்சிகள் <i className="fa fa-angle-down" />
                         </a>
-                        <ul class="sub-menu">
+                        <ul className="sub-menu">
                           <li>
                             <a href="/gallery">புகைப்படங்கள்</a>
                           </li>
@@ -374,14 +374,14 @@ class Navbar extends Component {
                         <a href="#">
                           கல்வி <i className="fa fa-angle-down" />
                         </a>
-                        <ul class="sub-menu">
+                        <ul className="sub-menu">
                           <li>
                             <a href="#">ஜாமீஆ யாசீன் அறபுக் கல்லூரி </a>
                           </li>
                           <li>
                             <a href="#">மதரஸா நிறுவனர் பற்றி </a>
                           </li>
-                          <li class="menu-item-has-children">
+                          <li className="menu-item-has-children">
                             <a href="#">கல்விக்கு உதவிடுவோம் </a>
                             {/* <ul>
                               <li>
@@ -399,7 +399,7 @@ class Navbar extends Component {
                           மனிதா <i className="fa fa-angle-down" />
                         </a>
 
-                        <ul class="sub-menu">
+                        <ul className="sub-menu">
                           <li>
                             <a href="#">மகான்கள் </a>
                           </li>
@@ -414,14 +414,14 @@ class Navbar extends Component {
                           </li>
                         </ul>
                       </li>
-                      <li class="menu-item-has-children">
+                      <li className="menu-item-has-children">
                         <a href="#">
                           ஒரே உள்ளமை <i className="fa fa-angle-down" />
                         </a>
-                        <ul class="sub-menu">
+                        <ul className="sub-menu">
                           <li>
                             <a href="#">ஏக உள்ளமை</a>
-                            <ul class="sub-menu">
+                            <ul className="sub-menu">
                               <li>
                                 <a href="#">ஏக காட்சி</a>
                               </li>

@@ -13,7 +13,7 @@ class Footer_v1 extends Component {
 
   render() {
     let publicUrl = process.env.PUBLIC_URL + "/";
-    let imgattr = "Footer logo";
+    // let imgattr = "Footer logo";
 
     return (
       <footer className="footer-area footer-style-1">
@@ -55,15 +55,15 @@ class Footer_v1 extends Component {
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-6">
-                  <div class="input-group mb-3">
+                  <div className="input-group mb-3">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Enter email for Newsletter"
                     />
-                    <div class="input-group-append">
+                    <div className="input-group-append">
                       <button
-                        class="btn btn-orange"
+                        className="btn btn-orange"
                         type="button"
                         id="button-addon2"
                       >
@@ -240,11 +240,11 @@ class Footer_v1 extends Component {
                   <div className="text-secondary">
                     <Link className="mr-3" to="/">
                       {" "}
-                      <i class="fa fa-facebook fa-lg"></i>
+                      <i className="fa fa-facebook fa-lg"></i>
                     </Link>
                     <Link className="mr-3" to="/">
                       {" "}
-                      <i class="fa fa-twitter fa-lg"></i>
+                      <i className="fa fa-twitter fa-lg"></i>
                     </Link>
                     <Link className="mr-3" to="/">
                       {" "}

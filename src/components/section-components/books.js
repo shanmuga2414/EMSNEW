@@ -44,7 +44,7 @@ class Books extends Component {
                   <img
                     className="card-img-top"
                     src={publicUrl + "assets/img/image 22.png"}
-                    alt="Card image cap"
+                    alt="Card cap1"
                   />
                   <div className="card-body align-center">
                     <h6>Pellentesque position</h6>
@@ -63,7 +63,7 @@ class Books extends Component {
                   <img
                     className="card-img-top"
                     src={publicUrl + "assets/img/image 21.png"}
-                    alt="Card image cap"
+                    alt="Card cap2"
                   />
                   <div className="card-body align-center">
                     <h6>Pellentesque position</h6>
@@ -81,7 +81,7 @@ class Books extends Component {
                   <img
                     className="card-img-top"
                     src={publicUrl + "assets/img/image 23.png"}
-                    alt="Card image cap"
+                    alt="Card cap3"
                   />
                   <div className="card-body align-center">
                     <h6>Pellentesque position</h6>
@@ -100,7 +100,7 @@ class Books extends Component {
                   <img
                     className="card-img-top"
                     src={publicUrl + "assets/img/image 21.png"}
-                    alt="Card image cap"
+                    alt="Card  cap4"
                   />
                   <div className="card-body align-center">
                     <h6>Pellentesque position</h6>
@@ -118,7 +118,7 @@ class Books extends Component {
                   <img
                     className="card-img-top"
                     src={publicUrl + "assets/img/image 22.png"}
-                    alt="Card image cap"
+                    alt="Card cap5"
                   />
                   <div className="card-body align-center">
                     <h6>Pellentesque position</h6>
@@ -137,7 +137,7 @@ class Books extends Component {
                   <img
                     className="card-img-top"
                     src={publicUrl + "assets/img/image 21.png"}
-                    alt="Card image cap"
+                    alt="Card  cap6"
                   />
                   <div className="card-body align-center">
                     <h6>Pellentesque position</h6>
@@ -155,7 +155,7 @@ class Books extends Component {
                   <img
                     className="card-img-top"
                     src={publicUrl + "assets/img/image 23.png"}
-                    alt="Card image cap"
+                    alt="Card cap7"
                   />
                   <div className="card-body align-center">
                     <h6>Pellentesque position</h6>

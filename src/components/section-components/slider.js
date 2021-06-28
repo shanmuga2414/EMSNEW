@@ -43,18 +43,18 @@ class Slider extends Component {
                   'assets/img/banner/11.png") no-repeat center center/cover',
               }}
             >
-              <div className="container-fluid px-5">
+              <div className="container-fluid px-5 dis">
                 <div className="banner-content">
                   <h3 className="subtitle" data-animation-in="fadeInLeft">
                     30% OFF
                   </h3>
                   <h2 className="title" data-animation-in="fadeInRight">
-                    FAVOURITE CLOTHING
+                    EGATHUVA MEIGNANA SABAI
                   </h2>
                   <div className="margin-top-50 pl-1">
                     <div className="btn-wrapper" data-animation-in="fadeInDown">
                       <Link className="btn btn-white" to="/collection-full">
-                        GET COLLECTION <i className="icon-arrow-buttom" />
+                        EXPLORE <i className="icon-arrow-buttom" />
                       </Link>
                     </div>
                   </div>

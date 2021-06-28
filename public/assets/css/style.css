@@ -2539,6 +2539,9 @@ ul {
 .banner-style-01 .banner-content .icon-arrow-buttom:before {
   color: #ff8e78;
 }
+.banner-slider .slick-track {
+  background-color: #fed766;
+}
 .banner-style-01 .slick-prev,
 .banner-style-01 .slick-next {
   background: transparent;

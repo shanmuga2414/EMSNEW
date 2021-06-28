@@ -15,7 +15,7 @@ class Category extends Component {
               <h3>Our Categories</h3>
             </div>
           </div>
-          <div class="row">
+          <div className="row">
             <div className="col-lg-4 ">
               <div className="categories">
                 <div className="row">
@@ -31,7 +31,7 @@ class Category extends Component {
                   <div className="col-lg-5">
                     <img
                       src={publicUrl + "assets/img/chapter.png"}
-                      alt="Card image cap"
+                      alt="Card gap"
                     />
                   </div>
                 </div>
@@ -52,7 +52,7 @@ class Category extends Component {
                   <div className="col-lg-5">
                     <img
                       src={publicUrl + "assets/img/chapter.png"}
-                      alt="Card image cap"
+                      alt="Card gap"
                     />
                   </div>
                 </div>
@@ -72,7 +72,7 @@ class Category extends Component {
                   <div className="col-lg-5">
                     <img
                       src={publicUrl + "assets/img/chapter.png"}
-                      alt="Card image cap"
+                      alt="Card gap"
                     />
                   </div>
                 </div>
@@ -95,7 +95,7 @@ class Category extends Component {
                   <div className="col-lg-5">
                     <img
                       src={publicUrl + "assets/img/chapter.png"}
-                      alt="Card image cap"
+                      alt="Card gap"
                     />
                   </div>
                 </div>
@@ -116,7 +116,7 @@ class Category extends Component {
                   <div className="col-lg-5">
                     <img
                       src={publicUrl + "assets/img/chapter.png"}
-                      alt="Card image cap"
+                      alt="Card gap"
                     />
                   </div>
                 </div>
@@ -136,7 +136,7 @@ class Category extends Component {
                   <div className="col-lg-5">
                     <img
                       src={publicUrl + "assets/img/chapter.png"}
-                      alt="Card image cap"
+                      alt="Card gap"
                     />
                   </div>
                 </div>

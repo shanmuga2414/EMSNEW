@@ -6,7 +6,7 @@ const apiEndpoint = apiUrl + "/view.php";
 
 export async function getActivities() {
   await axios
-    .get("http:emsmedia.net/ems_react/view.php")
+    .get("http://emsmedia.net/ems_react/view.php")
     .then(function (response) {
       // handle success
       console.log(response);
