@@ -2,11 +2,22 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
 import ReactPlayer from "react-player";
+import * as homeServices from "../../Services/home-page-services";
 
 class Webchannel extends Component {
+  state = {
+    channels: [],
+  };
+
+  async componentDidMount() {
+    // console.log(homeServices.getActivities);
+    const result = await homeServices.getWebchannels();
+    console.log(result);
+    this.setState({ channels: result.data.records });
+  }
   render() {
     let publicUrl = process.env.PUBLIC_URL + "/";
-    let imagealt = "image";
+    const { channels } = this.state;
 
     return (
       <div className="container collection-banner margin-top-30">
@@ -24,23 +35,42 @@ class Webchannel extends Component {
                   <button className="btn btn-orange">View All</button>
                 </div>
               </div>
-              <div className="brand-slider">
-                <div className="brant-item">
-                  <ReactPlayer url="https://www.youtube.com/watch?v=Y89PVasx8n4" />
-                </div>
-                <div className="brant-item">
-                  <ReactPlayer url="https://www.youtube.com/watch?v=ug50zmP9I7s" />
-                </div>
-                <div className="brant-item">
-                  <ReactPlayer url="https://www.youtube.com/watch?v=8Mvt70tfb9c" />
-                </div>
-                <div className="brant-item">
-                  <ReactPlayer url="https://www.youtube.com/watch?v=AQxy6jD1lLg" />
-                </div>
-                <div className="brant-item">
-                  <ReactPlayer url="https://www.youtube.com/watch?v=Y89PVasx8n4" />
-                </div>
+              <div className="team-slider">
+                {channels.map((channel) => (
+                  <div className="single-team-item">
+                    <div className="thumb">
+                      <ReactPlayer url="https://www.youtube.com/embed/ySZW8DNDfPk" />
+                    </div>
+                  </div>
+                  // <div className="single-team-item">
+                  //   <div className="thumb">
+                  //     <ReactPlayer url="https://www.youtube.com/embed/ySZW8DNDfPk" />
+                  //   </div>
+                  // </div>
+                  // <div className="single-team-item">
+                  //   <div className="thumb">
+                  //     <ReactPlayer url="https://www.youtube.com/embed/ySZW8DNDfPk" />
+                  //   </div>
+                  // </div>
+                  // <div className="single-team-item">
+                  //   <div className="thumb">
+                  //     <ReactPlayer url="https://www.youtube.com/embed/ySZW8DNDfPk" />
+                  //   </div>
+                  // </div>
+                  // <div className="single-team-item">
+                  //   <div className="thumb">
+                  //     <ReactPlayer url="https://www.youtube.com/embed/ySZW8DNDfPk" />
+                  //   </div>
+                  // </div>
+                ))}
               </div>
+              {/* <div className="team-slider">
+                {channels.map((channel) => (
+                  <div className="brant-item">
+                    <ReactPlayer url={channel.url} />
+                  </div>
+                ))}
+              </div> */}
             </div>
           </div>
         </div>

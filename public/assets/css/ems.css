@@ -232,7 +232,7 @@
 .brant-item {
   margin-top: 0px !important;
 }
-.web-channel .brant-item {
+.web-channel .single-team-item .thumb div {
   width: 239px !important;
   height: 325px !important;
 }

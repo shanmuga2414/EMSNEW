@@ -60,8 +60,8 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   outline: none;
-  -moz-osx-font-smoothing: grayscale;
-  /* Firefox */
+  /*-moz-osx-font-smoothing: grayscale;
+   Firefox 
   -webkit-font-smoothing: antialiased;
   /* WebKit  */
 }
@@ -1680,7 +1680,7 @@ ul {
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
   background-color: #fff;
   z-index: 9;
-  overflow: hidden;
+  /*overflow: hidden;*/
   visibility: hidden;
   opacity: 0;
   -webkit-transition: all 0.3s ease-in;
@@ -2538,9 +2538,6 @@ ul {
 }
 .banner-style-01 .banner-content .icon-arrow-buttom:before {
   color: #ff8e78;
-}
-.banner-slider .slick-track {
-  background-color: #fed766;
 }
 .banner-style-01 .slick-prev,
 .banner-style-01 .slick-next {
@@ -3542,6 +3539,7 @@ ul {
 .brant-item {
   width: 20%;
   float: left;
+  height: 340px;
   margin: 50px 0px;
   text-align: center;
   display: -webkit-box !important;
@@ -8788,9 +8786,9 @@ ul.filter-main-nav > li:hover > a {
   text-decoration: inherit;
   text-rendering: optimizeLegibility;
   text-transform: none;
-  -moz-osx-font-smoothing: grayscale;
+  /*-moz-osx-font-smoothing: grayscale; */
   -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
+  /*font-smoothing: antialiased; */
 }
 
 .flaticon-left-arrow-chevron:before {
@@ -8967,4 +8965,9 @@ ul.filter-main-nav > li:hover > a {
   box-shadow: 0px 0px 10px -1px rgb(99, 99, 99);
   text-align: center;
   padding: 20px;
+}
+
+/* third menu */
+#third_menu {
+  margin-left: 40px;
 }

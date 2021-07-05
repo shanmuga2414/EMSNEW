@@ -28,7 +28,7 @@ const Home_V1 = () => {
       <WebChannel />
       <Books />
 
-      <Magazine />
+      {/* <Magazine /> */}
 
       {/* <NewArrival />
       <SaleBanner />
