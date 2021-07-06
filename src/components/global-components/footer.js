@@ -126,7 +126,7 @@ class Footer_v1 extends Component {
 
                   <ul className="stone-go-top">
                     <li>
-                      <Link to="/">
+                      <Link to="/contact">
                         {" "}
                         <i className="fa fa-angle-right" />
                         Contact

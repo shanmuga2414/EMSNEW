@@ -2,16 +2,23 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
 import ReactStars from "react-rating-stars-component";
+import * as homeServices from "../../Services/home-page-services";
 
 class Books extends Component {
+  state = {
+    books: [],
+  };
+
+  async componentDidMount() {
+    // console.log(homeServices.getActivities);
+    const result = await homeServices.getBooks();
+    // console.log(result);
+    this.setState({ books: result.data.records });
+  }
   render() {
     let publicUrl = process.env.PUBLIC_URL + "/";
-    let imagealt = "image";
-    const firstExample = {
-      size: 20,
-      value: 3,
-      edit: false,
-    };
+
+    const { books } = this.state;
 
     return (
       <div className="container collection-banner margin-top-30">
@@ -21,153 +28,33 @@ class Books extends Component {
           </div>
           <div className="col-lg-9">
             <div className="row books">
-              <div className="col-lg-3">
-                <div className="card">
-                  <img
-                    className="card-img-top"
-                    src={publicUrl + "assets/img/image 21.png"}
-                    alt="Card image cap"
-                  />
-                  <div className="card-body align-center">
-                    <h6>Pellentesque position</h6>
-                    <div className="ml-4">
-                      <ReactStars {...firstExample} />
+              {books.slice(0, 8).map((book) => (
+                <div className="col-lg-3" key={book.bid}>
+                  <div className="card book-height">
+                    <img
+                      className="card-img-top"
+                      src={
+                        "http://emsmedia.net/magazine/web_control/books/image/" +
+                        book.book_image
+                      }
+                      alt="Card image cap"
+                    />
+                    <div className="card-body align-center">
+                      <h6>{book.book_name}</h6>
+                      <div className="ml-4">
+                        <ReactStars
+                          value={book.book_rating}
+                          size="24"
+                          edit="false"
+                        />
+                      </div>
+                      <h5 className="align-center">
+                        <b>${book.book_price}</b>
+                      </h5>
                     </div>
-                    <h5 className="align-center">
-                      <b>$80.00</b>
-                    </h5>
                   </div>
                 </div>
-              </div>
-              <div className="col-lg-3">
-                <div className="card">
-                  <img
-                    className="card-img-top"
-                    src={publicUrl + "assets/img/image 22.png"}
-                    alt="Card cap1"
-                  />
-                  <div className="card-body align-center">
-                    <h6>Pellentesque position</h6>
-                    <div className="ml-4">
-                      <ReactStars {...firstExample} />
-                    </div>
-                    <h5 className="align-center">
-                      <b>$80.00</b>
-                    </h5>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-3">
-                <div className="card">
-                  <img
-                    className="card-img-top"
-                    src={publicUrl + "assets/img/image 21.png"}
-                    alt="Card cap2"
-                  />
-                  <div className="card-body align-center">
-                    <h6>Pellentesque position</h6>
-                    <div className="ml-4">
-                      <ReactStars {...firstExample} />
-                    </div>
-                    <h5 className="align-center">
-                      <b>$80.00</b>
-                    </h5>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3">
-                <div className="card">
-                  <img
-                    className="card-img-top"
-                    src={publicUrl + "assets/img/image 23.png"}
-                    alt="Card cap3"
-                  />
-                  <div className="card-body align-center">
-                    <h6>Pellentesque position</h6>
-                    <div className="ml-4">
-                      <ReactStars {...firstExample} />
-                    </div>
-                    <h5 className="align-center">
-                      <b>$80.00</b>
-                    </h5>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-3">
-                <div className="card">
-                  <img
-                    className="card-img-top"
-                    src={publicUrl + "assets/img/image 21.png"}
-                    alt="Card  cap4"
-                  />
-                  <div className="card-body align-center">
-                    <h6>Pellentesque position</h6>
-                    <div className="ml-4">
-                      <ReactStars {...firstExample} />
-                    </div>
-                    <h5 className="align-center">
-                      <b>$80.00</b>
-                    </h5>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3">
-                <div className="card">
-                  <img
-                    className="card-img-top"
-                    src={publicUrl + "assets/img/image 22.png"}
-                    alt="Card cap5"
-                  />
-                  <div className="card-body align-center">
-                    <h6>Pellentesque position</h6>
-                    <div className="ml-4">
-                      <ReactStars {...firstExample} />
-                    </div>
-                    <h5 className="align-center">
-                      <b>$80.00</b>
-                    </h5>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-3">
-                <div className="card">
-                  <img
-                    className="card-img-top"
-                    src={publicUrl + "assets/img/image 21.png"}
-                    alt="Card  cap6"
-                  />
-                  <div className="card-body align-center">
-                    <h6>Pellentesque position</h6>
-                    <div className="ml-4">
-                      <ReactStars {...firstExample} />
-                    </div>
-                    <h5 className="align-center">
-                      <b>$80.00</b>
-                    </h5>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3">
-                <div className="card">
-                  <img
-                    className="card-img-top"
-                    src={publicUrl + "assets/img/image 23.png"}
-                    alt="Card cap7"
-                  />
-                  <div className="card-body align-center">
-                    <h6>Pellentesque position</h6>
-                    <div className="ml-4">
-                      <ReactStars {...firstExample} />
-                    </div>
-                    <h5 className="align-center">
-                      <b>$80.00</b>
-                    </h5>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

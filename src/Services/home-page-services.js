@@ -17,3 +17,6 @@ export async function getActivities() {
 export async function getWebchannels() {
   return axios.get("http://emsmedia.net/ems_react/channel.php");
 }
+export async function getBooks() {
+  return axios.get("http://emsmedia.net/ems_react/book.php");
+}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
+import Slider from "react-slick";
 import * as homeServices from "../../Services/home-page-services";
 
 class Brand extends Component {
@@ -20,6 +21,41 @@ class Brand extends Component {
     let imagealt = "image";
     const { activities } = this.state;
     const regex = /(<([^>]+)>)/gi;
+    var settings = {
+      dots: false,
+      arrows: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 5,
+      slidesToScroll: 5,
+      initialSlide: 0,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true,
+          },
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    };
 
     return (
       <div className="brand-area padding-top-30 ">
@@ -35,9 +71,9 @@ class Brand extends Component {
 
           <div className="row">
             <div className="col-lg-12">
-              <div className="brand-slider">
+              <Slider {...settings}>
                 {activities.map((activity) => (
-                  <div className="brant-item">
+                  <div className="brant-item" key={activity.id}>
                     <div className="card">
                       <img
                         className="card-img-top"
@@ -56,7 +92,7 @@ class Brand extends Component {
                     </div>
                   </div>
                 ))}
-              </div>
+              </Slider>
             </div>
           </div>
         </div>
