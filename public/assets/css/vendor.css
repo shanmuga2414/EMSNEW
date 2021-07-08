@@ -3148,9 +3148,10 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #f5f5f5;
-  /* background-color: #fff; */
+  /* background-color: #f5f5f5; */
+  background-color: #fff;
 }
+
 [tabindex="-1"]:focus {
   outline: 0 !important;
 }

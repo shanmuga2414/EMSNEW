@@ -254,3 +254,23 @@
 .slick-next:before {
   color: #e2521a !important;
 }
+
+.product-style-03 img {
+  width: 312px;
+  height: 312px;
+}
+
+.product-style-03 .youtubeVideo div {
+  width: 313px !important;
+  height: 325px !important;
+}
+.webVideo {
+  background-color: #eee;
+}
+.webVideo h6 {
+  text-align: center !important;
+  text-transform: uppercase;
+  padding-bottom: 14px;
+  color: #141414;
+  font-weight: bold;
+}

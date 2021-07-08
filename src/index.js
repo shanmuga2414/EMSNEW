@@ -8,6 +8,9 @@ import {
 } from "react-router-dom";
 import HomeV1 from "./components/home-v1";
 import Founder from "./components/founder";
+import Books from "./components/books";
+import Videos from "./components/videos";
+import MemberResponsibilities from "./components/member-responsibilities";
 // import HomeV2 from "./components/home-v2";
 // import HomeV3 from "./components/home-v3";
 // import HomeV4 from "./components/home-v4";
@@ -35,7 +38,14 @@ class Root extends Component {
           <div>
             <Switch>
               <Route exact path="/" component={HomeV1} />
-              <Route exact path="/founder" component={Founder} />
+              <Route path="/founder" component={Founder} />
+              <Route path="/books" component={Books} />
+              <Route path="/videos" component={Videos} />
+              <Route
+                exact
+                path="/member-responsibilities"
+                component={MemberResponsibilities}
+              />
               {/* <Route path="/home-v2" component={HomeV2} />
               <Route path="/home-v3" component={HomeV3} />
               <Route path="/home-v4" component={HomeV4} />

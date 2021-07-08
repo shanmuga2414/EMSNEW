@@ -288,7 +288,7 @@ class Navbar extends Component {
                 </span>
               </button>
               <div className="row">
-                <div className="col-lg-9 order-3 order-lg-2">
+                <div className="col-lg-12 order-3 order-lg-2">
                   <div className="collapse navbar-collapse" id="shop-menu">
                     <ul className="navbar-nav menu-open">
                       <li className="menu-item-has-children">
@@ -377,14 +377,14 @@ class Navbar extends Component {
                         </a>
                         <ul className="sub-menu">
                           <li>
-                            <a href="/gallery">புகைப்படங்கள்</a>
+                            <Link to="books">புகைப்படங்கள்</Link>
                           </li>
                           <li>
-                            <a href="# ">காணொளி </a>
+                            <Link to="videos">காணொளி</Link>
                           </li>
                           <li>
                             {" "}
-                            <a href="/audio">ஆடியோ </a>
+                            <a href="/">ஆடியோ </a>
                           </li>
                           <li>
                             <a href="# ">நிகழ்வுகள்</a>
@@ -422,6 +422,40 @@ class Navbar extends Component {
 
                         <ul className="sub-menu">
                           <li>
+                            <Link to="member-responsibilities">
+                              மனிதனின் பொறுப்புகள்
+                            </Link>
+                          </li>
+                          <li>
+                            <a href="#"> மஹாங்களின் சரிதைகள்</a>
+                          </li>
+                          <li>
+                            <a href="#"> வஹ்தத்துல் வுஜூத்</a>
+                          </li>
+
+                          <li>
+                            <a href="#">உறுப்பினர்கள் </a>
+                            <ul className="sub-menu" id="third_menu">
+                              <li>
+                                <Link to="founder">சீடர்களின் பொறுப்புகள்</Link>
+                              </li>
+                              <li>
+                                <Link to="founder">
+                                  உறுப்பினர்களின் செயல்பாடுகள்
+                                </Link>
+                              </li>
+                              <li>
+                                <Link to="founder">கலந்தாய்வு</Link>
+                              </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <a href="#">நாகரீக வளர்ச்சி </a>
+                          </li>
+                          <li>
+                            <a href="#">கலந்தாய்வு </a>
+                          </li>
+                          <li>
                             <a href="#">மகான்கள் </a>
                           </li>
                           <li>
@@ -452,6 +486,44 @@ class Navbar extends Component {
                       </li>
                       <li>
                         <Link to="/contact">அறிவுக் களஞ்சியம்</Link>
+                      </li>
+                      <li className="menu-item-has-children">
+                        <Link to="/contact">
+                          மதரஸா <i className="fa fa-angle-down" />
+                        </Link>
+                        <ul className="sub-menu">
+                          <li>
+                            <Link to="founder">மதரஸாவைப்பற்றி</Link>
+                          </li>
+                          <li>
+                            <Link to="founder">மதரஸா நிறுவனர் பற்றி</Link>
+                          </li>
+                          <li>
+                            <Link to="founder">தொகுப்பு </Link>
+                          </li>
+                          <li>
+                            <Link to="founder">பங்குகொள்ள </Link>
+                          </li>
+                        </ul>
+                      </li>
+                      <li className="menu-item-has-children">
+                        <Link to="/contact">
+                          அத்வைதம் <i className="fa fa-angle-down" />
+                        </Link>
+                        <ul className="sub-menu">
+                          <li>
+                            <Link to="founder">கடவுளும் / படைப்பும்</Link>
+                          </li>
+                          <li>
+                            <Link to="founder">பிரபஜ்சவியல்</Link>
+                          </li>
+                          <li>
+                            <Link to="founder">ஐம்பூதங்கள் </Link>
+                          </li>
+                          <li>
+                            <Link to="founder">வேதநூற்கள் </Link>
+                          </li>
+                        </ul>
                       </li>
                     </ul>
                   </div>

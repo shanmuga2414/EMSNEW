@@ -22,11 +22,11 @@ class Books extends Component {
 
     return (
       <div className="container collection-banner margin-top-30">
-        <div className="row">
+        <div className="row  ">
           <div className="col-lg-3">
             <img src={publicUrl + "assets/img/image 20.png"} alt="" />
           </div>
-          <div className="col-lg-9">
+          <div className="col-lg-9 ">
             <div className="row books">
               {books.slice(0, 8).map((book) => (
                 <div className="col-lg-3" key={book.bid}>
