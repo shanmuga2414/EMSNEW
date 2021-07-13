@@ -47,7 +47,7 @@ class Books extends Component {
                       <div className="com-star">
                         <ReactStars
                           value={book.book_rating}
-                          size="24"
+                          size="16"
                           edit="false"
                         />
                       </div>

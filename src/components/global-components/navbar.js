@@ -254,11 +254,17 @@ class Navbar extends Component {
                   </span>
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 text-right hide-mobile-view">
-                  <Link className="top-content-size" href="construction">
+                  <Link
+                    className="top-content-size color-white"
+                    href="construction"
+                  >
                     <i class="fas fa-sign-in-alt"></i> Login
                   </Link>
                   <span className="space">|</span>
-                  <Link className="top-content-size" href="construction">
+                  <Link
+                    className="top-content-size color-white"
+                    href="construction"
+                  >
                     <i class="fas fa-user-plus"></i> Register
                   </Link>
                   <Link
@@ -273,11 +279,17 @@ class Navbar extends Component {
                 <div className="col-lg-6 col-md-6 col-12 hide-large-view">
                   <div className="row mobile-tv">
                     <div className="col-8">
-                      <Link className="top-content-size" href="construction">
+                      <Link
+                        className="top-content-size color-white"
+                        href="construction"
+                      >
                         <i class="fas fa-sign-in-alt"></i> Login
                       </Link>
                       <span className="space">|</span>
-                      <Link className="top-content-size" href="construction">
+                      <Link
+                        className="top-content-size color-white"
+                        href="construction"
+                      >
                         <i class="fas fa-user-plus"></i> Register
                       </Link>
                     </div>
@@ -298,7 +310,7 @@ class Navbar extends Component {
             <div className="row">
               <div className="col-xl-8 col-lg-5 hide-mobile-view tab-hide">
                 <div className="logo">
-                  <Link to="home-v1.js">
+                  <Link to="/">
                     <img
                       class="logo-img"
                       src={publicUrl + "assets/img/logo.jpg"}

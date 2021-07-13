@@ -92,7 +92,7 @@ class Books extends Component {
                             <div className="ml-4 align-center ratings">
                               <ReactStars
                                 value={book.book_rating}
-                                size="22"
+                                size="16"
                                 edit="false"
                               />
                             </div>

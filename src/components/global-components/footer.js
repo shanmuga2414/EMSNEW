@@ -27,7 +27,7 @@ class Footer_v1 extends Component {
                       <i className="fa fa-phone"></i>
                     </div>
                     <div className="method-box__content tab-contact">
-                      <span>+88 123 456 7899</span>
+                      <span>00+123-456-789</span>
                       <p>Free support line!</p>
                     </div>
                   </div>
@@ -38,7 +38,7 @@ class Footer_v1 extends Component {
                       <i class="fas fa-envelope"></i>
                     </div>
                     <div className="method-box__content tab-contact">
-                      <span>info@emsmedia.net</span>
+                      <span>contact@onlinbookshops.com</span>
                       <p>Orders Support!</p>
                     </div>
                   </div>
@@ -49,7 +49,7 @@ class Footer_v1 extends Component {
                       <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div className="method-box__content">
-                      <span>6507 Elmwood Avenue Rocky Mountt </span>
+                      <span>888 South Avenue Street, New York City. </span>
                       <p>Our Address</p>
                     </div>
                   </div>
