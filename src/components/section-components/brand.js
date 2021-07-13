@@ -65,7 +65,7 @@ class Brand extends Component {
               <h3>Event Activities</h3>
             </div>
             <div className="col-lg-1">
-              <button className="btn btn-orange">View All</button>
+              <button className="btn btn-blue">View All</button>
             </div>
           </div>
 
@@ -84,7 +84,7 @@ class Brand extends Component {
                         <p className="card-text">
                           {activity.description.replace(regex, "")}
                         </p>
-                        <a href="/" className="">
+                        <a href="/" className="blue-link">
                           Read more{" "}
                           <i className="fa fa-angle-double-right fa-lg" />
                         </a>

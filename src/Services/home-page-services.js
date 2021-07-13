@@ -17,6 +17,29 @@ export async function getActivities() {
 export async function getWebchannels() {
   return axios.get("http://emsmedia.net/ems_react/channel.php");
 }
+
 export async function getBooks() {
   return axios.get("http://emsmedia.net/ems_react/book.php");
+}
+
+export async function getBookCategories() {
+  return axios.get("http://emsmedia.net/ems_react/book_category.php");
+}
+
+export async function getAllBooks() {
+  return axios.get("http://emsmedia.net/ems_react/books_detail.php");
+}
+export async function getAlbums() {
+  return axios.get("http://emsmedia.net/ems_react/gallery.php");
+}
+
+export async function getAllvideos() {
+  return axios.get("http://emsmedia.net/ems_react/videos.php");
+}
+export async function getAlbumImages() {
+  return axios.get("http://emsmedia.net/ems_react/book_images.php");
+}
+
+export async function getAllEvents() {
+  return axios.get("http://emsmedia.net/ems_react/news_event.php");
 }

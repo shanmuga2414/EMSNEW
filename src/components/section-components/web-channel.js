@@ -63,11 +63,11 @@ class Webchannel extends Component {
           <div className="col-lg-9">
             <div className="web-channel">
               <div className="row ">
-                <div className="col-lg-10 m-2">
-                  <h3>EMS Web TV Channel</h3>
+                <div className="col-lg-10">
+                  <h3 className="tvchannel-head">EMS Web TV Channel</h3>
                 </div>
-                <div className="col-lg-1 m-2">
-                  <button className="btn btn-orange">View All</button>
+                <div className="col-lg-1 m-3">
+                  <button className="btn btn-blue tv-head-btn">View All</button>
                 </div>
               </div>
 

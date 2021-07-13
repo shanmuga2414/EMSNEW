@@ -10,11 +10,11 @@ class FounderDetails extends Component {
     let imagealt = "image";
 
     return (
-      
+    <div>
       <div className="blog-area margin-top-65">
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-lg-12 col-md-9">
+            <div className="col-lg-7 col-md-9">
               <div className="blog-content">
                 <h2> சீடர்களின் பொறுப்புகள் </h2>
                 <p>
@@ -30,30 +30,41 @@ class FounderDetails extends Component {
                     அப்பாஸிய ஆட்சிக் காலத்திலே ஆட்சி வித்திரணமானதோடு மொழி விரிவும், வளர்ச்சியும் அடைந்தது. செய்யுள் நூல்கள் இயற்றுவதிலும், நூதன இலக்கியங்கள் இயற்றுவதிலும் முயற்சியெடுத்தார்கள். அப்பாஸியப் புரட்சியினால் விவேகமும், அறிவு வளர்ச்சியும் எழுத்தாளர்களைக் கொண்டு விரிவுபட்டன.
                 </p>
                 <div className="container collection-banner margin-top-30">
+                <h3>You may also like these books</h3>
+                <hr></hr>
                 <div className="row">
-                  <div className="col-lg-4 ">
-                    <div className="img_div">
+                  <div className="col-xl-4 col-lg-6 ">
+                    <div className="img_div gridmat-top">
                         <img className="book_img" src={publicUrl + "assets/img/books/Irai Arulpa.jpg"} alt="" />
-                       
-				    	<h5 className="img-title"> இறையருட்பா </h5>
-				    	<p className="img-content"> பிரபஞ்சமே ஓருடல். அதிற் காண்பன அதன் அங்கங்கள்.கடவுளெனத் தனித் தொருவன் நின்றனன். </p>
-                        
-                        </div>
+                        <div className="member-content">
+                          <span class="date"><i class="fa fa-calendar"></i> 10 January 2018 </span>        
+                          <h6 className="img-title"> இறையருட்பா </h6>
+                          <p className="img-content"> பிரபஞ்சமே ஓருடல். அதிற் காண்பன அதன் அங்கங்கள். கடவுளெனத் தனித் தொருவன் ... </p>
+                          <Link className="btn member-btn" to="construction">View Details</Link>  
+                        </div>        
+                      </div>
                   </div>
-                  <div className="col-lg-4">
-                  <div className="img_div">
+                  <div className="col-xl-4 col-lg-6">
+                  <div className="img_div gridm-height gridmat-top">
                     <img className="book_img" src={publicUrl + "assets/img/books/Iraivali Syed Moulana.jpg"} alt="" />
-                    <h5 className="img-title"> இறையருட்பா </h5>
-				    <p className="img-content"> பிரபஞ்சமே ஓருடல். அதிற் காண்பன அதன் அங்கங்கள்.கடவுளெனத் தனித் தொருவன் நின்றனன். </p>
-                   
+                    <div className="member-content">
+                        <span class="date"><i class="fa fa-calendar"></i> 10 January 2018 </span>
+                        <h6 className="img-title"> இறைவலிய் ஸெய்யித்... </h6>
+                        <p className="img-content">எம் தந்தை நாயகம் ஜமாலிய்யா ஸெய்யித் யாஸீன் மௌலானா அல்ஹாஷிமிய் ... </p>
+                        <Link className="btn member-btn" to="construction">View Details</Link>  
+                      </div>
                     </div>
                   </div>
-                  <div className="col-lg-4 ">
+                  <div className="col-xl-4 col-lg-6 gridm-top gridmat-top">
                   <div className="img_div">
+
                     <img className="book_img" src={publicUrl + "assets/img/books/Kurunji Suvai.jpg"} alt="" />
-                    <h5 className="img-title"> இறையருட்பா </h5>
-				    	<p className="img-content"> பிரபஞ்சமே ஓருடல். அதிற் காண்பன அதன் அங்கங்கள்.கடவுளெனத் தனித் தொருவன் நின்றனன். </p>
-                   
+                    <div className="member-content">
+                    <span class="date"><i class="fa fa-calendar"></i> 10 January 2018 </span>
+                    <h6 className="img-title"> குறிஞ்சிச் சுவை </h6>
+				    	      <p className="img-content"> எங்கணுமழகு, சுற்றிப் பார்க்குமிடனெல்லாம் சுவைதரும் எழிற் காட்சிகள். பலப்பல...      </p>
+                    <Link className="btn member-btn" to="construction">View Details</Link>  
+                   </div>
                   </div>
                   </div>
                 </div>
@@ -61,7 +72,52 @@ class FounderDetails extends Component {
                
                 </div>
                 </div>
-              
+              <div className="col-lg-3 col-sm-6 divt-top">
+                <h6 className="aside-widget">Lastest News</h6>
+                <hr></hr>
+                <div className="row sparate-div">
+                <div className="col-lg-3 col-3">
+                <img className="aside-widget-user" src={publicUrl + "assets/img/s-news-post/img-01.jpg"} alt="" />
+                </div>
+                <div className="col-lg-9 col-9">
+                  <span className="aside-widget-user-content"> Watch Magda Szubanski Read from He Award</span><br></br>
+                  <span className="aside-widget-posted"> Posted on 24 March 2016</span>
+                </div>
+              </div>
+
+              <div className="row sparate-div">
+                <div className="col-lg-3 col-md-3 col-sm-3 col-3">
+                <img className="aside-widget-user" src={publicUrl + "assets/img/s-news-post/img-01.jpg"} alt="" />
+                </div>
+                <div className="col-lg-9 col-md-9 col-sm-9 col-9">
+                  <span className="aside-widget-user-content"> Watch Magda Szubanski Read from He Award</span><br></br>
+                  <span className="aside-widget-posted"> Posted on 24 March 2016</span>
+                </div>
+              </div>
+
+              <div className="row sparate-div">
+                <div className="col-lg-3 col-md-3 col-sm-3 col-3">
+                <img className="aside-widget-user" src={publicUrl + "assets/img/s-news-post/img-01.jpg"} alt="" />
+                </div>
+                <div className="col-lg-9 col-md-9 col-sm-9 col-9">
+                  <span className="aside-widget-user-content"> Watch Magda Szubanski Read from He Award</span><br></br>
+                  <span className="aside-widget-posted"> Posted on 24 March 2016</span>
+                </div>
+              </div>
+              <div className="row sparate-div">
+                <div className="col-lg-3 col-md-3 col-sm-3 col-3">
+                <img className="aside-widget-user" src={publicUrl + "assets/img/s-news-post/img-01.jpg"} alt="" />
+                </div>
+                <div className="col-lg-9 col-md-9 col-sm-9 col-9">
+                  <span className="aside-widget-user-content"> Watch Magda Szubanski Read from He Award</span><br></br>
+                  <span className="aside-widget-posted"> Posted on 24 March 2016</span>
+                </div>
+              </div>
+
+              <div className="row sparate-div">
+                <img className="aside-widget-banner" src={publicUrl + "assets/img/banner/add-banner-1.jpg"} alt="" />
+              </div>
+              </div>
 							
 							
                 <div className="author-social-area margin-top-50">
@@ -106,7 +162,7 @@ class FounderDetails extends Component {
                     </ul>
                   </div>
                 </div>
-
+                </div>
                 {/* reply-area start  */}
 
                 {/* reply-area end  */}

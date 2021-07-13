@@ -12,13 +12,56 @@ class BlogDetails extends Component {
 		    <div className="row justify-content-center">
 		      <div className="col-md-9">
 		        <div className="blog-content">
-		          <h2>Why must they do that use lap as chair so hide when guests come over hide when guests come over. Hopped up on goofballs, hide when guests come over.</h2>
-		          <p>The Christmas countdown is officially on! And how do we know? Because the Marks &amp; Spencer Christmas advert has just hit screen. And the star is a certain Holly Willoughby – and her enviable wardrobe. We can’t stop thinking about the fabulous purple coat that she wears during the ad – which is FINALLY available to purchase now.<br /><br /> Although it was released in store earlier this month, you can now purchase it online for £89. The single-breasted design has already proved a massive hit on Instagram, due to not only the gorgeous wide lapels, the on-trend, oversize fit and super cosy wool texture – but also the fact that Vogue Williams, Holly and fashion blogger Erica Davies have all rocked it. Now if you don’t know who Erica Davies is – let us enlighten you. Erica is a huge fashion influencer and has always been a big fan of M&amp;S, having single-handedly made THAT starry-print constellation dress a sellout last year.<br /><br /> Speaking about how to style the purple coat of dreams, the chic mother-of-two advised: “Do not fear the purple hue. It works SO WELL with navy blue, bright yellow (yes really), orange or red AND emerald green. It’s a completely useful shade if you want to inject some colour into your life. And who doesn’t want that? We couldn’t agree more.</p>
-		          <img src={publicUrl+"assets/img/blog/4.png"} alt="" />
-		          <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me.</p>
-		          <h2>Dare to dream big</h2>
-		          <p>The Christmas countdown is officially on! And how do we know? Because the Marks &amp; Spencer Christmas advert has just hit screen. And the star is a certain Holly Willoughby – and her enviable wardrobe. We can’t stop thinking about the fabulous purple coat that she wears during the ad – which is FINALLY available to purchase now.<br /><br /> Although it was released in store earlier this month, you can now purchase it online for £89. The single-breasted design has already proved a massive hit on Instagram, due to not only the gorgeous wide lapels, the on-trend, oversize fit and super cosy wool texture – but also the fact that Vogue Williams, Holly and fashion blogger Erica Davies have all rocked it. Now if you don’t know who Erica Davies is – let us enlighten you. Erica is a huge fashion influencer and has always been a big fan of M&amp;S, having single-handedly made THAT starry-print constellation dress a sellout last year.<br /><br /> Speaking about how to style the purple coat of dreams, the chic mother-of-two advised: “Do not fear the purple hue. It works SO WELL with navy blue, bright yellow (yes really), orange or red AND emerald green. It’s a completely useful shade if you want to inject some colour into your life. And who doesn’t want that? We couldn’t agree more.</p>
-		          <div className="author-social-area margin-top-50">
+		          <h2>குத்புல் அக்தாப் ஜமாலிய்யா அஸ்ஸெய்யித்...</h2>
+				  <img src={publicUrl + "assets/img/books/img-01.jpg"} alt="" />
+				  
+				  <p>உமவிய்ய ஆட்சி முடிய அப்பாஸிகள் ஆட்சி ஆரம்பமாயிற்று. அது அறிவிற்கொரு முக்கிய காலமாயிற்றெனக் கூறலாம். எல்லாம் கலைகளும் ஆங்கிருந்தே அக்காலை வெளியாயின என்பது வெள்ளிடைமலை.</p>
+		         	<p>அப்பாஸிய ஆட்சிக் காலத்திலே ஆட்சி வித்திரணமானதோடு மொழி விரிவும், வளர்ச்சியும் அடைந்தது. செய்யுள் நூல்கள் இயற்றுவதிலும், நூதன இலக்கியங்கள் இயற்றுவதிலும் முயற்சியெடுத்தார்கள். அப்பாஸியப் புரட்சியினால் விவேகமும், அறிவு வளர்ச்சியும் எழுத்தாளர்களைக் கொண்டு விரிவுபட்டன.</p> 
+
+					 <h2>குத்புல் அக்தாப் ஜமாலிய்யா அஸ்ஸெய்யித்...</h2>
+					 <img src={publicUrl + "assets/img/books/img-01.jpg"} alt="" />
+					 <p>உமவிய்ய ஆட்சி முடிய அப்பாஸிகள் ஆட்சி ஆரம்பமாயிற்று. அது அறிவிற்கொரு முக்கிய காலமாயிற்றெனக் கூறலாம். எல்லாம் கலைகளும் ஆங்கிருந்தே அக்காலை வெளியாயின என்பது வெள்ளிடைமலை.</p>
+						<p>அப்பாஸிய ஆட்சிக் காலத்திலே ஆட்சி வித்திரணமானதோடு மொழி விரிவும், வளர்ச்சியும் அடைந்தது. செய்யுள் நூல்கள் இயற்றுவதிலும், நூதன இலக்கியங்கள் இயற்றுவதிலும் முயற்சியெடுத்தார்கள். அப்பாஸியப் புரட்சியினால் விவேகமும், அறிவு வளர்ச்சியும் எழுத்தாளர்களைக் கொண்டு விரிவுபட்டன.</p> 
+					 
+						<h2>குத்புல் அக்தாப் ஜமாலிய்யா அஸ்ஸெய்யித்...</h2>
+				  <img src={publicUrl + "assets/img/books/img-01.jpg"} alt="" />
+				  <p>உமவிய்ய ஆட்சி முடிய அப்பாஸிகள் ஆட்சி ஆரம்பமாயிற்று. அது அறிவிற்கொரு முக்கிய காலமாயிற்றெனக் கூறலாம். எல்லாம் கலைகளும் ஆங்கிருந்தே அக்காலை வெளியாயின என்பது வெள்ளிடைமலை.</p>
+		         	<p>அப்பாஸிய ஆட்சிக் காலத்திலே ஆட்சி வித்திரணமானதோடு மொழி விரிவும், வளர்ச்சியும் அடைந்தது. செய்யுள் நூல்கள் இயற்றுவதிலும், நூதன இலக்கியங்கள் இயற்றுவதிலும் முயற்சியெடுத்தார்கள். அப்பாஸியப் புரட்சியினால் விவேகமும், அறிவு வளர்ச்சியும் எழுத்தாளர்களைக் கொண்டு விரிவுபட்டன.</p> 
+				  
+					 <h2>குத்புல் அக்தாப் ஜமாலிய்யா அஸ்ஸெய்யித்...</h2>
+				  <img src={publicUrl + "assets/img/books/img-01.jpg"} alt="" />
+				  <p>உமவிய்ய ஆட்சி முடிய அப்பாஸிகள் ஆட்சி ஆரம்பமாயிற்று. அது அறிவிற்கொரு முக்கிய காலமாயிற்றெனக் கூறலாம். எல்லாம் கலைகளும் ஆங்கிருந்தே அக்காலை வெளியாயின என்பது வெள்ளிடைமலை.</p>
+		         	<p>அப்பாஸிய ஆட்சிக் காலத்திலே ஆட்சி வித்திரணமானதோடு மொழி விரிவும், வளர்ச்சியும் அடைந்தது. செய்யுள் நூல்கள் இயற்றுவதிலும், நூதன இலக்கியங்கள் இயற்றுவதிலும் முயற்சியெடுத்தார்கள். அப்பாஸியப் புரட்சியினால் விவேகமும், அறிவு வளர்ச்சியும் எழுத்தாளர்களைக் கொண்டு விரிவுபட்டன.</p> 
+					 <div className="container collection-banner margin-top-30">
+					 <div className="row">
+					   <div className="col-lg-4 ">
+						 <div className="img_div">
+							 <img className="book_img" src={publicUrl + "assets/img/books/Irai Arulpa.jpg"} alt="" />
+							
+							 <h5 className="img-title"> இறையருட்பா </h5>
+							 <p className="img-content"> பிரபஞ்சமே ஓருடல். அதிற் காண்பன அதன் அங்கங்கள். கடவுளெனத்...  </p>
+							 
+							 </div>
+					   </div>
+					   <div className="col-lg-4">
+					   <div className="img_div">
+						 <img className="book_img" src={publicUrl + "assets/img/books/Iraivali Syed Moulana.jpg"} alt="" />
+						 <h5 className="img-title"> இறைவலிய் ஸெய்யித்... </h5>
+						 <p className="img-content">எம் தந்தை நாயகம் ஜமாலிய்யா ஸெய்யித் யாஸீன் மௌலானா அல்ஹாஷிமிய் ரலியல்லாஹு... </p>
+						
+						 </div>
+					   </div>
+					   <div className="col-lg-4 ">
+					   <div className="img_div">
+						 <img className="book_img" src={publicUrl + "assets/img/books/Kurunji Suvai.jpg"} alt="" />
+						 <h5 className="img-title"> குறிஞ்சிச் சுவை </h5>
+							 <p className="img-content"> எங்கணுமழகு, சுற்றிப் பார்க்குமிடனெல்லாம் சுவைதரும் எழிற் காட்சிகள். பலப்பல...         </p>
+						
+					   </div>
+					   </div>
+					 </div>
+				   </div>
+					 <div className="author-social-area margin-top-50">
 		            <div className="post-taglist">
 		              <ul>
 		                <li><a href="#">artical</a></li>

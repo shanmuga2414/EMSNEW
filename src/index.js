@@ -10,7 +10,13 @@ import HomeV1 from "./components/home-v1";
 import Founder from "./components/founder";
 import Books from "./components/books";
 import Videos from "./components/videos";
+import Gallery from "./components/gallery";
+import EventList from "./components/events";
 import MemberResponsibilities from "./components/member-responsibilities";
+import ConstructionDetails from "./components/construction";
+import Spiritual from "./components/spiritual";
+import Blog from "./components/blog-details";
+
 // import HomeV2 from "./components/home-v2";
 // import HomeV3 from "./components/home-v3";
 // import HomeV4 from "./components/home-v4";
@@ -41,11 +47,20 @@ class Root extends Component {
               <Route path="/founder" component={Founder} />
               <Route path="/books" component={Books} />
               <Route path="/videos" component={Videos} />
+              <Route path="/gallery" component={Gallery} />
+              <Route path="/events" component={EventList} />
               <Route
                 exact
                 path="/member-responsibilities"
                 component={MemberResponsibilities}
               />
+              <Route
+                exact
+                path="/construction"
+                component={ConstructionDetails}
+              />
+              <Route path="/blog" component={Blog} />
+              <Route path="/spiritual" component={Spiritual} />
               {/* <Route path="/home-v2" component={HomeV2} />
               <Route path="/home-v3" component={HomeV3} />
               <Route path="/home-v4" component={HomeV4} />

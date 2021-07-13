@@ -12,13 +12,16 @@ class Slider extends Component {
         <div className="banner-slider">
           <div>
             <div
-              className="banner__bg d-flex align-items-center"
+              className="banner__bg d-flex align-items-center img-fluid index-banner"
               style={{
                 background:
                   'url("' +
                   publicUrl +
                   'assets/img/banner/1.png") no-repeat center center/cover',
-              }}
+                 
+              }
+             
+            }
             >
               {/* <div className="container-fluid px-5">
                 <div className="banner-content">

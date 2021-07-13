@@ -3588,7 +3588,7 @@ pre code {
     max-width: 720px;
   }
   .logo {
-    margin-left: 73px;
+    margin-left: 27px;
   }
 }
 @media (min-width: 992px) {
@@ -3596,7 +3596,7 @@ pre code {
     max-width: 960px;
   }
   .logo {
-    margin-left: 73px;
+    margin-left: 27px;
   }
 }
 @media (min-width: 1200px) {
@@ -3604,7 +3604,7 @@ pre code {
     max-width: 1140px;
   }
   .logo {
-    margin-left: 73px;
+    margin-left: 27px;
   }
 }
 .container-fluid {

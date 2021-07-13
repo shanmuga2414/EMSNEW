@@ -21,32 +21,32 @@ class Footer_v1 extends Component {
           <div className="row footer-address-bar">
             <div className="container">
               <div className="row mt-25">
-                <div className="col-lg-3 col-md-6">
+                <div className=" col-xl-3 col-lg-4 col-md-6  mobile-location">
                   <div className="method-box">
                     <div className="method-box__icon">
                       <i className="fa fa-phone"></i>
                     </div>
-                    <div className="method-box__content">
+                    <div className="method-box__content tab-contact">
                       <span>+88 123 456 7899</span>
                       <p>Free support line!</p>
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-3 col-md-6">
+                <div className="col-xl-3 col-lg-4 col-md-6 mobile-location">
                   <div className="method-box">
                     <div className="method-box__icon">
-                      <i className="fa fa-envelope-o"></i>
+                      <i class="fas fa-envelope"></i>
                     </div>
-                    <div className="method-box__content">
+                    <div className="method-box__content tab-contact">
                       <span>info@emsmedia.net</span>
                       <p>Orders Support!</p>
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-3 col-md-6">
+                <div className="col-xl-3 col-lg-4 col-md-6 mobile-location">
                   <div className="method-box">
                     <div className="method-box__icon">
-                      <i className="fa fa-map-marker"></i>
+                      <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div className="method-box__content">
                       <span>6507 Elmwood Avenue Rocky Mountt </span>
@@ -54,7 +54,7 @@ class Footer_v1 extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-3 col-md-6">
+                <div className="col-xl-3 col-lg-4 col-md-6 mob-newsletter">
                   <div className="input-group mb-3">
                     <input
                       type="text"
@@ -77,7 +77,7 @@ class Footer_v1 extends Component {
           </div>
           <div className="container">
             <div className="row">
-              <div className="col-lg-3 col-md-6">
+              <div className="col-lg-3 col-md-6 mobile-location">
                 <div className="widget widget_nav_menu">
                   <h4 className="widget-title">CONTACT US</h4>
 
@@ -271,7 +271,7 @@ class Footer_v1 extends Component {
                 <p>
                   Copyright © 2020{" "}
                   <a href="/">
-                    <span className="color-green">EMS Media </span> All Rights
+                    <span className="color-black">EMS Media </span> All Rights
                     Reserved
                   </a>
                 </p>
@@ -280,7 +280,7 @@ class Footer_v1 extends Component {
                 <p>
                   Powered by{" "}
                   <a href="/">
-                    <span className="color-green">ilife Technologies.</span>
+                    <span className="color-black">ilife Technologies.</span>
                   </a>
                 </p>
               </div>

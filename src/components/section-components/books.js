@@ -29,7 +29,10 @@ class Books extends Component {
           <div className="col-lg-9 ">
             <div className="row books">
               {books.slice(0, 8).map((book) => (
-                <div className="col-lg-3" key={book.bid}>
+                <div
+                  className="col-xl-3 col-lg-4 col-sm-4 col-12"
+                  key={book.bid}
+                >
                   <div className="card book-height">
                     <img
                       className="card-img-top"
@@ -41,7 +44,7 @@ class Books extends Component {
                     />
                     <div className="card-body align-center">
                       <h6>{book.book_name}</h6>
-                      <div className="ml-4">
+                      <div className="com-star">
                         <ReactStars
                           value={book.book_rating}
                           size="24"

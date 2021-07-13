@@ -237,56 +237,371 @@ class Navbar extends Component {
     return (
       <div>
         <div className="stoon-navbar">
-          <div className="header-top d-none d-sm-block">
-            <div className="container-fluid">
-              <div className="row align-right">
-                <div className="col-lg-12 col-12">
-                  <a href="/">Register</a>
+          <div className="header-top d-none d-block">
+            <div className="container">
+              <div className="row ">
+                <div
+                  class=""
+                  className="col-lg-6 col-md-6 col-12 mt-1 hide-mobile-view"
+                >
+                  <span>
+                    <i class="fas fa-envelope"></i>
+                    <span className="text-space"> info@emsmedia.net</span>
+                  </span>
+                  <span class="top-contact">
+                    <i class="fas fa-phone-volume"></i>{" "}
+                    <span className="text-space">Contact Us</span>
+                  </span>
+                </div>
+                <div className="col-lg-6 col-md-6 col-12 text-right hide-mobile-view">
+                  <Link className="top-content-size" href="construction">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                  </Link>
                   <span className="space">|</span>
-                  <a href="/">Login</a>
-                  <button type="button" className="btn btn-sm btn-tvchannel">
-                    <i className="fa fa-play-circle fa-lg" /> EMS Web TV Channel
-                  </button>
+                  <Link className="top-content-size" href="construction">
+                    <i class="fas fa-user-plus"></i> Register
+                  </Link>
+                  <Link
+                    type="button"
+                    className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view"
+                  >
+                    <i className="fa fa-play-circle fa-lg" />{" "}
+                    <span className="tab">EMS</span> Web TV{" "}
+                    <span className="tab">Channel</span>
+                  </Link>
+                </div>
+                <div className="col-lg-6 col-md-6 col-12 hide-large-view">
+                  <div className="row mobile-tv">
+                    <div className="col-8">
+                      <Link className="top-content-size" href="construction">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                      </Link>
+                      <span className="space">|</span>
+                      <Link className="top-content-size" href="construction">
+                        <i class="fas fa-user-plus"></i> Register
+                      </Link>
+                    </div>
+                    <div className="col-4">
+                      <Link
+                        type="button"
+                        className="btn btn-sm btn-tvchannel top-content-size hide-large-view"
+                      >
+                        <i className="fa fa-play-circle fa-lg" /> Web TV
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="container-fluid bg-grey ">
+          <div className="container-fluid bg-grey">
             <div className="row">
-              <div className="col-lg-9">
+              <div className="col-xl-8 col-lg-5 hide-mobile-view tab-hide">
                 <div className="logo">
-                  <Link to="/">
+                  <Link to="home-v1.js">
+                    <img
+                      class="logo-img"
+                      src={publicUrl + "assets/img/logo.jpg"}
+                      alt=""
+                    />
+                  </Link>
+                </div>
+              </div>
+              <div className="col-xl-4 col-lg-5">
+                <form>
+                  <div className="form-group searchbox hide-mobile-view tab-hide">
+                    <div className="input-icons">
+                      <i className="fa fa-search"></i>
+                      <input
+                        type="text"
+                        className="input-field form-control"
+                        id="phone"
+                        placeholder="search here..."
+                      />
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div className="row  logo-bg-color hide-large-view1">
+              <div className="col-lg-5 col-9 ">
+                <div className="logo">
+                  <Link to="home-v1.js">
                     <img src={publicUrl + "assets/img/logo.jpg"} alt="" />
                   </Link>
                 </div>
               </div>
-              <div className="col-lg-3">
+
+              <div className=" col-lg-5 view-large mt-2">
+                <form className="">
+                  <div className="form-group searchbox ">
+                    <div className="input-icons">
+                      <i className="fa fa-search"></i>
+                      <input
+                        type="text"
+                        className="input-field form-control"
+                        id="phone"
+                        placeholder="search here..."
+                      />
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <div className="col-2 ">
+                <button
+                  className="navbar-toggler mobile-btn hide-large-view1"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#shop-menu"
+                >
+                  <span className="navbar-toggler-icon">
+                    <i className="fas fa-bars"></i>
+                  </span>
+                </button>
+              </div>
+
+              <nav className="navbar navbar-area navbar-expand-xl nav-style-01  hide-large-view1  ">
+                <div className="container-fluid nav-container">
+                  <div className="row">
+                    <div className="col-lg-12 order-3 order-lg-2">
+                      <div className="collapse navbar-collapse" id="shop-menu">
+                        <ul className="navbar-nav menu-open">
+                          <li className="menu-item-has-children">
+                            <a href="#">
+                              எங்களைப் பற்றி <i className="fa fa-angle-down" />
+                            </a>
+                            <ul className="sub-menu">
+                              <li className="menu-item-has-children">
+                                <Link to="founder">நிறுவனர்</Link>
+                                <ul className="sub-menu" id="third_menu">
+                                  <li>
+                                    <Link to="founder">வாப்பா நாயகம்</Link>
+                                  </li>
+                                  <li>
+                                    <Link to="founder">தந்தை நாயகம்</Link>
+                                  </li>
+                                  <li>
+                                    <Link to="founder">அப்பா நாயகம்</Link>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li>
+                                <Link to="construction">
+                                  அஹ்லுல்பைத் <br />
+                                  (அநந்தரர்கள்)
+                                </Link>
+                              </li>
+                              <li>
+                                <Link to="construction">கொள்கைகள் </Link>
+                              </li>
+                            </ul>
+                          </li>
+
+                          <li className="menu-item-has-children">
+                            <Link to="books">நூற்கள்</Link>
+                          </li>
+                          <li className="menu-item-has-children">
+                            <a href="#">
+                              நிகழ்ச்சிகள் <i className="fa fa-angle-down" />
+                            </a>
+                            <ul className="sub-menu">
+                              <li>
+                                <Link to="gallery">புகைப்படங்கள்</Link>
+                              </li>
+                              <li>
+                                <Link to="videos">காணொளி</Link>
+                              </li>
+                              <li>
+                                {" "}
+                                <Link to="construction">ஆடியோ </Link>
+                              </li>
+                              <li>
+                                <Link to="events">நிகழ்வுகள்</Link>
+                              </li>
+                            </ul>
+                          </li>
+                          <li className="menu-item-has-children">
+                            <a href="#">
+                              கல்வி <i className="fa fa-angle-down" />
+                            </a>
+                            <ul className="sub-menu">
+                              <li>
+                                <Link to="construction">
+                                  ஜாமீஆ யாசீன் அறபுக் கல்லூரி{" "}
+                                </Link>
+                              </li>
+                              <li>
+                                <Link to="construction">
+                                  மதரஸா நிறுவனர் பற்றி{" "}
+                                </Link>
+                              </li>
+                              <li className="menu-item-has-children">
+                                <Link to="construction">
+                                  கல்விக்கு உதவிடுவோம்{" "}
+                                </Link>
+                                {/* <ul>
+                              <li>
+                                <a href="#"> English and Arabic brochure </a>
+                              </li>
+                              <li>
+                                <a href="#"> தமிழ் சிற்றேடு</a>
+                              </li>
+                            </ul> */}
+                              </li>
+                            </ul>
+                          </li>
+                          <li className="menu-item-has-children">
+                            <a href="#">
+                              மனிதா <i className="fa fa-angle-down" />
+                            </a>
+
+                            <ul className="sub-menu">
+                              <li>
+                                <Link to="member-responsibilities">
+                                  மனிதனின் பொறுப்புகள்
+                                </Link>
+                              </li>
+                              <li>
+                                <Link to="spiritual"> மஹாங்களின் சரிதைகள்</Link>
+                              </li>
+                              <li>
+                                <Link to="construction">
+                                  {" "}
+                                  வஹ்தத்துல் வுஜூத்
+                                </Link>
+                              </li>
+
+                              <li>
+                                <a href="#">உறுப்பினர்கள் </a>
+                                <ul className="sub-menu" id="third_menu">
+                                  <li>
+                                    <Link to="member-responsibilities">
+                                      சீடர்களின் பொறுப்புகள்
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link to="construction">
+                                      உறுப்பினர்களின் செயல்பாடுகள்
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link to="blog">கலந்தாய்வு</Link>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li>
+                                <Link to="construction">நாகரீக வளர்ச்சி </Link>
+                              </li>
+                              <li>
+                                <a href="blog">கலந்தாய்வு </a>
+                              </li>
+                              <li>
+                                <Link to="construction">மகான்கள் </Link>
+                              </li>
+                              <li>
+                                <Link to="construction">அமுத மொழிகள் </Link>
+                              </li>
+                              <li>
+                                <Link to="construction">
+                                  சிந்திக்க சில நொடிகள்{" "}
+                                </Link>
+                              </li>
+                              <li>
+                                <Link to="construction">
+                                  ஐயமும் - தெளிவும்{" "}
+                                </Link>
+                              </li>
+                            </ul>
+                          </li>
+                          <li className="menu-item-has-children">
+                            <a href="#">
+                              ஒரே உள்ளமை <i className="fa fa-angle-down" />
+                            </a>
+                            <ul className="sub-menu">
+                              <li className="menu-item-has-children">
+                                <a href="#">ஏக உள்ளமை </a>
+                                <ul className="sub-menu" id="third_menu">
+                                  <li>
+                                    <Link to="construction">ஏக காட்சி</Link>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <Link to="/contact">அறிவுக் களஞ்சியம்</Link>
+                          </li>
+                          <li className="menu-item-has-children">
+                            <Link to="/contact">
+                              மதரஸா <i className="fa fa-angle-down" />
+                            </Link>
+                            <ul className="sub-menu">
+                              <li>
+                                <Link to="construction">மதரஸாவைப்பற்றி</Link>
+                              </li>
+                              <li>
+                                <Link to="construction">
+                                  மதரஸா நிறுவனர் பற்றி
+                                </Link>
+                              </li>
+                              <li>
+                                <Link to="construction">தொகுப்பு </Link>
+                              </li>
+                              <li>
+                                <Link to="construction">பங்குகொள்ள </Link>
+                              </li>
+                            </ul>
+                          </li>
+
+                          <li className="menu-item-has-children">
+                            <Link to="/contact">
+                              அத்வைதம் <i className="fa fa-angle-down" />
+                            </Link>
+                            <ul className="sub-menu">
+                              <li>
+                                <Link to="construction">
+                                  கடவுளும் / படைப்பும்
+                                </Link>
+                              </li>
+                              <li>
+                                <Link to="construction">பிரபஜ்சவியல்</Link>
+                              </li>
+                              <li>
+                                <Link to="construction">ஐம்பூதங்கள் </Link>
+                              </li>
+                              <li>
+                                <Link to="construction">வேதநூற்கள் </Link>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+
+              <div className="col-12 hide-large-view1 tab-top hide-large">
                 <form>
                   <div className="form-group searchbox">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="phone"
-                      placeholder="Enter your search"
-                    />
+                    <div className="input-icons">
+                      <i className="fa fa-search"></i>
+                      <input
+                        type="text"
+                        className="input-field form-control"
+                        id="phone"
+                        placeholder="search here..."
+                      />
+                    </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
 
-          <nav className="navbar navbar-area navbar-expand-lg nav-style-01">
+          <nav className="navbar navbar-area navbar-expand-xl nav-style-01 hide-mobile-view mtwo tab-hide">
             <div className="container-fluid nav-container">
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#shop-menu"
-              >
-                <span className="navbar-toggler-icon">
-                  <i className="fas fa-bars"></i>
-                </span>
-              </button>
               <div className="row">
                 <div className="col-lg-12 order-3 order-lg-2">
                   <div className="collapse navbar-collapse" id="shop-menu">
@@ -311,65 +626,19 @@ class Navbar extends Component {
                             </ul>
                           </li>
                           <li>
-                            <a href="#">
+                            <Link to="construction">
                               அஹ்லுல்பைத் <br />
                               (அநந்தரர்கள்)
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="/">கொள்கைகள் </a>
+                            <Link to="construction">கொள்கைகள் </Link>
                           </li>
                         </ul>
                       </li>
 
                       <li className="menu-item-has-children">
-                        <a href="#">
-                          நூற்கள் <i className="fa fa-angle-down" />
-                        </a>
-                        <ul className="sub-menu">
-                          <li>
-                            <a href="/akarathi">அகராதி</a>
-                          </li>
-                          <li>
-                            <a href="/ubathesa_korvai">உபதேசக் கோர்வை </a>
-                          </li>
-                          <li>
-                            <a href="/kavithai_noolkal">கவிதை நூற்கள் </a>
-                          </li>
-                          <li>
-                            <a href="/gnana_vilaka_noolkal">
-                              ஞான விளக்க நூற்கள்{" "}
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/tamil_ilakiya_noolkal">
-                              தமிழ் இலக்கிய நூல்{" "}
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/moulith_noolkal">மௌலித் நூற்கள் </a>
-                          </li>
-                          <li>
-                            <a href="/yaseen_noolkal">
-                              யாஸீன் மௌலானா(ரலி) <br />
-                              நூற்கள்
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/varalatru_noolkal">வரலாற்று நூற்கள் </a>
-                          </li>
-                          <li>
-                            <a href="/vahapiya_ethirpu_noolkal">
-                              வஹ்ஹாபிய்ய எதிர்ப்பு <br></br>நூற்கள்{" "}
-                            </a>
-                          </li>
-                          <li>
-                            <a href="/varithathukkal">
-                              வாரிதாதத்துக்கள் <br />
-                              (இறை ஞான வெளிப்பாடு){" "}
-                            </a>
-                          </li>
-                        </ul>
+                        <Link to="books">நூற்கள்</Link>
                       </li>
                       <li className="menu-item-has-children">
                         <a href="#">
@@ -377,17 +646,17 @@ class Navbar extends Component {
                         </a>
                         <ul className="sub-menu">
                           <li>
-                            <Link to="books">புகைப்படங்கள்</Link>
+                            <Link to="gallery">புகைப்படங்கள்</Link>
                           </li>
                           <li>
                             <Link to="videos">காணொளி</Link>
                           </li>
                           <li>
                             {" "}
-                            <a href="/">ஆடியோ </a>
+                            <Link to="construction">ஆடியோ </Link>
                           </li>
                           <li>
-                            <a href="# ">நிகழ்வுகள்</a>
+                            <Link to="events">நிகழ்வுகள்</Link>
                           </li>
                         </ul>
                       </li>
@@ -397,21 +666,23 @@ class Navbar extends Component {
                         </a>
                         <ul className="sub-menu">
                           <li>
-                            <a href="#">ஜாமீஆ யாசீன் அறபுக் கல்லூரி </a>
+                            <Link to="construction">
+                              ஜாமீஆ யாசீன் அறபுக் கல்லூரி{" "}
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">மதரஸா நிறுவனர் பற்றி </a>
+                            <Link to="construction">மதரஸா நிறுவனர் பற்றி </Link>
                           </li>
                           <li className="menu-item-has-children">
-                            <a href="#">கல்விக்கு உதவிடுவோம் </a>
+                            <Link to="construction">கல்விக்கு உதவிடுவோம் </Link>
                             {/* <ul>
-                              <li>
-                                <a href="#"> English and Arabic brochure </a>
-                              </li>
-                              <li>
-                                <a href="#"> தமிழ் சிற்றேடு</a>
-                              </li>
-                            </ul> */}
+                            <li>
+                              <a href="#"> English and Arabic brochure </a>
+                            </li>
+                            <li>
+                              <a href="#"> தமிழ் சிற்றேடு</a>
+                            </li>
+                          </ul> */}
                           </li>
                         </ul>
                       </li>
@@ -427,45 +698,49 @@ class Navbar extends Component {
                             </Link>
                           </li>
                           <li>
-                            <a href="#"> மஹாங்களின் சரிதைகள்</a>
+                            <Link to="construction "> மஹாங்களின் சரிதைகள்</Link>
                           </li>
                           <li>
-                            <a href="#"> வஹ்தத்துல் வுஜூத்</a>
+                            <Link to="spiritual"> வஹ்தத்துல் வுஜூத்</Link>
                           </li>
 
                           <li>
                             <a href="#">உறுப்பினர்கள் </a>
                             <ul className="sub-menu" id="third_menu">
                               <li>
-                                <Link to="founder">சீடர்களின் பொறுப்புகள்</Link>
+                                <Link to="member-responsibilities">
+                                  சீடர்களின் பொறுப்புகள்
+                                </Link>
                               </li>
                               <li>
-                                <Link to="founder">
+                                <Link to="construction">
                                   உறுப்பினர்களின் செயல்பாடுகள்
                                 </Link>
                               </li>
                               <li>
-                                <Link to="founder">கலந்தாய்வு</Link>
+                                <Link to="blog">கலந்தாய்வு</Link>
                               </li>
                             </ul>
                           </li>
                           <li>
-                            <a href="#">நாகரீக வளர்ச்சி </a>
+                            <Link to="construction">நாகரீக வளர்ச்சி </Link>
                           </li>
                           <li>
-                            <a href="#">கலந்தாய்வு </a>
+                            <a href="blog">கலந்தாய்வு </a>
                           </li>
                           <li>
-                            <a href="#">மகான்கள் </a>
+                            <Link to="construction">மகான்கள் </Link>
                           </li>
                           <li>
-                            <a href="#">அமுத மொழிகள் </a>
+                            <Link to="construction">அமுத மொழிகள் </Link>
                           </li>
                           <li>
-                            <a href="#">சிந்திக்க சில நொடிகள் </a>
+                            <Link to="construction">
+                              சிந்திக்க சில நொடிகள்{" "}
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">ஐயமும் - தெளிவும் </a>
+                            <Link to="construction">ஐயமும் - தெளிவும் </Link>
                           </li>
                         </ul>
                       </li>
@@ -474,11 +749,11 @@ class Navbar extends Component {
                           ஒரே உள்ளமை <i className="fa fa-angle-down" />
                         </a>
                         <ul className="sub-menu">
-                          <li>
-                            <a href="#">ஏக உள்ளமை</a>
-                            <ul className="sub-menu">
+                          <li className="menu-item-has-children">
+                            <a href="#">ஏக உள்ளமை </a>
+                            <ul className="sub-menu" id="third_menu">
                               <li>
-                                <a href="#">ஏக காட்சி</a>
+                                <Link to="construction">ஏக காட்சி</Link>
                               </li>
                             </ul>
                           </li>
@@ -493,96 +768,42 @@ class Navbar extends Component {
                         </Link>
                         <ul className="sub-menu">
                           <li>
-                            <Link to="founder">மதரஸாவைப்பற்றி</Link>
+                            <Link to="construction">மதரஸாவைப்பற்றி</Link>
                           </li>
                           <li>
-                            <Link to="founder">மதரஸா நிறுவனர் பற்றி</Link>
+                            <Link to="construction">மதரஸா நிறுவனர் பற்றி</Link>
                           </li>
                           <li>
-                            <Link to="founder">தொகுப்பு </Link>
+                            <Link to="construction">தொகுப்பு </Link>
                           </li>
                           <li>
-                            <Link to="founder">பங்குகொள்ள </Link>
+                            <Link to="construction">பங்குகொள்ள </Link>
                           </li>
                         </ul>
                       </li>
+
                       <li className="menu-item-has-children">
                         <Link to="/contact">
                           அத்வைதம் <i className="fa fa-angle-down" />
                         </Link>
                         <ul className="sub-menu">
                           <li>
-                            <Link to="founder">கடவுளும் / படைப்பும்</Link>
+                            <Link to="construction">கடவுளும் / படைப்பும்</Link>
                           </li>
                           <li>
-                            <Link to="founder">பிரபஜ்சவியல்</Link>
+                            <Link to="construction">பிரபஜ்சவியல்</Link>
                           </li>
                           <li>
-                            <Link to="founder">ஐம்பூதங்கள் </Link>
+                            <Link to="construction">ஐம்பூதங்கள் </Link>
                           </li>
                           <li>
-                            <Link to="founder">வேதநூற்கள் </Link>
+                            <Link to="construction">வேதநூற்கள் </Link>
                           </li>
                         </ul>
                       </li>
                     </ul>
                   </div>
                 </div>
-                {/* <div className="col-lg-3 col-8 justify-content-end d-flex order-2 order-lg-3">
-                  <div className="nav-right-part">
-                    <ul>
-                      <li>
-                        <a href="#" id="search">
-                          <i className="icon-search" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="icon-heart" />
-                          <span className="badge">2</span>
-                        </a>
-                      </li>
-                      <li className="has-dropdown">
-                        <a href="#">
-                          <i className="icon-add-to-cat" />
-                          <span className="badge  total-count"></span>
-                        </a>
-                        <ul>
-                          <span className="show-cart"></span>
-                          <li>
-                            <h6>
-                              <span>Total price: $</span>
-                              <span className="total-cart"></span>
-                            </h6>
-                            <div className="btn-wrapper">
-                              {" "}
-                              <Link to="/shoping-cart" className="btn btn-cart">
-                                Go to cart
-                              </Link>
-                            </div>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className="d-none d-lg-block">
-                        <a href="#" id="navigation-button">
-                          <i className="icon-bar-icon" />
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="responsive-mobile-menu">
-                    <div
-                      className="menu toggle-btn d-block d-lg-none"
-                      data-toggle="collapse"
-                      data-target="#shop-menu"
-                      aria-expanded="false"
-                      role="button"
-                    >
-                      <div className="icon-left" />
-                      <div className="icon-right" />
-                    </div>
-                  </div>
-                </div> */}
               </div>
             </div>
           </nav>

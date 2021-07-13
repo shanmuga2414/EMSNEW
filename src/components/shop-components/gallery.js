@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import ReactPlayer from "react-player/lazy";
 import "antd/dist/antd.css";
 import { DatePicker, Space } from "antd";
+import Modal from "react-modal";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 import * as homeServices from "../../Services/home-page-services";
 
@@ -10,21 +13,40 @@ function onChange(date, dateString) {
   console.log(date, dateString);
 }
 
-class Videos extends Component {
-  state = {
-    channels: [],
-  };
+class Gallery extends Component {
+  //   state = {
+  //     albums: [],
+  //     showModal: false,
+  //   };
+  constructor() {
+    super();
+    this.state = {
+      albums: [],
+      showModal: false,
+    };
+
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+
+  handleOpenModal() {
+    this.setState({ showModal: true });
+  }
+
+  handleCloseModal() {
+    this.setState({ showModal: false });
+  }
 
   async componentDidMount() {
     // console.log(homeServices.getActivities);
-    const result = await homeServices.getAllvideos();
-    console.log(result);
-    this.setState({ channels: result.data.records });
+    const result = await homeServices.getAlbums();
+    // const imgresults = await homeServices.getAlbumImages();
+    this.setState({ albums: result.data.records });
+    // this.setState({ images: imgresults.data });
   }
+
   render() {
-    let publicUrl = process.env.PUBLIC_URL + "/";
-    let imagealt = "image";
-    const { channels } = this.state;
+    const { albums } = this.state;
     const monthNameList = [
       "Jan",
       "Feb",
@@ -38,6 +60,54 @@ class Videos extends Component {
       "Oct",
       "Nov",
       "Dec",
+    ];
+    const customStyles = {
+      content: {
+        top: "50%",
+        left: "50%",
+        right: "auto",
+        bottom: "auto",
+        marginRight: "-50%",
+        transform: "translate(-50%, -50%)",
+      },
+    };
+    const images = [
+      {
+        original:
+          "http://emsmedia.net/magazine/web_control/books/image/book1.png",
+        thumbnail:
+          "http://emsmedia.net/magazine/web_control/books/image/book1.png",
+      },
+      {
+        original:
+          "http://emsmedia.net/magazine/web_control/books/image/book2.png",
+        thumbnail:
+          "http://emsmedia.net/magazine/web_control/books/image/book2.png",
+      },
+      {
+        original:
+          "http://emsmedia.net/magazine/web_control/books/image/book3.png",
+        thumbnail:
+          "http://emsmedia.net/magazine/web_control/books/image/book3.png",
+      },
+      {
+        original:
+          "http://emsmedia.net/magazine/web_control/books/image/book4.png",
+        thumbnail:
+          "http://emsmedia.net/magazine/web_control/books/image/book4.png",
+      },
+      {
+        original:
+          "http://emsmedia.net/magazine/web_control/books/image/book5.png",
+        thumbnail:
+          "http://emsmedia.net/magazine/web_control/books/image/book5.png",
+      },
+      {
+        original:
+          "http://emsmedia.net/magazine/web_control/books/image/book6.png",
+        thumbnail:
+          "http://emsmedia.net/magazine/web_control/books/image/book6.png",
+      },
     ];
 
     return (
@@ -61,14 +131,16 @@ class Videos extends Component {
               <div className="tab-content">
                 <div className="tab-pane fade in show active" id="one">
                   <div className="row">
-                    {channels.map((channel) => (
+                    {albums.map((album) => (
                       <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                         <div className="product-style-03 webVideo margin-top-40">
-                          <div className="thumb youtubeVideo">
-                            <ReactPlayer controls="true" url={channel.url} />
+                          <div className="thumb">
+                            <span onClick={this.handleOpenModal}>
+                              <img src={album.image} alt="" />
+                            </span>
                           </div>
                           <h6 className="title stone-go-top margin-top-20">
-                            <Link to="/">{channel.video_name}</Link>
+                            <Link to="">{album.title}</Link>
                           </h6>
                         </div>
                       </div>
@@ -109,7 +181,7 @@ class Videos extends Component {
                 </form>
               </div>
               <div className="widget categories-widget">
-                <div className="accordion-style-2" id="accordionExample1">
+                {/* <div className="accordion-style-2" id="accordionExample1">
                   <div className="card">
                     <div className="card-header" id="headingOne">
                       <p className="mb-0">
@@ -233,7 +305,7 @@ class Videos extends Component {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <div className="widget ptype-widget">
@@ -312,9 +384,42 @@ class Videos extends Component {
             </div>
           </div>
         </div>
+
+        {/* <ReactModal
+          isOpen={this.state.showModal}
+          contentLabel="onRequestClose Example"
+          onRequestClose={this.handleCloseModal}
+          shouldCloseOnOverlayClick={false}
+        >
+          <p>Modal text!</p>
+          <button onClick={this.handleCloseModal}>Close Modal</button>
+        </ReactModal> */}
+
+        <Modal
+          isOpen={this.state.showModal}
+          // onAfterOpen={afterOpenModal}
+          onRequestClose={this.handleCloseModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <button align="right" onClick={this.handleCloseModal}>
+            X
+          </button>
+          <ImageGallery items={images} />
+          {/* <h2>Hello</h2>
+          <button onClick={this.handleCloseModal}>close</button>
+          <div>I am a modal</div>
+          <form>
+            <input />
+            <button>tab navigation</button>
+            <button>stays</button>
+            <button>inside</button>
+            <button>the modal</button>
+          </form> */}
+        </Modal>
       </div>
     );
   }
 }
 
-export default Videos;
+export default Gallery;

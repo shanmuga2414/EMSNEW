@@ -1,9 +1,46 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "antd/dist/antd.css";
+import { DatePicker, Space } from "antd";
+import ReactStars from "react-rating-stars-component";
+import * as homeServices from "../../Services/home-page-services";
+
+function onChange(date, dateString) {
+  console.log(date, dateString);
+}
+
 class Books extends Component {
+  state = {
+    bookCategories: [],
+    booksList: [],
+  };
+
+  async componentDidMount() {
+    // console.log(homeServices.getActivities);
+    const result = await homeServices.getBookCategories();
+    const bookResult = await homeServices.getAllBooks();
+    this.setState({ bookCategories: result.data.records });
+    this.setState({ booksList: bookResult.data.records });
+  }
   render() {
     let publicUrl = process.env.PUBLIC_URL + "/";
     let imagealt = "image";
+    const { bookCategories, booksList } = this.state;
+    console.log(booksList);
+    const monthNameList = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
 
     return (
       <div className="collection-area">
@@ -42,570 +79,41 @@ class Books extends Component {
               <div className="tab-content">
                 <div className="tab-pane fade in show active" id="one">
                   <div className="row">
-                    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                      <div className="product-style-03 margin-top-40">
-                        <div className="thumb">
-                          <img
-                            src={publicUrl + "assets/img/shop/1.jpeg"}
-                            alt=""
-                          />
-                        </div>
-                        <div className="content text-center">
-                          <ul className="justify-content-center margin-bottom-20">
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                          </ul>
-                          <h6 className="title stone-go-top">
-                            <Link to="/product-details">
-                              Islam on Service Humanity
-                            </Link>
-                          </h6>
-                          <div className="content-price d-flex align-self-center justify-content-center">
-                            <span className="new-price">$450.00</span>
+                    {booksList.map((book) => (
+                      <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 ">
+                        <div className="product-style-03  border-grey margin-top-40">
+                          <div className="thumb ">
+                            <img
+                              src={book.original_image}
+                              alt={book.book_name}
+                            />
+                          </div>
+                          <div className="content align-center">
+                            <div className="ml-4 align-center ratings">
+                              <ReactStars
+                                value={book.book_rating}
+                                size="22"
+                                edit="false"
+                              />
+                            </div>
+                            <h6 className="title stone-go-top">
+                              <Link to="/product-details">
+                                {book.book_name}
+                              </Link>
+                            </h6>
+                            <div className="content-price d-flex align-self-center justify-content-center">
+                              <span className="new-price">
+                                ${book.book_price}
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                      <div className="product-style-03 margin-top-40">
-                        <div className="thumb">
-                          <img
-                            src={publicUrl + "assets/img/shop/3.jpeg"}
-                            alt=""
-                          />
-                        </div>
-                        <div className="content text-center">
-                          <ul className="justify-content-center margin-bottom-20">
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                          </ul>
-                          <h6 className="title stone-go-top">
-                            <Link to="/product-details">Studies in Islam</Link>
-                          </h6>
-                          <div className="content-price d-flex align-self-center justify-content-center">
-                            <span className="new-price">$250.00</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                      <div className="product-style-03 margin-top-40">
-                        <div className="thumb">
-                          <img
-                            src={publicUrl + "assets/img/shop/9.jpeg"}
-                            alt=""
-                          />
-                        </div>
-                        <div className="content text-center">
-                          <ul className="justify-content-center margin-bottom-20">
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                          </ul>
-                          <h6 className="title stone-go-top">
-                            <Link to="/product-details">
-                              365 Tales from Islam
-                            </Link>
-                          </h6>
-                          <div className="content-price d-flex align-self-center justify-content-center">
-                            <span className="new-price">$300.00</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                      <div className="product-style-03 margin-top-40">
-                        <div className="thumb">
-                          <img
-                            src={publicUrl + "assets/img/shop/2.png"}
-                            alt=""
-                          />
-                        </div>
-                        <div className="content text-center">
-                          <ul className="justify-content-center margin-bottom-20">
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                          </ul>
-                          <h6 className="title stone-go-top">
-                            <Link to="/product-details">
-                              The History of Islam
-                            </Link>
-                          </h6>
-                          <div className="content-price d-flex align-self-center justify-content-center">
-                            <span className="new-price">$400.00</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                      <div className="product-style-03 margin-top-40">
-                        <div className="thumb">
-                          <img
-                            src={publicUrl + "assets/img/shop/4.jpeg"}
-                            alt=""
-                          />
-                        </div>
-                        <div className="content text-center">
-                          <ul className="justify-content-center margin-bottom-20">
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                          </ul>
-                          <h6 className="title stone-go-top">
-                            <Link to="/product-details">
-                              Islam your Birthright
-                            </Link>
-                          </h6>
-                          <div className="content-price d-flex align-self-center justify-content-center">
-                            <span className="new-price">$450.00</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                      <div className="product-style-03 margin-top-40">
-                        <div className="thumb">
-                          <img
-                            src={publicUrl + "assets/img/shop/5.jpeg"}
-                            alt=""
-                          />
-                        </div>
-                        <div className="content text-center">
-                          <ul className="justify-content-center margin-bottom-20">
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                          </ul>
-                          <h6 className="title stone-go-top">
-                            <Link to="/product-details">
-                              The Future of Humanity
-                            </Link>
-                          </h6>
-                          <div className="content-price d-flex align-self-center justify-content-center">
-                            <span className="new-price">$250.00</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                      <div className="product-style-03 margin-top-40">
-                        <div className="thumb">
-                          <img
-                            src={publicUrl + "assets/img/shop/1.jpeg"}
-                            alt=""
-                          />
-                        </div>
-                        <div className="content text-center">
-                          <ul className="justify-content-center margin-bottom-20">
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                          </ul>
-                          <h6 className="title stone-go-top">
-                            <Link to="/product-details">
-                              Islam on Service Humanity
-                            </Link>
-                          </h6>
-                          <div className="content-price d-flex align-self-center justify-content-center">
-                            <span className="new-price">$450.00</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                      <div className="product-style-03 margin-top-40">
-                        <div className="thumb">
-                          <img
-                            src={publicUrl + "assets/img/shop/3.jpeg"}
-                            alt=""
-                          />
-                        </div>
-                        <div className="content text-center">
-                          <ul className="justify-content-center margin-bottom-20">
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                          </ul>
-                          <h6 className="title stone-go-top">
-                            <Link to="/product-details">Studies in Islam</Link>
-                          </h6>
-                          <div className="content-price d-flex align-self-center justify-content-center">
-                            <span className="new-price">$250.00</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                      <div className="product-style-03 margin-top-40">
-                        <div className="thumb">
-                          <img
-                            src={publicUrl + "assets/img/shop/9.jpeg"}
-                            alt=""
-                          />
-                        </div>
-                        <div className="content text-center">
-                          <ul className="justify-content-center margin-bottom-20">
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                          </ul>
-                          <h6 className="title stone-go-top">
-                            <Link to="/product-details">
-                              365 Tales from Islam
-                            </Link>
-                          </h6>
-                          <div className="content-price d-flex align-self-center justify-content-center">
-                            <span className="new-price">$300.00</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                      <div className="product-style-03 margin-top-40">
-                        <div className="thumb">
-                          <img
-                            src={publicUrl + "assets/img/shop/2.png"}
-                            alt=""
-                          />
-                        </div>
-                        <div className="content text-center">
-                          <ul className="justify-content-center margin-bottom-20">
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                          </ul>
-                          <h6 className="title stone-go-top">
-                            <Link to="/product-details">
-                              The History of Islam
-                            </Link>
-                          </h6>
-                          <div className="content-price d-flex align-self-center justify-content-center">
-                            <span className="new-price">$400.00</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                      <div className="product-style-03 margin-top-40">
-                        <div className="thumb">
-                          <img
-                            src={publicUrl + "assets/img/shop/4.jpeg"}
-                            alt=""
-                          />
-                        </div>
-                        <div className="content text-center">
-                          <ul className="justify-content-center margin-bottom-20">
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                          </ul>
-                          <h6 className="title stone-go-top">
-                            <Link to="/product-details">
-                              Islam your Birthright
-                            </Link>
-                          </h6>
-                          <div className="content-price d-flex align-self-center justify-content-center">
-                            <span className="new-price">$450.00</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                      <div className="product-style-03 margin-top-40">
-                        <div className="thumb">
-                          <img
-                            src={publicUrl + "assets/img/shop/5.jpeg"}
-                            alt=""
-                          />
-                        </div>
-                        <div className="content text-center">
-                          <ul className="justify-content-center margin-bottom-20">
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-star-o" />
-                              </a>
-                            </li>
-                          </ul>
-                          <h6 className="title stone-go-top">
-                            <Link to="/product-details">
-                              The Future of Humanity
-                            </Link>
-                          </h6>
-                          <div className="content-price d-flex align-self-center justify-content-center">
-                            <span className="new-price">$250.00</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
-              <div className="row">
+              <div className="row mb-5">
                 <div className="col-md-12">
                   <div className="d-flex justify-content-between pagination">
                     <h6>Showing 1 to 12 of 19 Books</h6>
@@ -662,103 +170,95 @@ class Books extends Component {
                     >
                       <div className="card-body">
                         <form action="#">
+                          {bookCategories.map((bookCategory) => (
+                            <div className="custom-control custom-checkbox mb-3">
+                              <input
+                                type="checkbox"
+                                className="custom-control-input"
+                              />
+                              <label
+                                className="custom-control-label"
+                                htmlFor="customCheck"
+                              >
+                                {bookCategory.category}
+                              </label>
+                            </div>
+                          ))}
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="widget ptype-widget">
+                <div className="accordion-style-2" id="accordionExample3">
+                  <div className="card">
+                    <div className="card-header" id="headingThree">
+                      <p className="mb-0">
+                        <a
+                          href="#"
+                          role="button"
+                          data-toggle="collapse"
+                          data-target="#collapseThree"
+                          aria-expanded="true"
+                          aria-controls="collapseThree"
+                        >
+                          Year
+                        </a>
+                      </p>
+                    </div>
+                    <div
+                      id="collapseThree"
+                      className="collapse show"
+                      aria-labelledby="headingThree"
+                      data-parent="#accordionExample3"
+                    >
+                      <div className="card-body">
+                        <form action="#">
                           <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck"
-                            >
-                              God [124]
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck2"
-                            >
-                              Childrens [293]
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck3"
-                            >
-                              Women [125]
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck4"
-                            >
-                              History [698]
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck"
-                            >
-                              Social[124]
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck2"
-                            >
-                              Family [293]
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck3"
-                            >
-                              Women [125]
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck4"
-                            >
-                              History [698]
-                            </label>
+                            <Space direction="vertical">
+                              <DatePicker onChange={onChange} picker="year" />
+                            </Space>
                           </div>
                         </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="widget size-widget">
+                <div className="accordion-style-2" id="accordionExample6">
+                  <div className="card">
+                    <div className="card-header" id="headingSix">
+                      <p className="mb-0">
+                        <a
+                          href="#"
+                          role="button"
+                          data-toggle="collapse"
+                          data-target="#collapseSix"
+                          aria-expanded="true"
+                          aria-controls="collapseSix"
+                        >
+                          Month
+                        </a>
+                      </p>
+                    </div>
+                    <div
+                      id="collapseSix"
+                      className="collapse show"
+                      aria-labelledby="headingSix"
+                      data-parent="#accordionExample6"
+                    >
+                      <div className="card-body">
+                        <ul className="size-list">
+                          {monthNameList.map((month) => (
+                            <li>
+                              <a href="#">{month}</a>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
                   </div>
