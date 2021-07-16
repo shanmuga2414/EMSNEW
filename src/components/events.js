@@ -13,8 +13,8 @@ const EventList = () => {
       <Navbar />
       <PageHeader headertitle="Shop" subheader="Women" />
       <Events />
-      <Delivery />
-      <Instagram />
+      {/* <Delivery /> */}
+      {/* <Instagram /> */}
       <Footer />
     </div>
   );

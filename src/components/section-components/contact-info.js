@@ -21,16 +21,16 @@ class ContactInfo extends Component {
         </div>
         {/* contact area start  */}
         <div className="contact-info margin-top-80">
-          <div className="container">
+          <div className="container text-center">
             <div className="row">
               <div className="col-md-12">
                 <div className="section-title text-center">
-                  <h3>CONTACT US FOR ANY QUARY</h3>
+                  <h3>CONTACT US FOR ANY QUERY</h3>
                 </div>
               </div>
             </div>
             <div className="row">
-              <div className="col-md-4">
+              <div className="col-md-4 ">
                 <div className="single-contact-box">
                   <div className="icon">
                     <i className="icon-call-header" />

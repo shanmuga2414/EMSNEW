@@ -11,6 +11,7 @@ import Founder from "./components/founder";
 import Books from "./components/books";
 import Videos from "./components/videos";
 import Gallery from "./components/gallery";
+import Audio from "./components/audio";
 import EventList from "./components/events";
 import MemberResponsibilities from "./components/member-responsibilities";
 import ConstructionDetails from "./components/construction";
@@ -49,6 +50,7 @@ class Root extends Component {
               <Route path="/videos" component={Videos} />
               <Route path="/gallery" component={Gallery} />
               <Route path="/events" component={EventList} />
+              <Route path="/audio" component={Audio} />
               <Route
                 exact
                 path="/member-responsibilities"

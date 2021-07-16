@@ -22,10 +22,6 @@ export async function getBooks() {
   return axios.get("http://emsmedia.net/ems_react/book.php");
 }
 
-export async function getBookCategories() {
-  return axios.get("http://emsmedia.net/ems_react/book_category.php");
-}
-
 export async function getAllBooks() {
   return axios.get("http://emsmedia.net/ems_react/books_detail.php");
 }
@@ -42,4 +38,20 @@ export async function getAlbumImages() {
 
 export async function getAllEvents() {
   return axios.get("http://emsmedia.net/ems_react/news_event.php");
+}
+
+export async function getAllAudios() {
+  return axios.get("http://emsmedia.net/ems_react/audio.php");
+}
+
+export async function getAudioCategory() {
+  return axios.get("http://emsmedia.net/ems_react/audio_category.php");
+}
+
+export async function getVideoCategory() {
+  return axios.get("http://emsmedia.net/ems_react/video_category.php");
+}
+
+export async function getBookCategories() {
+  return axios.get("http://emsmedia.net/ems_react/book_category.php");
 }

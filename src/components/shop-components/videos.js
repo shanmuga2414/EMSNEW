@@ -1,30 +1,42 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import ReactPlayer from "react-player/lazy";
 import "antd/dist/antd.css";
 import { DatePicker, Space } from "antd";
-
+import ModalVideo from "react-modal-video";
 import * as homeServices from "../../Services/home-page-services";
+import "react-modal-video/css/modal-video.css";
 
 function onChange(date, dateString) {
   console.log(date, dateString);
 }
 
 class Videos extends Component {
-  state = {
-    channels: [],
+  constructor() {
+    super();
+    this.state = {
+      isOpen: false,
+      videos: [],
+      videoCategories: [],
+      videoId: "",
+    };
+    this.openModal = this.openModal.bind(this);
+  }
+
+  openModal = (value) => () => {
+    this.setState({ videoId: value });
+    this.setState({ isOpen: true });
   };
 
   async componentDidMount() {
     // console.log(homeServices.getActivities);
+    const category = await homeServices.getVideoCategory();
     const result = await homeServices.getAllvideos();
-    console.log(result);
-    this.setState({ channels: result.data.records });
+    // console.log(result);
+    this.setState({ videos: result.data.records });
+    this.setState({ videoCategories: category.data.records });
   }
   render() {
-    let publicUrl = process.env.PUBLIC_URL + "/";
-    let imagealt = "image";
-    const { channels } = this.state;
+    const { videos, videoCategories, videoId } = this.state;
     const monthNameList = [
       "Jan",
       "Feb",
@@ -61,14 +73,21 @@ class Videos extends Component {
               <div className="tab-content">
                 <div className="tab-pane fade in show active" id="one">
                   <div className="row">
-                    {channels.map((channel) => (
+                    {videos.map((video) => (
                       <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div className="product-style-03 webVideo margin-top-40">
+                        <div className="product-style-03 webVideo imageHover margin-top-40">
                           <div className="thumb youtubeVideo">
-                            <ReactPlayer controls="true" url={channel.url} />
+                            <img
+                              onClick={this.openModal(video.url)}
+                              src={`http://img.youtube.com/vi/${video.url}/0.jpg`}
+                            ></img>
                           </div>
+
                           <h6 className="title stone-go-top margin-top-20">
-                            <Link to="/">{channel.video_name}</Link>
+                            <span></span>
+                            <span onClick={this.openModal(video.url)}>
+                              {video.video_name}
+                            </span>
                           </h6>
                         </div>
                       </div>
@@ -133,102 +152,20 @@ class Videos extends Component {
                     >
                       <div className="card-body">
                         <form action="#">
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck"
-                            >
-                              Social
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck2"
-                            >
-                              Family
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck3"
-                            >
-                              AAN Songs
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck4"
-                            >
-                              Book Release
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck"
-                            >
-                              J S K A A H Moulana
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck2"
-                            >
-                              Childrens [293]
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck3"
-                            >
-                              Women [125]
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck4"
-                            >
-                              History [698]
-                            </label>
-                          </div>
+                          {videoCategories.map((videoCat) => (
+                            <div className="custom-control custom-checkbox mb-3">
+                              <input
+                                type="checkbox"
+                                className="custom-control-input"
+                              />
+                              <label
+                                className="custom-control-label"
+                                htmlFor="customCheck"
+                              >
+                                {videoCat.category}
+                              </label>
+                            </div>
+                          ))}
                         </form>
                       </div>
                     </div>
@@ -311,6 +248,12 @@ class Videos extends Component {
               </div>
             </div>
           </div>
+          <ModalVideo
+            channel="youtube"
+            isOpen={this.state.isOpen}
+            videoId={this.state.videoId}
+            onClose={() => this.setState({ isOpen: false })}
+          />
         </div>
       </div>
     );

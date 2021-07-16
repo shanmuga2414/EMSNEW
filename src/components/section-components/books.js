@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
-import ReactStars from "react-rating-stars-component";
 import * as homeServices from "../../Services/home-page-services";
 
 class Books extends Component {
@@ -44,13 +43,7 @@ class Books extends Component {
                     />
                     <div className="card-body align-center">
                       <h6>{book.book_name}</h6>
-                      <div className="com-star">
-                        <ReactStars
-                          value={book.book_rating}
-                          size="16"
-                          edit="false"
-                        />
-                      </div>
+
                       <h5 className="align-center">
                         <b>${book.book_price}</b>
                       </h5>

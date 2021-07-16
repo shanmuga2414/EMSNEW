@@ -1,27 +1,32 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import ReactPlayer from "react-player/lazy";
+import ReactAudioPlayer from "react-audio-player";
 import "antd/dist/antd.css";
-import { DatePicker, Divider, Space } from "antd";
+import { DatePicker, Space } from "antd";
+
 import * as homeServices from "../../Services/home-page-services";
 
 function onChange(date, dateString) {
   console.log(date, dateString);
 }
 
-class Events extends Component {
+class Audios extends Component {
   state = {
-    events: [],
+    audioCategories: [],
+    audioList: [],
   };
 
   async componentDidMount() {
-    // console.log(homeServices.getActivities);
-    const result = await homeServices.getAllEvents();
+    const category = await homeServices.getAudioCategory();
+    const result = await homeServices.getAllAudios();
     console.log(result);
-    this.setState({ events: result.data.records });
+    this.setState({ audioList: result.data.records });
+    this.setState({ audioCategories: category.data.records });
   }
   render() {
-    const regex = /(<([^>]+)>)/gi;
-    const { events } = this.state;
+    const { audioCategories, audioList } = this.state;
+    console.log(audioList);
     const monthNameList = [
       "Jan",
       "Feb",
@@ -38,7 +43,7 @@ class Events extends Component {
     ];
 
     return (
-      <div className="collection-area margin-top-60">
+      <div className="collection-area">
         <div className="container">
           <div className="row flex-row-reverse">
             <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
@@ -56,42 +61,27 @@ class Events extends Component {
                 </div>
               </div>
               <div className="tab-content">
-                <div
-                  className="tab-pane fade in show active list-item"
-                  id="two"
-                >
-                  {events.map((event) => (
-                    <div className="row product-style-03 ">
-                      <div className="col-md-3 col-sm-12 col-12 eventList">
-                        <div className="thumb">
-                          <img src={event.image} alt={event.title} />
+                <div className="tab-pane fade in show active" id="one">
+                  <div className="row">
+                    {audioList.map((audio) => (
+                      <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div className="product-style-03 webVideo margin-top-40">
+                          <div className="thumb ">
+                            <ReactAudioPlayer src={audio.audio} controls />
+                          </div>
+                          {/* <h6 className="title stone-go-top margin-top-20">
+                          <Link to="/"></Link>
+                        </h6> */}
                         </div>
                       </div>
-                      <div className="col-md-9 col-sm-12 col-12">
-                        <div className="content">
-                          <h6 className="title stone-go-top">
-                            <Link to="/product-details">{event.title}</Link>
-                          </h6>
-
-                          <p>{event.description.replace(regex, "")}</p>
-                        </div>
-                        <a
-                          class="btn btn-read eventListRead"
-                          href="#/blog-details"
-                        >
-                          Read more
-                        </a>
-                      </div>
-                      <Divider />
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
-
-              <div className="row">
+              <div className="row mb-5">
                 <div className="col-md-12">
                   <div className="d-flex justify-content-between pagination">
-                    <h6>Showing 1 to 12 of 19 Events</h6>
+                    <h6>Showing 1 to 12 of 19 Videos</h6>
                     <ul>
                       <li>
                         <a href="#">1</a>
@@ -115,10 +105,55 @@ class Events extends Component {
                   </button>
                   <input
                     type="text"
-                    placeholder="Search Events"
+                    placeholder="Search Category"
                     name="search"
                   />
                 </form>
+              </div>
+              <div className="widget categories-widget">
+                <div className="accordion-style-2" id="accordionExample1">
+                  <div className="card">
+                    <div className="card-header" id="headingOne">
+                      <p className="mb-0">
+                        <a
+                          href="#"
+                          role="button"
+                          data-toggle="collapse"
+                          data-target="#collapseOne"
+                          aria-expanded="true"
+                          aria-controls="collapseOne"
+                        >
+                          Categories
+                        </a>
+                      </p>
+                    </div>
+                    <div
+                      id="collapseOne"
+                      className="collapse show"
+                      aria-labelledby="headingOne"
+                      data-parent="#accordionExample1"
+                    >
+                      <div className="card-body">
+                        <form action="#">
+                          {audioCategories.map((audioCategory) => (
+                            <div className="custom-control custom-checkbox mb-3">
+                              <input
+                                type="checkbox"
+                                className="custom-control-input"
+                              />
+                              <label
+                                className="custom-control-label"
+                                htmlFor="customCheck"
+                              >
+                                {audioCategory.category}
+                              </label>
+                            </div>
+                          ))}
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div className="widget ptype-widget">
@@ -202,4 +237,4 @@ class Events extends Component {
   }
 }
 
-export default Events;
+export default Audios;

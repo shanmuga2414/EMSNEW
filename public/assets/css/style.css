@@ -9250,6 +9250,51 @@ h6 {
   .searchbox {
     margin-top: -16px;
   }
+  .product-style-03 img {
+    width: 100%;
+  }
+  .ReactModal__Content--after-open {
+    width: 100%;
+  }
+  .navbar-area
+    .nav-container
+    .navbar-collapse
+    .navbar-nav
+    li.menu-item-has-children
+    .sub-menu
+    li {
+    width: 100%;
+  }
+  .navbar-area
+    .nav-container
+    .navbar-collapse
+    .navbar-nav
+    li.menu-item-has-children
+    .sub-menu
+    li
+    a
+    i {
+    opacity: 1;
+  }
+
+  .navbar-area
+    .nav-container
+    .navbar-collapse
+    .navbar-nav
+    li.menu-item-has-children
+    .sub-menu
+    li
+    a:hover
+    i {
+    opacity: 1;
+  }
+  .mtop {
+    margin-top: -10px !important;
+  }
+
+  /* .fa-angle-down{
+    color: #ff8e78 !important;
+  } */
 }
 /* end mobile view 600 */
 
@@ -9318,6 +9363,15 @@ h6 {
   .mobile-btn {
     margin-top: 42px;
   }
+  .ant-picker-input {
+    width: 270px !important;
+  }
+  .navbar-collapse collapse show {
+    margin-top: -10px;
+  }
+  .mtop {
+    margin-top: -12px !important;
+  }
 }
 @media only screen and (min-width: 1025px) {
   .hide-large-view1,
@@ -9329,10 +9383,16 @@ h6 {
   .tab-hide {
     display: none;
   }
+  .ant-picker-input {
+    width: 224px !important;
+  }
 }
 @media only screen and (max-width: 1025px) and (min-width: 800px) {
   .hide-large {
     display: none;
+  }
+  .ant-picker-input {
+    width: 202px !important;
   }
 }
 @media only screen and (min-width: 601px) {
@@ -9441,6 +9501,9 @@ h6 {
   .brant-item {
     min-height: 420px !important;
   }
+  .ant-picker-input {
+    width: 256px !important;
+  }
 }
 @media only screen and (max-width: 376px) and (min-width: 326px) {
   .banner__bg {
@@ -9473,3 +9536,29 @@ h6 {
     height: 597px;
   }
 }
+.ant-picker-input {
+  width: 205px !important;
+}
+.ant-space-vertical {
+  margin-left: -20px;
+}
+.book-div {
+  height: 470px !important;
+}
+.ratings div {
+  margin-left: 18%;
+}
+.ReactModal__Overlay--after-open {
+  z-index: 9999;
+  background-color: #0f0e0e69 !important;
+}
+button {
+  background: red;
+  color: white !important;
+  border: 1px solid red;
+  padding: 6px 10px;
+  margin-bottom: 10px !important;
+}
+/* span:not(.nohover):hover{
+  color: inherit !important;
+} */

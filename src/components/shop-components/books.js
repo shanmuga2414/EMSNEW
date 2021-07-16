@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import { DatePicker, Space } from "antd";
-import ReactStars from "react-rating-stars-component";
 import * as homeServices from "../../Services/home-page-services";
 
 function onChange(date, dateString) {
@@ -89,13 +88,6 @@ class Books extends Component {
                             />
                           </div>
                           <div className="content align-center">
-                            <div className="ml-4 align-center ratings">
-                              <ReactStars
-                                value={book.book_rating}
-                                size="16"
-                                edit="false"
-                              />
-                            </div>
                             <h6 className="title stone-go-top">
                               <Link to="/product-details">
                                 {book.book_name}

@@ -267,14 +267,16 @@ class Navbar extends Component {
                   >
                     <i class="fas fa-user-plus"></i> Register
                   </Link>
-                  <Link
+                  <a
+                    href="/react/ems#/videos"
+                    target="_blank"
                     type="button"
                     className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view"
                   >
                     <i className="fa fa-play-circle fa-lg" />{" "}
                     <span className="tab">EMS</span> Web TV{" "}
                     <span className="tab">Channel</span>
-                  </Link>
+                  </a>
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 hide-large-view">
                   <div className="row mobile-tv">
@@ -295,6 +297,7 @@ class Navbar extends Component {
                     </div>
                     <div className="col-4">
                       <Link
+                        to="/videos"
                         type="button"
                         className="btn btn-sm btn-tvchannel top-content-size hide-large-view"
                       >
@@ -426,7 +429,7 @@ class Navbar extends Component {
                               </li>
                               <li>
                                 {" "}
-                                <Link to="construction">ஆடியோ </Link>
+                                <Link to="audio">ஆடியோ </Link>
                               </li>
                               <li>
                                 <Link to="events">நிகழ்வுகள்</Link>
@@ -665,7 +668,7 @@ class Navbar extends Component {
                           </li>
                           <li>
                             {" "}
-                            <Link to="construction">ஆடியோ </Link>
+                            <Link to="/audio">ஆடியோ </Link>
                           </li>
                           <li>
                             <Link to="events">நிகழ்வுகள்</Link>

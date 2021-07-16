@@ -133,14 +133,16 @@ class Gallery extends Component {
                   <div className="row">
                     {albums.map((album) => (
                       <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div className="product-style-03 webVideo margin-top-40">
+                        <div className="product-style-03 imageHover webVideo margin-top-40">
                           <div className="thumb">
                             <span onClick={this.handleOpenModal}>
                               <img src={album.image} alt="" />
                             </span>
                           </div>
-                          <h6 className="title stone-go-top margin-top-20">
-                            <Link to="">{album.title}</Link>
+                          <h6 className="title stone-go-top  margin-top-20">
+                            <span onClick={this.handleOpenModal}>
+                              {album.title}
+                            </span>
                           </h6>
                         </div>
                       </div>
