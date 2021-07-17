@@ -1,18 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
-import ReactStars from "react-rating-stars-component";
+
 
 class Magazine extends Component {
   render() {
     let publicUrl = process.env.PUBLIC_URL + "/";
     let imagealt = "image";
-    const firstExample = {
-      size: 20,
-      value: 3,
-      edit: false,
-    };
-
+    
     return (
       <div className="container collection-banner margin-top-30">
         <div className="row">
@@ -31,7 +26,7 @@ class Magazine extends Component {
                   <div className="card-body align-center">
                     <h6>Pellentesque position</h6>
                     <div className="ml-4">
-                      <ReactStars {...firstExample} />
+                      
                     </div>
                     <h5 className="align-center">
                       <b>$80.00</b>
@@ -49,7 +44,7 @@ class Magazine extends Component {
                   <div className="card-body align-center">
                     <h6>Pellentesque position</h6>
                     <div className="ml-4">
-                      <ReactStars {...firstExample} />
+                      
                     </div>
                     <h5 className="align-center">
                       <b>$80.00</b>
@@ -68,7 +63,7 @@ class Magazine extends Component {
                   <div className="card-body align-center">
                     <h6>Pellentesque position</h6>
                     <div className="ml-4">
-                      <ReactStars {...firstExample} />
+                      
                     </div>
                     <h5 className="align-center">
                       <b>$80.00</b>
@@ -86,7 +81,7 @@ class Magazine extends Component {
                   <div className="card-body align-center">
                     <h6>Pellentesque position</h6>
                     <div className="ml-4">
-                      <ReactStars {...firstExample} />
+                      
                     </div>
                     <h5 className="align-center">
                       <b>$80.00</b>
@@ -105,7 +100,7 @@ class Magazine extends Component {
                   <div className="card-body align-center">
                     <h6>Pellentesque position</h6>
                     <div className="ml-4">
-                      <ReactStars {...firstExample} />
+                     
                     </div>
                     <h5 className="align-center">
                       <b>$80.00</b>
@@ -123,7 +118,7 @@ class Magazine extends Component {
                   <div className="card-body align-center">
                     <h6>Pellentesque position</h6>
                     <div className="ml-4">
-                      <ReactStars {...firstExample} />
+                      
                     </div>
                     <h5 className="align-center">
                       <b>$80.00</b>
@@ -142,10 +137,10 @@ class Magazine extends Component {
                   <div className="card-body align-center">
                     <h6>Pellentesque position</h6>
                     <div className="ml-4">
-                      <ReactStars {...firstExample} />
+                      
                     </div>
                     <h5 className="align-center">
-                      <b>$85git add.00</b>
+                      <b>$85.00</b>
                     </h5>
                   </div>
                 </div>
@@ -160,7 +155,7 @@ class Magazine extends Component {
                   <div className="card-body align-center">
                     <h6>Pellentesque position</h6>
                     <div className="ml-4">
-                      <ReactStars {...firstExample} />
+                      
                     </div>
                     <h5 className="align-center">
                       <b>$80.00</b>

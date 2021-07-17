@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
-import ReactStars from "react-rating-stars-component";
+
 import * as homeServices from "../../Services/home-page-services";
 
 class FounderDetails extends Component {
