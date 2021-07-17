@@ -12,8 +12,6 @@ const Book = () => {
       <Navbar />
       <PageHeader headertitle="BOOKS" />
       <Books />
-      {/* <Delivery />
-      <Instagram /> */}
       <Footer />
     </div>
   );
