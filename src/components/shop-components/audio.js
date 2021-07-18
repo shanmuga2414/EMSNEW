@@ -4,7 +4,8 @@ import ReactPlayer from "react-player/lazy";
 import ReactAudioPlayer from "react-audio-player";
 import "antd/dist/antd.css";
 import { DatePicker, Space } from "antd";
-
+import Pagination from "../global-components/pagination";
+import { paginate } from "../../paginate";
 import * as homeServices from "../../Services/home-page-services";
 
 function onChange(date, dateString) {
@@ -15,6 +16,9 @@ class Audios extends Component {
   state = {
     audioCategories: [],
     audioList: [],
+    pageSize: 6,
+    currentPage: 1,
+    displayAudioRange: 1,
   };
 
   async componentDidMount() {
@@ -24,8 +28,20 @@ class Audios extends Component {
     this.setState({ audioList: result.data.records });
     this.setState({ audioCategories: category.data.records });
   }
+  handlePageChange = (page) => {
+    this.setState({ currentPage: page });
+    this.setState({
+      displayAudioRange: this.state.currentPage * this.state.pageSize + 1,
+    });
+  };
   render() {
-    const { audioCategories, audioList } = this.state;
+    const {
+      audioCategories,
+      audioList,
+      pageSize,
+      currentPage,
+      displayAudioRange,
+    } = this.state;
     console.log(audioList);
     const monthNameList = [
       "Jan",
@@ -41,7 +57,7 @@ class Audios extends Component {
       "Nov",
       "Dec",
     ];
-
+    const getAudio = paginate(audioList, currentPage, pageSize);
     return (
       <div className="collection-area">
         <div className="container">
@@ -60,10 +76,27 @@ class Audios extends Component {
                   </form>
                 </div>
               </div>
+              <div className="row mb-5">
+                <div className="col-md-12">
+                  <div className="d-flex justify-content-between pagination">
+                    <h6>
+                      Showing {displayAudioRange} to {currentPage * pageSize} of{" "}
+                      {audioList.length} Audios
+                    </h6>
+
+                    <Pagination
+                      itemsCount={audioList.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
+                  </div>
+                </div>
+              </div>
               <div className="tab-content">
                 <div className="tab-pane fade in show active" id="one">
                   <div className="row">
-                    {audioList.map((audio) => (
+                    {getAudio.map((audio) => (
                       <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                         <div className="product-style-03 webVideo margin-top-40">
                           <div className="thumb ">
@@ -81,18 +114,17 @@ class Audios extends Component {
               <div className="row mb-5">
                 <div className="col-md-12">
                   <div className="d-flex justify-content-between pagination">
-                    <h6>Showing 1 to 12 of 19 Videos</h6>
-                    <ul>
-                      <li>
-                        <a href="#">1</a>
-                      </li>
-                      <li>
-                        <a href="#">2</a>
-                      </li>
-                      <li>
-                        <a href="#">3</a>
-                      </li>
-                    </ul>
+                    <h6>
+                      Showing {displayAudioRange} to {currentPage * pageSize} of{" "}
+                      {audioList.length} Audios
+                    </h6>
+
+                    <Pagination
+                      itemsCount={audioList.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
                   </div>
                 </div>
               </div>

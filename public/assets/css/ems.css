@@ -355,3 +355,10 @@
 .ReactModal__Content > button:first-child {
   margin-left: 95%;
 }
+
+.pagination {
+  margin-top: 15px !important;
+  border-top: none !important;
+  padding-top: 19px !important;
+  border-radius: 0px;
+}

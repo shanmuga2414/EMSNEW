@@ -5,6 +5,8 @@ import "antd/dist/antd.css";
 import { DatePicker, Space } from "antd";
 import Modal from "react-modal";
 import ImageGallery from "react-image-gallery";
+import Pagination from "../global-components/pagination";
+import { paginate } from "../../paginate";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 import * as homeServices from "../../Services/home-page-services";
@@ -14,21 +16,25 @@ function onChange(date, dateString) {
 }
 
 class Gallery extends Component {
-  //   state = {
-  //     albums: [],
-  //     showModal: false,
-  //   };
   constructor() {
     super();
     this.state = {
       albums: [],
       showModal: false,
+      pageSize: 6,
+      currentPage: 1,
+      displayGalleryRage: 1,
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
-
+  handlePageChange = (page) => {
+    this.setState({ currentPage: page });
+    this.setState({
+      displayGalleryRage: this.state.currentPage * this.state.pageSize + 1,
+    });
+  };
   handleOpenModal() {
     this.setState({ showModal: true });
   }
@@ -46,7 +52,7 @@ class Gallery extends Component {
   }
 
   render() {
-    const { albums } = this.state;
+    const { albums, pageSize, currentPage, displayGalleryRage } = this.state;
     const monthNameList = [
       "Jan",
       "Feb",
@@ -109,7 +115,7 @@ class Gallery extends Component {
           "http://emsmedia.net/magazine/web_control/books/image/book6.png",
       },
     ];
-
+    const getGallery = paginate(albums, currentPage, pageSize);
     return (
       <div className="collection-area">
         <div className="container">
@@ -128,10 +134,27 @@ class Gallery extends Component {
                   </form>
                 </div>
               </div>
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="d-flex justify-content-between pagination">
+                    <h6>
+                      Showing {displayGalleryRage} to {currentPage * pageSize}{" "}
+                      of {albums.length} Albums
+                    </h6>
+
+                    <Pagination
+                      itemsCount={albums.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
+                  </div>
+                </div>
+              </div>
               <div className="tab-content">
                 <div className="tab-pane fade in show active" id="one">
                   <div className="row">
-                    {albums.map((album) => (
+                    {getGallery.map((album) => (
                       <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                         <div className="product-style-03 imageHover webVideo margin-top-40">
                           <div className="thumb">
@@ -150,21 +173,21 @@ class Gallery extends Component {
                   </div>
                 </div>
               </div>
+
               <div className="row mb-5">
                 <div className="col-md-12">
                   <div className="d-flex justify-content-between pagination">
-                    <h6>Showing 1 to 12 of 19 Videos</h6>
-                    <ul>
-                      <li>
-                        <a href="#">1</a>
-                      </li>
-                      <li>
-                        <a href="#">2</a>
-                      </li>
-                      <li>
-                        <a href="#">3</a>
-                      </li>
-                    </ul>
+                    <h6>
+                      Showing {displayGalleryRage} to {currentPage * pageSize}{" "}
+                      of {albums.length} Albums
+                    </h6>
+
+                    <Pagination
+                      itemsCount={albums.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
                   </div>
                 </div>
               </div>

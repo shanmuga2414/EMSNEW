@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import { DatePicker, Space } from "antd";
 import ModalVideo from "react-modal-video";
+import Pagination from "../global-components/pagination";
+import { paginate } from "../../paginate";
 import * as homeServices from "../../Services/home-page-services";
 import "react-modal-video/css/modal-video.css";
 
@@ -18,6 +20,9 @@ class Videos extends Component {
       videos: [],
       videoCategories: [],
       videoId: "",
+      pageSize: 3,
+      currentPage: 1,
+      displayVideoRage: 1,
     };
     this.openModal = this.openModal.bind(this);
   }
@@ -35,8 +40,21 @@ class Videos extends Component {
     this.setState({ videos: result.data.records });
     this.setState({ videoCategories: category.data.records });
   }
+  handlePageChange = (page) => {
+    this.setState({ currentPage: page });
+    this.setState({
+      displayVideoRage: this.state.currentPage * this.state.pageSize + 1,
+    });
+  };
   render() {
-    const { videos, videoCategories, videoId } = this.state;
+    const {
+      videos,
+      videoCategories,
+      videoId,
+      pageSize,
+      currentPage,
+      displayVideoRage,
+    } = this.state;
     const monthNameList = [
       "Jan",
       "Feb",
@@ -51,7 +69,7 @@ class Videos extends Component {
       "Nov",
       "Dec",
     ];
-
+    const getVideos = paginate(videos, currentPage, pageSize);
     return (
       <div className="collection-area">
         <div className="container">
@@ -70,10 +88,26 @@ class Videos extends Component {
                   </form>
                 </div>
               </div>
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="d-flex justify-content-between pagination">
+                    <h6>
+                      Showing {displayVideoRage} to {currentPage * pageSize} of{" "}
+                      {videos.length} Videos
+                    </h6>
+                    <Pagination
+                      itemsCount={videos.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
+                  </div>
+                </div>
+              </div>
               <div className="tab-content">
                 <div className="tab-pane fade in show active" id="one">
                   <div className="row">
-                    {videos.map((video) => (
+                    {getVideos.map((video) => (
                       <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                         <div className="product-style-03 webVideo imageHover margin-top-40">
                           <div className="thumb youtubeVideo">
@@ -98,18 +132,16 @@ class Videos extends Component {
               <div className="row mb-5">
                 <div className="col-md-12">
                   <div className="d-flex justify-content-between pagination">
-                    <h6>Showing 1 to 12 of 19 Videos</h6>
-                    <ul>
-                      <li>
-                        <a href="#">1</a>
-                      </li>
-                      <li>
-                        <a href="#">2</a>
-                      </li>
-                      <li>
-                        <a href="#">3</a>
-                      </li>
-                    </ul>
+                    <h6>
+                      Showing {displayVideoRage} to {currentPage * pageSize} of{" "}
+                      {videos.length} Videos
+                    </h6>
+                    <Pagination
+                      itemsCount={videos.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
                   </div>
                 </div>
               </div>
