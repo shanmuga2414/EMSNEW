@@ -71,11 +71,11 @@ class Events extends Component {
                   <div className="d-flex justify-content-between pagination">
                     <h6>
                       Showing {displayEventsRage} to {currentPage * pageSize} of{" "}
-                      {albums.length} Events
+                      {events.length} Events
                     </h6>
 
                     <Pagination
-                      itemsCount={albums.length}
+                      itemsCount={events.length}
                       pageSize={pageSize}
                       currentPage={currentPage}
                       onPageChange={this.handlePageChange}
