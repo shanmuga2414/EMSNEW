@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import { DatePicker, Divider, Space } from "antd";
+import Pagination from "../global-components/pagination";
+import { paginate } from "../../paginate";
 import * as homeServices from "../../Services/home-page-services";
 
 function onChange(date, dateString) {
@@ -11,6 +13,9 @@ function onChange(date, dateString) {
 class Events extends Component {
   state = {
     events: [],
+    pageSize: 4,
+    currentPage: 1,
+    displayEventsRage: 1,
   };
 
   async componentDidMount() {
@@ -19,9 +24,15 @@ class Events extends Component {
     console.log(result);
     this.setState({ events: result.data.records });
   }
+  handlePageChange = (page) => {
+    this.setState({ currentPage: page });
+    this.setState({
+      displayEventsRage: this.state.currentPage * this.state.pageSize + 1,
+    });
+  };
   render() {
     const regex = /(<([^>]+)>)/gi;
-    const { events } = this.state;
+    const { events, pageSize, currentPage, displayEventsRage } = this.state;
     const monthNameList = [
       "Jan",
       "Feb",
@@ -36,7 +47,7 @@ class Events extends Component {
       "Nov",
       "Dec",
     ];
-
+    const getEvents = paginate(events, currentPage, pageSize);
     return (
       <div className="collection-area margin-top-60">
         <div className="container">
@@ -55,12 +66,29 @@ class Events extends Component {
                   </form>
                 </div>
               </div>
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="d-flex justify-content-between pagination">
+                    <h6>
+                      Showing {displayEventsRage} to {currentPage * pageSize} of{" "}
+                      {albums.length} Events
+                    </h6>
+
+                    <Pagination
+                      itemsCount={albums.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
+                  </div>
+                </div>
+              </div>
               <div className="tab-content">
                 <div
                   className="tab-pane fade in show active list-item"
                   id="two"
                 >
-                  {events.map((event) => (
+                  {getEvents.map((event) => (
                     <div className="row product-style-03 ">
                       <div className="col-md-3 col-sm-12 col-12 eventList">
                         <div className="thumb">
@@ -89,20 +117,19 @@ class Events extends Component {
               </div>
 
               <div className="row">
-                <div className="col-md-12">
+                <div className="col-md-12 mb-5">
                   <div className="d-flex justify-content-between pagination">
-                    <h6>Showing 1 to 12 of 19 Events</h6>
-                    <ul>
-                      <li>
-                        <a href="#">1</a>
-                      </li>
-                      <li>
-                        <a href="#">2</a>
-                      </li>
-                      <li>
-                        <a href="#">3</a>
-                      </li>
-                    </ul>
+                    <h6>
+                      Showing {displayEventsRage} to {currentPage * pageSize} of{" "}
+                      {events.length} Events
+                    </h6>
+
+                    <Pagination
+                      itemsCount={events.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
                   </div>
                 </div>
               </div>

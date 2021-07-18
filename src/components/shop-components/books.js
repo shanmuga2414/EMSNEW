@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
-import { DatePicker, Space } from "antd";
+import { DatePicker, Space, Divider } from "antd";
+import Pagination from "../global-components/pagination";
+import { paginate } from "../../paginate";
 import * as homeServices from "../../Services/home-page-services";
 
 function onChange(date, dateString) {
@@ -12,6 +14,9 @@ class Books extends Component {
   state = {
     bookCategories: [],
     booksList: [],
+    pageSize: 9,
+    currentPage: 1,
+    displayBookRage: 1,
   };
 
   async componentDidMount() {
@@ -20,11 +25,22 @@ class Books extends Component {
     const bookResult = await homeServices.getAllBooks();
     this.setState({ bookCategories: result.data.records });
     this.setState({ booksList: bookResult.data.records });
+    // const booksList = this.state.booksList.filter((e) => e._id !== id);
   }
+  handlePageChange = (page) => {
+    this.setState({ currentPage: page });
+    this.setState({
+      displayBookRage: this.state.currentPage * this.state.pageSize + 1,
+    });
+  };
   render() {
-    let publicUrl = process.env.PUBLIC_URL + "/";
-    let imagealt = "image";
-    const { bookCategories, booksList } = this.state;
+    const {
+      bookCategories,
+      booksList,
+      pageSize,
+      currentPage,
+      displayBookRage,
+    } = this.state;
     console.log(booksList);
     const monthNameList = [
       "Jan",
@@ -40,27 +56,14 @@ class Books extends Component {
       "Nov",
       "Dec",
     ];
-
+    const getBooks = paginate(booksList, currentPage, pageSize);
     return (
       <div className="collection-area">
         <div className="container">
           <div className="row flex-row-reverse">
             <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
               <div className="row">
-                <div className="col-lg-8 col-5">
-                  {/* <ul className="nav nav-pills shop-tab">
-                    <li>
-                      <a data-toggle="pill" href="#one" className="active">
-                        <i className="fa fa-th-large" />
-                      </a>
-                    </li>
-                    <li>
-                      <a data-toggle="pill" href="#two">
-                        <i className="fa fa-bars" />
-                      </a>
-                    </li> 
-                  </ul>*/}
-                </div>
+                <div className="col-lg-8 col-5"></div>
                 <div className="col-lg-4 col-7">
                   <form action="#">
                     <select className="form-control sort-select">
@@ -75,10 +78,27 @@ class Books extends Component {
                   </form>
                 </div>
               </div>
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="d-flex justify-content-between pagination">
+                    <h6>
+                      Showing {displayBookRage} to {currentPage * pageSize} of{" "}
+                      {booksList.length} Books
+                    </h6>
+
+                    <Pagination
+                      itemsCount={booksList.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
+                  </div>
+                </div>
+              </div>
               <div className="tab-content">
                 <div className="tab-pane fade in show active" id="one">
                   <div className="row">
-                    {booksList.map((book) => (
+                    {getBooks.map((book) => (
                       <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 ">
                         <div className="product-style-03  border-grey margin-top-40">
                           <div className="thumb ">
@@ -108,18 +128,17 @@ class Books extends Component {
               <div className="row mb-5">
                 <div className="col-md-12">
                   <div className="d-flex justify-content-between pagination">
-                    <h6>Showing 1 to 12 of 19 Books</h6>
-                    <ul>
-                      <li>
-                        <a href="#">1</a>
-                      </li>
-                      <li>
-                        <a href="#">2</a>
-                      </li>
-                      <li>
-                        <a href="#">3</a>
-                      </li>
-                    </ul>
+                    <h6>
+                      Showing {displayBookRage} to {currentPage * pageSize} of{" "}
+                      {booksList.length} Books
+                    </h6>
+
+                    <Pagination
+                      itemsCount={booksList.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
                   </div>
                 </div>
               </div>
