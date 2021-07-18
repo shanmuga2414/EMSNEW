@@ -6083,7 +6083,10 @@ ul {
   border: 1px solid #cfcfcf;
   padding: 10px 10px;
 }
-
+.search-widget form.search {
+  
+  padding: 0px !important;
+}
 .search-widget button {
   background: #fff;
   border: 0px;
