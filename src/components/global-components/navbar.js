@@ -250,7 +250,7 @@ class Navbar extends Component {
                   </span>
                   <span class="top-contact">
                     <i class="fas fa-phone-volume"></i>{" "}
-                    <span className="text-space">Contact Us</span>
+                    <span className="text-space"><Link to="contact" className="color-white" >Contact Us</Link></span>
                   </span>
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 text-right hide-mobile-view">
@@ -267,16 +267,14 @@ class Navbar extends Component {
                   >
                     <i class="fas fa-user-plus"></i> Register
                   </Link>
-                  <a
-                    href="/react/ems#/videos"
-                    target="_blank"
+                  <Link to="videos"
                     type="button"
-                    className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view"
+                    className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white"
                   >
                     <i className="fa fa-play-circle fa-lg" />{" "}
                     <span className="tab">EMS</span> Web TV{" "}
                     <span className="tab">Channel</span>
-                  </a>
+                  </Link>
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 hide-large-view">
                   <div className="row mobile-tv">
@@ -297,7 +295,6 @@ class Navbar extends Component {
                     </div>
                     <div className="col-4">
                       <Link
-                        to="/videos"
                         type="button"
                         className="btn btn-sm btn-tvchannel top-content-size hide-large-view"
                       >
@@ -309,7 +306,7 @@ class Navbar extends Component {
               </div>
             </div>
           </div>
-          <div className="container-fluid bg-grey">
+          <div className="container-fluid logo-bg-color">
             <div className="row">
               <div className="col-xl-8 col-lg-5 hide-mobile-view tab-hide">
                 <div className="logo">
@@ -325,7 +322,7 @@ class Navbar extends Component {
               <div className="col-xl-4 col-lg-5">
                 <form>
                   <div className="form-group searchbox hide-mobile-view tab-hide">
-                    <div className="input-icons">
+                    <div className="input-icons input-size">
                       <i className="fa fa-search"></i>
                       <input
                         type="text"
@@ -376,9 +373,9 @@ class Navbar extends Component {
                 </button>
               </div>
 
-              <nav className="navbar navbar-area navbar-expand-xl nav-style-01  hide-large-view1  ">
+              <nav className="navbar navbar-area navbar-expand-xl nav-style-01  hide-large-view1 ">
                 <div className="container-fluid nav-container">
-                  <div className="row">
+                  <div className="row mtop">
                     <div className="col-lg-12 order-3 order-lg-2">
                       <div className="collapse navbar-collapse" id="shop-menu">
                         <ul className="navbar-nav menu-open">
@@ -388,7 +385,7 @@ class Navbar extends Component {
                             </a>
                             <ul className="sub-menu">
                               <li className="menu-item-has-children">
-                                <Link to="founder">நிறுவனர்</Link>
+                                <Link to="founder">நிறுவனர் </Link>
                                 <ul className="sub-menu" id="third_menu">
                                   <li>
                                     <Link to="founder">வாப்பா நாயகம்</Link>
@@ -429,7 +426,7 @@ class Navbar extends Component {
                               </li>
                               <li>
                                 {" "}
-                                <Link to="audio">ஆடியோ </Link>
+                                <Link to="construction">ஆடியோ </Link>
                               </li>
                               <li>
                                 <Link to="events">நிகழ்வுகள்</Link>
@@ -615,7 +612,7 @@ class Navbar extends Component {
             </div>
           </div>
 
-          <nav className="navbar navbar-area navbar-expand-xl nav-style-01 hide-mobile-view mtwo tab-hide">
+          <nav className="navbar navbar-area navbar-expand-xl nav-style-01 hide-mobile-view mtwo tab-hide logo-bg-color">
             <div className="container-fluid nav-container">
               <div className="row">
                 <div className="col-lg-12 order-3 order-lg-2">
@@ -627,7 +624,7 @@ class Navbar extends Component {
                         </a>
                         <ul className="sub-menu">
                           <li className="menu-item-has-children">
-                            <Link to="founder">நிறுவனர்</Link>
+                            <Link to="founder">நிறுவனர் </Link>
                             <ul className="sub-menu" id="third_menu">
                               <li>
                                 <Link to="founder">வாப்பா நாயகம்</Link>
@@ -668,7 +665,7 @@ class Navbar extends Component {
                           </li>
                           <li>
                             {" "}
-                            <Link to="/audio">ஆடியோ </Link>
+                            <Link to="construction">ஆடியோ </Link>
                           </li>
                           <li>
                             <Link to="events">நிகழ்வுகள்</Link>
@@ -823,6 +820,7 @@ class Navbar extends Component {
             </div>
           </nav>
         </div>
+        
       </div>
     );
   }

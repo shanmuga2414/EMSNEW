@@ -27,7 +27,7 @@ class Footer_v1 extends Component {
                       <i className="fa fa-phone"></i>
                     </div>
                     <div className="method-box__content tab-contact">
-                      <span>00+123-456-789</span>
+                      <span>+123-456-789</span>
                       <p>Free support line!</p>
                     </div>
                   </div>
@@ -58,7 +58,7 @@ class Footer_v1 extends Component {
                   <div className="input-group mb-3">
                     <input
                       type="text"
-                      className="form-control"
+                      className="form-control newsletter"
                       placeholder="Enter email for Newsletter"
                     />
                     <div className="input-group-append">
@@ -291,5 +291,4 @@ class Footer_v1 extends Component {
     );
   }
 }
-
 export default Footer_v1;
