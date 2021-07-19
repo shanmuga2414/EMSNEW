@@ -313,7 +313,7 @@ class Navbar extends Component {
                   <Link to="/">
                     <img
                       class="logo-img"
-                      src={publicUrl + "assets/img/logo.jpg"}
+                      src={publicUrl + "assets/img/logo.png"}
                       alt=""
                     />
                   </Link>
@@ -339,7 +339,7 @@ class Navbar extends Component {
               <div className="col-lg-5 col-9 ">
                 <div className="logo">
                   <Link to="home-v1.js">
-                    <img src={publicUrl + "assets/img/logo.jpg"} alt="" />
+                    <img src={publicUrl + "assets/img/logo.png"} alt="" />
                   </Link>
                 </div>
               </div>
@@ -426,7 +426,7 @@ class Navbar extends Component {
                               </li>
                               <li>
                                 {" "}
-                                <Link to="construction">ஆடியோ </Link>
+                                <Link to="audio">ஆடியோ </Link>
                               </li>
                               <li>
                                 <Link to="events">நிகழ்வுகள்</Link>
@@ -665,7 +665,7 @@ class Navbar extends Component {
                           </li>
                           <li>
                             {" "}
-                            <Link to="construction">ஆடியோ </Link>
+                            <Link to="audio">ஆடியோ </Link>
                           </li>
                           <li>
                             <Link to="events">நிகழ்வுகள்</Link>

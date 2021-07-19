@@ -11,7 +11,7 @@ const EventList = () => {
   return (
     <div>
       <Navbar />
-      <PageHeader headertitle="Shop" subheader="Women" />
+      <PageHeader headertitle="Events" subheader="Events" />
       <Events />
       {/* <Delivery /> */}
       {/* <Instagram /> */}

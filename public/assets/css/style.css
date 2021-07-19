@@ -6382,12 +6382,12 @@ ul {
 
 .list-item .product-style-03 p {
   font-size: 16px;
-  color: #a4a4a4;
+  color: black;
   line-height: 26px;
 }
 
 .pagination {
-  margin-top: 50px;
+  margin-top: 0px;
   border-top: 1px solid #cccccc;
   padding-top: 30px;
   border-radius: 0px;
@@ -6409,6 +6409,7 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: -5px;
 }
 .pagination ul li {
   list-style: none;
@@ -9618,4 +9619,18 @@ button{
 .book-div{
   height: 407px !important;
 }
+.side-input{
+  padding-top: 5px !important;
+  margin-top: 8px;
+}
+.tab-margin-43{
+  margin-top:43px;
+}
+.btn-orange:hover{
+  color:white;
+}
+.ant-divider{
+  border-top: 2px solid rgb(0 0 0 / 9%) !important;
+}
+
 

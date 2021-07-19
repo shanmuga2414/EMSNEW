@@ -194,16 +194,16 @@ class Gallery extends Component {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 margin-top-20">
               <div className="widget search-widget">
-                <form action="#">
-                  <button type="submit">
-                    <i className="icon-search" />
-                  </button>
-                  <input
-                    type="text"
-                    placeholder="Search Category"
-                    name="search"
-                  />
-                </form>
+                <form className="search" action="#">
+                <button type="submit">
+                  <i className="icon-search" />
+                </button>
+                <input
+                  type="text" className="side-input"
+                  placeholder="Search Category"
+                  name="search"
+                />
+              </form>
               </div>
               <div className="widget categories-widget">
                 {/* <div className="accordion-style-2" id="accordionExample1">
