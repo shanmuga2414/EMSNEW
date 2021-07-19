@@ -3390,12 +3390,12 @@ ul {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border-color: #f5f5f5;
+  border-color: #808080a3;
 }
 .sort-select:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
-  border: 1px solid #ced4da;
+  border: 1px solid #808080a3;
 }
 
 .sort-select ::-ms-expand {
@@ -5784,20 +5784,18 @@ ul {
   color: #28505d;
   /* font-family: var(--secondary-font); */
   font-weight: 400;
-  font-size: 18px;
+  font-size: 17px;
 }
 .breadcrumb-inner .page-list li:before {
   position: absolute;
   content: "/";
   right: 0px;
-  color: #fff;
+  color: #28505d;
 }
 .breadcrumb-inner .page-list li:last-child {
   padding-right: 0px;
 }
-.breadcrumb-inner .page-list li:last-child a {
-  font-weight: 600;
-}
+
 .breadcrumb-inner .page-list li:last-child:before {
   display: none;
 }
@@ -6080,7 +6078,7 @@ ul {
 }
 
 .search-widget form {
-  border: 1px solid #cfcfcf;
+  border: 1px solid #808080a3;
   padding: 10px 10px;
 }
 .search-widget form.search {
@@ -6205,7 +6203,7 @@ ul {
   list-style: none;
   width: 32px;
   height: 26px;
-  border: 1px solid #e9e9e9;
+  border: 1px solid #808080a3;
   text-align: center;
   line-height: 24px;
   margin-right: 10px;
@@ -6428,6 +6426,7 @@ ul {
 }
 .pagination ul li a {
   display: block;
+  padding: 7px;
 }
 .pagination ul li:hover {
   background: #000;
@@ -9174,15 +9173,15 @@ h6 {
   .banner-style-01 {
     height: 124px;
   }
-  .logo-bg-color {
-    background-image: linear-gradient(
+
+    /*background-image: linear-gradient(
       to right,
       #29bcb730,
       #29bcb71c,
       #28505d08
     );
-    /*background-image: linear-gradient(to right, #29bcb785, #29bcb740 ,#28505d26); */
-  }
+    background-image: linear-gradient(to right, #29bcb785, #29bcb740 ,#28505d26); */
+
   .logo {
     padding: 13px 0px;
   }
@@ -9318,7 +9317,7 @@ h6 {
     margin-top: -11px;
   }
   .method-box {
-    -webkit-flex-direction: row;
+   flex-direction: row;
   }
   .method-box__icon i {
     font-size: 23px;
@@ -9447,14 +9446,7 @@ h6 {
   .mobile-btn {
     padding: 12px !important;
   }
-  .logo-bg-color {
-    background-image: linear-gradient(
-      to right,
-      #29bcb74f,
-      #29bcb726,
-      #28505d26
-    );
-  }
+  
   .fa-bars {
     color: #28505d;
     font-size: 27px;
@@ -9578,7 +9570,7 @@ button{
   
 }
 .newsletter{
-  height: 37px;
+  height: 38px;
 }
 .widget-size {
   padding: 6px 0px 0px 0px !important;
@@ -9599,15 +9591,7 @@ button{
   cursor: pointer;
   transition: color 0.3s;
 }
-.pagination-item:hover{
-  color: white !important;
-  text-decoration: none;
-  border:1px solid #28505d !important;
-  background-color: #28505d !important;
-  outline: none;
-  cursor: pointer;
-  transition: color 0.3s;
-}
+
 
 .Address-title{
   font-weight: 400;
@@ -9632,5 +9616,52 @@ button{
 .ant-divider{
   border-top: 2px solid rgb(0 0 0 / 9%) !important;
 }
-
+.gridm-height{
+  height:591px;
+}
+.single-contact-box .icon {
+    background: #598fa0 !important;
+    margin-left: 42%;
+}
+.icon-email{
+  background: black !important;
+}
+#icon2 .single-contact-box .icon {
+  background: #000000b3 !important;
+  margin-left: 42%;
+}
+.contact-form input, .contact-form textarea{
+  border-color: #28505d6b;
+}
+.ant-picker {
+  border: 1px solid #808080a3 !important;
+}
+.product-style-audio img {
+  width: 312px;
+  height: 95px;
+}
+#event-title a{
+  color: #28505d !important;
+  font-size: 19px;
+  font-weight: 600;
+}
+.btn-native{
+  color:#28505d;
+  border: 1px solid #28505d;
+  text-decoration: none;
+  border-radius: 0;
+}
+.btn-native{
+  color:#28505d;
+  border: 1px solid #28505d;
+  text-decoration: none;
+  border-radius: 2px;
+}
+.btn-native:hover{
+  color:white;
+  border: 1px solid #ff851d;
+  text-decoration: none;
+  border-radius: 2px;
+  background-color: #ff851d;
+}
 

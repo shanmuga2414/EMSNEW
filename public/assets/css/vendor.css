@@ -7534,11 +7534,12 @@ tbody.collapse.show {
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
-.page-item.active .page-link {
+.page-item.active .page-link,.pagination-item:hover {
   z-index: 1;
   color: #fff;
   background-color: #28505d;
   border-color: #28505d;
+  padding: 7px;
 }
 .page-item.disabled .page-link {
   color: #6c757d;
@@ -7551,6 +7552,7 @@ tbody.collapse.show {
   padding: 0.75rem 1.5rem;
   font-size: 1.25rem;
   line-height: 1.5;
+  
 }
 .pagination-lg .page-item:first-child .page-link {
   border-top-left-radius: 0.3rem;

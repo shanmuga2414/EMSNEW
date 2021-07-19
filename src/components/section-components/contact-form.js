@@ -13,6 +13,7 @@ class ContactForm extends Component {
 
     return <div className="contact-form text-center padding-top-80 padding-bottom-80">
 			  <div className="container">
+			  <h4 className="pb-4">தொடர்பு கொள்ள</h4>
 			    <div className="row">
 			      <div className="col-md-12">
 			        <form>
@@ -29,7 +30,7 @@ class ContactForm extends Component {
 			              <input type="email" className="form-control" id="email" placeholder="Email*" />
 			            </div>
 			            <div className="form-group col-md-6">
-			              <input type="text" className="form-control" id="topic" placeholder="Topic" />
+			              <input type="text" className="form-control" id="topic" placeholder="Subject" />
 			            </div>
 			          </div>
 			          <div className="form-row">

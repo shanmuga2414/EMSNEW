@@ -97,14 +97,14 @@ class Events extends Component {
                       </div>
                       <div className="col-md-9 col-sm-12 col-12">
                         <div className="content">
-                          <h6 className="title stone-go-top">
+                          <h6 className="title stone-go-top" id="event-title">
                             <Link to="/product-details">{event.title}</Link>
                           </h6>
 
                           <p>{event.description.replace(regex, "")}</p>
                         </div>
                         <a
-                          class="btn btn-orange"
+                          class="btn btn-native"
                           href="#/blog-details"
                         >
                           Read more

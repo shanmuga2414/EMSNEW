@@ -10,7 +10,7 @@ const Book = () => {
   return (
     <div>
       <Navbar />
-      <PageHeader headertitle="BOOKS" />
+      <PageHeader headertitle="Books" />
       <Books />
       <Footer />
     </div>

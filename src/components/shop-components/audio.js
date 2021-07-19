@@ -99,7 +99,7 @@ class Audios extends Component {
                   <div className="row">
                     {getAudio.map((audio) => (
                       <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div className="product-style-03 webVideo margin-top-40">
+                        <div className="product-style-audio webVideo margin-top-40">
                         <div className="thumb ">
                         <img src={publicUrl + "assets/img/audio.jpg"} alt="" />
                         </div>

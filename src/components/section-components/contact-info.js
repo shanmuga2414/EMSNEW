@@ -47,11 +47,11 @@ class ContactInfo extends Component {
                 </div>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12 ">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-12 " id="icon2">
                 <div className="single-contact-box">
-                  <div className="row">
+                  <div className="row" >
                     <div className="col-xl-6 col-lg-3 col-md-4 col-3">
-                      <div className="icon float-right contact-icon">
+                      <div className="icon float-right contact-icon ">
                         <i className="fa fa-envelope-open" />
                       </div>
                     </div>

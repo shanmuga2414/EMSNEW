@@ -47,7 +47,7 @@ class FounderDetails extends Component {
                     <hr></hr>
                     <div className="row">
                       <div className="col-xl-4 col-lg-6 ">
-                        <div className="img_div gridmat-top">
+                        <div className="img_div gridm-height gridmat-top">
                           <img
                             className="book_img"
                             src={publicUrl + "assets/img/books/Irai Arulpa.jpg"}
@@ -97,8 +97,8 @@ class FounderDetails extends Component {
                           </div>
                         </div>
                       </div>
-                      <div className="col-xl-4 col-lg-6 gridm-top gridmat-top">
-                        <div className="img_div">
+                      <div className="col-xl-4 col-lg-6 gridm-top  gridmat-top">
+                        <div className="img_div gridm-height">
                           <img
                             className="book_img"
                             src={
@@ -219,6 +219,92 @@ class FounderDetails extends Component {
                     alt=""
                   />
                 </div>
+                <div className="row sparate-div p-3">
+                <h6 className="aside-widget">Books for </h6>
+                <hr></hr>
+                <div className="row sparate-div">
+                  <div className="col-lg-3 col-3">
+                    <img
+                      className="aside-widget-user"
+                      src={publicUrl + "assets/img/s-news-post/img-01.jpg"}
+                      alt=""
+                    />
+                  </div>
+                  <div className="col-lg-9 col-9">
+                    <span className="aside-widget-user-content">
+                      {" "}
+                      Watch Magda Szubanski Read from He Award
+                    </span>
+                    <br></br>
+                    <span className="aside-widget-posted">
+                      {" "}
+                      Posted on 24 March 2016
+                    </span>
+                  </div>
+                </div>
+
+                <div className="row sparate-div">
+                  <div className="col-lg-3 col-md-3 col-sm-3 col-3">
+                    <img
+                      className="aside-widget-user"
+                      src={publicUrl + "assets/img/s-news-post/img-01.jpg"}
+                      alt=""
+                    />
+                  </div>
+                  <div className="col-lg-9 col-md-9 col-sm-9 col-9">
+                    <span className="aside-widget-user-content">
+                      {" "}
+                      Watch Magda Szubanski Read from He Award
+                    </span>
+                    <br></br>
+                    <span className="aside-widget-posted">
+                      {" "}
+                      Posted on 24 March 2016
+                    </span>
+                  </div>
+                </div>
+
+                <div className="row sparate-div">
+                  <div className="col-lg-3 col-md-3 col-sm-3 col-3">
+                    <img
+                      className="aside-widget-user"
+                      src={publicUrl + "assets/img/s-news-post/img-01.jpg"}
+                      alt=""
+                    />
+                  </div>
+                  <div className="col-lg-9 col-md-9 col-sm-9 col-9">
+                    <span className="aside-widget-user-content">
+                      {" "}
+                      Watch Magda Szubanski Read from He Award
+                    </span>
+                    <br></br>
+                    <span className="aside-widget-posted">
+                      {" "}
+                      Posted on 24 March 2016
+                    </span>
+                  </div>
+                </div>
+                <div className="row sparate-div">
+                  <div className="col-lg-3 col-md-3 col-sm-3 col-3">
+                    <img
+                      className="aside-widget-user"
+                      src={publicUrl + "assets/img/s-news-post/img-01.jpg"}
+                      alt=""
+                    />
+                  </div>
+                  <div className="col-lg-9 col-md-9 col-sm-9 col-9">
+                    <span className="aside-widget-user-content">
+                      {" "}
+                      Watch Magda Szubanski Read from He Award
+                    </span>
+                    <br></br>
+                    <span className="aside-widget-posted">
+                      {" "}
+                      Posted on 24 March 2016
+                    </span>
+                  </div>
+                </div>
+              </div>
               </div>
 
               <div className="author-social-area margin-top-50">
