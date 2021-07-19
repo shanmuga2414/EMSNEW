@@ -21,51 +21,69 @@ class ContactInfo extends Component {
         </div>
         {/* contact area start  */}
         <div className="contact-info margin-top-80">
-          <div className="container text-center">
+          <div className="container">
             <div className="row">
               <div className="col-md-12">
                 <div className="section-title text-center">
-                  <h3>CONTACT US FOR ANY QUERY</h3>
+                  <h3>CONTACT US FOR ANY QUARY</h3>
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-4 ">
+            <div className="row ">
+              <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                 <div className="single-contact-box">
-                  <div className="icon">
-                    <i className="icon-call-header" />
-                  </div>
-                  <a href="tel:+12345678910">00+123-456-789</a>
-                  <br />
-                  <a href="tel:+12345678911">+123456 78911</a>
-                  <br />
-                  <span>Mobile</span>
+                  <div className="row ">
+                    <div className="col-xl-6 col-lg-3 col-md-4 col-3">
+                      <div className="icon float-right contact-icon">
+                        <i className="icon-call-header" /> 
+                      </div>
+                    </div>
+                    <div className="col-6 Address-title-div">
+                      <span className="Address-title ">Mobile</span> <br></br>
+                      <a href="tel:+12345678910">+123-456-789</a> <br></br>
+                      <a href="tel:+12345678911">+123456 78911</a>
+                    </div>
+                  </div> 
                 </div>
               </div>
-              <div className="col-md-4">
+
+              <div className="col-lg-4 col-md-6 col-sm-6 col-12 ">
                 <div className="single-contact-box">
-                  <div className="icon">
-                    <i className="fa fa-envelope-open" />
-                  </div>
-                  <a href="#">contact@onlinbookshops.com</a>
-                  <br />
-                  <a href="#">support@emsmedia.com</a>
-                  <br />
-                  <span>Email</span>
+                  <div className="row">
+                    <div className="col-xl-6 col-lg-3 col-md-4 col-3">
+                      <div className="icon float-right contact-icon">
+                        <i className="fa fa-envelope-open" />
+                      </div>
+                    </div>
+                    <div className="col-6 Address-title-div">
+                      <span className="Address-title ">Email</span> <br></br>
+                      <a href="#">contact@onlinbookshops.com</a><br></br>
+                      <a href="#">support@emsmedia.com</a>
+                    </div>
+                  </div> 
                 </div>
               </div>
-              <div className="col-md-4">
+
+              <div className="col-lg-4 col-md-6 col-sm-6 col-12 contact-third-div">
                 <div className="single-contact-box">
-                  <div className="icon">
-                    <i className="fa fa-map-marker" />
-                  </div>
-                  <span>
-                    888 South Avenue Street,
-                    <br /> New York City, USA.
-                    <br /> Address
-                  </span>
+                  <div className="row">
+                    <div className="col-xl-6 col-lg-3 col-md-4 col-3">
+                      <div className="icon float-right contact-icon">
+                        <i className="fas fa-map-marker-alt" />
+                      </div>
+                    </div>
+                    <div className="col-6 Address-title-div">
+                    <span className="Address-title ">Address</span> <br></br>
+                      <span>
+                      888 South Avenue Street,
+                      <br /> New York City, USA.
+                      <br /> 
+                      </span>
+                    </div>
+                  </div> 
                 </div>
               </div>
+  
             </div>
           </div>
         </div>

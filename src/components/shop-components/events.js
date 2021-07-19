@@ -49,7 +49,7 @@ class Events extends Component {
     ];
     const getEvents = paginate(events, currentPage, pageSize);
     return (
-      <div className="collection-area margin-top-60">
+      <div className="collection-area ">
         <div className="container">
           <div className="row flex-row-reverse">
             <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
@@ -83,7 +83,7 @@ class Events extends Component {
                   </div>
                 </div>
               </div>
-              <div className="tab-content">
+              <div className="tab-content tab-margin-43">
                 <div
                   className="tab-pane fade in show active list-item"
                   id="two"
@@ -104,7 +104,7 @@ class Events extends Component {
                           <p>{event.description.replace(regex, "")}</p>
                         </div>
                         <a
-                          class="btn btn-read eventListRead"
+                          class="btn btn-orange"
                           href="#/blog-details"
                         >
                           Read more
@@ -136,16 +136,16 @@ class Events extends Component {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 margin-top-20">
               <div className="widget search-widget">
-                <form action="#">
-                  <button type="submit">
-                    <i className="icon-search" />
-                  </button>
-                  <input
-                    type="text"
-                    placeholder="Search Events"
-                    name="search"
-                  />
-                </form>
+                <form className="search" action="#">
+                <button type="submit">
+                  <i className="icon-search" />
+                </button>
+                <input
+                  type="text" className="side-input"
+                  placeholder="Search Category"
+                  name="search"
+                />
+              </form>
               </div>
 
               <div className="widget ptype-widget">

@@ -35,6 +35,7 @@ class Audios extends Component {
     });
   };
   render() {
+    let publicUrl = process.env.PUBLIC_URL + "/";
     const {
       audioCategories,
       audioList,
@@ -99,6 +100,9 @@ class Audios extends Component {
                     {getAudio.map((audio) => (
                       <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                         <div className="product-style-03 webVideo margin-top-40">
+                        <div className="thumb ">
+                        <img src={publicUrl + "assets/img/audio.jpg"} alt="" />
+                        </div>
                           <div className="thumb ">
                             <ReactAudioPlayer src={audio.audio} controls />
                           </div>
@@ -131,16 +135,16 @@ class Audios extends Component {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 margin-top-20">
               <div className="widget search-widget">
-                <form action="#">
-                  <button type="submit">
-                    <i className="icon-search" />
-                  </button>
-                  <input
-                    type="text"
-                    placeholder="Search Category"
-                    name="search"
-                  />
-                </form>
+                <form className="search" action="#">
+                <button type="submit">
+                  <i className="icon-search" />
+                </button>
+                <input
+                  type="text" className="side-input"
+                  placeholder="Search Category"
+                  name="search"
+                />
+              </form>
               </div>
               <div className="widget categories-widget">
                 <div className="accordion-style-2" id="accordionExample1">

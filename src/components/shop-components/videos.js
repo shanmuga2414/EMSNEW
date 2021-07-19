@@ -148,12 +148,12 @@ class Videos extends Component {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 margin-top-20">
               <div className="widget search-widget">
-                <form action="#">
+                <form className="search" action="#">
                   <button type="submit">
                     <i className="icon-search" />
                   </button>
                   <input
-                    type="text"
+                    type="text" className="side-input"
                     placeholder="Search Category"
                     name="search"
                   />
