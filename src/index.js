@@ -50,7 +50,7 @@ class Root extends Component {
               <Route path="/videos" component={Videos} />
               <Route path="/gallery" component={Gallery} />
               <Route path="/events" component={EventList} />
-              <Route path="/audio" component={Audio} />
+              <Route path="/audios" component={Audio} />
               <Route
                 exact
                 path="/member-responsibilities"

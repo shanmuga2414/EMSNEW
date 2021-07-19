@@ -250,7 +250,11 @@ class Navbar extends Component {
                   </span>
                   <span class="top-contact">
                     <i class="fas fa-phone-volume"></i>{" "}
-                    <span className="text-space"><Link to="contact" className="color-white" >Contact Us</Link></span>
+                    <span className="text-space">
+                      <Link to="contact" className="color-white">
+                        Contact Us
+                      </Link>
+                    </span>
                   </span>
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 text-right hide-mobile-view">
@@ -267,7 +271,8 @@ class Navbar extends Component {
                   >
                     <i class="fas fa-user-plus"></i> Register
                   </Link>
-                  <Link to="videos"
+                  <Link
+                    to="videos"
                     type="button"
                     className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white"
                   >
@@ -426,7 +431,7 @@ class Navbar extends Component {
                               </li>
                               <li>
                                 {" "}
-                                <Link to="construction">ஆடியோ </Link>
+                                <Link to="audios">ஆடியோ </Link>
                               </li>
                               <li>
                                 <Link to="events">நிகழ்வுகள்</Link>
@@ -665,7 +670,7 @@ class Navbar extends Component {
                           </li>
                           <li>
                             {" "}
-                            <Link to="construction">ஆடியோ </Link>
+                            <Link to="audios">ஆடியோ </Link>
                           </li>
                           <li>
                             <Link to="events">நிகழ்வுகள்</Link>
@@ -820,7 +825,6 @@ class Navbar extends Component {
             </div>
           </nav>
         </div>
-        
       </div>
     );
   }
