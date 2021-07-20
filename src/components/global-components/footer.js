@@ -44,7 +44,7 @@ class Footer_v1 extends Component {
                   </div>
                 </div>
                 <div className="col-xl-3 col-lg-4 col-md-6 mobile-location">
-                  <div className="method-box">
+                  <div className="method-box margin-bottom-9">
                     <div className="method-box__icon">
                       <i class="fas fa-map-marker-alt"></i>
                     </div>

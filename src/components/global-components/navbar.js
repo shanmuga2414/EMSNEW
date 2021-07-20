@@ -250,7 +250,11 @@ class Navbar extends Component {
                   </span>
                   <span class="top-contact">
                     <i class="fas fa-phone-volume"></i>{" "}
-                    <span className="text-space"><Link to="contact" className="color-white" >Contact Us</Link></span>
+                    <span className="text-space">
+                      <Link to="contact" className="color-white">
+                        Contact Us
+                      </Link>
+                    </span>
                   </span>
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 text-right hide-mobile-view">
@@ -267,7 +271,8 @@ class Navbar extends Component {
                   >
                     <i class="fas fa-user-plus"></i> Register
                   </Link>
-                  <Link to="videos"
+                  <Link
+                    to="videos"
                     type="button"
                     className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white"
                   >
@@ -313,7 +318,7 @@ class Navbar extends Component {
                   <Link to="/">
                     <img
                       class="logo-img"
-                      src={publicUrl + "assets/img/logo2.jpg"}
+                      src={publicUrl + "assets/img/logo.jpg"}
                       alt=""
                     />
                   </Link>
@@ -339,7 +344,7 @@ class Navbar extends Component {
               <div className="col-lg-5 col-9 ">
                 <div className="logo">
                   <Link to="home-v1.js">
-                    <img src={publicUrl + "assets/img/logo2.jpg"} alt="" />
+                    <img src={publicUrl + "assets/img/logo.jpg"} alt="" />
                   </Link>
                 </div>
               </div>
@@ -820,7 +825,6 @@ class Navbar extends Component {
             </div>
           </nav>
         </div>
-        
       </div>
     );
   }

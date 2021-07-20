@@ -25,7 +25,7 @@ class ContactInfo extends Component {
             <div className="row">
               <div className="col-md-12">
                 <div className="section-title text-center">
-                  <h3>CONTACT US FOR ANY QUARY</h3>
+                  <h3>CONTACT US FOR ANY QUERY</h3>
                 </div>
               </div>
             </div>
