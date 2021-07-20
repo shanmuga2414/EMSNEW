@@ -258,21 +258,16 @@ class Navbar extends Component {
                   </span>
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 text-right hide-mobile-view">
-                  <Link
-                    className="top-content-size color-white"
-                    href="construction"
-                  >
+                  <Link className="top-content-size color-white" to="login">
                     <i class="fas fa-sign-in-alt"></i> Login
                   </Link>
                   <span className="space">|</span>
-                  <Link
-                    className="top-content-size color-white"
-                    href="construction"
-                  >
+                  <Link className="top-content-size color-white" to="register">
                     <i class="fas fa-user-plus"></i> Register
                   </Link>
                   <Link
-                    to="videos"
+                    to="webtv"
+                    target="_blank"
                     type="button"
                     className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white"
                   >
@@ -286,14 +281,14 @@ class Navbar extends Component {
                     <div className="col-8">
                       <Link
                         className="top-content-size color-white"
-                        href="construction"
+                        href="login"
                       >
                         <i class="fas fa-sign-in-alt"></i> Login
                       </Link>
                       <span className="space">|</span>
                       <Link
                         className="top-content-size color-white"
-                        href="construction"
+                        href="register"
                       >
                         <i class="fas fa-user-plus"></i> Register
                       </Link>
@@ -431,11 +426,7 @@ class Navbar extends Component {
                               </li>
                               <li>
                                 {" "}
-<<<<<<< HEAD
                                 <Link to="audios">ஆடியோ </Link>
-=======
-                                <Link to="audio">ஆடியோ </Link>
->>>>>>> cb29b0803adec3c6d1547155184260d1ac04a9ef
                               </li>
                               <li>
                                 <Link to="events">நிகழ்வுகள்</Link>
@@ -674,11 +665,7 @@ class Navbar extends Component {
                           </li>
                           <li>
                             {" "}
-<<<<<<< HEAD
                             <Link to="audios">ஆடியோ </Link>
-=======
-                            <Link to="audio">ஆடியோ </Link>
->>>>>>> cb29b0803adec3c6d1547155184260d1ac04a9ef
                           </li>
                           <li>
                             <Link to="events">நிகழ்வுகள்</Link>
