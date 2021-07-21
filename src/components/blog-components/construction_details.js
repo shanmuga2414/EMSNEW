@@ -15,7 +15,7 @@ class FounderDetails extends Component {
               <div className="blog-content">
                 
                 
-                <img src={publicUrl + "assets/img/books/under-construction-image.jpg"} alt="" />
+                <img src={publicUrl + "assets/img/books/page-under-construction1.jpg"} alt="" width="600"/>
                 
                 <div className="author-social-area margin-top-50">
                   <div className="post-taglist">

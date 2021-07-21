@@ -46,9 +46,11 @@ class ContactForm extends Form {
     return (
       <div className="contact-form text-center padding-top-80 padding-bottom-80">
         <div className="container">
+
           <div className="row">
-            <div className="col-md-12">
-              <form onSubmit={this.handleSubmit}>
+            <div className="col-md-12 contact-div">
+            <h4 className="text-center">தொடர்பு கொள்ள</h4>
+              <form onSubmit={this.handleSubmit} className="contact_form">
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     {this.renderInput("name", "Name")}

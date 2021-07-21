@@ -7504,7 +7504,7 @@ tbody.collapse.show {
 .page-link {
   position: relative;
   display: block;
-  padding: 0.5rem 0.75rem;
+  padding: 6px 10px;
   margin-left: -1px;
   line-height: 1.25;
   color: #28505d;
@@ -7527,19 +7527,19 @@ tbody.collapse.show {
 }
 .page-item:first-child .page-link {
   margin-left: 0;
-  border-top-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
+  /* border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem; */
 }
 .page-item:last-child .page-link {
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  /* border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem; */
 }
 .page-item.active .page-link,.pagination-item:hover {
   z-index: 1;
   color: #fff;
   background-color: #28505d;
   border-color: #28505d;
-  padding: 7px;
+  /* padding: 7px; */
 }
 .page-item.disabled .page-link {
   color: #6c757d;
@@ -7549,7 +7549,7 @@ tbody.collapse.show {
   border-color: #dee2e6;
 }
 .pagination-lg .page-link {
-  padding: 0.75rem 1.5rem;
+  /* padding: 0.75rem 1.5rem; */
   font-size: 1.25rem;
   line-height: 1.5;
   

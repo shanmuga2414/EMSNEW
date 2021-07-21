@@ -49,6 +49,8 @@ class LoginForm extends Form {
           <section className="loginBlock">
             <div className="container container-login">
               <div className="row">
+                <div className=" col-md-4 col-md-offset-4">
+                </div>
                 <div className="col-sm-6 col-md-4 col-md-offset-4">
                   <div className="account-wall">
                     <img
