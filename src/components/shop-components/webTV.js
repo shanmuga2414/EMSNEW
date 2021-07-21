@@ -19,8 +19,8 @@ class webTV extends Component {
   render() {
     const { cover } = this.state;
     return (
-      <div className="about-content margin-top-80">
-        <div className="container">
+      <div className="about-content about-content-webtv">
+        <div className="container webtv-container">
           <div className="row webtv">
             <ReactPlayer url={`https://www.youtube.com/embed/${cover}`} />
           </div>

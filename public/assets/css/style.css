@@ -5827,6 +5827,7 @@ ul {
 .about-content .thumb {
   position: relative;
   float: right;
+  margin-bottom: 22px;
 }
 .about-content .thumb img {
   max-height: 500px;
@@ -6956,7 +6957,8 @@ ul.filter-main-nav > li:hover > a {
 }
 
 .related-product {
-  padding-top: 80px;
+  padding-top: 27px 20px 20px 20px;
+  
   padding-bottom: 60px;
   margin-top: 80px;
   border-top: 1px solid #e9e9e9;
@@ -9761,4 +9763,23 @@ button {
   .color_black{
     color:black;
   }
-
+  .top-header{
+    background-color: #3ab3b2 !important;
+  }
+  .breadcrumb-area-webtv{
+    background-color:#28505d;
+  }
+  .page-title-webtv{
+   color:white !important;
+  }
+  .webtv{
+    background: white;
+    padding:20px 0px; 
+  }
+  .about-content-webtv{
+    background-color: #bfbfbf47;
+  }
+  .webtv-container{
+    padding: 52px 0px !important;
+  }
+ 
