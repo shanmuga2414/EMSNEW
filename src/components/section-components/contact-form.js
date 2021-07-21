@@ -13,6 +13,7 @@ class ContactForm extends Form {
       msg: "",
       email: "",
       topic: "",
+      success: "",
     },
     errors: {},
     value: 2,
@@ -33,23 +34,30 @@ class ContactForm extends Form {
     try {
       const response = await contactServices.saveContact(this.state.data);
       if (response.status >= 200) {
+        console.log("aaaaaaaaa");
+        this.setState({
+          success:
+            "Thanks for contacting us! We will be in touch with you shortly.",
+        });
+        console.log(this.state.success);
         this.props.history.push("/contact");
       }
     } catch (ex) {
       const errors = { ...this.state.errors };
-      errors.name = ex.response.data;
+      // errors.name = ex.response.data;
       this.setState({ errors });
     }
   };
 
   render() {
+    const { success } = this.state;
     return (
       <div className="contact-form text-center padding-top-80 padding-bottom-80">
         <div className="container">
-
+          <span>{success}</span>
           <div className="row">
             <div className="col-md-12 contact-div">
-            <h4 className="text-center">தொடர்பு கொள்ள</h4>
+              <h4 className="text-center">தொடர்பு கொள்ள</h4>
               <form onSubmit={this.handleSubmit} className="contact_form">
                 <div className="form-row">
                   <div className="form-group col-md-6">

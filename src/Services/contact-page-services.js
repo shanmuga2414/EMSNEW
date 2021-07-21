@@ -1,8 +1,8 @@
 import http from "./httpService";
 import { apiUrl } from "../config.json";
 
-const apiEndpoint = apiUrl + "/contact.php";
-const contact = http.get(apiEndpoint);
+// const apiEndpoint = apiUrl + "/contact.php";
+// const contact = http.get(apiEndpoint);
 
 export function saveContact(user) {
   // console.log("User services log:", data);
