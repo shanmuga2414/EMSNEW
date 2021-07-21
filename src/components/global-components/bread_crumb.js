@@ -13,7 +13,7 @@ class Page_headerV2 extends Component {
           <div className="row">
             <div className="col-md-12">
               <div className="breadcrumb-inner d-flex flex-column flex-md-row justify-content-md-between justify-content-center">
-                <h2 className="page-title page-title-webtv">{HeaderTitle}</h2>
+                <h2 className="page-title page-title-webtv color-white">{HeaderTitle}</h2>
                 <ul className="page-list">
                   <li>
                     <Link to="/">Home</Link>

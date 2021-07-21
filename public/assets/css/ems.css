@@ -447,10 +447,10 @@
   color: #e2521a !important;
 }
 .webtv div {
-  width: 1000px !important;
+  width: 92% !important;
   height: 600px !important;
   text-align: center !important;
-  margin-left: 9%;
+  margin-left: 4%;
 }
 .buyButton {
   color: #fff !important;

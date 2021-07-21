@@ -5828,6 +5828,7 @@ ul {
   position: relative;
   float: right;
   margin-bottom: 22px;
+  margin-right: 21px;
 }
 .about-content .thumb img {
   max-height: 500px;
@@ -6957,15 +6958,14 @@ ul.filter-main-nav > li:hover > a {
 }
 
 .related-product {
-  padding-top: 27px 20px 20px 20px;
-  
-  padding-bottom: 60px;
-  margin-top: 80px;
+  padding: 27px 50px 20px 50px;
+  margin-top: 40px;
   border-top: 1px solid #e9e9e9;
   border-bottom: 1px solid #e9e9e9;
+ 
 }
 .related-product .title h2 {
-  font-size: 28px;
+  font-size: 20px;
   line-height: 26px;
   font-weight: 600;
 }
@@ -9770,16 +9770,22 @@ button {
     background-color:#28505d;
   }
   .page-title-webtv{
-   color:white !important;
+    color:white;
   }
   .webtv{
-    background: white;
     padding:20px 0px; 
   }
   .about-content-webtv{
-    background-color: #bfbfbf47;
+    padding-top: 31px;
+    padding-bottom: 31px;
+    background-color: #bfbfbf29;
   }
   .webtv-container{
     padding: 52px 0px !important;
+    background-color: white;
   }
+  .webtv-title h3{
+    font-size: 25px;
+  }
+  
  
