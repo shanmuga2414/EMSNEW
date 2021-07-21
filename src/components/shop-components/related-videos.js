@@ -65,13 +65,14 @@ class RelatedVideos extends Component {
       ],
     };
     return (
-      <div className="related-product-section">
-        <div className="container">
+      <div className="container-fluid">
+        <div className="related-product-section related-product-webtv">
+       
           <div className="related-product">
             <div className="row">
               <div className="col-lg-12">
                 <div className="title">
-                  <h2>RELATED VIDEOS</h2>
+                  <h3>RELATED VIDEOS</h3>
                 </div>
               </div>
             </div>

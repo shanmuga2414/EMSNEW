@@ -53,9 +53,9 @@ class RegisterForm extends Form {
         <section className="loginBlock">
           <div className="container container-login">
             <div className="row">
-              <div className="col-md-4 col-md-offset-4">
+              <div className="col-md-2 col-md-offset-4">
               </div>
-              <div className="col-sm-6 col-md-4 col-md-offset-4">
+              <div className="col-sm-8 col-md-8 col-md-offset-4">
                 <div className="account-wall div-border">
                   <img
                     className="profile-img"
@@ -65,6 +65,7 @@ class RegisterForm extends Form {
                   <h3>Create Account</h3>
                   <form onSubmit={this.handleSubmit} className="form-signin">
                     {/* BEGIN :: FORM GROUP | GRID-2 */}
+                    
                     <div className="form-group field-grid-1">
                       <div>{this.renderInput("text", "Name")}</div>
                     </div>
