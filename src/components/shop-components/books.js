@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
-import { DatePicker, Space, Divider } from "antd";
+import { DatePicker, Space, Divider, Button } from "antd";
 import Pagination from "../global-components/pagination";
 import { paginate } from "../../paginate";
 import * as homeServices from "../../Services/home-page-services";
@@ -118,6 +118,15 @@ class Books extends Component {
                                 ${book.book_price}
                               </span>
                             </div>
+
+                            <a
+                              className="btn btn-sm buyButton"
+                              href={book.book_url}
+                              target="_blank"
+                            >
+                              {" "}
+                              Buy Now
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -146,15 +155,16 @@ class Books extends Component {
             <div className="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 margin-top-20">
               <div className="widget search-widget">
                 <form className="search" action="#">
-                <button type="submit">
-                  <i className="icon-search" />
-                </button>
-                <input
-                  type="text" className="side-input"
-                  placeholder="Search Category"
-                  name="search"
-                />
-              </form>
+                  <button type="submit">
+                    <i className="icon-search" />
+                  </button>
+                  <input
+                    type="text"
+                    className="side-input"
+                    placeholder="Search Category"
+                    name="search"
+                  />
+                </form>
               </div>
               <div className="widget categories-widget">
                 <div className="accordion-style-2" id="accordionExample1">

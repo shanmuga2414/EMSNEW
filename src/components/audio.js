@@ -10,7 +10,7 @@ const Book = () => {
   return (
     <div>
       <Navbar />
-      <PageHeader headertitle="Videos" />
+      <PageHeader headertitle="Audios" />
       <Audios />
       {/* <Delivery />
       <Instagram /> */}

@@ -3,13 +3,25 @@ import { Link } from "react-router-dom";
 import parse from "html-react-parser";
 import ReactPlayer from "react-player";
 import Slider from "react-slick";
+import ModalVideo from "react-modal-video";
+import "react-modal-video/css/modal-video.css";
 import * as homeServices from "../../Services/home-page-services";
 
 class Webchannel extends Component {
-  state = {
-    channels: [],
-  };
+  constructor() {
+    super();
+    this.state = {
+      channels: [],
+      isOpen: false,
+      videoId: "",
+    };
+    this.openModal = this.openModal.bind(this);
+  }
 
+  openModal = (value) => () => {
+    this.setState({ videoId: value });
+    this.setState({ isOpen: true });
+  };
   async componentDidMount() {
     // console.log(homeServices.getActivities);
     const result = await homeServices.getWebchannels();
@@ -75,7 +87,10 @@ class Webchannel extends Component {
                 {channels.map((channel) => (
                   <div className="single-team-item" key={channel.vid}>
                     <div className="thumb">
-                      <ReactPlayer url={channel.url} />
+                      <img
+                        onClick={this.openModal(channel.url)}
+                        src={`http://img.youtube.com/vi/${channel.url}/0.jpg`}
+                      ></img>
                     </div>
                   </div>
                 ))}
@@ -83,6 +98,12 @@ class Webchannel extends Component {
             </div>
           </div>
         </div>
+        <ModalVideo
+          channel="youtube"
+          isOpen={this.state.isOpen}
+          videoId={this.state.videoId}
+          onClose={() => this.setState({ isOpen: false })}
+        />
       </div>
     );
   }
