@@ -452,3 +452,9 @@
   text-align: center !important;
   margin-left: 9%;
 }
+.buyButton {
+  color: #fff !important;
+  background-color: #28505d !important;
+  border-color: #28505d !important;
+  margin-top: 20px;
+}

@@ -2,18 +2,30 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import * as homeServices from "../../Services/home-page-services";
 import Slider from "react-slick";
+import ModalVideo from "react-modal-video";
+import "react-modal-video/css/modal-video.css";
 
 class RelatedVideos extends Component {
   constructor() {
     super();
     this.state = {
       videos: [],
+      isOpen: false,
+      videoId: "",
     };
+    this.openModal = this.openModal.bind(this);
   }
+
+  openModal = (value) => () => {
+    this.setState({ videoId: value });
+    this.setState({ isOpen: true });
+  };
+
   async componentDidMount() {
     const result = await homeServices.getWebTvVideos();
     this.setState({ videos: result.data.records });
   }
+
   render() {
     const { videos } = this.state;
     let publicUrl = process.env.PUBLIC_URL + "/";
@@ -71,13 +83,15 @@ class RelatedVideos extends Component {
                       <div className="product-style-03 webVideo imageHover margin-top-40">
                         <div className="thumb youtubeVideo">
                           <img
+                            onClick={this.openModal(video.url)}
                             src={`http://img.youtube.com/vi/${video.url}/0.jpg`}
                           ></img>
                         </div>
 
                         <h6 className="title stone-go-top margin-top-20">
-                          <span></span>
-                          <span>{video.video_name}</span>
+                          <span onClick={this.openModal(video.url)}>
+                            {video.video_name}
+                          </span>
                         </h6>
                       </div>
                     </div>
@@ -87,6 +101,12 @@ class RelatedVideos extends Component {
             </div>
           </div>
         </div>
+        <ModalVideo
+          channel="youtube"
+          isOpen={this.state.isOpen}
+          videoId={this.state.videoId}
+          onClose={() => this.setState({ isOpen: false })}
+        />
       </div>
     );
   }

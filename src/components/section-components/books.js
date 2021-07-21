@@ -48,6 +48,14 @@ class Books extends Component {
                         <b>${book.book_price}</b>
                       </h5>
                     </div>
+                    <a
+                      className="btn btn-sm buyButton"
+                      href={book.book_url}
+                      target="_blank"
+                    >
+                      {" "}
+                      Buy Now
+                    </a>
                   </div>
                 </div>
               ))}
