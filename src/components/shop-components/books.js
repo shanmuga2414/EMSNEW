@@ -107,7 +107,8 @@ class Books extends Component {
                               alt={book.book_name}
                             />
                           </div>
-                          <div className="content align-center">
+                          <div className=" align-center">
+                            <div className="content book_content">
                             <h6 className="title stone-go-top">
                               <Link to="/product-details">
                                 {book.book_name}
@@ -118,7 +119,7 @@ class Books extends Component {
                                 ${book.book_price}
                               </span>
                             </div>
-
+                          </div>
                             <a
                               className="btn btn-sm buyButton"
                               href={book.book_url}

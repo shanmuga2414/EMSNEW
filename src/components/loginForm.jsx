@@ -52,12 +52,13 @@ class LoginForm extends Form {
                 <div className=" col-md-4 col-md-offset-4">
                 </div>
                 <div className="col-sm-6 col-md-4 col-md-offset-4">
-                  <div className="account-wall">
+                  <div className="account-wall div-border">
+                  
                     <img
                       className="profile-img"
                       src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                       alt=""
-                    />
+                    /><h3>Login</h3>
                     <form onSubmit={this.handleSubmit} className="form-signin">
                       {/* BEGIN :: FORM GROUP | GRID-2 */}
                       <div className="form-group field-grid-1">
@@ -69,18 +70,21 @@ class LoginForm extends Form {
                         </div>
                       </div>
                       <div>
-                        <button
+                      
+                    <button
                           disabled={this.validate()}
                           className="btn btn-style-1"
                         >
                           Login
-                        </button>
+                        </button><br></br>
+                        <span className="">New to EMS?</span><br></br>
+                        <Link className="text-center new-account btn btn-grey" to="register">
+                      Create Your EMS account
+                    </Link>
                       </div>
                     </form>
                   </div>
-                  <Link to="register" className="text-center new-account">
-                    Create an account
-                  </Link>
+                 
                 </div>
               </div>
             </div>

@@ -9,7 +9,7 @@ const About = () => {
   return (
     <div>
       <Navbar />
-      <PageHeader headertitle="Founder" />
+      <PageHeader headertitle="Spiritual-Activities" />
       
       <FounderDetails />
       <Footer />

@@ -484,21 +484,25 @@ class Navbar extends Component {
                                 </Link>
                               </li>
 
-                              <li>
-                                <a href="#">உறுப்பினர்கள் </a>
+                              <li className="menu-item-has-children">
+                                <Link to="founder">உறுப்பினர்கள் </Link>
                                 <ul className="sub-menu" id="third_menu">
                                   <li>
                                     <Link to="member-responsibilities">
-                                      சீடர்களின் பொறுப்புகள்
+                                    சீடர்களின் பொறுப்புகள்
                                     </Link>
                                   </li>
+                                  <li>
                                   <li>
                                     <Link to="construction">
                                       உறுப்பினர்களின் செயல்பாடுகள்
                                     </Link>
                                   </li>
+                                  </li>
+                                  <li>
                                   <li>
                                     <Link to="blog">கலந்தாய்வு</Link>
+                                  </li>
                                   </li>
                                 </ul>
                               </li>
@@ -506,7 +510,7 @@ class Navbar extends Component {
                                 <Link to="construction">நாகரீக வளர்ச்சி </Link>
                               </li>
                               <li>
-                                <a href="blog">கலந்தாய்வு </a>
+                              <Link to="blog">கலந்தாய்வு </Link>
                               </li>
                               <li>
                                 <Link to="construction">மகான்கள் </Link>
@@ -716,29 +720,33 @@ class Navbar extends Component {
                             <Link to="spiritual"> வஹ்தத்துல் வுஜூத்</Link>
                           </li>
 
-                          <li>
-                            <a href="#">உறுப்பினர்கள் </a>
-                            <ul className="sub-menu" id="third_menu">
-                              <li>
-                                <Link to="member-responsibilities">
-                                  சீடர்களின் பொறுப்புகள்
-                                </Link>
-                              </li>
-                              <li>
-                                <Link to="construction">
-                                  உறுப்பினர்களின் செயல்பாடுகள்
-                                </Link>
-                              </li>
-                              <li>
-                                <Link to="blog">கலந்தாய்வு</Link>
-                              </li>
-                            </ul>
-                          </li>
+                          <li className="menu-item-has-children">
+                          <Link to="founder">உறுப்பினர்கள் </Link>
+                          <ul className="sub-menu" id="third_menu">
+                            <li>
+                              <Link to="member-responsibilities">
+                              சீடர்களின் பொறுப்புகள்
+                              </Link>
+                            </li>
+                            <li>
+                            <li>
+                              <Link to="construction">
+                                உறுப்பினர்களின் செயல்பாடுகள்
+                              </Link>
+                            </li>
+                            </li>
+                            <li>
+                            <li>
+                              <Link to="blog">கலந்தாய்வு</Link>
+                            </li>
+                            </li>
+                          </ul>
+                        </li>
                           <li>
                             <Link to="construction">நாகரீக வளர்ச்சி </Link>
                           </li>
                           <li>
-                            <a href="blog">கலந்தாய்வு </a>
+                            <Link to="blog">கலந்தாய்வு </Link>
                           </li>
                           <li>
                             <Link to="construction">மகான்கள் </Link>

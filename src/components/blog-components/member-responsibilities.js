@@ -63,7 +63,7 @@ class FounderDetails extends Component {
                               பிரபஞ்சமே ஓருடல். அதிற் காண்பன அதன் அங்கங்கள்.
                               கடவுளெனத் தனித் தொருவன் ...{" "}
                             </p>
-                            <Link className="btn member-btn" to="construction">
+                            <Link className="btn member-btn color-orange" to="construction">
                               View Details
                             </Link>
                           </div>
@@ -91,7 +91,7 @@ class FounderDetails extends Component {
                               எம் தந்தை நாயகம் ஜமாலிய்யா ஸெய்யித் யாஸீன் மௌலானா
                               அல்ஹாஷிமிய் ...{" "}
                             </p>
-                            <Link className="btn member-btn" to="construction">
+                            <Link className="btn member-btn color-orange" to="construction">
                               View Details
                             </Link>
                           </div>
@@ -116,7 +116,7 @@ class FounderDetails extends Component {
                               எங்கணுமழகு, சுற்றிப் பார்க்குமிடனெல்லாம் சுவைதரும்
                               எழிற் காட்சிகள். பலப்பல...{" "}
                             </p>
-                            <Link className="btn member-btn" to="construction">
+                            <Link className="btn member-btn color-orange" to="construction">
                               View Details
                             </Link>
                           </div>
@@ -154,7 +154,7 @@ class FounderDetails extends Component {
                   <div className="col-lg-3 col-md-3 col-sm-3 col-3">
                     <img
                       className="aside-widget-user"
-                      src={publicUrl + "assets/img/s-news-post/img-01.jpg"}
+                      src={publicUrl + "assets/img/s-news-post/img-02.jpg"}
                       alt=""
                     />
                   </div>
@@ -175,7 +175,7 @@ class FounderDetails extends Component {
                   <div className="col-lg-3 col-md-3 col-sm-3 col-3">
                     <img
                       className="aside-widget-user"
-                      src={publicUrl + "assets/img/s-news-post/img-01.jpg"}
+                      src={publicUrl + "assets/img/s-news-post/img-03.jpg"}
                       alt=""
                     />
                   </div>
@@ -195,7 +195,7 @@ class FounderDetails extends Component {
                   <div className="col-lg-3 col-md-3 col-sm-3 col-3">
                     <img
                       className="aside-widget-user"
-                      src={publicUrl + "assets/img/s-news-post/img-01.jpg"}
+                      src={publicUrl + "assets/img/s-news-post/img-04.jpg"}
                       alt=""
                     />
                   </div>
@@ -220,26 +220,22 @@ class FounderDetails extends Component {
                   />
                 </div>
                 <div className="row sparate-div p-3">
-                <h6 className="aside-widget">Books for </h6>
+                <h6 className="aside-widget">Books of the year </h6>
                 <hr></hr>
                 <div className="row sparate-div">
                   <div className="col-lg-3 col-3">
                     <img
                       className="aside-widget-user"
-                      src={publicUrl + "assets/img/s-news-post/img-01.jpg"}
+                      src={publicUrl + "assets/img/books-year-list/img-01.jpg"}
                       alt=""
                     />
                   </div>
                   <div className="col-lg-9 col-9">
-                    <span className="aside-widget-user-content">
-                      {" "}
-                      Watch Magda Szubanski Read from He Award
-                    </span>
-                    <br></br>
-                    <span className="aside-widget-posted">
-                      {" "}
-                      Posted on 24 March 2016
-                    </span>
+                  <span className="aside-widget-user-content">
+                    My Brilliant Friend The Neapolitan Novels, Book One
+                  </span> 
+                  <br></br>
+                  <span className="color-orange">BY ELENA FERRANTE</span>
                   </div>
                 </div>
 
@@ -247,20 +243,16 @@ class FounderDetails extends Component {
                   <div className="col-lg-3 col-md-3 col-sm-3 col-3">
                     <img
                       className="aside-widget-user"
-                      src={publicUrl + "assets/img/s-news-post/img-01.jpg"}
+                      src={publicUrl + "assets/img/books-year-list/img-02.jpg"}
                       alt=""
                     />
                   </div>
                   <div className="col-lg-9 col-md-9 col-sm-9 col-9">
-                    <span className="aside-widget-user-content">
-                      {" "}
-                      Watch Magda Szubanski Read from He Award
-                    </span>
-                    <br></br>
-                    <span className="aside-widget-posted">
-                      {" "}
-                      Posted on 24 March 2016
-                    </span>
+                  <span className="aside-widget-user-content">
+                    As night fell, something stirred the darkness.
+                  </span> 
+                  <br></br>
+                  <span className="color-orange">BY MEG CADDY</span>
                   </div>
                 </div>
 
@@ -268,40 +260,34 @@ class FounderDetails extends Component {
                   <div className="col-lg-3 col-md-3 col-sm-3 col-3">
                     <img
                       className="aside-widget-user"
-                      src={publicUrl + "assets/img/s-news-post/img-01.jpg"}
+                      src={publicUrl + "assets/img/books-year-list/img-03.jpg"}
                       alt=""
                     />
                   </div>
                   <div className="col-lg-9 col-md-9 col-sm-9 col-9">
-                    <span className="aside-widget-user-content">
-                      {" "}
-                      Watch Magda Szubanski Read from He Award
-                    </span>
-                    <br></br>
-                    <span className="aside-widget-posted">
-                      {" "}
-                      Posted on 24 March 2016
-                    </span>
+                  <span className="aside-widget-user-content">
+                    The Rosie Project: Don Tillman 1
+                  
+                  </span> 
+                  <br></br>
+                  <span className="color-orange">BY GRAEME SIMSION</span>
                   </div>
                 </div>
                 <div className="row sparate-div">
                   <div className="col-lg-3 col-md-3 col-sm-3 col-3">
                     <img
                       className="aside-widget-user"
-                      src={publicUrl + "assets/img/s-news-post/img-01.jpg"}
+                      src={publicUrl + "assets/img/books-year-list/img-04.jpg"}
                       alt=""
                     />
                   </div>
                   <div className="col-lg-9 col-md-9 col-sm-9 col-9">
                     <span className="aside-widget-user-content">
-                      {" "}
-                      Watch Magda Szubanski Read from He Award
-                    </span>
-                    <br></br>
-                    <span className="aside-widget-posted">
-                      {" "}
-                      Posted on 24 March 2016
-                    </span>
+                    Heartbreaking, joyous, traumatic, intimate and
+                    
+                  </span> 
+                  <br></br>
+                  <span className="color-orange">BY MAGDA SZUBANSKI</span>
                   </div>
                 </div>
               </div>

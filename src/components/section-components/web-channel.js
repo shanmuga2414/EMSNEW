@@ -87,7 +87,7 @@ class Webchannel extends Component {
                 {channels.map((channel) => (
                   <div className="single-team-item" key={channel.vid}>
                     <div className="thumb">
-                      <img
+                      <img className="home_webtv"
                         onClick={this.openModal(channel.url)}
                         src={`http://img.youtube.com/vi/${channel.url}/0.jpg`}
                       ></img>

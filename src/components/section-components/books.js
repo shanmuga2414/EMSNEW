@@ -41,7 +41,7 @@ class Books extends Component {
                       }
                       alt="Card image cap"
                     />
-                    <div className="card-body align-center">
+                    <div className="card-body align-center card-padding">
                       <h6>{book.book_name}</h6>
 
                       <h5 className="align-center">
