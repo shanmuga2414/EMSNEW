@@ -9010,14 +9010,15 @@ ul.filter-main-nav > li:hover > a {
   font-weight: bold;
 }
 .member-btn {
-  border: 1px solid #ff851d;
+  border: 1px solid #e2521a;
   margin-left: 11%;
   padding: 7px 31px;
   margin-top: -27px;
 }
 .member-btn:hover {
-  background-color: #ff851d;
+  background-color: #20505d;
   color: white;
+  border: 1px solid #20505d;
 }
 .member-content {
   padding: 10px;
@@ -9046,7 +9047,8 @@ h6 {
   margin-top: 25px;
 }
 .aside-widget-banner {
-  padding-left: 30px;
+  padding-left: 43px;
+  padding-top: 10px;
 }
 .top-contact {
   margin-left: 20px;
@@ -9104,6 +9106,10 @@ h6 {
   }
   .input-icons {
     margin-top: 27px !important;
+  }
+  .img-content {
+    margin-top: 2px !important;
+    height:139px;
   }
 }
 @media only screen and (max-width: 1025px) and (min-width: 900px) {
@@ -9305,6 +9311,20 @@ h6 {
   .section-title h3 {
     font-size: 21px;
   }
+  .margin-bottom-9{
+    margin: 0 !important;
+  }
+  .img_div {
+    border: 1px solid #b1b19f66;
+    padding: 7px;
+    margin-top: 6px;
+  }
+  .breadcrumb-inner .page-title {
+    display: none;
+  }
+  .gridm-height {
+    height: auto;
+  }
 }
 /* end mobile view 600 */
 
@@ -9403,6 +9423,12 @@ h6 {
   .banner__bg {
     min-height: 407px !important;
   }
+  .founder-img{
+    margin-left: 25%;
+  }
+  .blog-spiritual{
+    margin-left: 40px;
+  }
 }
 @media only screen and (max-width: 1025px) {
   .tab-hide {
@@ -9414,6 +9440,7 @@ h6 {
   .categories .category-height {
     height: 247px !important;
   }
+  
 }
 @media only screen and (max-width: 1025px) and (min-width: 800px) {
   .hide-large {
@@ -9422,6 +9449,10 @@ h6 {
   .ant-picker-input {
     width: 202px !important;
   }
+  .founder-img{
+    margin-left: 20%;
+  }
+  
 }
 @media only screen and (min-width: 601px) {
   .hide-large-view {
@@ -9628,9 +9659,7 @@ button {
 .ant-divider {
   border-top: 2px solid rgb(0 0 0 / 9%) !important;
 }
-.gridm-height{
-  height:591px;
-}
+
 .single-contact-box .icon {
     background: #598fa0 !important;
     margin-left: 42%;
@@ -9646,7 +9675,7 @@ button {
   border-color: #28505dcc;
 }
 .ant-picker {
-  border: 1px solid #808080a3 !important;
+  border: 1px solid #808080cf !important;
 }
 .product-style-audio img {
   width: 312px;
@@ -9689,4 +9718,47 @@ button {
 .form-signin .form-control{
   border:1px solid #28505d8f;
 }
+.home_webtv{
+  height:300px;
+  padding-right:5px;
+}
+.card-padding{
+  padding: 1.25rem 0 0 0;
+}
+.book_content{
+  height: 60px;
+}
+.color-orange{
+  color:#e2521a;
+}
+.blog-img{
+  width:100%;
+}
+.spiritual-title{
+  color: #28505d !important;
+  font-size: 19px;
+  font-weight: 600;
+}
+  .div-border{
+    border: 1px solid #5555552e;
+    margin-bottom: 30px;
+  }
+  .btn-grey{
+    color: #28505d;
+    border: 1px solid #28505dbf;
+  }
+  .btn-grey:hover{ 
+    background-color: #256f87;
+    color: white;
+  }
+  .site-color{
+    color:#28505d;
+    font-weight: 600;
+  }
+  .site-color:hover{
+    color:#e2521a;
+  }
+  .color_black{
+    color:black;
+  }
 
