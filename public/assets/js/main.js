@@ -686,14 +686,14 @@
     arrows: false,
     infinite: true,
     speed: 300,
-    slidesToShow: 6,
-    slidesToScroll: 6,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     responsive: [
       {
         breakpoint: 1500,
         settings: {
-          slidesToShow: 6,
-          slidesToScroll: 6,
+          slidesToShow: 4,
+          slidesToScroll: 4,
           infinite: true,
         },
       },
@@ -728,14 +728,14 @@
     arrows: true,
     infinite: true,
     speed: 300,
-    slidesToShow: 6,
-    slidesToScroll: 6,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     responsive: [
       {
         breakpoint: 1500,
         settings: {
-          slidesToShow: 6,
-          slidesToScroll: 6,
+          slidesToShow: 4,
+          slidesToScroll: 4,
           infinite: true,
         },
       },

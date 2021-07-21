@@ -17,7 +17,9 @@ import MemberResponsibilities from "./components/member-responsibilities";
 import ConstructionDetails from "./components/construction";
 import Spiritual from "./components/spiritual";
 import Blog from "./components/blog-details";
-
+import Login from "./components/loginForm";
+import Register from "./components/registerForm";
+import WebTv from "./components/webTv";
 // import HomeV2 from "./components/home-v2";
 // import HomeV3 from "./components/home-v3";
 // import HomeV4 from "./components/home-v4";
@@ -51,6 +53,8 @@ class Root extends Component {
               <Route path="/gallery" component={Gallery} />
               <Route path="/events" component={EventList} />
               <Route path="/audios" component={Audio} />
+              <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
               <Route
                 exact
                 path="/member-responsibilities"
@@ -63,6 +67,7 @@ class Root extends Component {
               />
               <Route path="/blog" component={Blog} />
               <Route path="/spiritual" component={Spiritual} />
+              <Route path="/webtv" component={WebTv} />
               {/* <Route path="/home-v2" component={HomeV2} />
               <Route path="/home-v3" component={HomeV3} />
               <Route path="/home-v4" component={HomeV4} />
