@@ -279,16 +279,13 @@ class Navbar extends Component {
                 <div className="col-lg-6 col-md-6 col-12 hide-large-view">
                   <div className="row mobile-tv">
                     <div className="col-8">
-                      <Link
-                        className="top-content-size color-white"
-                        href="login"
-                      >
+                      <Link className="top-content-size color-white" to="login">
                         <i class="fas fa-sign-in-alt"></i> Login
                       </Link>
                       <span className="space">|</span>
                       <Link
                         className="top-content-size color-white"
-                        href="register"
+                        to="register"
                       >
                         <i class="fas fa-user-plus"></i> Register
                       </Link>
