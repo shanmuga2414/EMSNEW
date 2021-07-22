@@ -295,6 +295,7 @@ class Navbar extends Component {
                     </div>
                     <div className="col-4">
                       <Link
+                        to="webtv"
                         type="button"
                         className="btn btn-sm btn-tvchannel top-content-size hide-large-view"
                       >
@@ -314,7 +315,7 @@ class Navbar extends Component {
                     <img
                       class="logo-img"
                       src={publicUrl + "assets/img/logo.jpg"}
-                      alt=""
+                      alt="EMS Media"
                     />
                   </Link>
                 </div>
@@ -338,8 +339,11 @@ class Navbar extends Component {
             <div className="row  logo-bg-color hide-large-view1">
               <div className="col-lg-5 col-9 ">
                 <div className="logo">
-                  <Link to="home-v1.js">
-                    <img src={publicUrl + "assets/img/logo.jpg"} alt="" />
+                  <Link to="/">
+                    <img
+                      src={publicUrl + "assets/img/logo.jpg"}
+                      alt="EMS Media"
+                    />
                   </Link>
                 </div>
               </div>
@@ -489,20 +493,20 @@ class Navbar extends Component {
                                 <ul className="sub-menu" id="third_menu">
                                   <li>
                                     <Link to="member-responsibilities">
-                                    சீடர்களின் பொறுப்புகள்
+                                      சீடர்களின் பொறுப்புகள்
                                     </Link>
                                   </li>
                                   <li>
-                                  <li>
-                                    <Link to="construction">
-                                      உறுப்பினர்களின் செயல்பாடுகள்
-                                    </Link>
+                                    <li>
+                                      <Link to="construction">
+                                        உறுப்பினர்களின் செயல்பாடுகள்
+                                      </Link>
+                                    </li>
                                   </li>
-                                  </li>
                                   <li>
-                                  <li>
-                                    <Link to="blog">கலந்தாய்வு</Link>
-                                  </li>
+                                    <li>
+                                      <Link to="blog">கலந்தாய்வு</Link>
+                                    </li>
                                   </li>
                                 </ul>
                               </li>
@@ -510,7 +514,7 @@ class Navbar extends Component {
                                 <Link to="construction">நாகரீக வளர்ச்சி </Link>
                               </li>
                               <li>
-                              <Link to="blog">கலந்தாய்வு </Link>
+                                <Link to="blog">கலந்தாய்வு </Link>
                               </li>
                               <li>
                                 <Link to="construction">மகான்கள் </Link>
@@ -721,27 +725,27 @@ class Navbar extends Component {
                           </li>
 
                           <li className="menu-item-has-children">
-                          <Link to="founder">உறுப்பினர்கள் </Link>
-                          <ul className="sub-menu" id="third_menu">
-                            <li>
-                              <Link to="member-responsibilities">
-                              சீடர்களின் பொறுப்புகள்
-                              </Link>
-                            </li>
-                            <li>
-                            <li>
-                              <Link to="construction">
-                                உறுப்பினர்களின் செயல்பாடுகள்
-                              </Link>
-                            </li>
-                            </li>
-                            <li>
-                            <li>
-                              <Link to="blog">கலந்தாய்வு</Link>
-                            </li>
-                            </li>
-                          </ul>
-                        </li>
+                            <Link to="founder">உறுப்பினர்கள் </Link>
+                            <ul className="sub-menu" id="third_menu">
+                              <li>
+                                <Link to="member-responsibilities">
+                                  சீடர்களின் பொறுப்புகள்
+                                </Link>
+                              </li>
+                              <li>
+                                <li>
+                                  <Link to="construction">
+                                    உறுப்பினர்களின் செயல்பாடுகள்
+                                  </Link>
+                                </li>
+                              </li>
+                              <li>
+                                <li>
+                                  <Link to="blog">கலந்தாய்வு</Link>
+                                </li>
+                              </li>
+                            </ul>
+                          </li>
                           <li>
                             <Link to="construction">நாகரீக வளர்ச்சி </Link>
                           </li>

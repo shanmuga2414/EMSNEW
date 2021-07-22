@@ -22,7 +22,10 @@ class webTV extends Component {
       <div className="about-content about-content-webtv">
         <div className="container webtv-container">
           <div className="row webtv">
-            <ReactPlayer url={`https://www.youtube.com/embed/${cover}`} />
+            <ReactPlayer
+              url={`https://www.youtube.com/embed/${cover}`}
+              playing="true"
+            />
           </div>
           <RelatedVideos />
         </div>

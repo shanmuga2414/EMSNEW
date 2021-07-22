@@ -4,6 +4,7 @@ import * as homeServices from "../../Services/home-page-services";
 import Slider from "react-slick";
 import ModalVideo from "react-modal-video";
 import "react-modal-video/css/modal-video.css";
+import { array } from "joi";
 
 class RelatedVideos extends Component {
   constructor() {
@@ -23,7 +24,9 @@ class RelatedVideos extends Component {
 
   async componentDidMount() {
     const result = await homeServices.getWebTvVideos();
-    this.setState({ videos: result.data.records });
+    const results = result.data.records;
+    results.shift();
+    this.setState({ videos: results });
   }
 
   render() {
@@ -67,7 +70,6 @@ class RelatedVideos extends Component {
     return (
       <div className="container-fluid">
         <div className="related-product-section related-product-webtv">
-       
           <div className="related-product">
             <div className="row">
               <div className="col-lg-12">
