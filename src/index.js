@@ -20,6 +20,8 @@ import Blog from "./components/blog-details";
 import Login from "./components/loginForm";
 import Register from "./components/registerForm";
 import WebTv from "./components/webTv";
+
+import "antd/dist/antd.css";
 // import HomeV2 from "./components/home-v2";
 // import HomeV3 from "./components/home-v3";
 // import HomeV4 from "./components/home-v4";

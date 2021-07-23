@@ -1,46 +1,51 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
-import Form from "../form-components/form";
+// import Form from "../form-components/form";
 import Joi from "joi-browser";
+import { Form, Input, InputNumber, Button, Checkbox, Alert } from "antd";
+
 import * as contactServices from "../../Services/contact-page-services";
 
-class ContactForm extends Form {
-  state = {
-    data: {
+const { TextArea } = Input;
+
+class ContactForm extends Component {
+  constructor() {
+    super();
+    this.state = {
       name: "",
       phone: "",
       msg: "",
       email: "",
       topic: "",
       success: "",
-    },
-    errors: {},
-    value: 2,
+    };
+    this.baseState = this.state;
+  }
+
+  resetForm = () => {
+    this.setState(this.baseState);
+  };
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   };
 
-  schema = {
-    name: Joi.string().required().label("Name"),
-    phone: Joi.string().required().label("Phone"),
-    msg: Joi.string().required().label("Message"),
-    topic: Joi.string().required().label("Subject"),
-    email: Joi.string().email({
-      minDomainSegments: 2,
-      tlds: { allow: ["com", "net"] },
-    }),
+  onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
-
-  doSubmit = async () => {
+  onFinish = async (values) => {
+    // const [form] = Form.useForm();
     try {
-      const response = await contactServices.saveContact(this.state.data);
+      const response = await contactServices.saveContact(values);
+
       if (response.status >= 200) {
-        console.log("aaaaaaaaa");
+        //this.props.form.resetFields();
         this.setState({
           success:
             "Thanks for contacting us! We will be in touch with you shortly.",
         });
-        console.log(this.state.success);
-        this.props.history.push("/contact");
       }
     } catch (ex) {
       const errors = { ...this.state.errors };
@@ -50,15 +55,128 @@ class ContactForm extends Form {
   };
 
   render() {
-    const { success } = this.state;
+    const { success, name, topic, phone, msg, email } = this.state;
     return (
       <div className="contact-form text-center padding-top-80 padding-bottom-80">
         <div className="container">
-          <span>{success}</span>
           <div className="row">
             <div className="col-md-12 contact-div">
+              <span>
+                {success && <Alert message={success} type="success" />}
+              </span>
               <h4 className="text-center">தொடர்பு கொள்ள</h4>
-              <form onSubmit={this.handleSubmit} className="contact_form">
+
+              <Form
+                name="basic"
+                initialValues={{
+                  name: name,
+                  topic: topic,
+                }}
+                onFinish={this.onFinish}
+                onFinishFailed={this.onFinishFailed}
+              >
+                <div className="row">
+                  <div className="col-md-6">
+                    <Form.Item
+                      name="name"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input your username!",
+                        },
+                      ]}
+                    >
+                      <Input
+                        name="name"
+                        onChange={this.handleChange}
+                        placeholder="Name"
+                      />
+                    </Form.Item>
+                  </div>
+                  <div className="col-md-6">
+                    <Form.Item
+                      name="phone"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input your phone!",
+                        },
+                      ]}
+                    >
+                      <Input
+                        name="phone"
+                        onChange={this.handleChange}
+                        placeholder="Phone"
+                      />
+                    </Form.Item>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-6">
+                    <Form.Item
+                      name="email"
+                      rules={[
+                        {
+                          type: "email",
+                          message: "The input is not valid E-mail!",
+                        },
+                        {
+                          required: true,
+                          message: "Please input your E-mail!",
+                        },
+                      ]}
+                    >
+                      <Input
+                        name="email"
+                        onChange={this.handleChange}
+                        placeholder="E-mail"
+                      />
+                    </Form.Item>
+                  </div>
+                  <div className="col-md-6">
+                    <Form.Item
+                      name="topic"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input your Topic!",
+                        },
+                      ]}
+                    >
+                      <Input
+                        name="topic"
+                        onChange={this.handleChange}
+                        placeholder="Topic"
+                      />
+                    </Form.Item>
+                  </div>
+                </div>
+                <div className="col-lg-12">
+                  <Form.Item
+                    name="msg"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your Message!",
+                      },
+                    ]}
+                  >
+                    <TextArea
+                      name="msg"
+                      onChange={this.handleChange}
+                      rows={4}
+                      placeholder="Message"
+                    />
+                  </Form.Item>
+                </div>
+                <Form.Item>
+                  <Button type="primary" htmlType="submit">
+                    Submit
+                  </Button>
+                </Form.Item>
+              </Form>
+
+              {/* <form onSubmit={this.handleSubmit} className="contact_form">
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     {this.renderInput("name", "Name")}
@@ -83,7 +201,7 @@ class ContactForm extends Form {
                 <button type="submit" className="btn btn-contact">
                   Send Message
                 </button>
-              </form>
+              </form> */}
             </div>
           </div>
         </div>

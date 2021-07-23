@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "antd/dist/antd.css";
+
 import { DatePicker, Divider, Space } from "antd";
 import Pagination from "../global-components/pagination";
 import { paginate } from "../../paginate";
@@ -103,10 +103,7 @@ class Events extends Component {
 
                           <p>{event.description.replace(regex, "")}</p>
                         </div>
-                        <a
-                          class="btn btn-native"
-                          href="#/blog-details"
-                        >
+                        <a class="btn btn-native" href="#/blog-details">
                           Read more
                         </a>
                       </div>
@@ -137,15 +134,16 @@ class Events extends Component {
             <div className="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 margin-top-20">
               <div className="widget search-widget">
                 <form className="search" action="#">
-                <button type="submit">
-                  <i className="icon-search" />
-                </button>
-                <input
-                  type="text" className="side-input"
-                  placeholder="Search Category"
-                  name="search"
-                />
-              </form>
+                  <button type="submit">
+                    <i className="icon-search" />
+                  </button>
+                  <input
+                    type="text"
+                    className="side-input"
+                    placeholder="Search Category"
+                    name="search"
+                  />
+                </form>
               </div>
 
               <div className="widget ptype-widget">
