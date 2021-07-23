@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
 // import Form from "../form-components/form";
-import Joi from "joi-browser";
+import Joi, { cloneWithShallow } from "joi-browser";
 import { Form, Input, InputNumber, Button, Checkbox, Alert } from "antd";
 
 import * as contactServices from "../../Services/contact-page-services";
@@ -13,7 +13,7 @@ class ContactForm extends Component {
   constructor() {
     super();
     this.state = {
-      name: "",
+      name: "aaaaa",
       phone: "",
       msg: "",
       email: "",
@@ -23,9 +23,6 @@ class ContactForm extends Component {
     this.baseState = this.state;
   }
 
-  resetForm = () => {
-    this.setState(this.baseState);
-  };
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -39,9 +36,8 @@ class ContactForm extends Component {
     // const [form] = Form.useForm();
     try {
       const response = await contactServices.saveContact(values);
-
+      this.setState({ name: "bbbbb" });
       if (response.status >= 200) {
-        //this.props.form.resetFields();
         this.setState({
           success:
             "Thanks for contacting us! We will be in touch with you shortly.",
@@ -56,11 +52,12 @@ class ContactForm extends Component {
 
   render() {
     const { success, name, topic, phone, msg, email } = this.state;
+    console.log(name);
     return (
       <div className="contact-form text-center padding-top-80 padding-bottom-80">
         <div className="container">
           <div className="row">
-          <div className="col-md-2"></div>
+            <div className="col-md-2"></div>
             <div className="col-md-8 contact-div">
               <span>
                 {success && <Alert message={success} type="success" />}
@@ -69,10 +66,6 @@ class ContactForm extends Component {
 
               <Form
                 name="basic"
-                initialValues={{
-                  name: name,
-                  topic: topic,
-                }}
                 onFinish={this.onFinish}
                 onFinishFailed={this.onFinishFailed}
               >
@@ -91,6 +84,7 @@ class ContactForm extends Component {
                         name="name"
                         onChange={this.handleChange}
                         placeholder="Name"
+                        value={this.state.name}
                       />
                     </Form.Item>
                   </div>
@@ -153,27 +147,31 @@ class ContactForm extends Component {
                   </div>
                 </div>
                 <div className="row">
-                <div className="col-lg-12">
-                  <Form.Item
-                    name="msg"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please input your Message!",
-                      },
-                    ]}
-                  >
-                    <TextArea
+                  <div className="col-lg-12">
+                    <Form.Item
                       name="msg"
-                      onChange={this.handleChange}
-                      rows={4}
-                      placeholder="Message"
-                    />
-                  </Form.Item>
-                </div>
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input your Message!",
+                        },
+                      ]}
+                    >
+                      <TextArea
+                        name="msg"
+                        onChange={this.handleChange}
+                        rows={4}
+                        placeholder="Message"
+                      />
+                    </Form.Item>
+                  </div>
                 </div>
                 <Form.Item>
-                  <Button type="primary" htmlType="submit" className="contact-btn">
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    className="contact-btn"
+                  >
                     Send your message
                   </Button>
                 </Form.Item>

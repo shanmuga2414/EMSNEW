@@ -59,3 +59,7 @@ export async function getBookCategories() {
 export async function getWebTvVideos() {
   return axios.get("https://emsmedia.net/ems_react/web-tv.php");
 }
+
+export async function getMenu() {
+  return axios.get("http://emsmedia.net/ems_react/menu.php");
+}
