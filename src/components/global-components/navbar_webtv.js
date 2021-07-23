@@ -272,8 +272,8 @@ class Navbar extends Component {
                     className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white"
                   >
                     <i className="fa fa-play-circle fa-lg" />{" "}
-                    <span className="tab">EMS</span> Web TV{" "}
-                    <span className="tab">Channel</span>
+                    <span className="tab">EMS</span> Media{" "}
+                    <span className="tab">Home</span>
                   </Link>
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 hide-large-view">
@@ -310,8 +310,8 @@ class Navbar extends Component {
                 <div className="logo">
                   <Link to="/">
                     <img
-                      class="logo-img"
-                      src={publicUrl + "assets/img/logo.jpg"}
+                      class="logo-img web-tv-logo"
+                      src={publicUrl + "assets/img/logo-webtv.jpeg"}
                       alt=""
                     />
                   </Link>
@@ -337,7 +337,7 @@ class Navbar extends Component {
               <div className="col-lg-5 col-9 ">
                 <div className="logo">
                   <Link to="/">
-                    <img src={publicUrl + "assets/img/logo.jpg"} alt="" />
+                    <img src={publicUrl + "assets/img/logo-webtv.jpeg"} alt="" />
                   </Link>
                 </div>
               </div>

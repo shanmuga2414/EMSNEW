@@ -70,14 +70,20 @@ class LoginForm extends Form {
                         </div>
                       </div>
                       <div>
-                      
+                    
                     <button
                           disabled={this.validate()}
-                          className="btn btn-style-1"
+                          className="btn btn-style-1 bg-red form-control"
                         >
                           Login
-                        </button><br></br>
-                        <span className="">New to EMS?</span><br></br>
+                        </button>
+                        <br></br>
+
+                        <Link className="text-center new-account" to="#">
+                      Forgot Password?
+                    </Link><br></br>
+                    <hr></hr>
+                        <span className="">New to EMS Media?</span><br></br>
                         <Link className="text-center new-account btn btn-grey" to="register">
                       Create Your EMS account
                     </Link>

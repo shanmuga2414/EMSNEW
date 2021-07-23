@@ -60,11 +60,12 @@ class ContactForm extends Component {
       <div className="contact-form text-center padding-top-80 padding-bottom-80">
         <div className="container">
           <div className="row">
-            <div className="col-md-12 contact-div">
+          <div className="col-md-2"></div>
+            <div className="col-md-8 contact-div">
               <span>
                 {success && <Alert message={success} type="success" />}
               </span>
-              <h4 className="text-center">தொடர்பு கொள்ள</h4>
+              <h4 className="contact-header text-center">தொடர்பு கொள்ள</h4>
 
               <Form
                 name="basic"
@@ -146,11 +147,12 @@ class ContactForm extends Component {
                       <Input
                         name="topic"
                         onChange={this.handleChange}
-                        placeholder="Topic"
+                        placeholder="Subject"
                       />
                     </Form.Item>
                   </div>
                 </div>
+                <div className="row">
                 <div className="col-lg-12">
                   <Form.Item
                     name="msg"
@@ -169,9 +171,10 @@ class ContactForm extends Component {
                     />
                   </Form.Item>
                 </div>
+                </div>
                 <Form.Item>
-                  <Button type="primary" htmlType="submit">
-                    Submit
+                  <Button type="primary" htmlType="submit" className="contact-btn">
+                    Send your message
                   </Button>
                 </Form.Item>
               </Form>

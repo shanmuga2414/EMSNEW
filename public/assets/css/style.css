@@ -9674,7 +9674,7 @@ button {
   margin-left: 42%;
 }
 .contact-form input, .contact-form textarea{
-  border-color: #28505dcc;
+  border: 1px solid #28505d82;
 }
 .ant-picker {
   border: 1px solid #808080cf !important;
@@ -9712,7 +9712,7 @@ button {
 }
 .contact-div{
   background-color: white;
-  padding:16px;
+  padding: 36px 50px 16px 50px;
 }
 .contact_form{
   padding:16px;
@@ -9764,10 +9764,10 @@ button {
     color:black;
   }
   .top-header{
-    background-color: #3ab3b2 !important;
+    background-color: #00C9FC !important;
   }
   .breadcrumb-area-webtv{
-    background-color:#28505d;
+    background-color:#28505d !important;
   }
   .page-title-webtv{
     color:white;
@@ -9786,6 +9786,24 @@ button {
   }
   .webtv-title h3{
     font-size: 25px;
+  }
+  .bg-red{
+    background-color: red !important;
+  }
+  .contact-header{
+    margin-bottom: 30px;
+  }
+  .contact-btn{
+    background: black !important;
+    height: 50px !important;
+  }
+  .contact-btn span{
+    padding:0px 17px;
+    font-weight: 400;
+    font-size: 18px;
+  }
+  .web-tv-logo{
+    width:380px !important;
   }
   
  
