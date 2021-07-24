@@ -240,23 +240,23 @@ class Footer_v1 extends Component {
                   <div className="text-secondary">
                     <Link className="mr-3" to="/">
                       {" "}
-                      <i className="fa fa-facebook fa-lg"></i>
+                      <i className="fab fa-facebook fa-lg"></i>
                     </Link>
                     <Link className="mr-3" to="/">
                       {" "}
-                      <i className="fa fa-twitter fa-lg"></i>
+                      <i className="fab fa-twitter fa-lg"></i>
                     </Link>
                     <Link className="mr-3" to="/">
                       {" "}
-                      <i className="fa fa-pinterest fa-lg" />
+                      <i className="fab fa-pinterest fa-lg" />
                     </Link>
                     <Link className="mr-3" to="/">
                       {" "}
-                      <i className="fa fa-linkedin fa-lg" />
+                      <i className="fab fa-linkedin fa-lg" />
                     </Link>
                     <Link className="mr-3" to="/">
                       {" "}
-                      <i className="fa fa-vimeo fa-lg " />
+                      <i className="fab fa-vimeo fa-lg " />
                     </Link>
                   </div>
                 </div>

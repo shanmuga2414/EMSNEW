@@ -311,7 +311,7 @@ class Navbar extends Component {
                   <Link to="/">
                     <img
                       class="logo-img web-tv-logo"
-                      src={publicUrl + "assets/img/logo-webtv.jpeg"}
+                      src={publicUrl + "assets/img/logo-webtv.jpg"}
                       alt=""
                     />
                   </Link>
@@ -337,7 +337,7 @@ class Navbar extends Component {
               <div className="col-lg-5 col-9 ">
                 <div className="logo">
                   <Link to="/">
-                    <img src={publicUrl + "assets/img/logo-webtv.jpeg"} alt="" />
+                    <img src={publicUrl + "assets/img/logo-webtv.jpg"} alt="" />
                   </Link>
                 </div>
               </div>

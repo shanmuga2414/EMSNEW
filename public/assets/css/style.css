@@ -9805,5 +9805,14 @@ button {
   .web-tv-logo{
     width:380px !important;
   }
+  .footer-address-bar-webtv {
+    background: #00C9FC !important;
+    min-height: 100px;
+    margin-bottom: 20px;
+    color: #fff !important;
+}
+.method-box__content p.address-additional{
+  color: #100d0da1 !important;
+}
   
  
