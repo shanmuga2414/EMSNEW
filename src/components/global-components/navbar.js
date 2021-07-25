@@ -3,6 +3,20 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import * as homeServices from "../../Services/home-page-services";
 
+const num = [
+  {
+    thirdmenu: "வாப்பா நாயகம் ",
+    url: "",
+  },
+  {
+    thirdmenu: "தந்தை நாயகம் ",
+    url: "",
+  },
+  {
+    thirdmenu: "அப்பா நாயகம் ",
+    url: "",
+  },
+];
 class Navbar extends Component {
   state = {
     menus: [],
@@ -437,26 +451,43 @@ class Navbar extends Component {
                 <div className="col-lg-12 order-3 order-lg-2">
                   <div className="collapse navbar-collapse" id="shop-menu">
                     <ul className="navbar-nav menu-open">
-                      {/* {menus.map((menu) => ( */}
-
                       {mainMenu.map((item, i) => {
                         const subMenus = menus[item];
                         return (
                           <li className="menu-item-has-children">
                             <Link to="#">
                               {item}
-                              {subMenus.length > 1 && (
-                                <i className="fa fa-angle-down" />
-                              )}
+                              <i className="fa fa-angle-down" />
                             </Link>
-                            {subMenus.length > 1 && (
+                            {subMenus.length > 0 && (
                               <ul className="sub-menu">
                                 {subMenus.map((childmenu) => {
+                                  const subSubMenu = childmenu.third_child;
                                   return (
-                                    <li className="menu-item-has-children">
+                                    <li
+                                      className={
+                                        subSubMenu
+                                          ? "menu-item-has-children"
+                                          : ""
+                                      }
+                                    >
                                       <Link to={childmenu.url}>
                                         {childmenu.submenu}
                                       </Link>
+                                      {subSubMenu && (
+                                        <ul
+                                          className="sub-menu"
+                                          id="third_menu"
+                                        >
+                                          {subSubMenu.map((thirdMenu) => (
+                                            <li>
+                                              <Link to="founder">
+                                                {thirdMenu.thirdmenu}
+                                              </Link>
+                                            </li>
+                                          ))}
+                                        </ul>
+                                      )}
                                     </li>
                                   );
                                 })}
