@@ -304,10 +304,10 @@ class Navbar extends Component {
                                 </Link>
                               </li>
                               <li>
-                                <Link to="spiritual"> மஹாங்களின் சரிதைகள்</Link>
+                                <Link to="construction"> மஹாங்களின் சரிதைகள்</Link>
                               </li>
                               <li>
-                                <Link to="construction">
+                                <Link to="spiritual">
                                   {" "}
                                   வஹ்தத்துல் வுஜூத்
                                 </Link>
