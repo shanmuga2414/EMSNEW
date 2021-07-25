@@ -3,20 +3,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import * as homeServices from "../../Services/home-page-services";
 
-const num = [
-  {
-    thirdmenu: "வாப்பா நாயகம் ",
-    url: "",
-  },
-  {
-    thirdmenu: "தந்தை நாயகம் ",
-    url: "",
-  },
-  {
-    thirdmenu: "அப்பா நாயகம் ",
-    url: "",
-  },
-];
 class Navbar extends Component {
   state = {
     menus: [],
@@ -26,13 +12,6 @@ class Navbar extends Component {
     const result = await homeServices.getMenu();
     const menuList = result.data.records;
     this.setState({ menus: result.data.records });
-    //console.log(menuList);
-    // const childItems = Object.keys(menuList);
-    // childItems.map((item) => {
-    //   const childs = menuList[item];
-    //   childs.map((aa) => console.log(aa));
-    // });
-
     const $ = window.$;
 
     let publicUrl = process.env.PUBLIC_URL + "/";
@@ -60,8 +39,7 @@ class Navbar extends Component {
     const { menus } = this.state;
     const mainMenu = Object.keys(menus);
     let publicUrl = process.env.PUBLIC_URL + "/";
-    let imgattr = "logo";
-    let anchor = "#";
+
     return (
       <div>
         <div className="stoon-navbar">
@@ -304,13 +282,13 @@ class Navbar extends Component {
                                 </Link>
                               </li>
                               <li>
-                                <Link to="construction"> மஹாங்களின் சரிதைகள்</Link>
+                                <Link to="construction">
+                                  {" "}
+                                  மஹாங்களின் சரிதைகள்
+                                </Link>
                               </li>
                               <li>
-                                <Link to="spiritual">
-                                  {" "}
-                                  வஹ்தத்துல் வுஜூத்
-                                </Link>
+                                <Link to="spiritual"> வஹ்தத்துல் வுஜூத்</Link>
                               </li>
 
                               <li className="menu-item-has-children">
