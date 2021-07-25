@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import parse from "html-react-parser";
-// import Form from "../form-components/form";
-import Joi, { cloneWithShallow } from "joi-browser";
 import { Form, Input, InputNumber, Button, Checkbox, Alert } from "antd";
 
 import * as contactServices from "../../Services/contact-page-services";

@@ -35,7 +35,7 @@ class Footer_v1 extends Component {
                 <div className="col-xl-3 col-lg-4 col-md-6 mobile-location">
                   <div className="method-box">
                     <div className="method-box__icon">
-                      <i class="fas fa-envelope"></i>
+                      <i className="fas fa-envelope"></i>
                     </div>
                     <div className="method-box__content tab-contact">
                       <span>contact@onlinbookshops.com</span>
@@ -46,7 +46,7 @@ class Footer_v1 extends Component {
                 <div className="col-xl-3 col-lg-4 col-md-6 mobile-location">
                   <div className="method-box margin-bottom-9">
                     <div className="method-box__icon">
-                      <i class="fas fa-map-marker-alt"></i>
+                      <i className="fas fa-map-marker-alt"></i>
                     </div>
                     <div className="method-box__content">
                       <span>888 South Avenue Street, New York City. </span>

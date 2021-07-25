@@ -1,13 +1,23 @@
-import React from "react";
-import Form from "./form-components/form";
-import Joi from "joi-browser";
+import React, { Component } from "react";
 import Navbar from "./global-components/navbar";
 import PageHeader from "./global-components/page-header";
 import { Link } from "react-router-dom";
 import Footer from "./global-components/footer";
+import {
+  Form,
+  Input,
+  Cascader,
+  Select,
+  Row,
+  Col,
+  Checkbox,
+  Button,
+  AutoComplete,
+} from "antd";
+const { Option } = Select;
 // import * as employeeServices from "../services/employeeServices";
 
-class RegisterForm extends Form {
+class RegisterForm extends Component {
   state = {
     data: {
       name: "",
@@ -20,19 +30,7 @@ class RegisterForm extends Form {
     value: 2,
   };
 
-  schema = {
-    name: Joi.string().required().label("Name"),
-    mobile: Joi.string().required().label("Mobile"),
-    qualification: Joi.string().required().label("qualification"),
-
-    email: Joi.string().email({
-      minDomainSegments: 2,
-      tlds: { allow: ["com", "net"] },
-    }),
-    password: Joi.string().required().label("Password"),
-  };
-
-  doSubmit = async () => {
+  onFinish = async () => {
     // try {
     //   const response = await employeeServices.register(this.state.data);
     //   if (response.status >= 200) {
@@ -53,8 +51,7 @@ class RegisterForm extends Form {
         <section className="loginBlock">
           <div className="container container-login">
             <div className="row">
-              <div className="col-md-2 col-md-offset-4">
-              </div>
+              <div className="col-md-2 col-md-offset-4"></div>
               <div className="col-sm-8 col-md-8 col-md-offset-4">
                 <div className="account-wall div-border">
                   <img
@@ -62,41 +59,91 @@ class RegisterForm extends Form {
                     src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                     alt=""
                   />
+
                   <h3>Create Account</h3>
-                  <form onSubmit={this.handleSubmit} className="form-signin">
-                    {/* BEGIN :: FORM GROUP | GRID-2 */}
-                    
-                    <div className="form-group field-grid-1">
-                      <div>{this.renderInput("text", "Name")}</div>
-                    </div>
-                    <div className="form-group field-grid-1">
-                      <div>{this.renderInput("text", "Mobile")}</div>
-                    </div>
-                    <div className="form-group field-grid-1">
-                      <div>{this.renderInput("text", "Qualification")}</div>
-                    </div>
-                    <div className="form-group field-grid-1">
-                      <div>{this.renderInput("email", "Email")}</div>
-                    </div>
-                    <div className="form-group field-grid-1">
-                      <div>
-                        {this.renderInput("password", "Password", "password")}
+                  <Form
+                    name="register"
+                    onFinish={this.onFinish}
+                    // initialValues={{
+                    //   residence: ["zhejiang", "hangzhou", "xihu"],
+                    //   prefix: "86",
+                    // }}
+                    scrollToFirstError
+                  >
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <Form.Item
+                          name="name"
+                          label="Name"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please input your Name!",
+                            },
+                          ]}
+                          hasFeedback
+                        >
+                          <Input />
+                        </Form.Item>
+                      </div>
+                      <div class="col-lg-6">
+                        <Form.Item
+                          name="qualification"
+                          label="Qualification"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please select your qualification!",
+                            },
+                          ]}
+                          hasFeedback
+                        >
+                          <Select placeholder="select your gender">
+                            <Option value="male">Male</Option>
+                            <Option value="female">Female</Option>
+                            <Option value="other">Other</Option>
+                          </Select>
+                        </Form.Item>
                       </div>
                     </div>
-                    <div>
-                      <button
-                        disabled={this.validate()}
-                        className="btn btn-style-1"
-                      >
-                        Register
-                      </button><br></br>
-                      <Link to="login" className="text-center new-account site-color">
-                      <span className="color_black">Alreay have an account?</span> Login
-                    </Link>
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <Form.Item
+                          name="email"
+                          label="E-mail"
+                          rules={[
+                            {
+                              type: "email",
+                              message: "The input is not valid E-mail!",
+                            },
+                            {
+                              required: true,
+                              message: "Please input your E-mail!",
+                            },
+                          ]}
+                          hasFeedback
+                        >
+                          <Input />
+                        </Form.Item>
+                      </div>
+                      <div class="col-lg-6">
+                        <Form.Item
+                          name="password"
+                          label="Password"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please input your password!",
+                            },
+                          ]}
+                          hasFeedback
+                        >
+                          <Input.Password />
+                        </Form.Item>
+                      </div>
                     </div>
-                  </form>
+                  </Form>
                 </div>
-               
               </div>
             </div>
           </div>

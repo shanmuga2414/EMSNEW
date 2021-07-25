@@ -1,31 +1,27 @@
 import React from "react";
 import Navbar from "./global-components/navbar";
 import PageHeader from "./global-components/page-header";
-import Form from "./form-components/form";
-import Joi from "joi-browser";
 import Footer from "./global-components/footer";
 import { Link } from "react-router-dom";
+import { Form, Input, Button } from "antd";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { Component } from "react";
 // import auth from "../Services/authService";
 
-class LoginForm extends Form {
-  state = {
-    data: {
-      email: "",
-      password: "",
-    },
-    errors: {},
-    value: 2,
-  };
+class LoginForm extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: {
+        email: "",
+        password: "",
+      },
+      errors: {},
+      value: 2,
+    };
+  }
 
-  schema = {
-    email: Joi.string().email({
-      minDomainSegments: 2,
-      tlds: { allow: ["com", "net"] },
-    }),
-    password: Joi.string().required().label("Password"),
-  };
-
-  doSubmit = async () => {
+  onFinish = async () => {
     // try {
     //   const { data } = this.state;
     //   await auth.login(data.email, data.password);
@@ -49,48 +45,78 @@ class LoginForm extends Form {
           <section className="loginBlock">
             <div className="container container-login">
               <div className="row">
-                <div className=" col-md-4 col-md-offset-4">
-                </div>
+                <div className=" col-md-4 col-md-offset-4"></div>
                 <div className="col-sm-6 col-md-4 col-md-offset-4">
                   <div className="account-wall div-border">
-                  
                     <img
                       className="profile-img"
                       src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                       alt=""
-                    /><h3>Login</h3>
-                    <form onSubmit={this.handleSubmit} className="form-signin">
-                      {/* BEGIN :: FORM GROUP | GRID-2 */}
-                      <div className="form-group field-grid-1">
-                        <div>{this.renderInput("email", "Email")}</div>
-                      </div>
-                      <div className="form-group field-grid-1">
-                        <div>
-                          {this.renderInput("password", "Password", "password")}
-                        </div>
-                      </div>
-                      <div>
-                    
-                    <button
-                          disabled={this.validate()}
-                          className="btn btn-style-1 bg-red form-control"
+                    />
+                    <h3>Login</h3>
+                    <Form
+                      name="normal_login"
+                      className="login-form"
+                      initialValues={{ remember: true }}
+                      onFinish={this.onFinish}
+                    >
+                      <Form.Item
+                        name="username"
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please input your Username!",
+                          },
+                        ]}
+                      >
+                        <Input
+                          prefix={
+                            <UserOutlined className="site-form-item-icon" />
+                          }
+                          placeholder="Username"
+                        />
+                      </Form.Item>
+                      <Form.Item
+                        name="password"
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please input your Password!",
+                          },
+                        ]}
+                      >
+                        <Input
+                          prefix={
+                            <LockOutlined className="site-form-item-icon" />
+                          }
+                          type="password"
+                          placeholder="Password"
+                        />
+                      </Form.Item>
+                      <Form.Item>
+                        <Button
+                          block
+                          type="danger"
+                          htmlType="submit"
+                          className="btn btn-style-1"
                         >
-                          Login
-                        </button>
-                        <br></br>
+                          Log in
+                        </Button>
+                        <a className="login-form-forgot" href="">
+                          Are you forgot your password?
+                        </a>
+                      </Form.Item>
 
-                        <Link className="text-center new-account" to="#">
-                      Forgot Password?
-                    </Link><br></br>
-                    <hr></hr>
-                        <span className="">New to EMS Media?</span><br></br>
-                        <Link className="text-center new-account btn btn-grey" to="register">
-                      Create Your EMS account
-                    </Link>
-                      </div>
-                    </form>
+                      <Form.Item>
+                        <Link
+                          class="text-center new-account btn btn-grey"
+                          to="register"
+                        >
+                          Create Your EMS account
+                        </Link>
+                      </Form.Item>
+                    </Form>
                   </div>
-                 
                 </div>
               </div>
             </div>
