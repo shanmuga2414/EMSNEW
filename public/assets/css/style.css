@@ -9675,6 +9675,7 @@ button {
 }
 .contact-form input, .contact-form textarea{
   border: 1px solid #28505d82;
+  border-radius: 2px !important;
 }
 .ant-picker {
   border: 1px solid #808080cf !important;
@@ -9796,6 +9797,7 @@ button {
   .contact-btn{
     background: black !important;
     height: 50px !important;
+    
   }
   .contact-btn span{
     padding:0px 17px;
@@ -9814,5 +9816,61 @@ button {
 .method-box__content p.address-additional{
   color: #100d0da1 !important;
 }
-  
- 
+.ant-row{
+  display: inline-block !important;
+  text-align: left !important;
+}
+.ant-form-item-required
+{
+  font-size: 17px !important;
+} 
+ .ant-form-item{
+  width:100% !important;
+}
+/* .ant-input{ 
+  height:40px;
+  box-shadow:1px 1px 2px grey;
+} */
+.ant-select:not(.ant-select-customize-input) .ant-select-selector{
+  border: none !important;
+}
+.ant-input-affix-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-width: 0;
+  padding: 4px 11px;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 14px;
+  line-height: 1.5715;
+  background-color: #fff;
+  background-image: none;
+   border: none !important;
+  border-radius: 2px;
+  transition: all 0.3s;
+  display: inline-flex;
+}
+#register_form .ant-input-affix-wrapper > input.ant-input {
+  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-variant: tabular-nums;
+    list-style: none;
+    font-feature-settings: 'tnum';
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    min-width: 0;
+    padding: 4px 11px;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    line-height: 1.5715;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+/* .ant-select {
+    padding: 8px 20px !important;
+} */

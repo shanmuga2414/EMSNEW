@@ -143,7 +143,7 @@ class ContactForm extends Component {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-lg-12">
+                  <div className="col-lg-12 ">
                     <Form.Item
                       name="msg"
                       rules={[
@@ -163,13 +163,13 @@ class ContactForm extends Component {
                   </div>
                 </div>
                 <Form.Item>
-                  <Button
+                <center><Button
                     type="primary"
                     htmlType="submit"
-                    className="contact-btn"
+                    className="contact-btn text-center"
                   >
                     Send your message
-                  </Button>
+                  </Button></center>
                 </Form.Item>
               </Form>
 

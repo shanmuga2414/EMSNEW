@@ -49,18 +49,19 @@ class RegisterForm extends Component {
         <Navbar />
         <PageHeader headertitle="Register" />
         <section className="loginBlock">
-          <div className="container container-login">
-            <div className="row">
-              <div className="col-md-2 col-md-offset-4"></div>
-              <div className="col-sm-8 col-md-8 col-md-offset-4">
-                <div className="account-wall div-border">
+       
+          <div className="container">
+            <div className="row contact-form">
+              <div className="col-md-2 "></div>
+              <div className="col-md-8">
+                <div className="account-wall div-border" id="register_form">
                   <img
                     className="profile-img"
                     src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                     alt=""
                   />
 
-                  <h3>Create Account</h3>
+                  <h3 className="text-center">Create Account</h3>
                   <Form
                     name="register"
                     onFinish={this.onFinish}
@@ -86,7 +87,7 @@ class RegisterForm extends Component {
                           <Input />
                         </Form.Item>
                       </div>
-                      <div class="col-lg-6">
+                      <div class="col-md-6">
                         <Form.Item
                           name="qualification"
                           label="Qualification"
@@ -98,7 +99,7 @@ class RegisterForm extends Component {
                           ]}
                           hasFeedback
                         >
-                          <Select placeholder="select your gender">
+                          <Select className="ant-input" placeholder="select your gender">
                             <Option value="male">Male</Option>
                             <Option value="female">Female</Option>
                             <Option value="other">Other</Option>
@@ -107,7 +108,8 @@ class RegisterForm extends Component {
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-lg-6">
+                      <div class="col-md-6">
+                      
                         <Form.Item
                           name="email"
                           label="E-mail"
@@ -123,10 +125,11 @@ class RegisterForm extends Component {
                           ]}
                           hasFeedback
                         >
-                          <Input />
+                        
+                        <Input />
                         </Form.Item>
                       </div>
-                      <div class="col-lg-6">
+                      <div class="col-md-6">
                         <Form.Item
                           name="password"
                           label="Password"
@@ -146,7 +149,8 @@ class RegisterForm extends Component {
                 </div>
               </div>
             </div>
-          </div>
+         
+          </div>             
         </section>
         <Footer />
       </div>
