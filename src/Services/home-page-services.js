@@ -63,3 +63,10 @@ export async function getWebTvVideos() {
 export async function getMenu() {
   return axios.get("http://emsmedia.net/ems_react/menu.php");
 }
+export function getBlogContent(path) {
+  // console.log("User services log:", data);
+  return axios.post("http://emsmedia.net/ems_react/blog_content.php", {
+    path: path,
+    // date: user.password,
+  });
+}
