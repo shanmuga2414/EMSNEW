@@ -53,7 +53,7 @@ class LoginForm extends Component {
                       src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                       alt=""
                     />
-                    <h3>Login</h3>
+                    <h3 className="pb-2">Login</h3>
                     <Form
                       name="normal_login"
                       className="login-form"
@@ -102,18 +102,19 @@ class LoginForm extends Component {
                         >
                           Log in
                         </Button>
-                        <a className="login-form-forgot" href="">
+                        <center><a className="login-form-forgot" href="">
                           Are you forgot your password?
-                        </a>
+                        </a></center>
                       </Form.Item>
-
+                          <hr></hr>
+                          <center><span>New to EMS?</span></center>
                       <Form.Item>
-                        <Link
+                        <center><Link
                           class="text-center new-account btn btn-grey"
                           to="register"
                         >
                           Create Your EMS account
-                        </Link>
+                        </Link></center>
                       </Form.Item>
                     </Form>
                   </div>

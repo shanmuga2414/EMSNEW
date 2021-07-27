@@ -9839,13 +9839,13 @@ button {
   display: inline-block;
   width: 100%;
   min-width: 0;
-  padding: 4px 11px;
+  padding: 0px 11px !important;
   color: rgba(0, 0, 0, 0.85);
   font-size: 14px;
   line-height: 1.5715;
   background-color: #fff;
   background-image: none;
-   border: none !important;
+  border: 1px solid #28505d8a !important;
   border-radius: 2px;
   transition: all 0.3s;
   display: inline-flex;
@@ -9861,16 +9861,45 @@ button {
     display: inline-block;
     width: 100%;
     min-width: 0;
-    padding: 4px 11px;
+    padding: 8px 20px;
     color: rgba(0, 0, 0, 0.85);
     font-size: 14px;
     line-height: 1.5715;
     background-color: #fff;
     background-image: none;
-    border: 1px solid #d9d9d9;
+    border: 1px solid #28505d8a !important;
     border-radius: 2px;
     transition: all 0.3s;
 }
-/* .ant-select {
-    padding: 8px 20px !important;
-} */
+.register-form input, .contact-form textarea {
+  border-radius: 0px;
+  border-color: #cccccc;
+  background: rgba(255, 255, 255, 0.5);
+  padding:  8px 20px;
+  width: 100%;
+}
+#register_form .ant-input{
+  border:1px solid #28505d8a !important;
+  z-index: 0;
+}
+.ant-input-suffix{
+  z-index:1;
+  
+}
+#register_form .ant-input-affix-wrapper > input.ant-input{
+  border:none !important;
+}
+.ant-input-affix-wrapper .ant-input-password{
+  border:1px solid #28505d !important;
+}
+#login-form .ant-input-affix-wrapper .ant-input{
+  border: none !important;
+}
+.ant-input-prefix{
+  padding:13px !important;
+}
+.ant-btn{
+  height: 42px !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+}
