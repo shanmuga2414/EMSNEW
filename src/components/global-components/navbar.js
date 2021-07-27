@@ -38,7 +38,7 @@ class Navbar extends Component {
   render() {
     const { menus } = this.state;
     const mainMenu = Object.keys(menus);
-    mainMenu.shift();
+    // mainMenu.shift();
     let publicUrl = process.env.PUBLIC_URL + "/";
 
     return (
