@@ -60,7 +60,7 @@ class RegisterForm extends Component {
         <PageHeader headertitle="Register" />
         <section className="loginBlock">
           <div className="container">
-            <div className="row contact-form">
+            <div className="row register-form">
               <div className="col-md-2 "></div>
               <div className="col-md-8">
                 <div className="account-wall div-border" id="register_form">
