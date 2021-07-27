@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import Navbar from "./global-components/navbar";
 import PageHeader from "./global-components/page-header";
 import { Link } from "react-router-dom";
+import {
+  CountryDropdown,
+  RegionDropdown,
+  CountryRegionData,
+} from "react-country-region-selector";
 import Footer from "./global-components/footer";
 import {
   Form,
@@ -13,24 +18,26 @@ import {
   Checkbox,
   Button,
   AutoComplete,
+  DatePicker,
 } from "antd";
 const { Option } = Select;
 // import * as employeeServices from "../services/employeeServices";
 
 class RegisterForm extends Component {
-  state = {
-    data: {
-      name: "",
-      mobile: "",
-      qualification: "",
-      email: "",
-      password: "",
-    },
-    errors: {},
-    value: 2,
-  };
+  constructor(props) {
+    super(props);
+    this.state = { country: "", region: "" };
+  }
+  selectCountry(val) {
+    this.setState({ country: val });
+  }
 
-  onFinish = async () => {
+  selectRegion(val) {
+    this.setState({ region: val });
+  }
+
+  onFinish = async (values) => {
+    console.log(values);
     // try {
     //   const response = await employeeServices.register(this.state.data);
     //   if (response.status >= 200) {
@@ -44,12 +51,14 @@ class RegisterForm extends Component {
   };
 
   render() {
+    const qualification = ["S.S.L.C", "Engineer", "UG", "PG", "Doctorate[Phd]"];
+    const bloodGroup = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
+    const { country, region } = this.state;
     return (
       <div>
         <Navbar />
         <PageHeader headertitle="Register" />
         <section className="loginBlock">
-       
           <div className="container">
             <div className="row register-form">
               <div className="col-md-2 "></div>
@@ -71,8 +80,8 @@ class RegisterForm extends Component {
                     // }}
                     scrollToFirstError
                   >
-                    <div class="row">
-                      <div class="col-lg-6">
+                    <div className="row">
+                      <div className="col-lg-6">
                         <Form.Item
                           name="name"
                           label="Name"
@@ -87,7 +96,7 @@ class RegisterForm extends Component {
                           <Input />
                         </Form.Item>
                       </div>
-                      <div class="col-md-6">
+                      <div className="col-md-6">
                         <Form.Item
                           name="qualification"
                           label="Qualification"
@@ -99,17 +108,235 @@ class RegisterForm extends Component {
                           ]}
                           hasFeedback
                         >
-                          <Select className="ant-input" placeholder="select your gender">
-                            <Option value="male">Male</Option>
-                            <Option value="female">Female</Option>
-                            <Option value="other">Other</Option>
+                          <Select
+                            className="ant-input"
+                            placeholder="select your qualification"
+                          >
+                            {qualification.map((qualification) => (
+                              <Option value={qualification}>
+                                {qualification}
+                              </Option>
+                            ))}
                           </Select>
                         </Form.Item>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                      
+
+                    <div className="row">
+                      <div className="col-lg-6">
+                        <Form.Item
+                          name="fatherName"
+                          label="Father Name"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please input your Father Name!",
+                            },
+                          ]}
+                          hasFeedback
+                        >
+                          <Input />
+                        </Form.Item>
+                      </div>
+                      <div className="col-lg-6">
+                        <Form.Item
+                          name="ug"
+                          label="UG Specialization"
+                          hasFeedback
+                        >
+                          <Input />
+                        </Form.Item>
+                      </div>
+                    </div>
+
+                    <div className="row">
+                      <div className="col-lg-6">
+                        <Form.Item
+                          name="dateOfBirth"
+                          label="Date Of Birth"
+                          hasFeedback
+                        >
+                          <DatePicker />
+                        </Form.Item>
+                      </div>
+                      <div className="col-lg-6">
+                        <Form.Item
+                          name="pg"
+                          label="PG Specialization"
+                          hasFeedback
+                        >
+                          <Input />
+                        </Form.Item>
+                      </div>
+                    </div>
+
+                    <div className="row">
+                      <div className="col-lg-6">
+                        <Form.Item
+                          name="dateOfBaiyath"
+                          label="Date Of Baiyath"
+                          hasFeedback
+                        >
+                          <DatePicker />
+                        </Form.Item>
+                      </div>
+                      <div className="col-lg-6">
+                        <Form.Item name="bloodGroup" label="Blood Group">
+                          <Select
+                            className="ant-input"
+                            placeholder="select your blood group"
+                            hasFeedback
+                          >
+                            {bloodGroup.map((bg) => (
+                              <Option value={bg}>{bg}</Option>
+                            ))}
+                          </Select>
+                        </Form.Item>
+                      </div>
+                    </div>
+
+                    <div className="row">
+                      <div className="col-lg-6">
+                        <Form.Item
+                          name="gender"
+                          label="Gender"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please select your gender!",
+                            },
+                          ]}
+                          hasFeedback
+                        >
+                          <Select
+                            className="ant-input"
+                            placeholder="select your gender"
+                          >
+                            <Option value="male">Male</Option>
+                            <Option value="female">Female</Option>
+                          </Select>
+                        </Form.Item>
+                      </div>
+                      <div className="col-lg-6">
+                        <Form.Item
+                          name="yaseeni"
+                          label="Are you a Yaseeni ?"
+                          hasFeedback
+                        >
+                          <Select className="ant-input" placeholder="select">
+                            <Option value="1">Yes</Option>
+                            <Option value="0">No</Option>
+                          </Select>
+                        </Form.Item>
+                      </div>
+                    </div>
+
+                    <div className="row">
+                      <div className="col-lg-6">
+                        <Form.Item
+                          name="presentAddress"
+                          label="Present Address"
+                          hasFeedback
+                        >
+                          <Input.TextArea />
+                        </Form.Item>
+                      </div>
+                      <div className="col-lg-6">
+                        <Form.Item
+                          name="permanentAddress"
+                          label="Permanent Address"
+                          hasFeedback
+                        >
+                          <Input.TextArea />
+                        </Form.Item>
+                      </div>
+                    </div>
+
+                    <div className="row">
+                      <div className="col-lg-6">
+                        <Form.Item
+                          name="country"
+                          label="Country(Currently Residing)"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please select your Country!",
+                            },
+                          ]}
+                          hasFeedback
+                        >
+                          <CountryDropdown
+                            value={country}
+                            onChange={(val) => this.selectCountry(val)}
+                          />
+                          {/* <Select
+                            className="ant-input"
+                            placeholder="select your country"
+                          >
+                            <Option value="male">Male</Option>
+                            <Option value="female">Female</Option>
+                          </Select> */}
+                        </Form.Item>
+                      </div>
+                      <div className="col-lg-6">
+                        <Form.Item
+                          name="state"
+                          label="State(Currently Residing)"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please select your State!",
+                            },
+                          ]}
+                          hasFeedback
+                        >
+                          <RegionDropdown
+                            blankOptionLabel="No country selected"
+                            defaultOptionLabel="Now select a region"
+                            country={country}
+                            value={region}
+                            onChange={(val) => this.selectRegion(val)}
+                          />
+                          {/* <Select
+                            className="ant-input"
+                            placeholder="select your State"
+                          >
+                            <Option value="male">Male</Option>
+                            <Option value="female">Female</Option>
+                          </Select> */}
+                        </Form.Item>
+                      </div>
+                    </div>
+
+                    <div className="row">
+                      <div className="col-md-6">
+                        <Form.Item
+                          name="city"
+                          label="City(Currently Residing)"
+                          hasFeedback
+                        >
+                          <Input />
+                        </Form.Item>
+                      </div>
+                      <div className="col-md-6">
+                        <Form.Item
+                          name="username"
+                          label="User Name"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please input your username!",
+                            },
+                          ]}
+                          hasFeedback
+                        >
+                          <Input />
+                        </Form.Item>
+                      </div>
+                    </div>
+
+                    <div className="row">
+                      <div className="col-md-6">
                         <Form.Item
                           name="email"
                           label="E-mail"
@@ -125,11 +352,10 @@ class RegisterForm extends Component {
                           ]}
                           hasFeedback
                         >
-                        
-                        <Input />
+                          <Input />
                         </Form.Item>
                       </div>
-                      <div class="col-md-6">
+                      <div className="col-md-6">
                         <Form.Item
                           name="password"
                           label="Password"
@@ -145,12 +371,53 @@ class RegisterForm extends Component {
                         </Form.Item>
                       </div>
                     </div>
+                    <div className="row">
+                      <div className="col-lg-6">
+                        <Form.Item
+                          name="contactNo"
+                          label="Contact Number"
+                          hasFeedback
+                        >
+                          <Input />
+                        </Form.Item>
+                      </div>
+                      <div className="col-lg-6">
+                        <Form.Item
+                          name="alternateNo"
+                          label="Alternate Number"
+                          hasFeedback
+                        >
+                          <Input />
+                        </Form.Item>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <Form.Item>
+                        <Button
+                          block
+                          type="danger"
+                          htmlType="submit"
+                          className="btn btn-style-1"
+                        >
+                          Register
+                        </Button>
+                      </Form.Item>
+                    </div>
+                    <div className="row text-center">
+                      <Form.Item>
+                        <Link
+                          className="text-center new-account btn btn-grey"
+                          to="login"
+                        >
+                          Login Here
+                        </Link>
+                      </Form.Item>
+                    </div>
                   </Form>
                 </div>
               </div>
             </div>
-         
-          </div>             
+          </div>
         </section>
         <Footer />
       </div>
