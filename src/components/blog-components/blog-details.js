@@ -39,7 +39,6 @@ class BlogDetails extends React.Component {
                         __html: blog,
                       }}
                     />
-                    {blog}
                   </div>
                 </div>
               </div>
