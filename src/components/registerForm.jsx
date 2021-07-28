@@ -7,7 +7,9 @@ import {
   RegionDropdown,
   CountryRegionData,
 } from "react-country-region-selector";
+import * as authServices from "../Services/authService";
 import Footer from "./global-components/footer";
+
 import {
   Form,
   Input,
@@ -26,28 +28,46 @@ const { Option } = Select;
 class RegisterForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { country: "", region: "" };
+    this.state = {
+      country: "",
+      region: "",
+      dateOfBirth: "",
+      dateOfBaiyath: "",
+    };
   }
   selectCountry(val) {
     this.setState({ country: val });
   }
+
+  handleBirthChange = (date, dateString) => {
+    this.setState({ dateOfBirth: dateString });
+  };
+  handleBaiyathChange = (date, dateString) => {
+    this.setState({ dateOfBaiyath: dateString });
+  };
 
   selectRegion(val) {
     this.setState({ region: val });
   }
 
   onFinish = async (values) => {
+    values.dateOfBirth = this.state.dateOfBirth;
+    values.dateOfBaiyath = this.state.dateOfBaiyath;
     console.log(values);
-    // try {
-    //   const response = await employeeServices.register(this.state.data);
-    //   if (response.status >= 200) {
-    //     this.props.history.push("/employees");
-    //   }
-    // } catch (ex) {
-    //   const errors = { ...this.state.errors };
-    //   errors.name = ex.response.data;
-    //   this.setState({ errors });
-    // }
+    try {
+      const response = await authServices.saveUser(values);
+      if (response.status >= 200) {
+        console.log(response);
+        // this.setState({
+        //   success:
+        //     "Thanks for contacting us! We will be in touch with you shortly.",
+        // });
+      }
+    } catch (ex) {
+      const errors = { ...this.state.errors };
+      // errors.name = ex.response.data;
+      this.setState({ errors });
+    }
   };
 
   render() {
@@ -156,7 +176,7 @@ class RegisterForm extends Component {
                           label="Date Of Birth"
                           hasFeedback
                         >
-                          <DatePicker />
+                          <DatePicker onChange={this.handleBirthChange} />
                         </Form.Item>
                       </div>
                       <div className="col-lg-6">
@@ -177,7 +197,7 @@ class RegisterForm extends Component {
                           label="Date Of Baiyath"
                           hasFeedback
                         >
-                          <DatePicker />
+                          <DatePicker onChange={this.handleBaiyathChange} />
                         </Form.Item>
                       </div>
                       <div className="col-lg-6">

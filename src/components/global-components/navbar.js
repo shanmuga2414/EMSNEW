@@ -58,22 +58,22 @@ class Navbar extends Component {
                   <span className="top-contact">
                     <i className="fas fa-phone-volume"></i>{" "}
                     <span className="text-space">
-                      <Link to="contact" className="color-white">
+                      <a href="#/contact" className="color-white">
                         Contact Us
-                      </Link>
+                      </a>
                     </span>
                   </span>
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 text-right hide-mobile-view">
-                  <Link className="top-content-size color-white" to="login">
+                  <a className="top-content-size color-white" href="#/login">
                     <i className="fas fa-sign-in-alt"></i> Login
-                  </Link>
+                  </a>
                   <span className="space">|</span>
-                  <Link className="top-content-size color-white" to="register">
+                  <a className="top-content-size color-white" href="#/register">
                     <i className="fas fa-user-plus"></i> Register
-                  </Link>
-                  <Link
-                    to="webtv"
+                  </a>
+                  <a
+                    href="#/webtv"
                     target="_blank"
                     type="button"
                     className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white"
@@ -81,30 +81,33 @@ class Navbar extends Component {
                     <i className="fa fa-play-circle fa-lg" />{" "}
                     <span className="tab">EMS</span> Web TV{" "}
                     <span className="tab">Channel</span>
-                  </Link>
+                  </a>
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 hide-large-view">
                   <div className="row mobile-tv">
                     <div className="col-8">
-                      <Link className="top-content-size color-white" to="login">
-                        <i className="fas fa-sign-in-alt"></i> Login
-                      </Link>
-                      <span className="space">|</span>
-                      <Link
+                      <a
                         className="top-content-size color-white"
-                        to="register"
+                        href="#/login"
+                      >
+                        <i className="fas fa-sign-in-alt"></i> Login
+                      </a>
+                      <span className="space">|</span>
+                      <a
+                        className="top-content-size color-white"
+                        href="#/register"
                       >
                         <i className="fas fa-user-plus"></i> Register
-                      </Link>
+                      </a>
                     </div>
                     <div className="col-4">
-                      <Link
-                        to="webtv"
+                      <a
+                        href="#/webtv"
                         type="button"
                         className="btn btn-sm btn-tvchannel top-content-size hide-large-view"
                       >
                         <i className="fa fa-play-circle fa-lg" /> Web TV
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -115,13 +118,13 @@ class Navbar extends Component {
             <div className="row">
               <div className="col-xl-8 col-lg-5 hide-mobile-view tab-hide">
                 <div className="logo">
-                  <Link to="/">
+                  <a href="/">
                     <img
                       className="logo-img"
                       src={publicUrl + "assets/img/logo.jpg"}
                       alt="EMS Media"
                     />
-                  </Link>
+                  </a>
                 </div>
               </div>
               <div className="col-xl-4 col-lg-5">
@@ -143,12 +146,12 @@ class Navbar extends Component {
             <div className="row  logo-bg-color hide-large-view1">
               <div className="col-lg-5 col-9 ">
                 <div className="logo">
-                  <Link to="/">
+                  <a href="/">
                     <img
                       src={publicUrl + "assets/img/logo.jpg"}
                       alt="EMS Media"
                     />
-                  </Link>
+                  </a>
                 </div>
               </div>
 
@@ -208,9 +211,9 @@ class Navbar extends Component {
                                               : ""
                                           }
                                         >
-                                          <Link to={childmenu.url}>
+                                          <a href={childmenu.url}>
                                             {childmenu.submenu}
-                                          </Link>
+                                          </a>
                                           {subSubMenu && (
                                             <ul
                                               className="sub-menu"
