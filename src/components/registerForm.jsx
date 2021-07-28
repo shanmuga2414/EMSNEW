@@ -81,8 +81,8 @@ class RegisterForm extends Component {
         <section className="loginBlock">
           <div className="container">
             <div className="row register-form">
-              <div className="col-md-2 "></div>
-              <div className="col-md-8">
+              <div className="col-xl-2 col-lg-1"></div>
+              <div className="col-xl-8 col-lg-10 col-md-12">
                 <div className="account-wall div-border" id="register_form">
                   <img
                     className="profile-img"
@@ -101,7 +101,7 @@ class RegisterForm extends Component {
                     scrollToFirstError
                   >
                     <div className="row">
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 col-md-6">
                         <Form.Item
                           name="name"
                           label="Name"
@@ -143,7 +143,7 @@ class RegisterForm extends Component {
                     </div>
 
                     <div className="row">
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 col-md-6">
                         <Form.Item
                           name="fatherName"
                           label="Father Name"
@@ -158,7 +158,7 @@ class RegisterForm extends Component {
                           <Input />
                         </Form.Item>
                       </div>
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 col-md-6">
                         <Form.Item
                           name="ug"
                           label="UG Specialization"
@@ -170,7 +170,7 @@ class RegisterForm extends Component {
                     </div>
 
                     <div className="row">
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 col-md-6">
                         <Form.Item
                           name="dateOfBirth"
                           label="Date Of Birth"
@@ -179,7 +179,7 @@ class RegisterForm extends Component {
                           <DatePicker onChange={this.handleBirthChange} />
                         </Form.Item>
                       </div>
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 col-md-6">
                         <Form.Item
                           name="pg"
                           label="PG Specialization"
@@ -191,7 +191,7 @@ class RegisterForm extends Component {
                     </div>
 
                     <div className="row">
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 col-md-6">
                         <Form.Item
                           name="dateOfBaiyath"
                           label="Date Of Baiyath"
@@ -200,7 +200,7 @@ class RegisterForm extends Component {
                           <DatePicker onChange={this.handleBaiyathChange} />
                         </Form.Item>
                       </div>
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 col-md-6">
                         <Form.Item name="bloodGroup" label="Blood Group">
                           <Select
                             className="ant-input"
@@ -216,7 +216,7 @@ class RegisterForm extends Component {
                     </div>
 
                     <div className="row">
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 col-md-6">
                         <Form.Item
                           name="gender"
                           label="Gender"
@@ -237,7 +237,7 @@ class RegisterForm extends Component {
                           </Select>
                         </Form.Item>
                       </div>
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 col-md-6">
                         <Form.Item
                           name="yaseeni"
                           label="Are you a Yaseeni ?"
@@ -252,7 +252,7 @@ class RegisterForm extends Component {
                     </div>
 
                     <div className="row">
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 col-md-6">
                         <Form.Item
                           name="presentAddress"
                           label="Present Address"
@@ -261,7 +261,7 @@ class RegisterForm extends Component {
                           <Input.TextArea />
                         </Form.Item>
                       </div>
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 col-md-6">
                         <Form.Item
                           name="permanentAddress"
                           label="Permanent Address"
@@ -273,7 +273,7 @@ class RegisterForm extends Component {
                     </div>
 
                     <div className="row">
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 col-md-6">
                         <Form.Item
                           name="country"
                           label="Country(Currently Residing)"
@@ -298,7 +298,7 @@ class RegisterForm extends Component {
                           </Select> */}
                         </Form.Item>
                       </div>
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 col-md-6">
                         <Form.Item
                           name="state"
                           label="State(Currently Residing)"
@@ -356,7 +356,7 @@ class RegisterForm extends Component {
                     </div>
 
                     <div className="row">
-                      <div className="col-md-6">
+                      <div className="col-md-6 ">
                         <Form.Item
                           name="email"
                           label="E-mail"
@@ -392,7 +392,7 @@ class RegisterForm extends Component {
                       </div>
                     </div>
                     <div className="row">
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 col-md-6">
                         <Form.Item
                           name="contactNo"
                           label="Contact Number"
@@ -401,7 +401,7 @@ class RegisterForm extends Component {
                           <Input />
                         </Form.Item>
                       </div>
-                      <div className="col-lg-6">
+                      <div className="col-lg-6 col-md-6">
                         <Form.Item
                           name="alternateNo"
                           label="Alternate Number"
@@ -413,24 +413,24 @@ class RegisterForm extends Component {
                     </div>
                     <div className="row">
                       <Form.Item>
-                        <Button
-                          block
-                          type="danger"
-                          htmlType="submit"
-                          className="btn btn-style-1"
-                        >
-                          Register
-                        </Button>
+                      <center><Button
+                      block
+                      type="danger"
+                      htmlType="submit"
+                      className="btn btn-style-1 register-btn"
+                    >
+                      Register
+                    </Button></center>
                       </Form.Item>
                     </div>
                     <div className="row text-center">
                       <Form.Item>
-                        <Link
-                          className="text-center new-account btn btn-grey"
-                          to="login"
-                        >
-                          Login Here
-                        </Link>
+                      <Link
+                      className="text-center new-account "
+                      to="login"
+                    >
+                    Already have an account? <span className="login-text-style">Login Here</span>
+                    </Link>
                       </Form.Item>
                     </div>
                   </Form>

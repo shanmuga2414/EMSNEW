@@ -20,6 +20,7 @@ import Blog from "./components/blog-details";
 import Login from "./components/loginForm";
 import Register from "./components/registerForm";
 import WebTv from "./components/webTv";
+import Forgot from "./components/forgot";
 
 import "antd/dist/antd.css";
 // import HomeV2 from "./components/home-v2";
@@ -57,6 +58,7 @@ class Root extends Component {
               <Route path="/audios" component={Audio} />
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
+              <Route path="/forgot" component={Forgot} />
               <Route
                 exact
                 path="/member-responsibilities"

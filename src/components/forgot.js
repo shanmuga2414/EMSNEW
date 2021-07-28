@@ -8,7 +8,7 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Component } from "react";
 // import auth from "../Services/authService";
 
-class LoginForm extends Component {
+class Forgot extends Component {
   constructor() {
     super();
     this.state = {
@@ -40,7 +40,7 @@ class LoginForm extends Component {
     return (
       <div>
         <Navbar />
-        <PageHeader headertitle="Login  " />
+        <PageHeader headertitle="Forgot Password" />
         <div className="align-center">
           <section className="loginBlock">
             <div className="container container-login">
@@ -53,29 +53,13 @@ class LoginForm extends Component {
                       src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                       alt=""
                     />
-                    <h3 className="pb-2">Login</h3>
+                    <h3 className="pb-2">Forgot Password</h3>
                     <Form
                       name="normal_login"
                       className="login-form"
                       initialValues={{ remember: true }}
                       onFinish={this.onFinish}
                     >
-                      <Form.Item
-                        name="username"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please input your Username!",
-                          },
-                        ]}
-                      >
-                        <Input
-                          prefix={
-                            <UserOutlined className="site-form-item-icon" />
-                          }
-                          placeholder="Username"
-                        />
-                      </Form.Item>
                       <Form.Item
                         name="password"
                         rules={[
@@ -93,6 +77,23 @@ class LoginForm extends Component {
                           placeholder="Password"
                         />
                       </Form.Item>
+                      <Form.Item
+                        name="confirmPassword"
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please input your Confirm Password!",
+                          },
+                        ]}
+                      >
+                        <Input
+                          prefix={
+                            <LockOutlined className="site-form-item-icon" />
+                          }
+                          type="password"
+                          placeholder="Confirm Password"
+                        />
+                      </Form.Item>
                       <Form.Item>
                         <Button
                           block
@@ -100,22 +101,12 @@ class LoginForm extends Component {
                           htmlType="submit"
                           className="btn btn-style-1"
                         >
-                          Log in
+                          Submit
                         </Button>
-                        <center><a className="login-form-forgot" href="forgot">
-                          Are you forgot your password?
-                        </a></center>
+                       
                       </Form.Item>
-                          <hr></hr>
-                          <center><span>New to EMS?</span></center>
-                      <Form.Item>
-                        <center><Link
-                          class="text-center new-account btn btn-grey"
-                          to="register"
-                        >
-                          Create Your EMS account
-                        </Link></center>
-                      </Form.Item>
+                          
+                      
                     </Form>
                   </div>
                 </div>
@@ -129,4 +120,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+export default Forgot;

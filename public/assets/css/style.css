@@ -9923,4 +9923,16 @@ button {
 .register-btn{
   width:30% !important;
   text-align: center;
+  margin-top: 20px;
 }
+.login-text-style{
+  color: #28505d;
+  font-weight: 600;
+}
+.login-text-style:hover{
+  color: #e2521a;
+}
+#register_form .ant-form-item{
+ margin-bottom: 7px !important;
+}
+
