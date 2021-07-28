@@ -25,7 +25,26 @@ import { apiUrl } from "../config.json";
 export function saveUser(user) {
   // console.log("User services log:", data);
   return http.post("https://emsmedia.net/ems_react/register.php", {
-    data: user,
+    alternateNo: user.alternateNo,
+    contactNo: user.contactNo,
+    bloodGroup: user.bloodGroup,
+    country: user.country,
+    state: user.state,
+    city: user.city,
+    dateOfBirth: user.dateOfBirth,
+    dateOfBaiyath: user.dateOfBaiyath,
+    email: user.email,
+    fatherName: user.fatherName,
+    gender: user.gender,
+    name: user.name,
+    password: user.password,
+    permanentAddress: user.permanentAddress,
+    presentAddress: user.presentAddress,
+    ug: user.ug,
+    pg: user.pg,
+    qualification: user.qualification,
+    yaseeni: user.yaseeni,
+    username: user.username,
   });
 }
 
