@@ -9903,3 +9903,24 @@ button {
   font-size: 18px !important;
   font-weight: 500 !important;
 }
+#register_form .ant-picker{
+  width: 100%;
+}
+#register_form .ant-picker-input{
+  width: 100% !important;
+}
+#register_dateOfBirth{
+  padding: 5px;
+}
+#register_dateOfBaiyath{
+  padding: 5px;
+}
+#register_country,#register_state{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #28505d8a;
+}
+.register-btn{
+  width:30% !important;
+  text-align: center;
+}
