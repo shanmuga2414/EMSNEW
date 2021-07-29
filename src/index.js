@@ -21,6 +21,8 @@ import Login from "./components/loginForm";
 import Register from "./components/registerForm";
 import WebTv from "./components/webTv";
 import Forgot from "./components/forgot";
+import ProfileDetails from "./components/profile";
+import GetEmail from "./components/getemail";
 
 import "antd/dist/antd.css";
 // import HomeV2 from "./components/home-v2";
@@ -59,6 +61,7 @@ class Root extends Component {
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
               <Route path="/forgot" component={Forgot} />
+              <Route path="/getemail" component={GetEmail} />
               <Route
                 exact
                 path="/member-responsibilities"
@@ -72,6 +75,8 @@ class Root extends Component {
               <Route path="/blog" component={Blog} />
               <Route path="/spiritual" component={Spiritual} />
               <Route path="/webtv" component={WebTv} />
+              <Route path="/profile" component={ProfileDetails} />
+             
               {/* <Route path="/home-v2" component={HomeV2} />
               <Route path="/home-v3" component={HomeV3} />
               <Route path="/home-v4" component={HomeV4} />

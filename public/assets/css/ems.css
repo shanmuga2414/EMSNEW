@@ -248,9 +248,9 @@
 .align-center {
   text-align: center;
 }
-.book-height {
+/* .book-height {
   height: 290px;
-}
+} */
 .slick-prev:before,
 .slick-next:before {
   color: #e2521a !important;

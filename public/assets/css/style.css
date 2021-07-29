@@ -9935,4 +9935,7 @@ button {
 #register_form .ant-form-item{
  margin-bottom: 7px !important;
 }
+.card-body-height{
+  height: 97px;
+}
 
