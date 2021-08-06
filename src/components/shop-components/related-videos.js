@@ -74,7 +74,15 @@ class RelatedVideos extends Component {
             <div className="row">
               <div className="col-lg-12">
                 <div className="title webtv-title">
-                  <h3>Related Videos</h3>
+                  <div className="row">
+                  <div className="col-lg-6">
+                    <h3>Related Videos</h3>
+                  </div>
+                  <div className="col-lg-6">
+                   <a className="btn-blue-webtv" href="webtv_videos">View All</a>
+                  </div>
+                  </div>
+                  
                 </div>
               </div>
             </div>

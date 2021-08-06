@@ -22,7 +22,8 @@ class webTV extends Component {
       <div className="about-content about-content-webtv">
         <div className="container webtv-container">
           <div className="row webtv">
-          <span className="text-center webtv-head">Welcome to EMS Media</span>
+          <span className="webtv-head">Welcome to EMS Media</span>
+          <a className="btn-blue-webtv" href="webtv_videos">View All</a>
             <ReactPlayer
               url={`https://www.youtube.com/embed/${cover}`}
               playing="true"
