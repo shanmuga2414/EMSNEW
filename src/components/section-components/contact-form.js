@@ -112,7 +112,7 @@ class ContactForm extends Component {
                           message: "The input is not valid E-mail!",
                         },
                         {
-                          required: true,
+                          
                           message: "Please input your E-mail!",
                         },
                       ]}
@@ -129,7 +129,7 @@ class ContactForm extends Component {
                       name="topic"
                       rules={[
                         {
-                          required: true,
+                          
                           message: "Please input your Topic!",
                         },
                       ]}

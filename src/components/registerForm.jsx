@@ -84,13 +84,9 @@ class RegisterForm extends Component {
               <div className="col-xl-2 col-lg-1"></div>
               <div className="col-xl-8 col-lg-10 col-md-12">
                 <div className="account-wall div-border" id="register_form">
-                  <img
-                    className="profile-img"
-                    src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-                    alt=""
-                  />
+                <i className="fas fa-user-plus register-user"></i>
 
-                  <h3 className="text-center">Create Account</h3>
+                  <h3 className="text-center">Create Your EMS Account</h3>
                   <Form
                     name="register"
                     onFinish={this.onFinish}
@@ -425,12 +421,12 @@ class RegisterForm extends Component {
                     </div>
                     <div className="row text-center">
                       <Form.Item>
-                      <Link
+                      <span
                       className="text-center new-account "
-                      to="login"
+                     
                     >
-                    Already have an account? <span className="login-text-style">Login Here</span>
-                    </Link>
+                    Already have an account? <Link to className="login-text-style">Login</Link>
+                    </span>
                       </Form.Item>
                     </div>
                   </Form>

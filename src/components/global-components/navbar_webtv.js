@@ -266,7 +266,7 @@ class Navbar extends Component {
                     <i class="fas fa-user-plus"></i> Register
                   </Link>
                   <Link
-                    to="webtv"
+                    to="/"
                     target="_blank"
                     type="button"
                     className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white"
@@ -293,7 +293,7 @@ class Navbar extends Component {
                     <div className="col-4">
                       <Link
                         type="button"
-                        to="webtv"
+                        to="/"
                         className="btn btn-sm btn-tvchannel top-content-size hide-large-view"
                       >
                         <i className="fa fa-play-circle fa-lg" /> Web TV

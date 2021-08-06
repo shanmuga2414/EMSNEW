@@ -48,11 +48,7 @@ class LoginForm extends Component {
                 <div className=" col-xl-4 col-lg-3 col-md-3 col-sm-2 col-12 col-md-offset-4"></div>
                 <div className="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12 col-md-offset-4">
                   <div className="account-wall div-border">
-                    <img
-                      className="profile-img"
-                      src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-                      alt=""
-                    />
+                  <i className="fas fa-user-lock register-user"></i>
                     <h3 className="pb-2">Login</h3>
                     <Form
                       name="normal_login"
@@ -103,17 +99,17 @@ class LoginForm extends Component {
                           Log in
                         </Button>
                         <center><Link className="login-form-forgot" to="getemail">
-                          Are you forgot your password?
+                          Forgot Password?
                         </Link></center>
                       </Form.Item>
                           <hr></hr>
-                          <center><span>New to EMS?</span></center>
+                          <center><span>New to EMS Media?</span></center>
                       <Form.Item>
                         <center><Link
                           class="text-center new-account btn btn-grey"
                           to="register"
                         >
-                          Create Your EMS account
+                          Create Your EMS Account<i class="fas fa-chevron-right first-chevron"></i><i class="fas fa-chevron-right sec-chevron"></i>
                         </Link></center>
                       </Form.Item>
                     </Form>

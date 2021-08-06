@@ -9148,9 +9148,7 @@ h6 {
   .slick-next {
     right: -13px !important;
   }
-  .slick-prev {
-    left: -13px !important;
-  }
+ 
   .btn-blue {
     float: right;
     padding: 4px 9px;
@@ -9327,6 +9325,13 @@ h6 {
   .gridm-height {
     height: auto;
   }
+  .webVideo img {
+    width: 312px !important;
+    height: 312px;
+  }
+  .slick-next {
+    right: -25px !important;
+}
 }
 /* end mobile view 600 */
 
@@ -9410,6 +9415,11 @@ h6 {
   .section-title h3 {
     font-size: 25px;
   }
+  .webtv-head{
+    margin-left:39%;
+    font-size: 23px;
+    color: #e2521a;
+  }
 }
 @media only screen and (min-width: 1025px) {
   .hide-large-view1,
@@ -9431,6 +9441,11 @@ h6 {
   .blog-spiritual{
     margin-left: 40px;
   }
+  .webtv-head{
+    margin-left:39%;
+    font-size: 25px;
+    color: #e2521a;
+  }
 }
 @media only screen and (max-width: 1025px) {
   .tab-hide {
@@ -9442,7 +9457,9 @@ h6 {
   .categories .category-height {
     height: 247px !important;
   }
-  
+  .webtv-head{
+    margin-left:39%;
+  }
 }
 @media only screen and (max-width: 1025px) and (min-width: 800px) {
   .hide-large {
@@ -9454,7 +9471,11 @@ h6 {
   .founder-img{
     margin-left: 20%;
   }
-  
+  .webtv-head{
+    margin-left:39%;
+    font-size: 23px;
+    color: #e2521a;
+  }
 }
 @media only screen and (min-width: 601px) {
   .hide-large-view {
@@ -9548,6 +9569,11 @@ h6 {
   .brant-item {
     min-height: 369px !important;
   }
+  .webtv-head{
+    margin-left:19%;
+    font-size: 20px;
+    color: #e2521a;
+  }
 }
 @media only screen and (max-width: 600px) and (min-width: 377px) {
   .fa-bars {
@@ -9561,6 +9587,14 @@ h6 {
   .ant-picker-input {
     width: 256px !important;
   }
+  .webtv-head{
+    margin-left:26%;
+    font-size: 20px;
+    color: #e2521a;
+  }
+  /* .slick-prev {
+    left: -13px !important;
+  } */
 }
 @media only screen and (max-width: 376px) and (min-width: 326px) {
   .banner__bg {
@@ -9583,6 +9617,11 @@ h6 {
   }
   .books .card img {
     margin: 25px 0px 0px 29% !important;
+  }
+  .webtv-head{
+    margin-left:20%;
+    font-size: 20px;
+    color: #e2521a;
   }
 }
 @media only screen and (max-width: 1200px) and (min-width: 800px) {
@@ -9881,6 +9920,7 @@ button {
 #register_form .ant-input{
   border:1px solid #28505d8a !important;
   z-index: 0;
+  background-color: white;
 }
 .ant-input-suffix{
   z-index:1;
@@ -9938,4 +9978,60 @@ button {
 .card-body-height{
   height: 97px;
 }
+.user-div{
+  border: 1px solid #80808085;
+  border-radius: 3px;
+}
+.user-img{
+  width:100%;
+}
+.user3-details{
+  padding: 20px 10px 10px 20px;
+
+}
+.margin_right{
+  margin-left: -18px;
+}
+.user-title1{
+  font-weight: 400;
+  color:black;
+  padding-top: 10px;
+}
+.profile-head{
+  color: #28505d;
+}
+
+.profile-content{
+  margin-bottom: 80px;
+}
+.profilediv{
+  background-color: #80808026;
+}
+.set-div-width{
+  width: 105%;
+}
+.register-user{
+  background: #f5f5f5;
+  padding: 44px;
+  font-size: 54px;
+  border-radius: 180px;
+  height: 150px;
+  width: 150px;
+  margin-bottom: 20px;
+  color: grey;
+}
+#register{
+  background: #f5f5f5;
+  padding: 20px 30px;
+}
+.first-chevron{
+  margin-left:5px;
+}
+.sec-chevron{
+  margin-left: -5px;
+}
+.profile-detail{
+  color:#e2521a;
+}
+
 

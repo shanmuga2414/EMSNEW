@@ -279,7 +279,7 @@ class Footer_v1 extends Component {
               <div className="col-md-6 align-right">
                 <p>
                   Powered by{" "}
-                  <a href="/">
+                  <a href="https://ilifetech.in/" target="_black">
                     <span className="color-black">ilife Technologies.</span>
                   </a>
                 </p>
