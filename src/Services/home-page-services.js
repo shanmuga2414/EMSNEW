@@ -1,13 +1,10 @@
 import axios from "axios";
 import { apiUrl } from "../config.json";
 
-const apiEndpoint = apiUrl + "/view.php";
-//const homePage = http.get(apiEndpoint);
-
 export async function getActivities() {
-  return axios.get("https://emsmedia.net/ems_react/view.php");
+  return axios.get(`${apiUrl}view.php`);
   // await axios
-  //   .get("http://emsmedia.net/ems_react/view.php")
+  //   .get(`http://emsmedia.net/ems_react/view.php`)
   //   .then(function (response) {
   //     const res = response.data.records;
   //     console.log(response);
@@ -15,57 +12,57 @@ export async function getActivities() {
   //   });
 }
 export async function getWebchannels() {
-  return axios.get("https://emsmedia.net/ems_react/channel.php");
+  return axios.get(`${apiUrl}channel.php`);
 }
 
 export async function getBooks() {
-  return axios.get("https://emsmedia.net/ems_react/book.php");
+  return axios.get(`${apiUrl}book.php`);
 }
 
 export async function getAllBooks() {
-  return axios.get("https://emsmedia.net/ems_react/books_detail.php");
+  return axios.get(`${apiUrl}books_detail.php`);
 }
 export async function getAlbums() {
-  return axios.get("https://emsmedia.net/ems_react/gallery.php");
+  return axios.get(`${apiUrl}gallery.php`);
 }
 
 export async function getAllvideos() {
-  return axios.get("https://emsmedia.net/ems_react/videos.php");
+  return axios.get(`${apiUrl}videos.php`);
 }
 export async function getAlbumImages() {
-  return axios.get("https://emsmedia.net/ems_react/book_images.php");
+  return axios.get(`${apiUrl}book_images.php`);
 }
 
 export async function getAllEvents() {
-  return axios.get("https://emsmedia.net/ems_react/news_event.php");
+  return axios.get(`${apiUrl}news_event.php`);
 }
 
 export async function getAllAudios() {
-  return axios.get("https://emsmedia.net/ems_react/audio.php");
+  return axios.get(`${apiUrl}audio.php`);
 }
 
 export async function getAudioCategory() {
-  return axios.get("https://emsmedia.net/ems_react/audio_category.php");
+  return axios.get(`${apiUrl}audio_category.php`);
 }
 
 export async function getVideoCategory() {
-  return axios.get("https://emsmedia.net/ems_react/video_category.php");
+  return axios.get(`${apiUrl}video_category.php`);
 }
 
 export async function getBookCategories() {
-  return axios.get("https://emsmedia.net/ems_react/book_category.php");
+  return axios.get(`${apiUrl}book_category.php`);
 }
 
 export async function getWebTvVideos() {
-  return axios.get("https://emsmedia.net/ems_react/web-tv.php");
+  return axios.get(`${apiUrl}web-tv.php`);
 }
 
 export async function getMenu() {
-  return axios.get("http://emsmedia.net/ems_react/menu.php");
+  return axios.get(`${apiUrl}menu.php`);
 }
 export function getBlogContent(path) {
-  // console.log("User services log:", data);
-  return axios.post("http://emsmedia.net/ems_react/blog_content.php", {
+  // console.log(`User services log:`, data);
+  return axios.post(`${apiUrl}blog_content.php`, {
     path: path,
     // date: user.password,
   });

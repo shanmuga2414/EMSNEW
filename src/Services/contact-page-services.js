@@ -6,7 +6,7 @@ import { apiUrl } from "../config.json";
 
 export function saveContact(user) {
   // console.log("User services log:", data);
-  return http.post("https://emsmedia.net/ems_react/contact.php", {
+  return http.post(`${apiUrl}contact.php`, {
     name: user.name,
     phone: user.phone,
     email: user.email,

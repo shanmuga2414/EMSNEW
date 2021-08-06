@@ -24,7 +24,7 @@ import { apiUrl } from "../config.json";
 // }
 export function saveUser(user) {
   // console.log("User services log:", data);
-  return http.post("https://emsmedia.net/ems_react/register.php", {
+  return http.post(`${apiUrl}register.php`, {
     alternateNo: user.alternateNo,
     contactNo: user.contactNo,
     bloodGroup: user.bloodGroup,
