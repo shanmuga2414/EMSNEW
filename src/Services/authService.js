@@ -5,10 +5,17 @@ import { apiUrl } from "../config.json";
 // const apiEndpoint = apiUrl + "/auth";
 // const tokenKey = "token";
 
-// export async function login(email, password) {
+// export async function checkUser(email, password) {
 //   const { data: jwt } = await http.post(apiEndpoint, { email, password });
 //   localStorage.setItem(tokenKey, jwt);
 // }
+
+export async function checkUser(user) {
+  return http.post(`${apiUrl}login.php`, {
+    email: user.email,
+    password: user.password,
+  });
+}
 
 // export function getCurrentUser() {
 //   try {

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Form, Input, Button } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Component } from "react";
-// import auth from "../Services/authService";
+import * as authServices from "../Services/authService";
 
 class LoginForm extends Component {
   constructor() {
@@ -21,19 +21,21 @@ class LoginForm extends Component {
     };
   }
 
-  onFinish = async () => {
-    // try {
-    //   const { data } = this.state;
-    //   await auth.login(data.email, data.password);
-    //   window.location = "/dashboard";
-    // } catch (ex) {
-    //   if (ex.response && ex.response.status === 400) {
-    //     const errors = { ...this.state.errors };
-    //     errors.email = ex.response.data;
-    //     this.setState({ errors });
-    //     console.log("errors->", this.state.errors);
-    //   }
-    // }
+  onFinish = async (values) => {
+    try {
+      const response = await authServices.checkUser(values);
+      if (response.status >= 200) {
+        if (response.data === 0) {
+          this.props.history.push("/login");
+        } else {
+          this.props.history.push("/profile");
+        }
+      }
+    } catch (ex) {
+      const errors = { ...this.state.errors };
+      // errors.name = ex.response.data;
+      this.setState({ errors });
+    }
   };
 
   render() {
@@ -57,21 +59,27 @@ class LoginForm extends Component {
                       onFinish={this.onFinish}
                     >
                       <Form.Item
-                        name="username"
+                        name="email"
                         rules={[
                           {
+                            type: "email",
+                            message: "The input is not valid E-mail!",
+                          },
+                          {
                             required: true,
-                            message: "Please input your Username!",
+                            message: "Please input your E-mail!",
                           },
                         ]}
+                        hasFeedback
                       >
                         <Input
                           prefix={
                             <UserOutlined className="site-form-item-icon" />
                           }
-                          placeholder="Username"
+                          placeholder="email"
                         />
                       </Form.Item>
+
                       <Form.Item
                         name="password"
                         rules={[

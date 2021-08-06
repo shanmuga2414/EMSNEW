@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./global-components/navbar";
 import PageHeader from "./global-components/page-header";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import {
   CountryDropdown,
   RegionDropdown,
@@ -21,6 +21,7 @@ import {
   Button,
   AutoComplete,
   DatePicker,
+  message,
 } from "antd";
 const { Option } = Select;
 // import * as employeeServices from "../services/employeeServices";
@@ -49,7 +50,16 @@ class RegisterForm extends Component {
   selectRegion(val) {
     this.setState({ region: val });
   }
-
+  success = () => {
+    message.success({
+      content: "This is a prompt message with custom className and style",
+      duration: 10,
+      className: "custom-class",
+      style: {
+        marginTop: "20vh",
+      },
+    });
+  };
   onFinish = async (values) => {
     values.dateOfBirth = this.state.dateOfBirth;
     values.dateOfBaiyath = this.state.dateOfBaiyath;
@@ -57,11 +67,13 @@ class RegisterForm extends Component {
     try {
       const response = await authServices.saveUser(values);
       if (response.status >= 200) {
-        console.log(response);
-        // this.setState({
-        //   success:
-        //     "Thanks for contacting us! We will be in touch with you shortly.",
-        // });
+        if (response.data === 1) {
+          console.log("success");
+          this.success();
+          this.props.history.push("/login");
+        } else {
+          this.props.history.push("/register");
+        }
       }
     } catch (ex) {
       const errors = { ...this.state.errors };
