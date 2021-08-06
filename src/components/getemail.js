@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Form, Input, Button } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Component } from "react";
-// import auth from "../Services/authService";
+import * as authServices from "../Services/authService";
 
 class GetMail extends Component {
   constructor() {
@@ -14,26 +14,34 @@ class GetMail extends Component {
     this.state = {
       data: {
         email: "",
-        password: "",
       },
       errors: {},
       value: 2,
     };
   }
+  success = () => {
+    message.success({
+      content: "This is a prompt message with custom className and style",
+      duration: 10,
+      className: "custom-class",
+      style: {
+        marginTop: "20vh",
+      },
+    });
+  };
 
-  onFinish = async () => {
-    // try {
-    //   const { data } = this.state;
-    //   await auth.login(data.email, data.password);
-    //   window.location = "/dashboard";
-    // } catch (ex) {
-    //   if (ex.response && ex.response.status === 400) {
-    //     const errors = { ...this.state.errors };
-    //     errors.email = ex.response.data;
-    //     this.setState({ errors });
-    //     console.log("errors->", this.state.errors);
-    //   }
-    // }
+  onFinish = async (value) => {
+    try {
+      const response = await authServices.sendEmail(values);
+      if (response.status >= 200) {
+        this.success();
+        this.props.history.push("/profile");
+      }
+    } catch (ex) {
+      const errors = { ...this.state.errors };
+      // errors.name = ex.response.data;
+      this.setState({ errors });
+    }
   };
 
   render() {
@@ -48,7 +56,6 @@ class GetMail extends Component {
                 <div className=" col-xl-4 col-lg-3 col-md-3 col-sm-2 col-12 col-md-offset-4"></div>
                 <div className="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12 col-md-offset-4">
                   <div className="account-wall div-border">
-                    
                     <h3 className="pb-2">Login</h3>
                     <Form
                       name="normal_login"
@@ -56,20 +63,20 @@ class GetMail extends Component {
                       initialValues={{ remember: true }}
                       onFinish={this.onFinish}
                     >
-                    <Form.Item
-                    name="email"
-                    label="E-Mail"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please input your E-Mail!",
-                      },
-                    ]}
-                    hasFeedback
-                  >
-                    <Input />
-                  </Form.Item>
-                      
+                      <Form.Item
+                        name="email"
+                        label="E-Mail"
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please input your E-Mail!",
+                          },
+                        ]}
+                        hasFeedback
+                      >
+                        <Input />
+                      </Form.Item>
+
                       <Form.Item>
                         <Button
                           block
@@ -79,10 +86,7 @@ class GetMail extends Component {
                         >
                           Continue
                         </Button>
-                       
                       </Form.Item>
-                          
-                      
                     </Form>
                   </div>
                 </div>

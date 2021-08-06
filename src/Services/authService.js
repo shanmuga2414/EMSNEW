@@ -16,6 +16,11 @@ export async function checkUser(user) {
     password: user.password,
   });
 }
+export async function sendEmail(user) {
+  return http.post(`${apiUrl}check_email.php`, {
+    email: user.email,
+  });
+}
 
 // export function getCurrentUser() {
 //   try {
