@@ -58,22 +58,22 @@ class Navbar extends Component {
                   <span className="top-contact">
                     <i className="fas fa-phone-volume"></i>{" "}
                     <span className="text-space">
-                      <a href="#/contact" className="color-white">
+                      <a href="/contact" className="color-white">
                         Contact Us
                       </a>
                     </span>
                   </span>
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 text-right hide-mobile-view">
-                  <a className="top-content-size color-white" href="#/login">
+                  <a className="top-content-size color-white" href="/login">
                     <i className="fas fa-sign-in-alt"></i> Login
                   </a>
                   <span className="space">|</span>
-                  <a className="top-content-size color-white" href="#/register">
+                  <a className="top-content-size color-white" href="/register">
                     <i className="fas fa-user-plus"></i> Register
                   </a>
                   <a
-                    href="#/webtv"
+                    href="/webtv"
                     target="_blank"
                     type="button"
                     className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white"
@@ -86,23 +86,20 @@ class Navbar extends Component {
                 <div className="col-lg-6 col-md-6 col-12 hide-large-view">
                   <div className="row mobile-tv">
                     <div className="col-8">
-                      <a
-                        className="top-content-size color-white"
-                        href="#/login"
-                      >
+                      <a className="top-content-size color-white" href="/login">
                         <i className="fas fa-sign-in-alt"></i> Login
                       </a>
                       <span className="space">|</span>
                       <a
                         className="top-content-size color-white"
-                        href="#/register"
+                        href="/register"
                       >
                         <i className="fas fa-user-plus"></i> Register
                       </a>
                     </div>
                     <div className="col-4">
                       <a
-                        href="#/webtv"
+                        href="/webtv"
                         type="button"
                         className="btn btn-sm btn-tvchannel top-content-size hide-large-view"
                       >
@@ -194,10 +191,10 @@ class Navbar extends Component {
                             const subMenus = menus[item];
                             return (
                               <li className="menu-item-has-children" key={i}>
-                                <Link to="#">
+                                <a href="#">
                                   {item}
                                   <i className="fa fa-angle-down" />
-                                </Link>
+                                </a>
                                 {subMenus.length > 0 && (
                                   <ul className="sub-menu">
                                     {subMenus.map((childmenu, ch) => {
@@ -222,9 +219,9 @@ class Navbar extends Component {
                                               {subSubMenu.map(
                                                 (thirdMenu, tm) => (
                                                   <li key={tm}>
-                                                    <Link to="founder">
+                                                    <a href={thirdMenu.url}>
                                                       {thirdMenu.thirdmenu}
-                                                    </Link>
+                                                    </a>
                                                   </li>
                                                 )
                                               )}
@@ -273,10 +270,10 @@ class Navbar extends Component {
                         const subMenus = menus[item];
                         return (
                           <li className="menu-item-has-children" key={i}>
-                            <Link to="#">
+                            <a href="#">
                               {item}
                               <i className="fa fa-angle-down" />
-                            </Link>
+                            </a>
                             {subMenus.length > 0 && (
                               <ul className="sub-menu">
                                 {subMenus.map((childmenu, ch) => {
@@ -290,9 +287,9 @@ class Navbar extends Component {
                                           : ""
                                       }
                                     >
-                                      <Link to={childmenu.url}>
+                                      <a href={childmenu.url}>
                                         {childmenu.submenu}
-                                      </Link>
+                                      </a>
                                       {subSubMenu && (
                                         <ul
                                           className="sub-menu"
@@ -300,9 +297,9 @@ class Navbar extends Component {
                                         >
                                           {subSubMenu.map((thirdMenu, tm) => (
                                             <li key={tm}>
-                                              <Link to="founder">
+                                              <a href={thirdMenu.url}>
                                                 {thirdMenu.thirdmenu}
-                                              </Link>
+                                              </a>
                                             </li>
                                           ))}
                                         </ul>

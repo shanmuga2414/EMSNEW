@@ -48,7 +48,7 @@ class LoginForm extends Component {
                 <div className=" col-xl-4 col-lg-3 col-md-3 col-sm-2 col-12 col-md-offset-4"></div>
                 <div className="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12 col-md-offset-4">
                   <div className="account-wall div-border">
-                  <i className="fas fa-user-lock register-user"></i>
+                    <i className="fas fa-user-lock register-user"></i>
                     <h3 className="pb-2">Login</h3>
                     <Form
                       name="normal_login"
@@ -98,19 +98,27 @@ class LoginForm extends Component {
                         >
                           Log in
                         </Button>
-                        <center><Link className="login-form-forgot" to="getemail">
-                          Forgot Password?
-                        </Link></center>
+                        <center>
+                          <a className="login-form-forgot" href="/getemail">
+                            Forgot Password?
+                          </a>
+                        </center>
                       </Form.Item>
-                          <hr></hr>
-                          <center><span>New to EMS Media?</span></center>
+                      <hr></hr>
+                      <center>
+                        <span>New to EMS Media?</span>
+                      </center>
                       <Form.Item>
-                        <center><Link
-                          class="text-center new-account btn btn-grey"
-                          to="register"
-                        >
-                          Create Your EMS Account<i class="fas fa-chevron-right first-chevron"></i><i class="fas fa-chevron-right sec-chevron"></i>
-                        </Link></center>
+                        <center>
+                          <a
+                            class="text-center new-account btn btn-grey"
+                            href="/register"
+                          >
+                            Create Your EMS Account
+                            <i class="fas fa-chevron-right first-chevron"></i>
+                            <i class="fas fa-chevron-right sec-chevron"></i>
+                          </a>
+                        </center>
                       </Form.Item>
                     </Form>
                   </div>

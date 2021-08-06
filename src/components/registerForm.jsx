@@ -84,7 +84,7 @@ class RegisterForm extends Component {
               <div className="col-xl-2 col-lg-1"></div>
               <div className="col-xl-8 col-lg-10 col-md-12">
                 <div className="account-wall div-border" id="register_form">
-                <i className="fas fa-user-plus register-user"></i>
+                  <i className="fas fa-user-plus register-user"></i>
 
                   <h3 className="text-center">Create Your EMS Account</h3>
                   <Form
@@ -409,24 +409,26 @@ class RegisterForm extends Component {
                     </div>
                     <div className="row">
                       <Form.Item>
-                      <center><Button
-                      block
-                      type="danger"
-                      htmlType="submit"
-                      className="btn btn-style-1 register-btn"
-                    >
-                      Register
-                    </Button></center>
+                        <center>
+                          <Button
+                            block
+                            type="danger"
+                            htmlType="submit"
+                            className="btn btn-style-1 register-btn"
+                          >
+                            Register
+                          </Button>
+                        </center>
                       </Form.Item>
                     </div>
                     <div className="row text-center">
                       <Form.Item>
-                      <span
-                      className="text-center new-account "
-                     
-                    >
-                    Already have an account? <Link to className="login-text-style">Login</Link>
-                    </span>
+                        <span className="text-center new-account ">
+                          Already have an account?{" "}
+                          <a href="/login" className="login-text-style">
+                            Login
+                          </a>
+                        </span>
                       </Form.Item>
                     </div>
                   </Form>
