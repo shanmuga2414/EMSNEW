@@ -69,7 +69,8 @@ class Navbar extends Component {
                     href="/webtv"
                     target="_blank"
                     type="button"
-                    className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white"
+                    className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white "
+                    style={{"margin-right":"10px"}}
                   >
                     <i className="fa fa-book" />{" "}
                     <span className="tab">EMS</span> Magazine{" "}
@@ -159,11 +160,11 @@ class Navbar extends Component {
                       alt="EMS Media"
                     />
                   </a>
-                </div>
-                <div className="">
-                  <a href="">EMS Live</a>
-                </div>
-
+                </div>{
+                // <div className="">
+                //   <a href="">EMS Live</a>
+                // </div>
+              }
               </div>
 
               <div className=" col-lg-5 view-large mt-2">
