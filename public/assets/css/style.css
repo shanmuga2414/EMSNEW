@@ -9332,6 +9332,10 @@ h6 {
   .slick-next {
     right: -25px !important;
 }
+.webtv-head {
+  margin-left: 8%;
+  font-size: 25px;
+}
 }
 /* end mobile view 600 */
 
@@ -9416,10 +9420,14 @@ h6 {
     font-size: 25px;
   }
   .webtv-head{
-    margin-left:39%;
-    font-size: 23px;
-    color: #e2521a;
+    margin-left: 8%;
+    font-size: 28px;
+    color: #28505d;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
   }
+  
 }
 @media only screen and (min-width: 1025px) {
   .hide-large-view1,
@@ -9442,9 +9450,15 @@ h6 {
     margin-left: 40px;
   }
   .webtv-head{
-    margin-left:39%;
-    font-size: 25px;
-    color: #e2521a;
+    margin-left: 8%;
+    font-size: 28px;
+    color: #28505d;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .btn-blue-webtv{
+    margin-left: 54%;
   }
 }
 @media only screen and (max-width: 1025px) {
@@ -9458,7 +9472,7 @@ h6 {
     height: 247px !important;
   }
   .webtv-head{
-    margin-left:39%;
+    margin-left:8%;
   }
 }
 @media only screen and (max-width: 1025px) and (min-width: 800px) {
@@ -9472,9 +9486,15 @@ h6 {
     margin-left: 20%;
   }
   .webtv-head{
-    margin-left:39%;
-    font-size: 23px;
-    color: #e2521a;
+    margin-left: 8%;
+    font-size: 28px;
+    color: #28505d;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .btn-blue-webtv{
+    margin-left: 41%;
   }
 }
 @media only screen and (min-width: 601px) {
@@ -9569,11 +9589,13 @@ h6 {
   .brant-item {
     min-height: 369px !important;
   }
-  .webtv-head{
-    margin-left:19%;
-    font-size: 20px;
-    color: #e2521a;
-  }
+  .btn-blue-webtv {
+    padding: 7px 19px;
+    height: 37px;
+}
+
+
+  
 }
 @media only screen and (max-width: 600px) and (min-width: 377px) {
   .fa-bars {
@@ -9588,9 +9610,12 @@ h6 {
     width: 256px !important;
   }
   .webtv-head{
-    margin-left:26%;
-    font-size: 20px;
-    color: #e2521a;
+    margin-left: 8%;
+    font-size: 28px;
+    color: #28505d;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
   }
   /* .slick-prev {
     left: -13px !important;
@@ -9619,9 +9644,12 @@ h6 {
     margin: 25px 0px 0px 29% !important;
   }
   .webtv-head{
-    margin-left:20%;
-    font-size: 20px;
-    color: #e2521a;
+    margin-left: 8%;
+    font-size: 28px;
+    color: #28505d;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
   }
 }
 @media only screen and (max-width: 1200px) and (min-width: 800px) {
@@ -10032,6 +10060,14 @@ button {
 }
 .profile-detail{
   color:#e2521a;
+}
+.btn-blue-webtv{
+    background: #e2521a;
+    color: white !important;
+    padding: 8px 19px;
+    height: 41px;
+    border-radius: 3px;
+    font-weight: 500;
 }
 
 

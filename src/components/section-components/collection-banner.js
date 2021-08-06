@@ -11,7 +11,7 @@ class CollectionBanner extends Component {
       <div className="container collection-banner">
         <div className="row">
           <div className="col-lg-6">
-            <img src={publicUrl + "assets/img/image 6.png"} alt="" />
+            <a target="_blank" href="http://emsmedia.net/magazine/"><img src={publicUrl + "assets/img/image 6.jpg"} alt="" /></a>
           </div>
           <div className="col-lg-6">
             <img src={publicUrl + "assets/img/image 7.png"} alt="" />
