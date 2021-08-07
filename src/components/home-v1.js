@@ -18,7 +18,14 @@ import Magazine from "./section-components/magazine";
 import Categories from "./section-components/categories";
 import Footer from "./global-components/footer";
 
+
+
 const Home_V1 = () => {
+  document.addEventListener("DOMContentLoaded", function(event) { 
+   // setInterval(function(){ alert("Hello"); }, 3000);
+  });
+    
+  
   return (
     <div>
       <Navbar />

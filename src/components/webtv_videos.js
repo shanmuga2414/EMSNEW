@@ -4,7 +4,7 @@ import PageHeader from "./global-components/page-header";
 import Videos from "./shop-components/webtvvideos";
 // import Delivery from "./section-components/delivery";
 // import Instagram from "./section-components/instagram";
-import Footer from "./global-components/footer";
+import Footer from "./global-components/footer-webtv";
 
 const webtv_videos = () => {
   return (

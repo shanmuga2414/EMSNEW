@@ -10069,5 +10069,25 @@ button {
     border-radius: 3px;
     font-weight: 500;
 }
+.ems_live_div{
+  margin-top:38px;
+}
+.live_link{
+    color: white;
+    background: #f6bc01;
+    padding: 10px 40px;
+    font-size: 23px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+.live_link:hover{
+  color:white;
+}
+.sec-chevron-nav {
+  margin-left: -10px;
+}
 
+#webtv-card .webtv-card-header{
+  background-color: #00C9FC !important;
+}
 

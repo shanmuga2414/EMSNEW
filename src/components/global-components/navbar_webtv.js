@@ -258,6 +258,17 @@ class Navbar extends Component {
                   </span>
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 text-right hide-mobile-view">
+                <a
+                href="/webtv"
+                target="_blank"
+                type="button"
+                className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white tab-hide"
+                style={{"margin-right":"15px"}}
+              >
+                <i className="fa fa-book" />{" "}
+                <span className="tab">EMS</span> Magazine{" "}
+                
+              </a>
                   <Link className="top-content-size color-white" to="login">
                     <i class="fas fa-sign-in-alt"></i> Login
                   </Link>
@@ -306,33 +317,42 @@ class Navbar extends Component {
           </div>
           <div className="container-fluid logo-bg-color">
             <div className="row">
-              <div className="col-xl-8 col-lg-5 hide-mobile-view tab-hide">
+            <div className="col-xl-8 col-lg-5  hide-mobile-view tab-hide">
+            <div className="row">
+              <div className="col-lg-8">
                 <div className="logo">
-                  <Link to="/">
+                  <a href="/">
                     <img
-                      class="logo-img web-tv-logo"
-                      src={publicUrl + "assets/img/logo-webtv.jpg"}
-                      alt=""
+                      className="logo-img"
+                      src={publicUrl + "assets/img/logo.jpg"}
+                      alt="EMS Media"
                     />
-                  </Link>
+                  </a>
                 </div>
               </div>
-              <div className="col-xl-4 col-lg-5">
-                <form>
-                  <div className="form-group searchbox hide-mobile-view tab-hide">
-                    <div className="input-icons input-size">
-                      <i className="fa fa-search"></i>
-                      <input
-                        type="text"
-                        className="input-field form-control"
-                        id="phone"
-                        placeholder="search here..."
-                      />
-                    </div>
+              <div className="col-lg-4">
+                <div className="ems_live_div">
+                    <a className="live_link" target="_blank" href="/webtv">EMS Live <i class="fas fa-chevron-right"></i> <i class="fas fa-chevron-right sec-chevron-nav"></i></a>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
+            <div className="col-xl-4 col-lg-5">
+              <form>
+                <div className="form-group searchbox hide-mobile-view tab-hide">
+                  <div className="input-icons input-size">
+                    <i className="fa fa-search"></i>
+                    <input
+                      type="text"
+                      className="input-field form-control"
+                      id="phone"
+                      placeholder="search here..."
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
             <div className="row  logo-bg-color hide-large-view1">
               <div className="col-lg-5 col-9 ">
                 <div className="logo">

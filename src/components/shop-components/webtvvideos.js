@@ -162,8 +162,8 @@ class Videos extends Component {
               </div>
               <div className="widget categories-widget">
                 <div className="accordion-style-2" id="accordionExample1">
-                  <div className="card">
-                    <div className="card-header" id="headingOne">
+                  <div className="card " id="webtv-card">
+                    <div className="card-header webtv-card-header" id="headingOne">
                       <p className="mb-0">
                         <a
                           href="#"
@@ -208,8 +208,8 @@ class Videos extends Component {
 
               <div className="widget ptype-widget">
                 <div className="accordion-style-2" id="accordionExample3">
-                  <div className="card">
-                    <div className="card-header" id="headingThree">
+                  <div className="card" id="webtv-card">
+                    <div className="card-header webtv-card-header" id="headingThree">
                       <p className="mb-0">
                         <a
                           href="#"
@@ -245,8 +245,8 @@ class Videos extends Component {
 
               <div className="widget size-widget">
                 <div className="accordion-style-2" id="accordionExample6">
-                  <div className="card">
-                    <div className="card-header" id="headingSix">
+                  <div className="card" id="webtv-card">
+                    <div className="card-header webtv-card-header" id="headingSix">
                       <p className="mb-0">
                         <a
                           href="#"

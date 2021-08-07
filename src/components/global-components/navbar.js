@@ -49,7 +49,7 @@ class Navbar extends Component {
               <div className="row ">
                 <div
                   className=""
-                  className="col-lg-6 col-md-6 col-12 mt-1 hide-mobile-view"
+                  className="col-xl-5 col-lg-4 col-md-5 col-12 mt-1 hide-mobile-view"
                 >
                   <span>
                     <i className="fas fa-envelope"></i>
@@ -64,13 +64,13 @@ class Navbar extends Component {
                     </span>
                   </span>
                 </div>
-                <div className="col-lg-6 col-md-6 col-12 text-right hide-mobile-view">
+                <div className="col-xl-7 col-lg-8 col-md-7 col-12 text-right hide-mobile-view">
                 <a
                     href="/webtv"
                     target="_blank"
                     type="button"
-                    className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white "
-                    style={{"margin-right":"10px"}}
+                    className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white tab-hide"
+                    style={{"margin-right":"15px"}}
                   >
                     <i className="fa fa-book" />{" "}
                     <span className="tab">EMS</span> Magazine{" "}
@@ -124,15 +124,24 @@ class Navbar extends Component {
           </div>
           <div className="container-fluid logo-bg-color">
             <div className="row">
-              <div className="col-xl-8 col-lg-5 hide-mobile-view tab-hide">
-                <div className="logo">
-                  <a href="/">
-                    <img
-                      className="logo-img"
-                      src={publicUrl + "assets/img/logo.jpg"}
-                      alt="EMS Media"
-                    />
-                  </a>
+              <div className="col-xl-8 col-lg-5  hide-mobile-view tab-hide">
+              <div className="row">
+                <div className="col-lg-8">
+                  <div className="logo">
+                    <a href="/">
+                      <img
+                        className="logo-img"
+                        src={publicUrl + "assets/img/logo.jpg"}
+                        alt="EMS Media"
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div className="col-lg-4">
+                  <div className="ems_live_div">
+                      <a className="live_link" target="_blank" href="/webtv">EMS Live <i class="fas fa-chevron-right"></i> <i class="fas fa-chevron-right sec-chevron-nav"></i></a>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="col-xl-4 col-lg-5">
@@ -160,11 +169,9 @@ class Navbar extends Component {
                       alt="EMS Media"
                     />
                   </a>
-                </div>{
-                // <div className="">
-                //   <a href="">EMS Live</a>
-                // </div>
-              }
+                </div>
+                
+              
               </div>
 
               <div className=" col-lg-5 view-large mt-2">
