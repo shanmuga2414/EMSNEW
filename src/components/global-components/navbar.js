@@ -66,10 +66,10 @@ class Navbar extends Component {
                 </div>
                 <div className="col-xl-7 col-lg-8 col-md-7 col-12 text-right hide-mobile-view">
                 <a
-                    href="/webtv"
+                    href="http://emsmedia.net/magazine/"
                     target="_blank"
                     type="button"
-                    className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white tab-hide"
+                    className="btn btn-sm magazine btn-tvchannel top-content-size hide-mobile-view color-white tab-hide"
                     style={{"margin-right":"15px"}}
                   >
                     <i className="fa fa-book" />{" "}
@@ -125,8 +125,7 @@ class Navbar extends Component {
           <div className="container-fluid logo-bg-color">
             <div className="row">
               <div className="col-xl-8 col-lg-5  hide-mobile-view tab-hide">
-              <div className="row">
-                <div className="col-lg-8">
+             
                   <div className="logo">
                     <a href="/">
                       <img
@@ -137,13 +136,7 @@ class Navbar extends Component {
                     </a>
                   </div>
                 </div>
-                <div className="col-lg-4">
-                  <div className="ems_live_div">
-                      <a className="live_link" target="_blank" href="/webtv">EMS Live <i class="fas fa-chevron-right"></i> <i class="fas fa-chevron-right sec-chevron-nav"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
               <div className="col-xl-4 col-lg-5">
                 <form>
                   <div className="form-group searchbox hide-mobile-view tab-hide">

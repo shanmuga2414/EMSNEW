@@ -45,7 +45,7 @@ class Books extends Component {
                       <h6>{book.book_name}</h6>
 
                       <h5 className="align-center">
-                        <b>${book.book_price}</b>
+                        <b>&#8377; {book.book_price}</b>
                       </h5>
                     </div>
                     <a

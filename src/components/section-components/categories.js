@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import parse from "html-react-parser";
 
 class Category extends Component {
+  
+
   render() {
     let publicUrl = process.env.PUBLIC_URL + "/";
     let imagealt = "image";
@@ -145,6 +147,7 @@ class Category extends Component {
           </div>
         </div>
       </div>
+     
     );
   }
 }

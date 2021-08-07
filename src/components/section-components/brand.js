@@ -65,7 +65,7 @@ class Brand extends Component {
               <h3>Event Activities</h3>
             </div>
             <div className="col-lg-1">
-              <button className="btn btn-blue">View All</button>
+              <a href="/events" className="btn btn-blue" id="event-btn">View All</a>
             </div>
           </div>
 

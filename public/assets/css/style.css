@@ -9336,6 +9336,24 @@ h6 {
   margin-left: 8%;
   font-size: 25px;
 }
+.related-product{
+  padding: 27px 20px 32px 20px;
+}
+#webtv_view{
+  margin-left: 64% !important;
+  padding: 9px 19px !important;
+  height: 34px !important;
+}
+.webtv-title h3{
+  margin-bottom:20px;
+}
+.btn-blue-webtv {
+  margin-left: 66% !important;
+  margin-bottom: 10px !important;
+  
+  padding:5px 19px !important;
+  height: 34px !important;
+}
 }
 /* end mobile view 600 */
 
@@ -9460,6 +9478,9 @@ h6 {
   .btn-blue-webtv{
     margin-left: 54%;
   }
+  #webtv_view{
+    margin-left:77%;
+  }
 }
 @media only screen and (max-width: 1025px) {
   .tab-hide {
@@ -9495,6 +9516,9 @@ h6 {
   }
   .btn-blue-webtv{
     margin-left: 41%;
+  }
+  #webtv_view{
+    margin-left:67%;
   }
 }
 @media only screen and (min-width: 601px) {
@@ -9589,10 +9613,7 @@ h6 {
   .brant-item {
     min-height: 369px !important;
   }
-  .btn-blue-webtv {
-    padding: 7px 19px;
-    height: 37px;
-}
+  
 
 
   
@@ -10089,5 +10110,21 @@ button {
 
 #webtv-card .webtv-card-header{
   background-color: #00C9FC !important;
+}
+#webtv_view{
+  background: #e2521a;
+    color: white !important;
+    padding: 13px 34px;
+    height: 41px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+.magazine{
+  background:white;
+  color: #28505d !important;
+  border: 1px solid white !important;
+}
+#event-btn{
+  color:white;
 }
 

@@ -79,7 +79,7 @@ class RelatedVideos extends Component {
                     <h3>Related Videos</h3>
                   </div>
                   <div className="col-lg-6">
-                   <a className="btn-blue-webtv" href="webtv_videos">View All</a>
+                   <a className="btn-blue-webtv" id="webtv_view" href="webtv_videos">View All</a>
                   </div>
                   </div>
                   

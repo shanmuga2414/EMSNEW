@@ -116,7 +116,7 @@ class Books extends Component {
                             </h6>
                             <div className="content-price d-flex align-self-center justify-content-center">
                               <span className="new-price">
-                                ${book.book_price}
+                              &#8377; {book.book_price}
                               </span>
                             </div>
                           </div>

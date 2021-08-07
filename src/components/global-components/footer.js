@@ -122,36 +122,37 @@ class Footer_v1 extends Component {
               </div>
               <div className="col-lg-3 col-md-6">
                 <div className="widget widget_nav_menu">
-                  <h4 className="widget-title">CUSTOMER SERVICE</h4>
+                  <h4 className="widget-title">OUR WEBSITE LINK</h4>
 
                   <ul className="stone-go-top">
                     <li>
-                      <Link to="/contact">
+                      <a href="/webtv">
                         {" "}
                         <i className="fa fa-angle-right" />
-                        Contact
-                      </Link>
+                        EMS Web TV Channel
+                      </a>
                     </li>
                     <li>
-                      <Link to="/">
-                        {" "}
-                        <i className="fa fa-angle-right" />
-                        Returns
-                      </Link>
+                    <a href="/books">
+                      {" "}
+                      <i className="fa fa-angle-right" />
+                      நூற்கள்
+                    </a>
+                  </li>
+                    
+                    <li>
+                      <a href="/blog/amutha_mozhigal">
+                      {" "}
+                      <i className="fa fa-angle-right" />
+                      அமுத மொழிகள்
+                      </a>
                     </li>
                     <li>
-                      <Link to="/">
+                      <a href="/blog/kolgaigal">
                         {" "}
                         <i className="fa fa-angle-right" />
-                        Order History
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        {" "}
-                        <i className="fa fa-angle-right" />
-                        Site Map
-                      </Link>
+                        கொள்கைகள்
+                      </a>
                     </li>
                     <li>
                       <Link to="/">
