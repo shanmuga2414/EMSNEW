@@ -50,13 +50,15 @@ class RegisterForm extends Component {
   selectRegion(val) {
     this.setState({ region: val });
   }
+
   success = () => {
     message.success({
-      content: "This is a prompt message with custom className and style",
+      content:
+        "Registration Completed Successfully. Please check your registered email for email verification !",
       duration: 10,
       className: "custom-class",
       style: {
-        marginTop: "20vh",
+        marginTop: "40vh",
       },
     });
   };
@@ -67,13 +69,13 @@ class RegisterForm extends Component {
     try {
       const response = await authServices.saveUser(values);
       if (response.status >= 200) {
-        if (response.data === 1) {
-          console.log("success");
-          this.success();
-          this.props.history.push("/login");
-        } else {
-          this.props.history.push("/register");
-        }
+        // if (response.data === 1) {
+        console.log("success");
+        this.success();
+        this.props.history.push("/login");
+        // } else {
+      } else {
+        this.props.history.push("/register");
       }
     } catch (ex) {
       const errors = { ...this.state.errors };

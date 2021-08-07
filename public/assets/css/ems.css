@@ -466,3 +466,11 @@
   background-color: #e2521a !important;
   border-color: #e2521a !important;
 }
+
+.ant-message-notice-content {
+  background-color: #8fe26575 !important;
+}
+.ant-message-success {
+  font-size: 16px !important;
+  /* font-weight: bold; */
+}

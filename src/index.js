@@ -73,7 +73,7 @@ class Root extends Component {
             <Route path="/spiritual" component={Spiritual} />
             <Route path="/webtv" component={WebTv} />
             <Route path="/profile" component={ProfileDetails} />
-            <Route path="/webtv_videos" component={Videos} />
+            <Route path="/webtv_videos" component={webtv_videos} />
 
             {/* <Route path="/home-v2" component={HomeV2} />
               <Route path="/home-v3" component={HomeV3} />

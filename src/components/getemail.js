@@ -3,7 +3,7 @@ import Navbar from "./global-components/navbar";
 import PageHeader from "./global-components/page-header";
 import Footer from "./global-components/footer";
 import { Link } from "react-router-dom";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Component } from "react";
 import * as authServices from "../Services/authService";
@@ -21,7 +21,7 @@ class GetMail extends Component {
   }
   success = () => {
     message.success({
-      content: "This is a prompt message with custom className and style",
+      content: "Please check your email to update the password",
       duration: 10,
       className: "custom-class",
       style: {
@@ -30,7 +30,7 @@ class GetMail extends Component {
     });
   };
 
-  onFinish = async (value) => {
+  onFinish = async (values) => {
     try {
       const response = await authServices.sendEmail(values);
       if (response.status >= 200) {

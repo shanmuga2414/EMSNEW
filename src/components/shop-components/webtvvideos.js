@@ -20,7 +20,7 @@ class Videos extends Component {
       videos: [],
       videoCategories: [],
       videoId: "",
-      pageSize: 3,
+      pageSize: 9,
       currentPage: 1,
       displayVideoRage: 1,
     };
@@ -153,7 +153,8 @@ class Videos extends Component {
                     <i className="icon-search" />
                   </button>
                   <input
-                    type="text" className="side-input"
+                    type="text"
+                    className="side-input"
                     placeholder="Search Category"
                     name="search"
                   />

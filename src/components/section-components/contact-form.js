@@ -1,5 +1,13 @@
 import React, { Component } from "react";
-import { Form, Input, InputNumber, Button, Checkbox, Alert } from "antd";
+import {
+  Form,
+  Input,
+  InputNumber,
+  Button,
+  Checkbox,
+  Alert,
+  message,
+} from "antd";
 
 import * as contactServices from "../../Services/contact-page-services";
 
@@ -112,7 +120,6 @@ class ContactForm extends Component {
                           message: "The input is not valid E-mail!",
                         },
                         {
-                          
                           message: "Please input your E-mail!",
                         },
                       ]}
@@ -129,7 +136,6 @@ class ContactForm extends Component {
                       name="topic"
                       rules={[
                         {
-                          
                           message: "Please input your Topic!",
                         },
                       ]}
@@ -163,13 +169,15 @@ class ContactForm extends Component {
                   </div>
                 </div>
                 <Form.Item>
-                <center><Button
-                    type="primary"
-                    htmlType="submit"
-                    className="contact-btn text-center"
-                  >
-                    Send your message
-                  </Button></center>
+                  <center>
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      className="contact-btn text-center"
+                    >
+                      Send your message
+                    </Button>
+                  </center>
                 </Form.Item>
               </Form>
 
