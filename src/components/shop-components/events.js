@@ -103,7 +103,7 @@ class Events extends Component {
 
                           <p>{event.description.replace(regex, "")}</p>
                         </div>
-                        <a class="btn btn-native" href="#/blog-details">
+                        <a class="btn btn-native" href="/single_event">
                           Read more
                         </a>
                       </div>
