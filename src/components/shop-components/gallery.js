@@ -5,21 +5,21 @@ import "antd/dist/antd.css";
 import { DatePicker, Space } from "antd";
 import Modal from "react-modal";
 import ImageGallery from "react-image-gallery";
+import moment from 'moment';
 import Pagination from "../global-components/pagination";
 import { paginate } from "../../paginate";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 import * as homeServices from "../../Services/home-page-services";
 
-function onChange(date, dateString) {
-  console.log(date, dateString);
-}
-
 class Gallery extends Component {
   constructor() {
     super();
     this.state = {
       albums: [],
+      filteredSearch: '',
+      filteredMonth: '',
+      filteredYear: '',
       showModal: false,
       pageSize: 6,
       currentPage: 1,
@@ -50,23 +50,43 @@ class Gallery extends Component {
     this.setState({ albums: result.data.records });
     // this.setState({ images: imgresults.data });
   }
+  
+  searchGallery = (e) => {
+    this.setState({ filteredSearch: e.target.value.trim() });
+  }
+  handleMonthChange = (e) => {
+    let filteredMonth = e.target.textContent.trim();
+    if (filteredMonth === this.state.filteredMonth) {
+      filteredMonth = '';
+    }
+    this.setState({ filteredMonth });
+  }
+  handleYearChange = (date, dateString) => {
+    this.setState({ filteredYear: dateString });
+  }
+  getFilterGalleryList = () => {
+    const { filteredSearch, filteredMonth, filteredYear } = this.state;
+
+    const galleryList = this.state.albums.filter(gallery => {
+      let gallerydate = moment(gallery.date, 'DD-MM-YYYY / hh:mm:ssa');
+      if (filteredSearch && !gallery.title.toLowerCase().includes(filteredSearch.toLowerCase())) return false;
+      if (filteredYear && filteredYear !== gallerydate.format('YYYY')) return false;
+      if (filteredYear && filteredMonth && filteredMonth !== gallerydate.format('MMM')) return false;
+
+      return true;
+    });
+
+    return galleryList;
+  }
 
   render() {
-    const { albums, pageSize, currentPage, displayGalleryRage } = this.state;
-    const monthNameList = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
+    const { albums, filteredMonth, filteredYear, pageSize, currentPage, displayGalleryRage } = this.state;
+    
+    const monthNameList = moment.monthsShort();
+    
+    const filteredGallerys = this.getFilterGalleryList();
+    const getGallerys = paginate(filteredGallerys, currentPage, pageSize);
+
     const customStyles = {
       content: {
         top: "50%",
@@ -115,7 +135,6 @@ class Gallery extends Component {
           "http://emsmedia.net/magazine/web_control/books/image/book6.png",
       },
     ];
-    const getGallery = paginate(albums, currentPage, pageSize);
     return (
       <div className="collection-area">
         <div className="container">
@@ -154,8 +173,8 @@ class Gallery extends Component {
               <div className="tab-content">
                 <div className="tab-pane fade in show active" id="one">
                   <div className="row">
-                    {getGallery.map((album) => (
-                      <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                    {getGallerys.map((album) => (
+                      <div key={album.gid} className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                         <div className="product-style-03 imageHover webVideo margin-top-40">
                           <div className="thumb">
                             <span onClick={this.handleOpenModal}>
@@ -200,8 +219,9 @@ class Gallery extends Component {
                 </button>
                 <input
                   type="text" className="side-input"
-                  placeholder="Search Category"
+                  placeholder="Search Images"
                   name="search"
+                  onChange={this.searchGallery}
                 />
               </form>
               </div>
@@ -360,7 +380,7 @@ class Gallery extends Component {
                         <form action="#">
                           <div className="custom-control custom-checkbox mb-3">
                             <Space direction="vertical">
-                              <DatePicker onChange={onChange} picker="year" />
+                              <DatePicker onChange={this.handleYearChange} picker="year" />
                             </Space>
                           </div>
                         </form>
@@ -370,42 +390,44 @@ class Gallery extends Component {
                 </div>
               </div>
 
-              <div className="widget size-widget">
-                <div className="accordion-style-2" id="accordionExample6">
-                  <div className="card">
-                    <div className="card-header" id="headingSix">
-                      <p className="mb-0">
-                        <a
-                          href="#"
-                          role="button"
-                          data-toggle="collapse"
-                          data-target="#collapseSix"
-                          aria-expanded="true"
-                          aria-controls="collapseSix"
-                        >
-                          Month
-                        </a>
-                      </p>
-                    </div>
-                    <div
-                      id="collapseSix"
-                      className="collapse show"
-                      aria-labelledby="headingSix"
-                      data-parent="#accordionExample6"
-                    >
-                      <div className="card-body">
-                        <ul className="size-list">
-                          {monthNameList.map((month) => (
-                            <li>
-                              <a href="#">{month}</a>
-                            </li>
-                          ))}
-                        </ul>
+              {filteredYear && 
+                <div className="widget size-widget">
+                  <div className="accordion-style-2" id="accordionExample6">
+                    <div className="card">
+                      <div className="card-header" id="headingSix">
+                        <p className="mb-0">
+                          <a
+                            href="#"
+                            role="button"
+                            data-toggle="collapse"
+                            data-target="#collapseSix"
+                            aria-expanded="true"
+                            aria-controls="collapseSix"
+                          >
+                            Month
+                          </a>
+                        </p>
+                      </div>
+                      <div
+                        id="collapseSix"
+                        className="collapse show"
+                        aria-labelledby="headingSix"
+                        data-parent="#accordionExample6"
+                      >
+                        <div className="card-body">
+                          <ul className="size-list" onClick={this.handleMonthChange}>
+                            {monthNameList.map((month) => (
+                              <li className={month == filteredMonth && 'active'}>
+                                <a href="#">{month}</a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              }
             </div>
           </div>
         </div>

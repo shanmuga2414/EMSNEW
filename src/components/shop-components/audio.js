@@ -4,18 +4,19 @@ import ReactPlayer from "react-player/lazy";
 import ReactAudioPlayer from "react-audio-player";
 import "antd/dist/antd.css";
 import { DatePicker, Space } from "antd";
+import moment from 'moment';
 import Pagination from "../global-components/pagination";
 import { paginate } from "../../paginate";
 import * as homeServices from "../../Services/home-page-services";
-
-function onChange(date, dateString) {
-  console.log(date, dateString);
-}
 
 class Audios extends Component {
   state = {
     audioCategories: [],
     audioList: [],
+    audioCategorySearch: '',
+    filteredCategories: new Set(),
+    filteredMonth: '',
+    filteredYear: '',
     pageSize: 6,
     currentPage: 1,
     displayAudioRange: 1,
@@ -34,31 +35,66 @@ class Audios extends Component {
       displayAudioRange: this.state.currentPage * this.state.pageSize + 1,
     });
   };
+  searchCategory = (e) => {
+    this.setState({ audioCategorySearch: e.target.value.trim() });
+  }
+  handleCategoryChange = (e) => {
+    let filteredCategories = this.state.filteredCategories;
+
+    if (e.target.checked) {
+      filteredCategories.add(e.target.value);
+    } else {
+      filteredCategories.delete(e.target.value);
+    }
+
+    this.setState({ filteredCategories });
+  }
+  handleMonthChange = (e) => {
+    let filteredMonth = e.target.textContent.trim();
+    if (filteredMonth === this.state.filteredMonth) {
+      filteredMonth = '';
+    }
+    this.setState({ filteredMonth });
+  }
+  handleYearChange = (date, dateString) => {
+    this.setState({ filteredYear: dateString });
+  }
+  getFilterAudioCategories = () => {
+    const { audioCategories, audioCategorySearch } = this.state;
+
+    return audioCategories.filter(({ category }) => category.toLowerCase().includes(audioCategorySearch.toLowerCase()));
+  }
+  getFilterAudioList = () => {
+    const { filteredCategories, filteredMonth, filteredYear } = this.state;
+
+    const audioList = this.state.audioList.filter(audio => {
+      let audiodate = moment(audio.date, 'DD-MM-YYYY / hh:mm:ssa');
+      if (filteredCategories.size && !filteredCategories.has(audio.category)) return false;
+      if (filteredYear && filteredYear !== audiodate.format('YYYY')) return false;
+      if (filteredYear && filteredMonth && filteredMonth !== audiodate.format('MMM')) return false;
+
+      return true;
+    });
+
+    return audioList;
+  }
   render() {
     let publicUrl = process.env.PUBLIC_URL + "/";
     const {
-      audioCategories,
       audioList,
+      filteredMonth,
+      filteredYear,
       pageSize,
       currentPage,
       displayAudioRange,
     } = this.state;
-    console.log(audioList);
-    const monthNameList = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    const getAudio = paginate(audioList, currentPage, pageSize);
+
+    const monthNameList = moment.monthsShort();
+    
+    const filteredAudios = this.getFilterAudioList();
+    const getAudios = paginate(filteredAudios, currentPage, pageSize);
+    const filteredAudioCategories = this.getFilterAudioCategories();
+    
     return (
       <div className="collection-area">
         <div className="container">
@@ -97,8 +133,8 @@ class Audios extends Component {
               <div className="tab-content">
                 <div className="tab-pane fade in show active" id="one">
                   <div className="row">
-                    {getAudio.map((audio) => (
-                      <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                    {getAudios.map((audio) => (
+                      <div key={audio.aid} className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                         <div className="product-style-audio webVideo margin-top-40">
                         <div className="thumb ">
                         <img src={publicUrl + "assets/img/audio.jpg"} alt="" />
@@ -143,6 +179,7 @@ class Audios extends Component {
                   type="text" className="side-input"
                   placeholder="Search Category"
                   name="search"
+                  onChange={this.searchCategory}
                 />
               </form>
               </div>
@@ -171,20 +208,24 @@ class Audios extends Component {
                     >
                       <div className="card-body">
                         <form action="#">
-                          {audioCategories.map((audioCategory) => (
-                            <div className="custom-control custom-checkbox mb-3">
+                          {filteredAudioCategories.map((audioCategory, i) => (
+                            <div key={audioCategory.aid} className="custom-control custom-checkbox mb-3">
                               <input
                                 type="checkbox"
                                 className="custom-control-input"
+                                id={'category-' + i}
+                                onChange={this.handleCategoryChange}
+                                value={audioCategory.category}
                               />
                               <label
                                 className="custom-control-label"
-                                htmlFor="customCheck"
+                                htmlFor={'category-' + i}
                               >
                                 {audioCategory.category}
                               </label>
                             </div>
                           ))}
+                          {!filteredAudioCategories.length && <div className="text-center">No Categories Found!</div>}
                         </form>
                       </div>
                     </div>
@@ -219,7 +260,7 @@ class Audios extends Component {
                         <form action="#">
                           <div className="custom-control custom-checkbox mb-3">
                             <Space direction="vertical">
-                              <DatePicker onChange={onChange} picker="year" />
+                              <DatePicker onChange={this.handleYearChange} picker="year" />
                             </Space>
                           </div>
                         </form>
@@ -229,42 +270,44 @@ class Audios extends Component {
                 </div>
               </div>
 
-              <div className="widget size-widget">
-                <div className="accordion-style-2" id="accordionExample6">
-                  <div className="card">
-                    <div className="card-header" id="headingSix">
-                      <p className="mb-0">
-                        <a
-                          href="#"
-                          role="button"
-                          data-toggle="collapse"
-                          data-target="#collapseSix"
-                          aria-expanded="true"
-                          aria-controls="collapseSix"
-                        >
-                          Month
-                        </a>
-                      </p>
-                    </div>
-                    <div
-                      id="collapseSix"
-                      className="collapse show"
-                      aria-labelledby="headingSix"
-                      data-parent="#accordionExample6"
-                    >
-                      <div className="card-body">
-                        <ul className="size-list">
-                          {monthNameList.map((month) => (
-                            <li>
-                              <a href="#">{month}</a>
-                            </li>
-                          ))}
-                        </ul>
+              {filteredYear && 
+                <div className="widget size-widget">
+                  <div className="accordion-style-2" id="accordionExample6">
+                    <div className="card">
+                      <div className="card-header" id="headingSix">
+                        <p className="mb-0">
+                          <a
+                            href="#"
+                            role="button"
+                            data-toggle="collapse"
+                            data-target="#collapseSix"
+                            aria-expanded="true"
+                            aria-controls="collapseSix"
+                          >
+                            Month
+                          </a>
+                        </p>
+                      </div>
+                      <div
+                        id="collapseSix"
+                        className="collapse show"
+                        aria-labelledby="headingSix"
+                        data-parent="#accordionExample6"
+                      >
+                        <div className="card-body">
+                          <ul className="size-list" onClick={this.handleMonthChange}>
+                            {monthNameList.map((month) => (
+                              <li className={month == filteredMonth && 'active'}>
+                                <a href="#">{month}</a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              }
             </div>
           </div>
         </div>

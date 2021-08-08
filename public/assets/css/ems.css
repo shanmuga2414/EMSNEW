@@ -317,8 +317,12 @@
   background: #28505d !important;
   color: #fff !important;
 }
-.accordion-style-2 .card .card-header a[aria-expanded="true"] {
+.accordion-style-2 .card .card-header a[aria-expanded] {
   color: #fff !important;
+}
+.accordion-style-2 .card .card-header a[aria-expanded]:after {
+  color: #fff !important;
+  font-weight: 100;
 }
 .accordion-style-2 .card .card-header a[aria-expanded="true"]:after {
   content: "\f068";
@@ -332,6 +336,13 @@
 .size-list li a {
   color: #141414 !important;
   display: block;
+}
+.size-list li:hover a,
+.size-list li.active a {
+  color: #fff !important;
+}
+.size-list li.active {
+  background: #141414 !important;
 }
 .categories-widget,
 .brand-widget,
@@ -473,4 +484,14 @@
 .ant-message-success {
   font-size: 16px !important;
   /* font-weight: bold; */
+}
+.ant-picker-header button {
+  color: rgba(0, 0, 0)!important;
+}
+.navbar-area {
+  z-index: 999!important;
+}
+.article-content {
+  max-height: 250px!important;
+  overflow: hidden;
 }

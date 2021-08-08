@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import { DatePicker, Divider, Space } from "antd";
+import moment from 'moment';
 import Pagination from "../global-components/pagination";
 import { paginate } from "../../paginate";
 import * as homeServices from "../../Services/home-page-services";
 
-function onChange(date, dateString) {
-  console.log(date, dateString);
-}
-
 class Events extends Component {
   state = {
     events: [],
+    filteredSearch: '',
+    filteredMonth: '',
+    filteredYear: '',
     pageSize: 4,
     currentPage: 1,
     displayEventsRage: 1,
@@ -30,24 +30,44 @@ class Events extends Component {
       displayEventsRage: this.state.currentPage * this.state.pageSize + 1,
     });
   };
+    
+  searchEvents = (e) => {
+    this.setState({ filteredSearch: e.target.value.trim() });
+  }
+  handleMonthChange = (e) => {
+    let filteredMonth = e.target.textContent.trim();
+    if (filteredMonth === this.state.filteredMonth) {
+      filteredMonth = '';
+    }
+    this.setState({ filteredMonth });
+  }
+  handleYearChange = (date, dateString) => {
+    this.setState({ filteredYear: dateString });
+  }
+  getFilterEventsList = () => {
+    const { filteredSearch, filteredMonth, filteredYear } = this.state;
+
+    const eventsList = this.state.events.filter(event => {
+      let eventdate = moment(event.date, 'DD-MM-YYYY / hh:mm:ssa');
+      if (filteredSearch && !((event.title + ' ' + event.description).toLowerCase().includes(filteredSearch.toLowerCase()))) return false;
+      if (filteredYear && filteredYear !== eventdate.format('YYYY')) return false;
+      if (filteredYear && filteredMonth && filteredMonth !== eventdate.format('MMM')) return false;
+
+      return true;
+    });
+
+    return eventsList;
+  }
+
   render() {
     const regex = /(<([^>]+)>)/gi;
-    const { events, pageSize, currentPage, displayEventsRage } = this.state;
-    const monthNameList = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    const getEvents = paginate(events, currentPage, pageSize);
+    const { events, filteredMonth, filteredYear, pageSize, currentPage, displayEventsRage } = this.state;
+    
+    const monthNameList = moment.monthsShort();
+    
+    const filteredEventss = this.getFilterEventsList();
+    const getEventss = paginate(filteredEventss, currentPage, pageSize);
+    
     return (
       <div className="collection-area ">
         <div className="container">
@@ -88,8 +108,8 @@ class Events extends Component {
                   className="tab-pane fade in show active list-item"
                   id="two"
                 >
-                  {getEvents.map((event) => (
-                    <div className="row product-style-03 ">
+                  {getEventss.map((event) => (
+                    <div key={event.id} className="row product-style-03 ">
                       <div className="col-md-3 col-sm-12 col-12 eventList">
                         <div className="thumb">
                           <img src={event.image} alt={event.title} />
@@ -103,9 +123,9 @@ class Events extends Component {
 
                           <p>{event.description.replace(regex, "")}</p>
                         </div>
-                        <a class="btn btn-native" href="/single_event">
+                        <Link to={'/single_event/' + event.id} class="btn btn-native">
                           Read more
-                        </a>
+                        </Link>
                       </div>
                       <Divider />
                     </div>
@@ -140,8 +160,9 @@ class Events extends Component {
                   <input
                     type="text"
                     className="side-input"
-                    placeholder="Search Category"
+                    placeholder="Search Events"
                     name="search"
+                    onChange={this.searchEvents}
                   />
                 </form>
               </div>
@@ -173,7 +194,7 @@ class Events extends Component {
                         <form action="#">
                           <div className="custom-control custom-checkbox mb-3">
                             <Space direction="vertical">
-                              <DatePicker onChange={onChange} picker="year" />
+                              <DatePicker onChange={this.handleYearChange} picker="year" />
                             </Space>
                           </div>
                         </form>
@@ -183,42 +204,44 @@ class Events extends Component {
                 </div>
               </div>
 
-              <div className="widget size-widget">
-                <div className="accordion-style-2" id="accordionExample6">
-                  <div className="card">
-                    <div className="card-header" id="headingSix">
-                      <p className="mb-0">
-                        <a
-                          href="#"
-                          role="button"
-                          data-toggle="collapse"
-                          data-target="#collapseSix"
-                          aria-expanded="true"
-                          aria-controls="collapseSix"
-                        >
-                          Month
-                        </a>
-                      </p>
-                    </div>
-                    <div
-                      id="collapseSix"
-                      className="collapse show"
-                      aria-labelledby="headingSix"
-                      data-parent="#accordionExample6"
-                    >
-                      <div className="card-body">
-                        <ul className="size-list">
-                          {monthNameList.map((month) => (
-                            <li>
-                              <a href="#">{month}</a>
-                            </li>
-                          ))}
-                        </ul>
+              {filteredYear && 
+                <div className="widget size-widget">
+                  <div className="accordion-style-2" id="accordionExample6">
+                    <div className="card">
+                      <div className="card-header" id="headingSix">
+                        <p className="mb-0">
+                          <a
+                            href="#"
+                            role="button"
+                            data-toggle="collapse"
+                            data-target="#collapseSix"
+                            aria-expanded="true"
+                            aria-controls="collapseSix"
+                          >
+                            Month
+                          </a>
+                        </p>
+                      </div>
+                      <div
+                        id="collapseSix"
+                        className="collapse show"
+                        aria-labelledby="headingSix"
+                        data-parent="#accordionExample6"
+                      >
+                        <div className="card-body">
+                          <ul className="size-list" onClick={this.handleMonthChange}>
+                            {monthNameList.map((month) => (
+                              <li className={month == filteredMonth && 'active'}>
+                                <a href="#">{month}</a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              }
             </div>
           </div>
         </div>

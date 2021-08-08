@@ -67,3 +67,11 @@ export function getBlogContent(path) {
     // date: user.password,
   });
 }
+
+export async function doSearch(payload) {
+  return axios.post(`${apiUrl}live_search.php`, payload);
+}
+
+export async function getSingleEvent(payload) {
+  return axios.post(`${apiUrl}single_event.php`, payload);
+}

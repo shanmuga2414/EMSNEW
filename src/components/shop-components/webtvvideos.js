@@ -3,14 +3,11 @@ import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import { DatePicker, Space } from "antd";
 import ModalVideo from "react-modal-video";
+import moment from 'moment';
 import Pagination from "../global-components/pagination";
 import { paginate } from "../../paginate";
 import * as homeServices from "../../Services/home-page-services";
 import "react-modal-video/css/modal-video.css";
-
-function onChange(date, dateString) {
-  console.log(date, dateString);
-}
 
 class Videos extends Component {
   constructor() {
@@ -19,8 +16,12 @@ class Videos extends Component {
       isOpen: false,
       videos: [],
       videoCategories: [],
+      videoCategorySearch: '',
+      filteredCategories: new Set(),
+      filteredMonth: '',
+      filteredYear: '',
       videoId: "",
-      pageSize: 9,
+      pageSize: 3,
       currentPage: 1,
       displayVideoRage: 1,
     };
@@ -35,9 +36,10 @@ class Videos extends Component {
   async componentDidMount() {
     // console.log(homeServices.getActivities);
     const category = await homeServices.getVideoCategory();
-    const result = await homeServices.getAllvideos();
-    // console.log(result);
-    this.setState({ videos: result.data.records });
+    const result = await homeServices.getWebTvVideos();
+    const results = result.data.records;
+    results.shift();
+    this.setState({ videos: results });
     this.setState({ videoCategories: category.data.records });
   }
   handlePageChange = (page) => {
@@ -46,30 +48,65 @@ class Videos extends Component {
       displayVideoRage: this.state.currentPage * this.state.pageSize + 1,
     });
   };
+  searchCategory = (e) => {
+    this.setState({ videoCategorySearch: e.target.value.trim() });
+  }
+  handleCategoryChange = (e) => {
+    let filteredCategories = this.state.filteredCategories;
+
+    if (e.target.checked) {
+      filteredCategories.add(e.target.value);
+    } else {
+      filteredCategories.delete(e.target.value);
+    }
+
+    this.setState({ filteredCategories });
+  }
+  handleMonthChange = (e) => {
+    let filteredMonth = e.target.textContent.trim();
+    if (filteredMonth === this.state.filteredMonth) {
+      filteredMonth = '';
+    }
+    this.setState({ filteredMonth });
+  }
+  handleYearChange = (date, dateString) => {
+    this.setState({ filteredYear: dateString });
+  }
+  getFilterVideoCategories = () => {
+    const { videoCategories, videoCategorySearch } = this.state;
+
+    return videoCategories.filter(({ category }) => category.toLowerCase().includes(videoCategorySearch.toLowerCase()));
+  }
+  getFilterVideoList = () => {
+    const { filteredCategories, filteredMonth, filteredYear } = this.state;
+
+    const videoList = this.state.videos.filter(video => {
+      let videodate = moment(video.date, 'DD-MM-YYYY / hh:mm:ssa');
+      if (filteredCategories.size && !filteredCategories.has(video.video_category)) return false;
+      if (filteredYear && filteredYear !== videodate.format('YYYY')) return false;
+      if (filteredYear && filteredMonth && filteredMonth !== videodate.format('MMM')) return false;
+
+      return true;
+    });
+
+    return videoList;
+  }
   render() {
     const {
       videos,
-      videoCategories,
-      videoId,
+      filteredMonth,
+      filteredYear,
       pageSize,
       currentPage,
       displayVideoRage,
     } = this.state;
-    const monthNameList = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    const getVideos = paginate(videos, currentPage, pageSize);
+
+    const monthNameList = moment.monthsShort();
+    
+    const filteredVideos = this.getFilterVideoList();
+    const getVideos = paginate(filteredVideos, currentPage, pageSize);
+    const filteredVideoCategories = this.getFilterVideoCategories();
+
     return (
       <div className="collection-area">
         <div className="container">
@@ -108,7 +145,7 @@ class Videos extends Component {
                 <div className="tab-pane fade in show active" id="one">
                   <div className="row">
                     {getVideos.map((video) => (
-                      <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div key={video.vid} className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                         <div className="product-style-03 webVideo imageHover margin-top-40">
                           <div className="thumb youtubeVideo">
                             <img
@@ -157,6 +194,7 @@ class Videos extends Component {
                     className="side-input"
                     placeholder="Search Category"
                     name="search"
+                    onChange={this.searchCategory}
                   />
                 </form>
               </div>
@@ -185,20 +223,24 @@ class Videos extends Component {
                     >
                       <div className="card-body">
                         <form action="#">
-                          {videoCategories.map((videoCat) => (
-                            <div className="custom-control custom-checkbox mb-3">
+                          {filteredVideoCategories.map((videoCategory, i) => (
+                            <div key={videoCategory.bid} className="custom-control custom-checkbox mb-3">
                               <input
                                 type="checkbox"
                                 className="custom-control-input"
+                                id={'category-' + i}
+                                onChange={this.handleCategoryChange}
+                                value={videoCategory.category}
                               />
                               <label
                                 className="custom-control-label"
-                                htmlFor="customCheck"
+                                htmlFor={'category-' + i}
                               >
-                                {videoCat.category}
+                                {videoCategory.category}
                               </label>
                             </div>
                           ))}
+                          {!filteredVideoCategories.length && <div className="text-center">No Categories Found!</div>}
                         </form>
                       </div>
                     </div>
@@ -233,7 +275,7 @@ class Videos extends Component {
                         <form action="#">
                           <div className="custom-control custom-checkbox mb-3">
                             <Space direction="vertical">
-                              <DatePicker onChange={onChange} picker="year" />
+                              <DatePicker onChange={this.handleYearChange} picker="year" />
                             </Space>
                           </div>
                         </form>
@@ -243,43 +285,45 @@ class Videos extends Component {
                 </div>
               </div>
 
-              <div className="widget size-widget">
-                <div className="accordion-style-2" id="accordionExample6">
-                  <div className="card" id="webtv-card">
-                    <div className="card-header webtv-card-header" id="headingSix">
-                      <p className="mb-0">
-                        <a
-                          href="#"
-                          role="button"
-                          data-toggle="collapse"
-                          data-target="#collapseSix"
-                          aria-expanded="true"
-                          aria-controls="collapseSix"
-                        >
-                          Month
-                        </a>
-                      </p>
-                    </div>
-                    <div
-                      id="collapseSix"
-                      className="collapse show"
-                      aria-labelledby="headingSix"
-                      data-parent="#accordionExample6"
-                    >
-                      <div className="card-body">
-                        <ul className="size-list">
-                          {monthNameList.map((month) => (
-                            <li>
-                              <a href="#">{month}</a>
-                            </li>
-                          ))}
-                        </ul>
+              {filteredYear && 
+                <div className="widget size-widget">
+                  <div className="accordion-style-2" id="accordionExample6">
+                    <div className="card" id="webtv-card">
+                      <div className="card-header webtv-card-header" id="headingSix">
+                        <p className="mb-0">
+                          <a
+                            href="#"
+                            role="button"
+                            data-toggle="collapse"
+                            data-target="#collapseSix"
+                            aria-expanded="true"
+                            aria-controls="collapseSix"
+                          >
+                            Month
+                          </a>
+                        </p>
+                      </div>
+                      <div
+                        id="collapseSix"
+                        className="collapse show"
+                        aria-labelledby="headingSix"
+                        data-parent="#accordionExample6"
+                      >
+                        <div className="card-body">
+                          <ul className="size-list" onClick={this.handleMonthChange}>
+                            {monthNameList.map((month) => (
+                              <li className={month == filteredMonth && 'active'}>
+                                <a href="#">{month}</a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              }
               </div>
-            </div>
           </div>
           <ModalVideo
             channel="youtube"

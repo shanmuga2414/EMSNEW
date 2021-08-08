@@ -13,6 +13,7 @@ import Videos from "./components/videos";
 import Gallery from "./components/gallery";
 import Audio from "./components/audio";
 import EventList from "./components/events";
+import SearchPage from "./components/search";
 import MemberResponsibilities from "./components/member-responsibilities";
 import ConstructionDetails from "./components/construction";
 import Spiritual from "./components/spiritual";
@@ -48,6 +49,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 class Root extends Component {
   render() {
+    console.log(111)
     return (
       <Router>
         {/* <HashRouter basename="/"> */}
@@ -75,7 +77,8 @@ class Root extends Component {
             <Route path="/webtv" component={WebTv} />
             <Route path="/profile" component={ProfileDetails} />
             <Route path="/webtv_videos" component={webtv_videos} />
-            <Route path="/single_event" component={single_event} />
+            <Route path="/single_event/:eventid" component={single_event} />
+            <Route path="/search/:query" component={SearchPage} />
 
             {/* <Route path="/home-v2" component={HomeV2} />
               <Route path="/home-v3" component={HomeV3} />

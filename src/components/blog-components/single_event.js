@@ -5,6 +5,15 @@ import parse from "html-react-parser";
 import * as homeServices from "../../Services/home-page-services";
 
 class SingleEvent extends Component {
+  state = {
+    event: [],
+  };
+
+  async componentDidMount() {
+    const result = await homeServices.getSingleEvent({ id: this.props.eventid });
+    this.setState({ event: result.data.records || [] });
+  }
+
   render() {
     let publicUrl = process.env.PUBLIC_URL + "/";
     let imagealt = "image";

@@ -1,6 +1,6 @@
 import { array } from "joi";
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import * as homeServices from "../../Services/home-page-services";
 
 class Navbar extends Component {
@@ -33,6 +33,20 @@ class Navbar extends Component {
         this.img = img;
       }
     })();
+  }
+  searchChange = (e) => {
+    let query = e.target.value.trim();
+    if (this.query === query) return;
+
+    if(e.key === 'Enter') {
+      this.doSearch(query);
+      e.preventDefault();
+    }
+  }
+
+  doSearch(query) {
+    if (!query) return;
+    window.location.href = `/search/${query}`
   }
 
   render() {
@@ -147,6 +161,8 @@ class Navbar extends Component {
                         className="input-field form-control"
                         id="phone"
                         placeholder="search here..."
+                        onKeyPress={this.searchChange}
+                        onBlur={(e) => this.doSearch(e.target.value.trim())}
                       />
                     </div>
                   </div>
