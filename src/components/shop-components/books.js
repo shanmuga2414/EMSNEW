@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import { DatePicker, Space, Divider, Button } from "antd";
-import moment from 'moment';
+import moment from "moment";
 import Pagination from "../global-components/pagination";
 import { paginate } from "../../paginate";
 import * as homeServices from "../../Services/home-page-services";
@@ -11,10 +11,10 @@ class Books extends Component {
   state = {
     bookCategories: [],
     booksList: [],
-    bookCategorySearch: '',
+    bookCategorySearch: "",
     filteredCategories: new Set(),
-    filteredMonth: '',
-    filteredYear: '',
+    filteredMonth: "",
+    filteredYear: "",
     pageSize: 9,
     currentPage: 1,
     displayBookRage: 1,
@@ -36,7 +36,7 @@ class Books extends Component {
   };
   searchCategory = (e) => {
     this.setState({ bookCategorySearch: e.target.value.trim() });
-  }
+  };
   handleCategoryChange = (e) => {
     let filteredCategories = this.state.filteredCategories;
 
@@ -47,36 +47,48 @@ class Books extends Component {
     }
 
     this.setState({ filteredCategories });
-  }
+  };
   handleMonthChange = (e) => {
     let filteredMonth = e.target.textContent.trim();
     if (filteredMonth === this.state.filteredMonth) {
-      filteredMonth = '';
+      filteredMonth = "";
     }
     this.setState({ filteredMonth });
-  }
+  };
   handleYearChange = (date, dateString) => {
     this.setState({ filteredYear: dateString });
-  }
+  };
   getFilterBookCategories = () => {
     const { bookCategories, bookCategorySearch } = this.state;
 
-    return bookCategories.filter(({ category }) => category.toLowerCase().includes(bookCategorySearch.toLowerCase()));
-  }
+    return bookCategories.filter(({ category }) =>
+      category.toLowerCase().includes(bookCategorySearch.toLowerCase())
+    );
+  };
   getFilterBookList = () => {
     const { filteredCategories, filteredMonth, filteredYear } = this.state;
 
-    const bookList = this.state.booksList.filter(book => {
-      let bookdate = moment(book.book_date, 'DD-MM-YYYY / hh:mm:ssa');
-      if (filteredCategories.size && !filteredCategories.has(book.book_category)) return false;
-      if (filteredYear && filteredYear !== bookdate.format('YYYY')) return false;
-      if (filteredYear && filteredMonth && filteredMonth !== bookdate.format('MMM')) return false;
+    const bookList = this.state.booksList.filter((book) => {
+      let bookdate = moment(book.book_date, "DD-MM-YYYY / hh:mm:ssa");
+      if (
+        filteredCategories.size &&
+        !filteredCategories.has(book.book_category)
+      )
+        return false;
+      if (filteredYear && filteredYear !== bookdate.format("YYYY"))
+        return false;
+      if (
+        filteredYear &&
+        filteredMonth &&
+        filteredMonth !== bookdate.format("MMM")
+      )
+        return false;
 
       return true;
     });
 
     return bookList;
-  }
+  };
   render() {
     const {
       booksList,
@@ -86,9 +98,9 @@ class Books extends Component {
       currentPage,
       displayBookRage,
     } = this.state;
-    
+
     const monthNameList = moment.monthsShort();
-    
+
     const filteredBooks = this.getFilterBookList();
     const getBooks = paginate(filteredBooks, currentPage, pageSize);
     const filteredBookCategories = this.getFilterBookCategories();
@@ -135,7 +147,10 @@ class Books extends Component {
                 <div className="tab-pane fade in show active" id="one">
                   <div className="row">
                     {getBooks.map((book) => (
-                      <div key={book.bid} className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 ">
+                      <div
+                        key={book.bid}
+                        className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 "
+                      >
                         <div className="product-style-03  border-grey margin-top-40 book-div">
                           <div className="thumb ">
                             <img
@@ -145,17 +160,15 @@ class Books extends Component {
                           </div>
                           <div className=" align-center">
                             <div className="content book_content">
-                            <h6 className="title stone-go-top">
-                              <Link to="/product-details">
+                              <h6 className="title stone-go-top">
                                 {book.book_name}
-                              </Link>
-                            </h6>
-                            <div className="content-price d-flex align-self-center justify-content-center">
-                              <span className="new-price">
-                              &#8377; {book.book_price}
-                              </span>
+                              </h6>
+                              <div className="content-price d-flex align-self-center justify-content-center">
+                                <span className="new-price">
+                                  &#8377; {book.book_price}
+                                </span>
+                              </div>
                             </div>
-                          </div>
                             <a
                               className="btn btn-sm buyButton"
                               href={book.book_url}
@@ -230,23 +243,30 @@ class Books extends Component {
                       <div className="card-body">
                         <form action="#">
                           {filteredBookCategories.map((bookCategory, i) => (
-                            <div key={bookCategory.bid} className="custom-control custom-checkbox mb-3">
+                            <div
+                              key={bookCategory.bid}
+                              className="custom-control custom-checkbox mb-3"
+                            >
                               <input
                                 type="checkbox"
                                 className="custom-control-input"
-                                id={'category-' + i}
+                                id={"category-" + i}
                                 onChange={this.handleCategoryChange}
                                 value={bookCategory.category}
                               />
                               <label
                                 className="custom-control-label"
-                                htmlFor={'category-' + i}
+                                htmlFor={"category-" + i}
                               >
                                 {bookCategory.category}
                               </label>
                             </div>
                           ))}
-                          {!filteredBookCategories.length && <div className="text-center">No Categories Found!</div>}
+                          {!filteredBookCategories.length && (
+                            <div className="text-center">
+                              No Categories Found!
+                            </div>
+                          )}
                         </form>
                       </div>
                     </div>
@@ -281,7 +301,10 @@ class Books extends Component {
                         <form action="#">
                           <div className="custom-control custom-checkbox mb-3">
                             <Space direction="vertical">
-                              <DatePicker onChange={this.handleYearChange} picker="year" />
+                              <DatePicker
+                                onChange={this.handleYearChange}
+                                picker="year"
+                              />
                             </Space>
                           </div>
                         </form>
@@ -291,7 +314,7 @@ class Books extends Component {
                 </div>
               </div>
 
-              {filteredYear && 
+              {filteredYear && (
                 <div className="widget size-widget">
                   <div className="accordion-style-2" id="accordionExample6">
                     <div className="card">
@@ -316,9 +339,14 @@ class Books extends Component {
                         data-parent="#accordionExample6"
                       >
                         <div className="card-body">
-                          <ul className="size-list" onClick={this.handleMonthChange}>
+                          <ul
+                            className="size-list"
+                            onClick={this.handleMonthChange}
+                          >
                             {monthNameList.map((month) => (
-                              <li className={month == filteredMonth && 'active'}>
+                              <li
+                                className={month == filteredMonth && "active"}
+                              >
                                 <a href="#">{month}</a>
                               </li>
                             ))}
@@ -328,7 +356,7 @@ class Books extends Component {
                     </div>
                   </div>
                 </div>
-              }
+              )}
 
               <div className="widget price-widget d-none">
                 <div className="accordion-style-2" id="accordionExample4">

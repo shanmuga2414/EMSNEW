@@ -5,16 +5,30 @@ import ReactAudioPlayer from "react-audio-player";
 import "antd/dist/antd.css";
 import Pagination from "../global-components/pagination";
 import { paginate } from "../../paginate";
+import ModalVideo from "react-modal-video";
+import "react-modal-video/css/modal-video.css";
 import * as homeServices from "../../Services/home-page-services";
 
 const publicUrl = process.env.PUBLIC_URL + "/";
 
 class Search extends Component {
-  state = {
-    searchList: [],
-    pageSize: 8,
-    currentPage: 1,
-    displaySearchRange: 1,
+  constructor() {
+    super();
+    this.state = {
+      isOpen: false,
+      videoId: "",
+      searchList: [],
+      pageSize: 8,
+      currentPage: 1,
+      displaySearchRange: 1,
+    };
+    this.openModal = this.openModal.bind(this);
+    window.helloComponent = this;
+  }
+
+  openModal = (value) => () => {
+    this.setState({ videoId: value });
+    this.setState({ isOpen: true });
   };
 
   async componentDidMount() {
@@ -34,21 +48,20 @@ class Search extends Component {
       currentPage,
       displaySearchRange,
     } = this.state;
-    
+
     const getSearches = paginate(searchList, currentPage, pageSize);
-    
+
     return (
       <div className="collection-area">
         <div className="container">
           <div className="row flex-row-reverse">
-
             <div className="col-12">
               <div className="row mb-5">
                 <div className="col-md-12">
                   <div className="d-flex justify-content-between pagination">
                     <h6>
-                      Showing {displaySearchRange} to {currentPage * pageSize} of{" "}
-                      {searchList.length} Searches
+                      Showing {displaySearchRange} to {currentPage * pageSize}{" "}
+                      of {searchList.length} Searches
                     </h6>
 
                     <Pagination
@@ -63,9 +76,9 @@ class Search extends Component {
               <div className="tab-content">
                 <div className="tab-pane fade in show active" id="one">
                   <div className="row">
-                    {getSearches.map((search, key) => (
+                    {getSearches.map((search, key) =>
                       generateComponent(search, key)
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
@@ -73,8 +86,8 @@ class Search extends Component {
                 <div className="col-md-12">
                   <div className="d-flex justify-content-between pagination">
                     <h6>
-                      Showing {displaySearchRange} to {currentPage * pageSize} of{" "}
-                      {searchList.length} Searches
+                      Showing {displaySearchRange} to {currentPage * pageSize}{" "}
+                      of {searchList.length} Searches
                     </h6>
 
                     <Pagination
@@ -87,9 +100,14 @@ class Search extends Component {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
+        <ModalVideo
+          channel="youtube"
+          isOpen={this.state.isOpen}
+          videoId={this.state.videoId}
+          onClose={() => this.setState({ isOpen: false })}
+        />
       </div>
     );
   }
@@ -97,16 +115,16 @@ class Search extends Component {
 
 function generateComponent(search, key) {
   let type = search.type.trim().toUpperCase();
-  switch(type) {
-    case 'AUDIO':
+  switch (type) {
+    case "AUDIO":
       return audioComponent(search, key);
-    case 'VIDEO':
+    case "VIDEO":
       return videoComponent(search, key);
-    case 'BOOK':
+    case "BOOK":
       return bookComponent(search, key);
-    case 'EVENTS':
+    case "EVENTS":
       return eventComponent(search, key);
-    case 'ARTICLE':
+    case "ARTICLE":
       return articleComponent(search, key);
     default:
       return null;
@@ -118,57 +136,58 @@ function eventComponent(event, key) {
     <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 ">
       <a className="col-sm-12 col-12 eventList" type="button" href="/events">
         <div className="thumb">
-          <img src={event.image} alt={event.name} width="100%"/>
+          <img src={event.image} alt={event.name} width="100%" />
         </div>
       </a>
       <div className="col-sm-12 col-12">
         <div className="content">
           <h6 className="title stone-go-top" id="event-title">
-            <Link to="/product-details">{event.name}</Link>
+            <a href={"/single_event/" + event.id}>{event.name}</a>
           </h6>
 
           <p>{event.description.replace(/(<([^>]+)>)/gi, "")}</p>
         </div>
-        <a class="btn btn-native" href="#/blog-details">
+        <a class="btn btn-native" href={"/single_event/" + event.id}>
           Read more
         </a>
       </div>
     </div>
-  )
+  );
 }
 
 function audioComponent(audio, key) {
   return (
     <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
       <div className="product-style-audio webVideo margin-top-40">
-      <div className="thumb " type="button" href="/audios">
-      <img src={publicUrl + "assets/img/audio.jpg"} alt="" />
-      </div>
+        <div className="thumb " type="button" href="/audios">
+          <img src={publicUrl + "assets/img/audio.jpg"} alt="" />
+        </div>
         <div className="thumb ">
           <ReactAudioPlayer src={audio.url} controls />
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function videoComponent(video, key) {
   return (
     <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
       <div className="product-style-03 webVideo imageHover margin-top-40">
-        <a className="thumb youtubeVideo" type="button" href="/videos">
-          <img src={`http://img.youtube.com/vi/${video.url}/0.jpg`}></img>
-        </a>
+        <img
+          onClick={window.helloComponent.openModal(video.url)}
+          src={`http://img.youtube.com/vi/${video.url}/0.jpg`}
+        ></img>
 
         <h6 className="title stone-go-top margin-top-20">
           <span></span>
-          <span>
+          <span onClick={window.helloComponent.openModal(video.url)}>
             {video.name}
           </span>
         </h6>
       </div>
     </div>
-  )
+  );
 }
 
 function bookComponent(book, key) {
@@ -177,37 +196,24 @@ function bookComponent(book, key) {
       <div className="product-style-03  border-grey margin-top-40 book-div">
         <div className="thumb ">
           <Link to="/books" target="_blank">
-          <img
-            src={book.image}
-            alt={book.name}
-          />
+            <img src={book.image} alt={book.name} />
           </Link>
         </div>
         <div className=" align-center">
           <div className="content book_content">
-          <h6 className="title stone-go-top">
-            <Link to="/product-details" target="_blank">
-              {book.name}
-            </Link>
-          </h6>
-          <div className="content-price d-flex align-self-center justify-content-center">
-            <span className="new-price">
-              ${book.price}
-            </span>
+            <h6 className="title stone-go-top">{book.name}</h6>
+            <div className="content-price d-flex align-self-center justify-content-center">
+              <span className="new-price">${book.price}</span>
+            </div>
           </div>
-        </div>
-          <a
-            className="btn btn-sm buyButton"
-            href={book.url}
-            target="_blank"
-          >
+          <a className="btn btn-sm buyButton" href={book.url} target="_blank">
             {" "}
             Buy Now
           </a>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function articleComponent(article, key) {
@@ -226,7 +232,7 @@ function articleComponent(article, key) {
         </a>
       </div>
     </div>
-  )
+  );
 }
 
 export default Search;

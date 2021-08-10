@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import { DatePicker, Space } from "antd";
 import ModalVideo from "react-modal-video";
-import moment from 'moment';
+import moment from "moment";
 import Pagination from "../global-components/pagination";
 import { paginate } from "../../paginate";
 import * as homeServices from "../../Services/home-page-services";
@@ -16,12 +16,12 @@ class Videos extends Component {
       isOpen: false,
       videos: [],
       videoCategories: [],
-      videoCategorySearch: '',
+      videoCategorySearch: "",
       filteredCategories: new Set(),
-      filteredMonth: '',
-      filteredYear: '',
+      filteredMonth: "",
+      filteredYear: "",
       videoId: "",
-      pageSize: 3,
+      pageSize: 9,
       currentPage: 1,
       displayVideoRage: 1,
     };
@@ -49,7 +49,7 @@ class Videos extends Component {
   };
   searchCategory = (e) => {
     this.setState({ videoCategorySearch: e.target.value.trim() });
-  }
+  };
   handleCategoryChange = (e) => {
     let filteredCategories = this.state.filteredCategories;
 
@@ -60,36 +60,48 @@ class Videos extends Component {
     }
 
     this.setState({ filteredCategories });
-  }
+  };
   handleMonthChange = (e) => {
     let filteredMonth = e.target.textContent.trim();
     if (filteredMonth === this.state.filteredMonth) {
-      filteredMonth = '';
+      filteredMonth = "";
     }
     this.setState({ filteredMonth });
-  }
+  };
   handleYearChange = (date, dateString) => {
     this.setState({ filteredYear: dateString });
-  }
+  };
   getFilterVideoCategories = () => {
     const { videoCategories, videoCategorySearch } = this.state;
 
-    return videoCategories.filter(({ category }) => category.toLowerCase().includes(videoCategorySearch.toLowerCase()));
-  }
+    return videoCategories.filter(({ category }) =>
+      category.toLowerCase().includes(videoCategorySearch.toLowerCase())
+    );
+  };
   getFilterVideoList = () => {
     const { filteredCategories, filteredMonth, filteredYear } = this.state;
 
-    const videoList = this.state.videos.filter(video => {
-      let videodate = moment(video.date, 'DD-MM-YYYY / hh:mm:ssa');
-      if (filteredCategories.size && !filteredCategories.has(video.video_category)) return false;
-      if (filteredYear && filteredYear !== videodate.format('YYYY')) return false;
-      if (filteredYear && filteredMonth && filteredMonth !== videodate.format('MMM')) return false;
+    const videoList = this.state.videos.filter((video) => {
+      let videodate = moment(video.date, "DD-MM-YYYY / hh:mm:ssa");
+      if (
+        filteredCategories.size &&
+        !filteredCategories.has(video.video_category)
+      )
+        return false;
+      if (filteredYear && filteredYear !== videodate.format("YYYY"))
+        return false;
+      if (
+        filteredYear &&
+        filteredMonth &&
+        filteredMonth !== videodate.format("MMM")
+      )
+        return false;
 
       return true;
     });
 
     return videoList;
-  }
+  };
   render() {
     const {
       videos,
@@ -101,7 +113,7 @@ class Videos extends Component {
     } = this.state;
 
     const monthNameList = moment.monthsShort();
-    
+
     const filteredVideos = this.getFilterVideoList();
     const getVideos = paginate(filteredVideos, currentPage, pageSize);
     const filteredVideoCategories = this.getFilterVideoCategories();
@@ -144,7 +156,10 @@ class Videos extends Component {
                 <div className="tab-pane fade in show active" id="one">
                   <div className="row">
                     {getVideos.map((video) => (
-                      <div key={video.vid} className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div
+                        key={video.vid}
+                        className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12"
+                      >
                         <div className="product-style-03 webVideo imageHover margin-top-40">
                           <div className="thumb youtubeVideo">
                             <img
@@ -189,7 +204,8 @@ class Videos extends Component {
                     <i className="icon-search" />
                   </button>
                   <input
-                    type="text" className="side-input"
+                    type="text"
+                    className="side-input"
                     placeholder="Search Category"
                     name="search"
                     onChange={this.searchCategory}
@@ -222,23 +238,30 @@ class Videos extends Component {
                       <div className="card-body">
                         <form action="#">
                           {filteredVideoCategories.map((videoCategory, i) => (
-                            <div key={videoCategory.bid} className="custom-control custom-checkbox mb-3">
+                            <div
+                              key={videoCategory.bid}
+                              className="custom-control custom-checkbox mb-3"
+                            >
                               <input
                                 type="checkbox"
                                 className="custom-control-input"
-                                id={'category-' + i}
+                                id={"category-" + i}
                                 onChange={this.handleCategoryChange}
                                 value={videoCategory.category}
                               />
                               <label
                                 className="custom-control-label"
-                                htmlFor={'category-' + i}
+                                htmlFor={"category-" + i}
                               >
                                 {videoCategory.category}
                               </label>
                             </div>
                           ))}
-                          {!filteredVideoCategories.length && <div className="text-center">No Categories Found!</div>}
+                          {!filteredVideoCategories.length && (
+                            <div className="text-center">
+                              No Categories Found!
+                            </div>
+                          )}
                         </form>
                       </div>
                     </div>
@@ -273,7 +296,10 @@ class Videos extends Component {
                         <form action="#">
                           <div className="custom-control custom-checkbox mb-3">
                             <Space direction="vertical">
-                              <DatePicker onChange={this.handleYearChange} picker="year" />
+                              <DatePicker
+                                onChange={this.handleYearChange}
+                                picker="year"
+                              />
                             </Space>
                           </div>
                         </form>
@@ -283,7 +309,7 @@ class Videos extends Component {
                 </div>
               </div>
 
-              {filteredYear && 
+              {filteredYear && (
                 <div className="widget size-widget">
                   <div className="accordion-style-2" id="accordionExample6">
                     <div className="card">
@@ -308,9 +334,14 @@ class Videos extends Component {
                         data-parent="#accordionExample6"
                       >
                         <div className="card-body">
-                          <ul className="size-list" onClick={this.handleMonthChange}>
+                          <ul
+                            className="size-list"
+                            onClick={this.handleMonthChange}
+                          >
                             {monthNameList.map((month) => (
-                              <li className={month == filteredMonth && 'active'}>
+                              <li
+                                className={month == filteredMonth && "active"}
+                              >
                                 <a href="#">{month}</a>
                               </li>
                             ))}
@@ -320,8 +351,8 @@ class Videos extends Component {
                     </div>
                   </div>
                 </div>
-              }
-              </div>
+              )}
+            </div>
           </div>
           <ModalVideo
             channel="youtube"
