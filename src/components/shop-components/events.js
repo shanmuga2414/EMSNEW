@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import { DatePicker, Divider, Space } from "antd";
-import moment from 'moment';
+import moment from "moment";
 import Pagination from "../global-components/pagination";
 import { paginate } from "../../paginate";
 import * as homeServices from "../../Services/home-page-services";
@@ -10,10 +10,10 @@ import * as homeServices from "../../Services/home-page-services";
 class Events extends Component {
   state = {
     events: [],
-    filteredSearch: '',
-    filteredMonth: '',
-    filteredYear: '',
-    pageSize: 4,
+    filteredSearch: "",
+    filteredMonth: "",
+    filteredYear: "",
+    pageSize: 6,
     currentPage: 1,
     displayEventsRage: 1,
   };
@@ -30,44 +30,63 @@ class Events extends Component {
       displayEventsRage: this.state.currentPage * this.state.pageSize + 1,
     });
   };
-    
+
   searchEvents = (e) => {
     this.setState({ filteredSearch: e.target.value.trim() });
-  }
+  };
   handleMonthChange = (e) => {
     let filteredMonth = e.target.textContent.trim();
     if (filteredMonth === this.state.filteredMonth) {
-      filteredMonth = '';
+      filteredMonth = "";
     }
     this.setState({ filteredMonth });
-  }
+  };
   handleYearChange = (date, dateString) => {
     this.setState({ filteredYear: dateString });
-  }
+  };
   getFilterEventsList = () => {
     const { filteredSearch, filteredMonth, filteredYear } = this.state;
 
-    const eventsList = this.state.events.filter(event => {
-      let eventdate = moment(event.date, 'DD-MM-YYYY / hh:mm:ssa');
-      if (filteredSearch && !((event.title + ' ' + event.description).toLowerCase().includes(filteredSearch.toLowerCase()))) return false;
-      if (filteredYear && filteredYear !== eventdate.format('YYYY')) return false;
-      if (filteredYear && filteredMonth && filteredMonth !== eventdate.format('MMM')) return false;
+    const eventsList = this.state.events.filter((event) => {
+      let eventdate = moment(event.date, "DD-MM-YYYY / hh:mm:ssa");
+      if (
+        filteredSearch &&
+        !(event.title + " " + event.description)
+          .toLowerCase()
+          .includes(filteredSearch.toLowerCase())
+      )
+        return false;
+      if (filteredYear && filteredYear !== eventdate.format("YYYY"))
+        return false;
+      if (
+        filteredYear &&
+        filteredMonth &&
+        filteredMonth !== eventdate.format("MMM")
+      )
+        return false;
 
       return true;
     });
 
     return eventsList;
-  }
+  };
 
   render() {
     const regex = /(<([^>]+)>)/gi;
-    const { events, filteredMonth, filteredYear, pageSize, currentPage, displayEventsRage } = this.state;
-    
+    const {
+      events,
+      filteredMonth,
+      filteredYear,
+      pageSize,
+      currentPage,
+      displayEventsRage,
+    } = this.state;
+
     const monthNameList = moment.monthsShort();
-    
+
     const filteredEventss = this.getFilterEventsList();
     const getEventss = paginate(filteredEventss, currentPage, pageSize);
-    
+
     return (
       <div className="collection-area ">
         <div className="container">
@@ -118,14 +137,19 @@ class Events extends Component {
                       <div className="col-md-9 col-sm-12 col-12">
                         <div className="content">
                           <h6 className="title stone-go-top" id="event-title">
-                            <Link to="/product-details">{event.title}</Link>
+                            <a href={"/single_event/" + event.id}>
+                              {event.title}
+                            </a>
                           </h6>
 
                           <p>{event.description.replace(regex, "")}</p>
                         </div>
-                        <Link to={'/single_event/' + event.id} class="btn btn-native">
+                        <a
+                          href={"/single_event/" + event.id}
+                          class="btn btn-native"
+                        >
                           Read more
-                        </Link>
+                        </a>
                       </div>
                       <Divider />
                     </div>
@@ -194,7 +218,10 @@ class Events extends Component {
                         <form action="#">
                           <div className="custom-control custom-checkbox mb-3">
                             <Space direction="vertical">
-                              <DatePicker onChange={this.handleYearChange} picker="year" />
+                              <DatePicker
+                                onChange={this.handleYearChange}
+                                picker="year"
+                              />
                             </Space>
                           </div>
                         </form>
@@ -204,7 +231,7 @@ class Events extends Component {
                 </div>
               </div>
 
-              {filteredYear && 
+              {filteredYear && (
                 <div className="widget size-widget">
                   <div className="accordion-style-2" id="accordionExample6">
                     <div className="card">
@@ -229,9 +256,14 @@ class Events extends Component {
                         data-parent="#accordionExample6"
                       >
                         <div className="card-body">
-                          <ul className="size-list" onClick={this.handleMonthChange}>
+                          <ul
+                            className="size-list"
+                            onClick={this.handleMonthChange}
+                          >
                             {monthNameList.map((month) => (
-                              <li className={month == filteredMonth && 'active'}>
+                              <li
+                                className={month == filteredMonth && "active"}
+                              >
                                 <a href="#">{month}</a>
                               </li>
                             ))}
@@ -241,7 +273,7 @@ class Events extends Component {
                     </div>
                   </div>
                 </div>
-              }
+              )}
             </div>
           </div>
         </div>

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Form, Input, Button, message } from "antd";
+import * as authServices from "../../Services/authService";
 
 class Footer_v1 extends Component {
   componentDidMount() {
@@ -10,7 +12,28 @@ class Footer_v1 extends Component {
 
     document.body.appendChild(minscript);
   }
-
+  success = () => {
+    message.success({
+      content: "Your E-mail has been subscribed!",
+      duration: 10,
+      className: "custom-class",
+      style: {
+        marginTop: "20vh",
+      },
+    });
+  };
+  onFinish = async (values) => {
+    try {
+      const response = await authServices.sendSubscriberEmail(values);
+      if (response.status >= 200) {
+        this.success();
+      }
+    } catch (ex) {
+      const errors = { ...this.state.errors };
+      // errors.name = ex.response.data;
+      this.setState({ errors });
+    }
+  };
   render() {
     let publicUrl = process.env.PUBLIC_URL + "/";
     // let imgattr = "Footer logo";
@@ -55,22 +78,36 @@ class Footer_v1 extends Component {
                   </div>
                 </div>
                 <div className="col-xl-3 col-lg-4 col-md-6 mob-newsletter">
-                  <div className="input-group mb-3">
-                    <input
-                      type="text"
-                      className="form-control newsletter"
-                      placeholder="Enter email for Newsletter"
-                    />
-                    <div className="input-group-append">
-                      <button
-                        className="btn btn-orange"
-                        type="button"
-                        id="button-addon2"
+                  <Form
+                    name="normal_login"
+                    className="login-form"
+                    initialValues={{ remember: true }}
+                    onFinish={this.onFinish}
+                  >
+                    <div className="input-group mb-3">
+                      <Form.Item
+                        name="email"
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please input your E-Mail!",
+                          },
+                        ]}
+                        hasFeedback
                       >
-                        Subscribe
-                      </button>
+                        <Input />
+                      </Form.Item>
+                      <Form.Item>
+                        <Button
+                          type="danger"
+                          htmlType="submit"
+                          className="btn btn-style-1"
+                        >
+                          Subscribe
+                        </Button>
+                      </Form.Item>
                     </div>
-                  </div>
+                  </Form>
                 </div>
               </div>
             </div>
@@ -91,18 +128,18 @@ class Footer_v1 extends Component {
                       </a>
                     </li>
                     <li>
-                    <a href="/books">
-                      {" "}
-                      <i className="fa fa-angle-right" />
-                      நூற்கள்
-                    </a>
-                  </li>
-                    
+                      <a href="/books">
+                        {" "}
+                        <i className="fa fa-angle-right" />
+                        நூற்கள்
+                      </a>
+                    </li>
+
                     <li>
                       <a href="/blog/amutha_mozhigal">
-                      {" "}
-                      <i className="fa fa-angle-right" />
-                      அமுத மொழிகள்
+                        {" "}
+                        <i className="fa fa-angle-right" />
+                        அமுத மொழிகள்
                       </a>
                     </li>
                     <li>

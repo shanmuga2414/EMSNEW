@@ -21,6 +21,11 @@ export async function sendEmail(user) {
     email: user.email,
   });
 }
+export async function sendSubscriberEmail(user) {
+  return http.post(`${apiUrl}subscribe.php`, {
+    email: user.email,
+  });
+}
 
 // export function getCurrentUser() {
 //   try {
