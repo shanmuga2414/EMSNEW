@@ -76,194 +76,130 @@ class Footer_v1 extends Component {
             </div>
           </div>
           <div className="container">
-            <div className="row">
-              <div className="col-lg-3 col-md-6 mobile-location">
-                <div className="widget widget_nav_menu">
-                  <h4 className="widget-title">CONTACT US</h4>
+          <div className="row">
+          <div className="col-lg-1 col-md-6"></div>
+            <div className="col-lg-3 col-md-6">
+              <div className="widget widget_nav_menu">
+                <h4 className="widget-title">OUR WEBSITE LINK</h4>
 
-                  <ul className="stone-go-top">
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" /> Brands
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Gift Vouchers
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Affiliates
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Wishlist
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Order History
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Track Your Order
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
+                <ul className="stone-go-top">
+                  <li>
+                    <a href="/webtv">
+                      {" "}
+                      <i className="fa fa-angle-right" />
+                      EMS Web TV Channel
+                    </a>
+                  </li>
+                  <li>
+                  <a href="/books">
+                    {" "}
+                    <i className="fa fa-angle-right" />
+                    நூற்கள்
+                  </a>
+                </li>
+                  
+                  <li>
+                    <a href="/blog/amutha_mozhigal">
+                    {" "}
+                    <i className="fa fa-angle-right" />
+                    அமுத மொழிகள்
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/blog/kolgaigal">
+                      {" "}
+                      <i className="fa fa-angle-right" />
+                      கொள்கைகள்
+                    </a>
+                  </li>
+                  <li>
+                    <Link to="/">
+                      {" "}
+                      <i className="fa fa-angle-right" />
+                      நிகழ்வுகள்
+                    </Link>
+                  </li>
+                 
+                </ul>
               </div>
-              <div className="col-lg-3 col-md-6">
-                <div className="widget widget_nav_menu">
-                  <h4 className="widget-title">CUSTOMER SERVICE</h4>
-
-                  <ul className="stone-go-top">
-                    <li>
-                      <Link to="/contact">
-                        {" "}
-                        <i className="fa fa-angle-right" />
-                        Contact
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        {" "}
-                        <i className="fa fa-angle-right" />
-                        Returns
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        {" "}
-                        <i className="fa fa-angle-right" />
-                        Order History
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        {" "}
-                        <i className="fa fa-angle-right" />
-                        Site Map
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        {" "}
-                        <i className="fa fa-angle-right" />
-                        My Account
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        {" "}
-                        <i className="fa fa-angle-right" />
-                        Unsubscribe Notification
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
+            </div>
+            <div className="col-lg-3 col-md-6">
+              <div className="widget widget_nav_menu">
+                <h4 className="widget-title">INFORMATION</h4>
+                <ul className="stone-go-top">
+                  <li>
+                    <Link to="/cotact">
+                      <i className="fa fa-angle-right" /> Contact Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/login">
+                      <i className="fa fa-angle-right" />
+                      Login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/register">
+                      <i className="fa fa-angle-right" />
+                      Register
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/construction">
+                      <i className="fa fa-angle-right" />
+                      Terms & Conditions
+                    </Link>
+                  </li>
+                  
+                </ul>
               </div>
-              <div className="col-lg-3 col-md-6">
-                <div className="widget widget_nav_menu">
-                  <h4 className="widget-title">INFORMATION</h4>
-                  <ul className="stone-go-top">
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" /> About Us
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Delivery Information
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Privacy Policy
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Terms & Conditions
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Warranty
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        FAQ
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Login
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-6">
-                <div className="widget">
-                  <h4 className="widget-title">DOWNLOAD APP</h4>
-                  <Link to="/">
-                    <img
-                      className="playstore-btn"
-                      src={publicUrl + "assets/img/apple.png"}
-                      alt=""
-                    />
+            </div>
+            <div className="col-lg-4 col-md-6">
+              <div className="widget">
+                <h4 className="widget-title">DOWNLOAD APP</h4>
+                <Link to="/">
+                  <img
+                    className="playstore-btn"
+                    src={publicUrl + "assets/img/apple.png"}
+                    alt=""
+                  />
+                </Link>
+                &nbsp;
+                <Link to="/">
+                  <img
+                    className="playstore-btn"
+                    src={publicUrl + "assets/img/google-play.png"}
+                    alt=""
+                  />
+                </Link>
+                <h4 className="widget-title mt-4">FOLLOW US</h4>
+                <div className="text-secondary">
+                  <Link className="mr-3" to="/">
+                    {" "}
+                    <i className="fab fa-facebook fa-lg"></i>
                   </Link>
-                  &nbsp;
-                  <Link to="/">
-                    <img
-                      className="playstore-btn"
-                      src={publicUrl + "assets/img/google-play.png"}
-                      alt=""
-                    />
+                  <Link className="mr-3" to="/">
+                    {" "}
+                    <i className="fab fa-twitter fa-lg"></i>
                   </Link>
-                  <h4 className="widget-title mt-4">FOLLOW US</h4>
-                  <div className="text-secondary">
-                    <Link className="mr-3" to="/">
-                      {" "}
-                      <i className="fab fa-facebook fa-lg"></i>
-                      
-                    </Link>
-                    <Link className="mr-3" to="/">
-                      {" "}
-                      <i className="fab fa-twitter fa-lg"></i>
-                    </Link>
-                    <Link className="mr-3" to="/">
-                      {" "}
-                      <i className="fab fa-pinterest fa-lg" />
-                    </Link>
-                    <Link className="mr-3" to="/">
-                      {" "}
-                      <i className="fab fa-linkedin fa-lg" />
-                    </Link>
-                    <Link className="mr-3" to="/">
-                      {" "}
-                      <i className="fab fa-vimeo fa-lg " />
-                    </Link>
-                  </div>
+                  <Link className="mr-3" to="/">
+                    {" "}
+                    <i className="fab fa-pinterest fa-lg" />
+                  </Link>
+                  <Link className="mr-3" to="/">
+                    {" "}
+                    <i className="fab fa-linkedin fa-lg" />
+                  </Link>
+                  <Link className="mr-3" to="/">
+                    {" "}
+                    <i className="fab fa-vimeo fa-lg " />
+                  </Link>
                 </div>
               </div>
             </div>
+            <div className="col-lg-1 col-md-6"></div>
           </div>
+        </div>
         </div>
         <div className="footer-bottom">
           <div className="container">

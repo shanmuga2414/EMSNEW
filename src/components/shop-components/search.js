@@ -129,7 +129,7 @@ function eventComponent(event, key) {
 
           <p>{event.description.replace(/(<([^>]+)>)/gi, "")}</p>
         </div>
-        <a class="btn btn-native" href="#/blog-details">
+        <a href={'/single_event/' + event.id} class="btn btn-native" href="#/blog-details">
           Read more
         </a>
       </div>

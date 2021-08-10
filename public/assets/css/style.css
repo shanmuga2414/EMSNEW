@@ -9853,7 +9853,7 @@ button {
     color:black;
   }
   .top-header{
-    background-color: #00C9FC !important;
+    background-color: #593574 !important;
   }
   .breadcrumb-area-webtv{
     background-color:#28505d !important;
@@ -9896,7 +9896,7 @@ button {
     width:380px !important;
   }
   .footer-address-bar-webtv {
-    background: #00C9FC !important;
+    background: #593574 !important;
     min-height: 100px;
     margin-bottom: 20px;
     color: #fff !important;
@@ -10121,10 +10121,36 @@ button {
 }
 .magazine{
   background:white;
-  color: #28505d !important;
+  color: #593574 !important;
   border: 1px solid white !important;
 }
 #event-btn{
   color:white;
+}
+.single_event_bg{
+  background: rgb(245 245 245);
+    padding: 29px;
+}
+#event-date{
+  font-size:18px;
+  margin-top: 10px;
+}
+.event_date_tag{
+  margin-top: 21px;
+  margin-bottom: -20px;
+}
+.event-head{
+  color: #28505d;
+}
+.audio_name{
+  padding: 39px 18px;
+  font-size: 19px;
+  font-weight: 490;
+}
+.audio_name_div{
+  margin-top:10px;
+}
+.related_videos_head{
+  color: #593574;
 }
 

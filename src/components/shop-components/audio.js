@@ -142,6 +142,8 @@ class Audios extends Component {
                           <div className="thumb ">
                             <ReactAudioPlayer src={audio.audio} controls />
                           </div>
+                          <hr></hr>
+                          <div class="audio_name_div"><span className="audio_name">{audio.name}</span></div>
                           {/* <h6 className="title stone-go-top margin-top-20">
                           <Link to="/"></Link>
                         </h6> */}

@@ -77,49 +77,7 @@ class Footer_v1 extends Component {
           </div>
           <div className="container">
             <div className="row">
-              <div className="col-lg-3 col-md-6 mobile-location">
-                <div className="widget widget_nav_menu">
-                  <h4 className="widget-title">CONTACT US</h4>
-
-                  <ul className="stone-go-top">
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" /> Brands
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Gift Vouchers
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Affiliates
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Wishlist
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Order History
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Track Your Order
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            <div className="col-lg-1 col-md-6"></div>
               <div className="col-lg-3 col-md-6">
                 <div className="widget widget_nav_menu">
                   <h4 className="widget-title">OUR WEBSITE LINK</h4>
@@ -158,16 +116,10 @@ class Footer_v1 extends Component {
                       <Link to="/">
                         {" "}
                         <i className="fa fa-angle-right" />
-                        My Account
+                        நிகழ்வுகள்
                       </Link>
                     </li>
-                    <li>
-                      <Link to="/">
-                        {" "}
-                        <i className="fa fa-angle-right" />
-                        Unsubscribe Notification
-                      </Link>
-                    </li>
+                   
                   </ul>
                 </div>
               </div>
@@ -176,50 +128,33 @@ class Footer_v1 extends Component {
                   <h4 className="widget-title">INFORMATION</h4>
                   <ul className="stone-go-top">
                     <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" /> About Us
+                      <Link to="/cotact">
+                        <i className="fa fa-angle-right" /> Contact Us
                       </Link>
                     </li>
                     <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Delivery Information
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Privacy Policy
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Terms & Conditions
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        Warranty
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <i className="fa fa-angle-right" />
-                        FAQ
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
+                      <Link to="/login">
                         <i className="fa fa-angle-right" />
                         Login
                       </Link>
                     </li>
+                    <li>
+                      <Link to="/register">
+                        <i className="fa fa-angle-right" />
+                        Register
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/construction">
+                        <i className="fa fa-angle-right" />
+                        Terms & Conditions
+                      </Link>
+                    </li>
+                    
                   </ul>
                 </div>
               </div>
-              <div className="col-lg-3 col-md-6">
+              <div className="col-lg-4 col-md-6">
                 <div className="widget">
                   <h4 className="widget-title">DOWNLOAD APP</h4>
                   <Link to="/">
@@ -262,6 +197,7 @@ class Footer_v1 extends Component {
                   </div>
                 </div>
               </div>
+              <div className="col-lg-1 col-md-6"></div>
             </div>
           </div>
         </div>

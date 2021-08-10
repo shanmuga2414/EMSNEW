@@ -107,8 +107,8 @@ class FounderDetails extends Component {
                             alt=""
                           />
                           <div className="member-content">
-                            <span class="date">
-                              <i class="fa fa-calendar"></i> 10 January 2018{" "}
+                            <span className="date">
+                              <i className="fa fa-calendar"></i> 10 January 2018{" "}
                             </span>
                             <h6 className="img-title"> குறிஞ்சிச் சுவை </h6>
                             <p className="img-content">

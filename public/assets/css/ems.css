@@ -267,6 +267,7 @@
 }
 .webVideo {
   background-color: #eee;
+  height: 200px;
 }
 .webVideo h6 {
   text-align: center !important;

@@ -259,10 +259,10 @@ class Navbar extends Component {
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 text-right hide-mobile-view">
                 <a
-                href="/webtv"
+                href="http://emsmedia.net/magazine/"
                 target="_blank"
                 type="button"
-                className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white tab-hide"
+                className="btn btn-sm magazine btn-tvchannel top-content-size hide-mobile-view color-white tab-hide"
                 style={{"margin-right":"15px"}}
               >
                 <i className="fa fa-book" />{" "}
@@ -323,7 +323,7 @@ class Navbar extends Component {
                   <a href="/">
                     <img
                       className="logo-img"
-                      src={publicUrl + "assets/img/logo.jpg"}
+                      src={publicUrl + "assets/img/logo-webtv.jpg"}
                       alt="EMS Media"
                     />
                   </a>

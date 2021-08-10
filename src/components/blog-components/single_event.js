@@ -21,15 +21,17 @@ class SingleEvent extends Component {
     return (
       
       <div className="blog-area margin-top-65">
-      <div className="container">
+      <div className="container ">
         <div className="row justify-content-center">
           <div className="col-md-9">
-            <div className="blog-content">
-              <h2>
+            <div className="blog-content single_event_bg">
+              <h2 className="event-head">
               சொற்பொழிவு
               </h2>
-              <img src="http://emsmedia.net/magazine/web_control/books/image/book3.png" alt="சொற்பொழிவு" />
-              <span>10-09-2020</span>
+              <img src="http://emsmedia.net/magazine/web_control/books/image/book1.png" alt="சொற்பொழிவு" />
+              <h4 className="event_date_tag"><span class="date" id="event-date">
+              <i className="fa fa-calendar"></i> 10 January 2018
+            </span></h4>
               <p>
               மௌலானா நாயகமவர்கள் இரண்டு தலையங்கத்தில் பேசினார்கள். முதற் தலையங்கம் ஹலாலும், ஹராமும், இரண்டாம் தலையங்கம் அறபு இலக்கிய 
               வளர்ச்சியும் ஆகும். இரண்டாவது தலையங்கம் 21-07-1961 இல பேசப்பட்டது. இது பல பிரசங்கங்களையுடையது. முதலில் அன்றைய அறபு மக்களின் நிலை 
