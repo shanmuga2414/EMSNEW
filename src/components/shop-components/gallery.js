@@ -5,7 +5,7 @@ import "antd/dist/antd.css";
 import { DatePicker, Space } from "antd";
 import Modal from "react-modal";
 import ImageGallery from "react-image-gallery";
-import moment from 'moment';
+import moment from "moment";
 import Pagination from "../global-components/pagination";
 import { paginate } from "../../paginate";
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -17,13 +17,14 @@ class Gallery extends Component {
     super();
     this.state = {
       albums: [],
-      filteredSearch: '',
-      filteredMonth: '',
-      filteredYear: '',
+      filteredSearch: "",
+      filteredMonth: "",
+      filteredYear: "",
       showModal: false,
-      pageSize: 6,
+      pageSize: 9,
       currentPage: 1,
       displayGalleryRage: 1,
+      galleryImages: [],
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -35,9 +36,11 @@ class Gallery extends Component {
       displayGalleryRage: this.state.currentPage * this.state.pageSize + 1,
     });
   };
-  handleOpenModal() {
+  handleOpenModal = (values) => () => {
+    this.setState({ galleryImages: values });
     this.setState({ showModal: true });
-  }
+    console.log(this.state.galleryImages);
+  };
 
   handleCloseModal() {
     this.setState({ showModal: false });
@@ -48,42 +51,60 @@ class Gallery extends Component {
     const result = await homeServices.getAlbums();
     // const imgresults = await homeServices.getAlbumImages();
     this.setState({ albums: result.data.records });
+
     // this.setState({ images: imgresults.data });
   }
-  
+
   searchGallery = (e) => {
     this.setState({ filteredSearch: e.target.value.trim() });
-  }
+  };
   handleMonthChange = (e) => {
     let filteredMonth = e.target.textContent.trim();
     if (filteredMonth === this.state.filteredMonth) {
-      filteredMonth = '';
+      filteredMonth = "";
     }
     this.setState({ filteredMonth });
-  }
+  };
   handleYearChange = (date, dateString) => {
     this.setState({ filteredYear: dateString });
-  }
+  };
   getFilterGalleryList = () => {
     const { filteredSearch, filteredMonth, filteredYear } = this.state;
 
-    const galleryList = this.state.albums.filter(gallery => {
-      let gallerydate = moment(gallery.date, 'DD-MM-YYYY / hh:mm:ssa');
-      if (filteredSearch && !gallery.title.toLowerCase().includes(filteredSearch.toLowerCase())) return false;
-      if (filteredYear && filteredYear !== gallerydate.format('YYYY')) return false;
-      if (filteredYear && filteredMonth && filteredMonth !== gallerydate.format('MMM')) return false;
+    const galleryList = this.state.albums.filter((gallery) => {
+      let gallerydate = moment(gallery.date, "DD-MM-YYYY / hh:mm:ssa");
+      if (
+        filteredSearch &&
+        !gallery.title.toLowerCase().includes(filteredSearch.toLowerCase())
+      )
+        return false;
+      if (filteredYear && filteredYear !== gallerydate.format("YYYY"))
+        return false;
+      if (
+        filteredYear &&
+        filteredMonth &&
+        filteredMonth !== gallerydate.format("MMM")
+      )
+        return false;
 
       return true;
     });
 
     return galleryList;
-  }
+  };
 
   render() {
-    const { albums, filteredMonth, filteredYear, pageSize, currentPage, displayGalleryRage } = this.state;
-    
+    const {
+      albums,
+      filteredMonth,
+      filteredYear,
+      pageSize,
+      currentPage,
+      displayGalleryRage,
+    } = this.state;
+
     const monthNameList = moment.monthsShort();
-    
+
     const filteredGallerys = this.getFilterGalleryList();
     const getGallerys = paginate(filteredGallerys, currentPage, pageSize);
 
@@ -97,44 +118,7 @@ class Gallery extends Component {
         transform: "translate(-50%, -50%)",
       },
     };
-    const images = [
-      {
-        original:
-          "http://emsmedia.net/magazine/web_control/books/image/book1.png",
-        thumbnail:
-          "http://emsmedia.net/magazine/web_control/books/image/book1.png",
-      },
-      {
-        original:
-          "http://emsmedia.net/magazine/web_control/books/image/book2.png",
-        thumbnail:
-          "http://emsmedia.net/magazine/web_control/books/image/book2.png",
-      },
-      {
-        original:
-          "http://emsmedia.net/magazine/web_control/books/image/book3.png",
-        thumbnail:
-          "http://emsmedia.net/magazine/web_control/books/image/book3.png",
-      },
-      {
-        original:
-          "http://emsmedia.net/magazine/web_control/books/image/book4.png",
-        thumbnail:
-          "http://emsmedia.net/magazine/web_control/books/image/book4.png",
-      },
-      {
-        original:
-          "http://emsmedia.net/magazine/web_control/books/image/book5.png",
-        thumbnail:
-          "http://emsmedia.net/magazine/web_control/books/image/book5.png",
-      },
-      {
-        original:
-          "http://emsmedia.net/magazine/web_control/books/image/book6.png",
-        thumbnail:
-          "http://emsmedia.net/magazine/web_control/books/image/book6.png",
-      },
-    ];
+
     return (
       <div className="collection-area">
         <div className="container">
@@ -174,15 +158,18 @@ class Gallery extends Component {
                 <div className="tab-pane fade in show active" id="one">
                   <div className="row">
                     {getGallerys.map((album) => (
-                      <div key={album.gid} className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div
+                        key={album.gid}
+                        className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12"
+                      >
                         <div className="product-style-03 imageHover webVideo margin-top-40">
                           <div className="thumb">
-                            <span onClick={this.handleOpenModal}>
+                            <span onClick={this.handleOpenModal(album.gallery)}>
                               <img src={album.image} alt="" />
                             </span>
                           </div>
                           <h6 className="title stone-go-top  margin-top-20">
-                            <span onClick={this.handleOpenModal}>
+                            <span onClick={this.handleOpenModal(album.gallery)}>
                               {album.title}
                             </span>
                           </h6>
@@ -214,143 +201,17 @@ class Gallery extends Component {
             <div className="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 margin-top-20">
               <div className="widget search-widget">
                 <form className="search" action="#">
-                <button type="submit">
-                  <i className="icon-search" />
-                </button>
-                <input
-                  type="text" className="side-input"
-                  placeholder="Search Images"
-                  name="search"
-                  onChange={this.searchGallery}
-                />
-              </form>
-              </div>
-              <div className="widget categories-widget">
-                {/* <div className="accordion-style-2" id="accordionExample1">
-                  <div className="card">
-                    <div className="card-header" id="headingOne">
-                      <p className="mb-0">
-                        <a
-                          href="#"
-                          role="button"
-                          data-toggle="collapse"
-                          data-target="#collapseOne"
-                          aria-expanded="true"
-                          aria-controls="collapseOne"
-                        >
-                          Categories
-                        </a>
-                      </p>
-                    </div>
-                    <div
-                      id="collapseOne"
-                      className="collapse show"
-                      aria-labelledby="headingOne"
-                      data-parent="#accordionExample1"
-                    >
-                      <div className="card-body">
-                        <form action="#">
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck"
-                            >
-                              Social
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck2"
-                            >
-                              Family
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck3"
-                            >
-                              AAN Songs
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck4"
-                            >
-                              Book Release
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck"
-                            >
-                              J S K A A H Moulana
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck2"
-                            >
-                              Childrens [293]
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck3"
-                            >
-                              Women [125]
-                            </label>
-                          </div>
-                          <div className="custom-control custom-checkbox mb-3">
-                            <input
-                              type="checkbox"
-                              className="custom-control-input"
-                            />
-                            <label
-                              className="custom-control-label"
-                              htmlFor="customCheck4"
-                            >
-                              History [698]
-                            </label>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
+                  <button type="submit">
+                    <i className="icon-search" />
+                  </button>
+                  <input
+                    type="text"
+                    className="side-input"
+                    placeholder="Search Images"
+                    name="search"
+                    onChange={this.searchGallery}
+                  />
+                </form>
               </div>
 
               <div className="widget ptype-widget">
@@ -380,7 +241,10 @@ class Gallery extends Component {
                         <form action="#">
                           <div className="custom-control custom-checkbox mb-3">
                             <Space direction="vertical">
-                              <DatePicker onChange={this.handleYearChange} picker="year" />
+                              <DatePicker
+                                onChange={this.handleYearChange}
+                                picker="year"
+                              />
                             </Space>
                           </div>
                         </form>
@@ -390,7 +254,7 @@ class Gallery extends Component {
                 </div>
               </div>
 
-              {filteredYear && 
+              {filteredYear && (
                 <div className="widget size-widget">
                   <div className="accordion-style-2" id="accordionExample6">
                     <div className="card">
@@ -415,9 +279,14 @@ class Gallery extends Component {
                         data-parent="#accordionExample6"
                       >
                         <div className="card-body">
-                          <ul className="size-list" onClick={this.handleMonthChange}>
+                          <ul
+                            className="size-list"
+                            onClick={this.handleMonthChange}
+                          >
                             {monthNameList.map((month) => (
-                              <li className={month == filteredMonth && 'active'}>
+                              <li
+                                className={month == filteredMonth && "active"}
+                              >
                                 <a href="#">{month}</a>
                               </li>
                             ))}
@@ -427,20 +296,10 @@ class Gallery extends Component {
                     </div>
                   </div>
                 </div>
-              }
+              )}
             </div>
           </div>
         </div>
-
-        {/* <ReactModal
-          isOpen={this.state.showModal}
-          contentLabel="onRequestClose Example"
-          onRequestClose={this.handleCloseModal}
-          shouldCloseOnOverlayClick={false}
-        >
-          <p>Modal text!</p>
-          <button onClick={this.handleCloseModal}>Close Modal</button>
-        </ReactModal> */}
 
         <Modal
           isOpen={this.state.showModal}
@@ -452,17 +311,7 @@ class Gallery extends Component {
           <button align="right" onClick={this.handleCloseModal}>
             X
           </button>
-          <ImageGallery items={images} />
-          {/* <h2>Hello</h2>
-          <button onClick={this.handleCloseModal}>close</button>
-          <div>I am a modal</div>
-          <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
-          </form> */}
+          <ImageGallery items={this.state.galleryImages} />
         </Modal>
       </div>
     );
