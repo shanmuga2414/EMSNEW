@@ -46,7 +46,7 @@ class Navbar extends Component {
 
   doSearch(query) {
     if (!query) return;
-    window.location.href = `/search/${query}`;
+    window.location.href = `#/search/${query}`;
   }
 
   render() {

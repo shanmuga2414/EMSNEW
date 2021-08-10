@@ -142,12 +142,12 @@ function eventComponent(event, key) {
       <div className="col-sm-12 col-12">
         <div className="content">
           <h6 className="title stone-go-top" id="event-title">
-            <a href={"/single_event/" + event.id}>{event.name}</a>
+            <a href={"#/single_event/" + event.id}>{event.name}</a>
           </h6>
 
           <p>{event.description.replace(/(<([^>]+)>)/gi, "")}</p>
         </div>
-        <a class="btn btn-native" href={"/single_event/" + event.id}>
+        <a class="btn btn-native" href={"#/single_event/" + event.id}>
           Read more
         </a>
       </div>
@@ -195,9 +195,9 @@ function bookComponent(book, key) {
     <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 ">
       <div className="product-style-03  border-grey margin-top-40 book-div">
         <div className="thumb ">
-          <Link to="/books" target="_blank">
+          <a href="#/books" target="_blank">
             <img src={book.image} alt={book.name} />
-          </Link>
+          </a>
         </div>
         <div className=" align-center">
           <div className="content book_content">
