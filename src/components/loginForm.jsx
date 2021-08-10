@@ -26,9 +26,9 @@ class LoginForm extends Component {
       const response = await authServices.checkUser(values);
       if (response.status >= 200) {
         if (response.data === 0) {
-          this.props.history.push("/login");
+          this.props.history.push("#/login");
         } else {
-          this.props.history.push("/profile");
+          this.props.history.push("#/profile");
         }
       }
     } catch (ex) {
@@ -107,7 +107,7 @@ class LoginForm extends Component {
                           Log in
                         </Button>
                         <center>
-                          <a className="login-form-forgot" href="/getemail">
+                          <a className="login-form-forgot" href="#/getemail">
                             Forgot Password?
                           </a>
                         </center>
@@ -120,7 +120,7 @@ class LoginForm extends Component {
                         <center>
                           <a
                             class="text-center new-account btn btn-grey"
-                            href="/register"
+                            href="#/register"
                           >
                             Create Your EMS Account
                             <i class="fas fa-chevron-right first-chevron"></i>
