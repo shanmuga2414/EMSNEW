@@ -38,15 +38,15 @@ class Navbar extends Component {
     let query = e.target.value.trim();
     if (this.query === query) return;
 
-    if(e.key === 'Enter') {
+    if (e.key === "Enter") {
       this.doSearch(query);
       e.preventDefault();
     }
-  }
+  };
 
   doSearch(query) {
     if (!query) return;
-    window.location.href = `/search/${query}`
+    window.location.href = `/search/${query}`;
   }
 
   render() {
@@ -72,33 +72,32 @@ class Navbar extends Component {
                   <span className="top-contact">
                     <i className="fas fa-phone-volume"></i>{" "}
                     <span className="text-space">
-                      <a href="/contact" className="color-white">
+                      <a href="#/contact" className="color-white">
                         Contact Us
                       </a>
                     </span>
                   </span>
                 </div>
                 <div className="col-xl-7 col-lg-8 col-md-7 col-12 text-right hide-mobile-view">
-                <a
+                  <a
                     href="http://emsmedia.net/magazine/"
                     target="_blank"
                     type="button"
                     className="btn btn-sm magazine btn-tvchannel top-content-size hide-mobile-view color-white tab-hide"
-                    style={{"margin-right":"15px"}}
+                    style={{ "margin-right": "15px" }}
                   >
                     <i className="fa fa-book" />{" "}
                     <span className="tab">EMS</span> Magazine{" "}
-                    
                   </a>
-                  <a className="top-content-size color-white" href="/login">
-                    <i className="fas fa-sign-in-alt"></i> Login 
+                  <a className="top-content-size color-white" href="#/login">
+                    <i className="fas fa-sign-in-alt"></i> Login
                   </a>
                   <span className="space">|</span>
-                  <a className="top-content-size color-white" href="/register">
+                  <a className="top-content-size color-white" href="#/register">
                     <i className="fas fa-user-plus"></i> Register
                   </a>
                   <a
-                    href="/webtv"
+                    href="#/webtv"
                     target="_blank"
                     type="button"
                     className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white"
@@ -111,20 +110,23 @@ class Navbar extends Component {
                 <div className="col-lg-6 col-md-6 col-12 hide-large-view">
                   <div className="row mobile-tv">
                     <div className="col-8">
-                      <a className="top-content-size color-white" href="/login">
+                      <a
+                        className="top-content-size color-white"
+                        href="#/login"
+                      >
                         <i className="fas fa-sign-in-alt"></i> Login
                       </a>
                       <span className="space">|</span>
                       <a
                         className="top-content-size color-white"
-                        href="/register"
+                        href="#/register"
                       >
                         <i className="fas fa-user-plus"></i> Register
                       </a>
                     </div>
                     <div className="col-4">
                       <a
-                        href="/webtv"
+                        href="#/webtv"
                         type="button"
                         className="btn btn-sm btn-tvchannel top-content-size hide-large-view"
                       >
@@ -139,18 +141,17 @@ class Navbar extends Component {
           <div className="container-fluid logo-bg-color">
             <div className="row">
               <div className="col-xl-8 col-lg-5  hide-mobile-view tab-hide">
-             
-                  <div className="logo">
-                    <a href="/">
-                      <img
-                        className="logo-img"
-                        src={publicUrl + "assets/img/logo.jpg"}
-                        alt="EMS Media"
-                      />
-                    </a>
-                  </div>
+                <div className="logo">
+                  <a href="/">
+                    <img
+                      className="logo-img"
+                      src={publicUrl + "assets/img/logo.jpg"}
+                      alt="EMS Media"
+                    />
+                  </a>
                 </div>
-              
+              </div>
+
               <div className="col-xl-4 col-lg-5">
                 <form>
                   <div className="form-group searchbox hide-mobile-view tab-hide">
@@ -179,8 +180,6 @@ class Navbar extends Component {
                     />
                   </a>
                 </div>
-                
-              
               </div>
 
               <div className=" col-lg-5 view-large mt-2">
