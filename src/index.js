@@ -19,6 +19,7 @@ import ConstructionDetails from "./components/construction";
 import Spiritual from "./components/spiritual";
 import Blog from "./components/blog-details";
 import Login from "./components/loginForm";
+
 import Register from "./components/registerForm";
 import WebTv from "./components/webTv";
 import Forgot from "./components/forgot";
@@ -27,6 +28,7 @@ import GetEmail from "./components/getemail";
 import webtv_videos from "./components/webtv_videos";
 import single_event from "./components/single_event";
 import ems_live from "./components/ems_live";
+
 
 import "antd/dist/antd.css";
 // import HomeV2 from "./components/home-v2";
@@ -79,6 +81,7 @@ class Root extends Component {
             <Route path="/profile" component={ProfileDetails} />
             <Route path="/webtv_videos" component={webtv_videos} />
             <Route path="/ems_live" component={ems_live} />
+            
             <Route path="/single_event/:eventid" component={single_event} />
             <Route path="/search/:query" component={SearchPage} />
 

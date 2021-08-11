@@ -135,7 +135,7 @@ class Audios extends Component {
                   <div className="row">
                     {getAudios.map((audio) => (
                       <div key={audio.aid} className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div className="product-style-audio webVideo margin-top-40">
+                        <div className="product-style-audio webVideo margin-top-40 audio_div" >
                         <div className="thumb ">
                         <img src={publicUrl + "assets/img/audio.jpg"} alt="" />
                         </div>
@@ -300,7 +300,7 @@ class Audios extends Component {
                           <ul className="size-list" onClick={this.handleMonthChange}>
                             {monthNameList.map((month) => (
                               <li className={month == filteredMonth && 'active'}>
-                                <a href="#">{month}</a>
+                                <a>{month}</a>
                               </li>
                             ))}
                           </ul>

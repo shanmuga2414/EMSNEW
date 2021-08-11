@@ -10121,7 +10121,7 @@ button {
 }
 .magazine{
   background:white;
-  color: #593574 !important;
+  color: #28505d !important;
   border: 1px solid white !important;
 }
 #event-btn{
@@ -10152,5 +10152,8 @@ button {
 }
 .related_videos_head{
   color: #593574;
+}
+.audio_div{
+  min-height: 230px;
 }
 

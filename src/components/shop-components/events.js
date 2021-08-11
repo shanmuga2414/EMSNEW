@@ -261,10 +261,8 @@ class Events extends Component {
                             onClick={this.handleMonthChange}
                           >
                             {monthNameList.map((month) => (
-                              <li
-                                className={month == filteredMonth && "active"}
-                              >
-                                <a href="#">{month}</a>
+                              <li className={month == filteredMonth && 'active'}>
+                                <a>{month}</a>
                               </li>
                             ))}
                           </ul>

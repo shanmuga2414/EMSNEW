@@ -23,7 +23,7 @@ class Search extends Component {
       displaySearchRange: 1,
     };
     this.openModal = this.openModal.bind(this);
-    window.helloComponent = this;
+    window.videoPopupComponent = this;
   }
 
   openModal = (value) => () => {
@@ -175,13 +175,13 @@ function videoComponent(video, key) {
     <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
       <div className="product-style-03 webVideo imageHover margin-top-40">
         <img
-          onClick={window.helloComponent.openModal(video.url)}
+          onClick={window.videoPopupComponent.openModal(video.url)}
           src={`http://img.youtube.com/vi/${video.url}/0.jpg`}
         ></img>
 
         <h6 className="title stone-go-top margin-top-20">
           <span></span>
-          <span onClick={window.helloComponent.openModal(video.url)}>
+          <span onClick={window.videoPopupComponent.openModal(video.url)}>
             {video.name}
           </span>
         </h6>
