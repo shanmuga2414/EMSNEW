@@ -52,7 +52,7 @@ class Footer_v1 extends Component {
                     </div>
                     <div className="method-box__content tab-contact">
                       <span>+123-456-789</span>
-                      <p class="address-additional">Free support line!</p>
+                      <p class="address-additional" style={{"color":"white"}}>Free support line!</p>
                     </div>
                   </div>
                 </div>
@@ -63,7 +63,7 @@ class Footer_v1 extends Component {
                     </div>
                     <div className="method-box__content tab-contact">
                       <span>contact@onlinbookshops.com</span>
-                      <p class="address-additional">Orders Support!</p>
+                      <p class="address-additional" style={{"color":"white"}}>Orders Support!</p>
                     </div>
                   </div>
                 </div>
@@ -74,7 +74,7 @@ class Footer_v1 extends Component {
                     </div>
                     <div className="method-box__content">
                       <span>888 South Avenue Street, New York City. </span>
-                      <p class="address-additional">Our Address</p>
+                      <p class="address-additional" style={{"color":"white"}}>Our Address</p>
                     </div>
                   </div>
                 </div>
@@ -144,7 +144,7 @@ class Footer_v1 extends Component {
                   </li>
 
                   <li>
-                    <a href="http://yaseenrali.com/">
+                    <a target="_blank" href="http://yaseenrali.com/">
                       {" "}
                       <i className="fa fa-angle-right" />
                       Yaseenrali
@@ -178,25 +178,25 @@ class Footer_v1 extends Component {
                     </Link>
                   </li>
                   <li>
-                    <Link to="	#/gallery">
+                    <Link to="/gallery">
                       <i className="fa fa-angle-right" />
                       புகைப்படங்கள்
                     </Link>
                   </li>
                   <li>
-                    <Link to="#/videos">
+                    <Link to="/videos">
                       <i className="fa fa-angle-right" />
                       காணொளி
                     </Link>
                   </li>
                   <li>
-                    <Link to="#/audios">
+                    <Link to="/audios">
                       <i className="fa fa-angle-right" />
                       ஆடியோ
                     </Link>
                   </li>
                   <li>
-                    <Link to="#/events">
+                    <Link to="/events">
                       <i className="fa fa-angle-right" />
                       நிகழ்வுகள்
                     </Link>
@@ -305,9 +305,9 @@ class Footer_v1 extends Component {
               <div className="col-md-6 align-right">
                 <p>
                   Powered by{" "}
-                  <a href="/">
+                  <Link to="https://ilifetech.in/" target="_black">
                     <span className="color-black">ilife Technologies.</span>
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>

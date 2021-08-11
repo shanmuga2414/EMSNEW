@@ -115,14 +115,7 @@ class Videos extends Component {
               <div className="row">
                 <div className="col-lg-8 col-5"></div>
                 <div className="col-lg-4 col-7">
-                  <form action="#">
-                    <select className="form-control sort-select">
-                      <option>Default sorting</option>
-                      <option>Sort by popularity</option>
-                      <option>Sort by latest</option>
-                    </select>
-                    <i className="fa fa-chevron-down" />
-                  </form>
+                 
                 </div>
               </div>
               <div className="row">

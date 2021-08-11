@@ -166,11 +166,11 @@ function generateComponent(search, key) {
 function eventComponent(event, key) {
   return (
     <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 ">
-      <a className="col-sm-12 col-12 eventList" type="button" href="/events">
+      <Link className="col-sm-12 col-12 eventList" type="button" to="/events" target="_blank">
         <div className="thumb">
           <img src={event.image} alt={event.name} width="100%" />
         </div>
-      </a>
+      </Link>
       <div className="col-sm-12 col-12">
         <div className="content">
           <h6 className="title stone-go-top" id="event-title">
@@ -179,7 +179,7 @@ function eventComponent(event, key) {
 
           <p>{event.description.replace(/(<([^>]+)>)/gi, "")}</p>
         </div>
-        <Link to={'/single_event/' + event.id} class="btn btn-native">
+        <Link to={'/single_event/' + event.id} class="btn btn-native" target="_blank">
           Read more
         </Link>
       </div>
@@ -191,11 +191,11 @@ function audioComponent(audio, key) {
   return (
     <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
       <div className="product-style-audio webVideo margin-top-40">
-        <div className="thumb " type="button" href="/audios">
-          <img src={publicUrl + "assets/img/audio.jpg"} alt="" />
-        </div>
+      <Link className="thumb " type="button" to="/audios" target="_blank">
+      <img src={publicUrl + "assets/img/audio.jpg"} alt="" />
+      </Link>
         <div className="thumb ">
-          <ReactAudioPlayer src={audio.url} controls />
+          <ReactAudioPlayer src={audio.audio} controls />
         </div>
       </div>
     </div>
@@ -206,10 +206,9 @@ function videoComponent(video, key) {
   return (
     <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
       <div className="product-style-03 webVideo imageHover margin-top-40">
-        <img
-          onClick={window.videoPopupComponent.openModal(video.url)}
-          src={`http://img.youtube.com/vi/${video.url}/0.jpg`}
-        ></img>
+        <Link className="thumb youtubeVideo" type="button" to="/videos" target="_blank">
+          <img src={`http://img.youtube.com/vi/${video.url}/0.jpg`}></img>
+        </Link>
 
         <h6 className="title stone-go-top margin-top-20">
           <span></span>
@@ -238,13 +237,18 @@ function bookComponent(book, key) {
               <span className="new-price">${book.price}</span>
             </div>
           </div>
-          <a className="btn btn-sm buyButton" href={book.url} target="_blank">
+        </div>
+          <Link
+            className="btn btn-sm buyButton"
+            to={book.url}
+            target="_blank"
+          >
             {" "}
             Buy Now
-          </a>
+          </Link>
         </div>
       </div>
-    </div>
+    
   );
 }
 
@@ -259,9 +263,9 @@ function articleComponent(article, key) {
 
           <p>{article.description.replace(/(<([^>]+)>)/gi, "")}</p>
         </div>
-        <a class="btn btn-native" href="#">
+        <Link class="btn btn-native" to={article.page_url.replace(/^#/, '')} target="_blank">
           Read more
-        </a>
+        </Link>
       </div>
     </div>
   );
