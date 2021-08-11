@@ -75,3 +75,7 @@ export async function doSearch(payload) {
 export async function getSingleEvent(payload) {
   return axios.post(`${apiUrl}single_event.php`, payload);
 }
+
+export async function resendActivation(payload) {
+  return axios.post(`${apiUrl}/resend_mail.php`, payload);
+}

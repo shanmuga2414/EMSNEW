@@ -25,7 +25,8 @@ import Forgot from "./components/forgot";
 import ProfileDetails from "./components/profile";
 import GetEmail from "./components/getemail";
 import webtv_videos from "./components/webtv_videos";
-import single_event from "./components/single_event";
+import single_event from "./components/single_event"; 
+import ResendVerificationPage from "./components/ResendVerificationPage"; 
 
 import "antd/dist/antd.css";
 // import HomeV2 from "./components/home-v2";
@@ -49,10 +50,9 @@ import "slick-carousel/slick/slick-theme.css";
 
 class Root extends Component {
   render() {
-    console.log(111)
     return (
       <Router>
-        {/* <HashRouter basename="/"> */}
+        <HashRouter basename="/">
         <div>
           <Switch>
             <Route exact path="/" component={HomeV1} />
@@ -79,6 +79,7 @@ class Root extends Component {
             <Route path="/webtv_videos" component={webtv_videos} />
             <Route path="/single_event/:eventid" component={single_event} />
             <Route path="/search/:query" component={SearchPage} />
+            <Route exact path="/resend-verification/:id" component={ResendVerificationPage} />
 
             {/* <Route path="/home-v2" component={HomeV2} />
               <Route path="/home-v3" component={HomeV3} />
@@ -98,7 +99,7 @@ class Root extends Component {
             <Route path="/contact" component={Contact} />
           </Switch>
         </div>
-        {/* </HashRouter> */}
+        </HashRouter>
       </Router>
     );
   }
