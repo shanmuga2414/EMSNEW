@@ -287,7 +287,7 @@ class Gallery extends Component {
                               <li
                                 className={month == filteredMonth && "active"}
                               >
-                                <a href="#">{month}</a>
+                                <a>{month}</a>
                               </li>
                             ))}
                           </ul>

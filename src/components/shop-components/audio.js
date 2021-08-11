@@ -300,7 +300,7 @@ class Audios extends Component {
                           <ul className="size-list" onClick={this.handleMonthChange}>
                             {monthNameList.map((month) => (
                               <li className={month == filteredMonth && 'active'}>
-                                <a href="#">{month}</a>
+                                <a>{month}</a>
                               </li>
                             ))}
                           </ul>
