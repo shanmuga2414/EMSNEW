@@ -21,6 +21,7 @@ class Search extends Component {
       pageSize: 8,
       currentPage: 1,
       displaySearchRange: 1,
+      query: "",
     };
     this.openModal = this.openModal.bind(this);
     window.videoPopupComponent = this;
@@ -32,7 +33,9 @@ class Search extends Component {
   };
 
   async componentDidMount() {
-    const result = await homeServices.doSearch({ search: this.props.query });
+    this.setState({ query: this.props.query });
+
+    const result = await homeServices.doSearch({ id: this.props.id });
     this.setState({ searchList: result.data.records || [] });
   }
   handlePageChange = (page) => {
@@ -41,12 +44,32 @@ class Search extends Component {
       displaySearchRange: this.state.currentPage * this.state.pageSize + 1,
     });
   };
+  onSearchChange = (e) => {
+    this.setState({ query: e.target.value.trim() });
+  };
+  searchChange = (e) => {
+    let query = e.target.value.trim();
+    if (this.props.query === query) return;
+
+    if (e.key === "Enter") {
+      this.doSearch(query);
+      e.preventDefault();
+    }
+  };
+  doSearch(query) {
+    if (!query || this.props.query === query) return;
+    let reload = window.location.hash.startsWith("#/search");
+    window.location.hash = `#/search/${query}`;
+
+    reload && window.location.reload();
+  }
   render() {
     const {
       searchList,
       pageSize,
       currentPage,
       displaySearchRange,
+      query,
     } = this.state;
 
     const getSearches = paginate(searchList, currentPage, pageSize);
@@ -54,7 +77,27 @@ class Search extends Component {
     return (
       <div className="collection-area">
         <div className="container">
-          <div className="row flex-row-reverse">
+          <div className="row">
+            <div className="col-10 m-auto tab-top">
+              <form>
+                <div className="form-group main-searchbox-lg">
+                  <div className="input-icons">
+                    <i className="fa fa-search"></i>
+                    <input
+                      type="text"
+                      className="input-field form-control"
+                      id="phone"
+                      placeholder="search here..."
+                      value={query}
+                      onChange={this.onSearchChange}
+                      onKeyPress={this.searchChange}
+                      onBlur={(e) => this.doSearch(e.target.value.trim())}
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+
             <div className="col-12">
               <div className="row mb-5">
                 <div className="col-md-12">
@@ -134,20 +177,32 @@ function generateComponent(search, key) {
 function eventComponent(event, key) {
   return (
     <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 ">
-      <a className="col-sm-12 col-12 eventList" type="button" href="/events">
+      <Link
+        className="col-sm-12 col-12 eventList"
+        type="button"
+        to="#/events"
+        target="_blank"
+      >
         <div className="thumb">
           <img src={event.image} alt={event.name} width="100%" />
         </div>
-      </a>
+      </Link>
       <div className="col-sm-12 col-12">
         <div className="content">
           <h6 className="title stone-go-top" id="event-title">
-            <a href={"#/single_event/" + event.id}>{event.name}</a>
+            <a href={"#/single_event/" + event.id} target="_blank">
+              {event.name}
+            </a>
           </h6>
 
           <p>{event.description.replace(/(<([^>]+)>)/gi, "")}</p>
         </div>
-        <a class="btn btn-native" href={"#/single_event/" + event.id}>
+        <a
+          class="btn btn-native"
+          href={"#/single_event/" + event.id}
+          class="btn btn-native"
+          target="_blank"
+        >
           Read more
         </a>
       </div>
@@ -159,11 +214,11 @@ function audioComponent(audio, key) {
   return (
     <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
       <div className="product-style-audio webVideo margin-top-40">
-        <div className="thumb " type="button" href="/audios">
+        <Link className="thumb " type="button" to="/audios" target="_blank">
           <img src={publicUrl + "assets/img/audio.jpg"} alt="" />
-        </div>
+        </Link>
         <div className="thumb ">
-          <ReactAudioPlayer src={audio.url} controls />
+          <ReactAudioPlayer src={audio.audio} controls />
         </div>
       </div>
     </div>
@@ -174,10 +229,14 @@ function videoComponent(video, key) {
   return (
     <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
       <div className="product-style-03 webVideo imageHover margin-top-40">
-        <img
-          onClick={window.videoPopupComponent.openModal(video.url)}
-          src={`http://img.youtube.com/vi/${video.url}/0.jpg`}
-        ></img>
+        <Link
+          className="thumb youtubeVideo"
+          type="button"
+          to="/videos"
+          target="_blank"
+        >
+          <img src={`http://img.youtube.com/vi/${video.url}/0.jpg`}></img>
+        </Link>
 
         <h6 className="title stone-go-top margin-top-20">
           <span></span>
@@ -206,11 +265,11 @@ function bookComponent(book, key) {
               <span className="new-price">${book.price}</span>
             </div>
           </div>
-          <a className="btn btn-sm buyButton" href={book.url} target="_blank">
-            {" "}
-            Buy Now
-          </a>
         </div>
+        <Link className="btn btn-sm buyButton" to={book.url} target="_blank">
+          {" "}
+          Buy Now
+        </Link>
       </div>
     </div>
   );
@@ -227,9 +286,13 @@ function articleComponent(article, key) {
 
           <p>{article.description.replace(/(<([^>]+)>)/gi, "")}</p>
         </div>
-        <a class="btn btn-native" href="#">
+        <Link
+          class="btn btn-native"
+          to={article.page_url.replace(/^#/, "")}
+          target="_blank"
+        >
           Read more
-        </a>
+        </Link>
       </div>
     </div>
   );

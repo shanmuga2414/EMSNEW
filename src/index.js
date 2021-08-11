@@ -26,7 +26,7 @@ import ProfileDetails from "./components/profile";
 import GetEmail from "./components/getemail";
 import webtv_videos from "./components/webtv_videos";
 import single_event from "./components/single_event";
-import ems_live from "./components/ems_live";
+import ResendVerificationPage from "./components/ResendVerificationPage";
 
 import "antd/dist/antd.css";
 import Contact from "./components/contact";
@@ -66,9 +66,13 @@ class Root extends Component {
               <Route path="/webtv" component={WebTv} />
               <Route path="/profile" component={ProfileDetails} />
               <Route path="/webtv_videos" component={webtv_videos} />
-              <Route path="/ems_live" component={ems_live} />
               <Route path="/single_event/:eventid" component={single_event} />
               <Route path="/search/:query" component={SearchPage} />
+              <Route
+                exact
+                path="/resend-verification/:id"
+                component={ResendVerificationPage}
+              />
 
               {/* <Route path="/home-v2" component={HomeV2} />
               <Route path="/home-v3" component={HomeV3} />

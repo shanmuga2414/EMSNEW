@@ -26,9 +26,21 @@ class LoginForm extends Component {
       const response = await authServices.checkUser(values);
       if (response.status >= 200) {
         if (response.data === 0) {
-          this.props.history.push("#/login");
+          this.props.history.push("/login");
+        } else if (
+          response.data &&
+          response.data[0] &&
+          response.data[0].status == 3
+        ) {
+          this.props.history.push(
+            `/resend-verification/${response.data[0].id}`
+          );
         } else {
-          this.props.history.push("#/profile");
+          localStorage.setItem(
+            "user",
+            JSON.stringify(response.data.records[0])
+          );
+          this.props.history.push("/profile");
         }
       }
     } catch (ex) {
@@ -62,10 +74,6 @@ class LoginForm extends Component {
                         name="email"
                         rules={[
                           {
-                            type: "email",
-                            message: "The input is not valid E-mail!",
-                          },
-                          {
                             required: true,
                             message: "Please input your E-mail!",
                           },
@@ -76,6 +84,7 @@ class LoginForm extends Component {
                           prefix={
                             <UserOutlined className="site-form-item-icon" />
                           }
+                          type="text"
                           placeholder="email"
                         />
                       </Form.Item>
