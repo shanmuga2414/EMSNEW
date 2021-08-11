@@ -61,7 +61,7 @@ class Footer_v1 extends Component {
                       <i className="fas fa-envelope"></i>
                     </div>
                     <div className="method-box__content tab-contact">
-                      <span>contact@onlinbookshops.com</span>
+                      <span>info@emsmedia.net</span>
                       <p>Orders Support!</p>
                     </div>
                   </div>
@@ -101,7 +101,7 @@ class Footer_v1 extends Component {
                         <Input />
                       </Form.Item>
                       </div> 
-                      <div className="col-lg-3">
+                      <div className="col-lg-3 subscribe-btn">
                       <Form.Item>
                         <Button
                           type="danger"

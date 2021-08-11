@@ -10156,4 +10156,10 @@ button {
 .audio_div{
   min-height: 230px;
 }
+#normal_login_email{
+  height:41px;
+}
+.subscribe-btn{
+  margin-left:-32px;
+}
 

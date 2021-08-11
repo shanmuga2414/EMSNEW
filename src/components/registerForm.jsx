@@ -439,7 +439,7 @@ class RegisterForm extends Component {
                       <Form.Item>
                         <span className="text-center new-account ">
                           Already have an account?{" "}
-                          <a href="/login" className="login-text-style">
+                          <a href="#/login" className="login-text-style">
                             Login
                           </a>
                         </span>

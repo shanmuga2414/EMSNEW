@@ -95,14 +95,7 @@ class Events extends Component {
               <div className="row">
                 <div className="col-lg-8 col-5"></div>
                 <div className="col-lg-4 col-7">
-                  <form action="#">
-                    <select className="form-control sort-select">
-                      <option>Default sorting</option>
-                      <option>Sort by popularity</option>
-                      <option>Sort by latest</option>
-                    </select>
-                    <i className="fa fa-chevron-down" />
-                  </form>
+                  
                 </div>
               </div>
               <div className="row">
@@ -137,7 +130,7 @@ class Events extends Component {
                       <div className="col-md-9 col-sm-12 col-12">
                         <div className="content">
                           <h6 className="title stone-go-top" id="event-title">
-                            <a href={"/single_event/" + event.id}>
+                            <a href={"#/single_event/" + event.id}>
                               {event.title}
                             </a>
                           </h6>
@@ -145,7 +138,7 @@ class Events extends Component {
                           <p>{event.description.replace(regex, "")}</p>
                         </div>
                         <a
-                          href={"/single_event/" + event.id}
+                          href={"#/single_event/" + event.id}
                           class="btn btn-native"
                         >
                           Read more
@@ -261,7 +254,9 @@ class Events extends Component {
                             onClick={this.handleMonthChange}
                           >
                             {monthNameList.map((month) => (
-                              <li className={month == filteredMonth && 'active'}>
+                              <li
+                                className={month == filteredMonth && "active"}
+                              >
                                 <a>{month}</a>
                               </li>
                             ))}
