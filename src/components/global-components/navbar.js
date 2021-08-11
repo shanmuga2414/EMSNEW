@@ -48,8 +48,8 @@ class Navbar extends Component {
 
   doSearch(query) {
     if (!query || this.props.query === query) return;
-    let reload = window.location.hash.startsWith('#/search')
-    window.location.hash = `#/search/${query}`
+    let reload = window.location.hash.startsWith("#/search");
+    window.location.hash = `#/search/${query}`;
 
     reload && window.location.reload();
   }
@@ -357,19 +357,22 @@ class Navbar extends Component {
   }
 }
 
-function AuthLinks () {
-  let user = localStorage.getItem('user');
+function AuthLinks() {
+  let user = localStorage.getItem("user");
   user = JSON.parse(user) || {};
 
   if (user.id) {
-
     const menu = (
       <Menu>
         <Menu.Item>
-          <Link to="/profile"><i className="fas fa-user fa-fw"></i> Profile</Link>
+          <Link to="/profile">
+            <i className="fas fa-user fa-fw"></i> Profile
+          </Link>
         </Menu.Item>
         <Menu.Item onClick={() => logout()}>
-          <Link to="/"><i className="fas fa-sign-out-alt fa-fw"></i> Logout</Link>
+          <Link to="/">
+            <i className="fas fa-sign-out-alt fa-fw"></i> Logout
+          </Link>
         </Menu.Item>
       </Menu>
     );
@@ -377,28 +380,32 @@ function AuthLinks () {
     return (
       <Fragment>
         <Dropdown overlay={menu}>
-          <a type="button" className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-          <i class="fas fa-user"></i> {user.name} <i className="fas fa-chevron-down"></i>
+          <a
+            type="button"
+            className="ant-dropdown-link"
+            onClick={(e) => e.preventDefault()}
+          >
+          <i class="fas fa-user"></i>{user.name} <i className="fas fa-chevron-down"></i>
           </a>
         </Dropdown>
       </Fragment>
-    )
+    );
   }
 
   return (
     <Fragment>
       <Link to="/login" className="top-content-size color-white">
-        <i className="fas fa-sign-in-alt"></i> Login 
+        <i className="fas fa-sign-in-alt"></i> Login
       </Link>
       <span className="space">|</span>
       <Link to="/register" className="top-content-size color-white">
         <i className="fas fa-user-plus"></i> Register
       </Link>
     </Fragment>
-  )
+  );
 }
 
 function logout() {
-  localStorage.removeItem('user');
+  localStorage.removeItem("user");
 }
 export default Navbar;

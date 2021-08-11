@@ -27,10 +27,19 @@ class LoginForm extends Component {
       if (response.status >= 200) {
         if (response.data === 0) {
           this.props.history.push("/login");
-        } else if (response.data && response.data[0] && response.data[0].status == 3) {
-          this.props.history.push(`/resend-verification/${response.data[0].id}`);
+        } else if (
+          response.data &&
+          response.data[0] &&
+          response.data[0].status == 3
+        ) {
+          this.props.history.push(
+            `/resend-verification/${response.data[0].id}`
+          );
         } else {
-          localStorage.setItem('user', JSON.stringify(response.data.records[0]));
+          localStorage.setItem(
+            "user",
+            JSON.stringify(response.data.records[0])
+          );
           this.props.history.push("/profile");
         }
       }

@@ -12,12 +12,24 @@ import * as homeServices from "../../Services/home-page-services";
 const publicUrl = process.env.PUBLIC_URL + "/";
 
 class Search extends Component {
-  state = {
-    searchList: [],
-    pageSize: 8,
-    currentPage: 1,
-    displaySearchRange: 1,
-    query: ''
+  constructor() {
+    super();
+    this.state = {
+      isOpen: false,
+      videoId: "",
+      searchList: [],
+      pageSize: 8,
+      currentPage: 1,
+      displaySearchRange: 1,
+      query: "",
+    };
+    this.openModal = this.openModal.bind(this);
+    window.videoPopupComponent = this;
+  }
+
+  openModal = (value) => () => {
+    this.setState({ videoId: value });
+    this.setState({ isOpen: true });
   };
 
   async componentDidMount() {
@@ -34,20 +46,20 @@ class Search extends Component {
   };
   onSearchChange = (e) => {
     this.setState({ query: e.target.value.trim() });
-  }
+  };
   searchChange = (e) => {
     let query = e.target.value.trim();
     if (this.props.query === query) return;
 
-    if(e.key === 'Enter') {
+    if (e.key === "Enter") {
       this.doSearch(query);
       e.preventDefault();
     }
-  }
+  };
   doSearch(query) {
     if (!query || this.props.query === query) return;
-    let reload = window.location.hash.startsWith('#/search')
-    window.location.hash = `#/search/${query}`
+    let reload = window.location.hash.startsWith("#/search");
+    window.location.hash = `#/search/${query}`;
 
     reload && window.location.reload();
   }
@@ -57,7 +69,7 @@ class Search extends Component {
       pageSize,
       currentPage,
       displaySearchRange,
-      query
+      query,
     } = this.state;
 
     const getSearches = paginate(searchList, currentPage, pageSize);
@@ -66,12 +78,11 @@ class Search extends Component {
       <div className="collection-area">
         <div className="container">
           <div className="row">
-
             <div className="col-10 m-auto tab-top">
               <form>
                 <div className="form-group main-searchbox-lg">
                   <div className="input-icons">
-                  <i className="fa fa-search"></i>
+                    <i className="fa fa-search"></i>
                     <input
                       type="text"
                       className="input-field form-control"
@@ -166,7 +177,12 @@ function generateComponent(search, key) {
 function eventComponent(event, key) {
   return (
     <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 ">
-      <Link className="col-sm-12 col-12 eventList" type="button" to="/events" target="_blank">
+      <Link
+        className="col-sm-12 col-12 eventList"
+        type="button"
+        to="#/events"
+        target="_blank"
+      >
         <div className="thumb">
           <img src={event.image} alt={event.name} width="100%" />
         </div>
@@ -174,14 +190,21 @@ function eventComponent(event, key) {
       <div className="col-sm-12 col-12">
         <div className="content">
           <h6 className="title stone-go-top" id="event-title">
-            <a href={"#/single_event/" + event.id}>{event.name}</a>
+            <a href={"#/single_event/" + event.id} target="_blank">
+              {event.name}
+            </a>
           </h6>
 
           <p>{event.description.replace(/(<([^>]+)>)/gi, "")}</p>
         </div>
-        <Link to={'/single_event/' + event.id} class="btn btn-native" target="_blank">
+        <a
+          class="btn btn-native"
+          href={"#/single_event/" + event.id}
+          class="btn btn-native"
+          target="_blank"
+        >
           Read more
-        </Link>
+        </a>
       </div>
     </div>
   );
@@ -191,9 +214,9 @@ function audioComponent(audio, key) {
   return (
     <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
       <div className="product-style-audio webVideo margin-top-40">
-      <Link className="thumb " type="button" to="/audios" target="_blank">
-      <img src={publicUrl + "assets/img/audio.jpg"} alt="" />
-      </Link>
+        <Link className="thumb " type="button" to="/audios" target="_blank">
+          <img src={publicUrl + "assets/img/audio.jpg"} alt="" />
+        </Link>
         <div className="thumb ">
           <ReactAudioPlayer src={audio.audio} controls />
         </div>
@@ -206,7 +229,12 @@ function videoComponent(video, key) {
   return (
     <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
       <div className="product-style-03 webVideo imageHover margin-top-40">
-        <Link className="thumb youtubeVideo" type="button" to="/videos" target="_blank">
+        <Link
+          className="thumb youtubeVideo"
+          type="button"
+          to="/videos"
+          target="_blank"
+        >
           <img src={`http://img.youtube.com/vi/${video.url}/0.jpg`}></img>
         </Link>
 
@@ -238,15 +266,10 @@ function bookComponent(book, key) {
             </div>
           </div>
         </div>
-          <Link
-            className="btn btn-sm buyButton"
-            to={book.url}
-            target="_blank"
-          >
-            {" "}
-            Buy Now
-          </Link>
-        </div>
+        <Link className="btn btn-sm buyButton" to={book.url} target="_blank">
+          {" "}
+          Buy Now
+        </Link>
       </div>
     
   );
@@ -263,7 +286,11 @@ function articleComponent(article, key) {
 
           <p>{article.description.replace(/(<([^>]+)>)/gi, "")}</p>
         </div>
-        <Link class="btn btn-native" to={article.page_url.replace(/^#/, '')} target="_blank">
+        <Link
+          class="btn btn-native"
+          to={article.page_url.replace(/^#/, "")}
+          target="_blank"
+        >
           Read more
         </Link>
       </div>
