@@ -496,3 +496,9 @@
   max-height: 250px!important;
   overflow: hidden;
 }
+#shop-menu {
+  min-height: 50px;
+}
+.main-searchbox-lg .fa {
+  margin-left: 93% !important;
+}

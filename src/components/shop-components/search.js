@@ -12,27 +12,18 @@ import * as homeServices from "../../Services/home-page-services";
 const publicUrl = process.env.PUBLIC_URL + "/";
 
 class Search extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isOpen: false,
-      videoId: "",
-      searchList: [],
-      pageSize: 8,
-      currentPage: 1,
-      displaySearchRange: 1,
-    };
-    this.openModal = this.openModal.bind(this);
-    window.videoPopupComponent = this;
-  }
-
-  openModal = (value) => () => {
-    this.setState({ videoId: value });
-    this.setState({ isOpen: true });
+  state = {
+    searchList: [],
+    pageSize: 8,
+    currentPage: 1,
+    displaySearchRange: 1,
+    query: ''
   };
 
   async componentDidMount() {
-    const result = await homeServices.doSearch({ search: this.props.query });
+    this.setState({ query: this.props.query });
+
+    const result = await homeServices.doSearch({ id: this.props.id });
     this.setState({ searchList: result.data.records || [] });
   }
   handlePageChange = (page) => {
@@ -41,12 +32,32 @@ class Search extends Component {
       displaySearchRange: this.state.currentPage * this.state.pageSize + 1,
     });
   };
+  onSearchChange = (e) => {
+    this.setState({ query: e.target.value.trim() });
+  }
+  searchChange = (e) => {
+    let query = e.target.value.trim();
+    if (this.props.query === query) return;
+
+    if(e.key === 'Enter') {
+      this.doSearch(query);
+      e.preventDefault();
+    }
+  }
+  doSearch(query) {
+    if (!query || this.props.query === query) return;
+    let reload = window.location.hash.startsWith('#/search')
+    window.location.hash = `#/search/${query}`
+
+    reload && window.location.reload();
+  }
   render() {
     const {
       searchList,
       pageSize,
       currentPage,
       displaySearchRange,
+      query
     } = this.state;
 
     const getSearches = paginate(searchList, currentPage, pageSize);
@@ -54,7 +65,28 @@ class Search extends Component {
     return (
       <div className="collection-area">
         <div className="container">
-          <div className="row flex-row-reverse">
+          <div className="row">
+
+            <div className="col-10 m-auto tab-top">
+              <form>
+                <div className="form-group main-searchbox-lg">
+                  <div className="input-icons">
+                  <i className="fa fa-search"></i>
+                    <input
+                      type="text"
+                      className="input-field form-control"
+                      id="phone"
+                      placeholder="search here..."
+                      value={query}
+                      onChange={this.onSearchChange}
+                      onKeyPress={this.searchChange}
+                      onBlur={(e) => this.doSearch(e.target.value.trim())}
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+
             <div className="col-12">
               <div className="row mb-5">
                 <div className="col-md-12">
@@ -147,9 +179,9 @@ function eventComponent(event, key) {
 
           <p>{event.description.replace(/(<([^>]+)>)/gi, "")}</p>
         </div>
-        <a class="btn btn-native" href={"#/single_event/" + event.id}>
+        <Link to={'/single_event/' + event.id} class="btn btn-native">
           Read more
-        </a>
+        </Link>
       </div>
     </div>
   );

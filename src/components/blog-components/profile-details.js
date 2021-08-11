@@ -1,10 +1,23 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class FounderDetails extends Component {
+  state = {
+    user: {}
+  }
+
+  async componentDidMount() {
+    const user = localStorage.getItem('user');
+    this.setState({ user: JSON.parse(user) });
+  }
+
   render() {
+    const { user } = this.state;
     let publicUrl = process.env.PUBLIC_URL + "/";
-    let imagealt = "image";
+
+    if (!user) {
+      return <Redirect to='/login'/>
+    }
 
     return (
       
@@ -19,8 +32,8 @@ class FounderDetails extends Component {
                         <h4 className="user3-details profile-head profile-detail">Personal Details</h4>
                             <img className="user-img" src={publicUrl + "assets/img/user.png"} alt=""/>
                             <div className="user3-details">
-                                <p><span className="user-title">Name:</span> XXXX</p>
-                                <p><span className="user-title">E-Mail:</span> XXXX@gmail.com</p>
+                                <p><span className="user-title">Name:</span> {user.name}</p>
+                                <p><span className="user-title">E-Mail:</span> {user.email}</p>
                                 
                             </div>
 
@@ -36,7 +49,7 @@ class FounderDetails extends Component {
                                     <p className="user-title1">Father Name: </p>
                                   </div>
                                   <div className="col-lg-6">
-                                    <p className="user-title1 "> abc</p>
+                                    <p className="user-title1 "> {user.father_name}</p>
                                   </div>
                                 </div>
                                 <div className="row">
@@ -44,7 +57,7 @@ class FounderDetails extends Component {
                                     <p className="user-title1">Alternate Contact No: </p>
                                   </div>
                                   <div className="col-lg-6">
-                                    <p className="user-title1 "> 1234567890</p>
+                                    <p className="user-title1 "> {user.alt_phone}</p>
                                   </div>
                                 </div>
                                 <div className="row profilediv margin_right">
@@ -52,7 +65,7 @@ class FounderDetails extends Component {
                                     <p className="user-title1">Date Of Birth: </p>
                                   </div>
                                   <div className="col-lg-6">
-                                    <p className="user-title1 ">  21-05-1990</p>
+                                    <p className="user-title1 ">  {user.dob}</p>
                                   </div>
                                 </div>
                                 <div className="row">
@@ -60,7 +73,7 @@ class FounderDetails extends Component {
                                     <p className="user-title1">Date Of Baiyath: </p>
                                   </div>
                                   <div className="col-lg-6">
-                                    <p className="user-title1 ">  21-05-1990</p>
+                                    <p className="user-title1 ">  {user.dobaiyath}</p>
                                   </div>
                                 </div>
                                 
@@ -69,7 +82,7 @@ class FounderDetails extends Component {
                                     <p className="user-title1">Gender: </p>
                                   </div>
                                   <div className="col-lg-6">
-                                    <p className="user-title1 ">  Male</p>
+                                    <p className="user-title1 text-capitalize"> {user.dobaiyath}</p>
                                   </div>
                                 </div>   
                                 <div className="row">
@@ -77,7 +90,7 @@ class FounderDetails extends Component {
                                     <p className="user-title1">Country: </p>
                                   </div>
                                   <div className="col-lg-6">
-                                    <p className="user-title1 ">  India</p>
+                                    <p className="user-title1 "> {user.country}</p>
                                   </div>
                                 </div>
                                 <div className="row profilediv margin_right">
@@ -85,7 +98,7 @@ class FounderDetails extends Component {
                                     <p className="user-title1">State: </p>
                                   </div>
                                   <div className="col-lg-6">
-                                    <p className="user-title1 ">  TamilNadu</p>
+                                    <p className="user-title1 "> {user.state}</p>
                                   </div>
                                 </div> 
                                 <div className="row">
@@ -93,7 +106,7 @@ class FounderDetails extends Component {
                                     <p className="user-title1">Permanent Addres: </p>
                                   </div>
                                   <div className="col-lg-6">
-                                  <p className="user-title1 ">  Salem</p>
+                                  <p className="user-title1 "> {user.present_address}</p>
                                   </div>
                                 </div>       
                               </div>
@@ -104,7 +117,7 @@ class FounderDetails extends Component {
                                   <p className="user-title1">Qualification: </p>
                                 </div>
                                 <div className="col-lg-6">
-                                 <p className="user-title1 "> M.Sc.,m.Phil.,</p>
+                                 <p className="user-title1 "> {user.qualification}</p>
                                 </div>
                               </div>
                               <div className="row">
@@ -112,7 +125,7 @@ class FounderDetails extends Component {
                                   <p className="user-title1"> Contact No: </p>
                                 </div>
                                 <div className="col-lg-6">
-                                  <p className="user-title1 "> 1234567890</p>
+                                  <p className="user-title1 "> {user.qualification}</p>
                                 </div>
                               </div>
                               <div className="row profilediv set-div-width">
@@ -120,7 +133,7 @@ class FounderDetails extends Component {
                                  <p className="user-title1">UG: </p>
                                 </div>
                                 <div className="col-lg-6">
-                                  <p className="user-title1 ">  Computer Science</p>
+                                  <p className="user-title1 "> {user.ug}</p>
                                 </div>
                               </div>
                               <div className="row">
@@ -128,7 +141,7 @@ class FounderDetails extends Component {
                                  <p className="user-title1">PG: </p>
                                 </div>
                                 <div className="col-lg-6">
-                                  <p className="user-title1 ">  Computer Science</p>
+                                  <p className="user-title1 "> {user.pg}</p>
                                 </div>
                               </div>
                               <div className="row profilediv set-div-width">
@@ -136,7 +149,7 @@ class FounderDetails extends Component {
                                   <p className="user-title1">Blood Group: </p>
                                 </div>
                                 <div className="col-lg-6">
-                                  <p className="user-title1 ">  A1+</p>
+                                  <p className="user-title1 "> {user.blood}</p>
                                 </div>
                               </div>   
                               <div className="row">
@@ -144,7 +157,7 @@ class FounderDetails extends Component {
                                  <p className="user-title1">Yaseeni: </p>
                                 </div>
                                 <div className="col-lg-6">
-                                  <p className="user-title1 ">  abc</p>
+                                  <p className="user-title1 "> {user.yaseeni}</p>
                                 </div>
                               </div>
                               <div className="row profilediv set-div-width">
@@ -152,7 +165,7 @@ class FounderDetails extends Component {
                                 <p className="user-title1">city: </p>
                               </div>
                               <div className="col-lg-6">
-                               <p className="user-title1 ">  Salem</p>
+                               <p className="user-title1 "> {user.city}</p>
                               </div>
                             </div>
                             <div className="row">
@@ -160,7 +173,7 @@ class FounderDetails extends Component {
                                <p className="user-title1">Present Address: </p>
                               </div>
                               <div className="col-lg-6">
-                               <p className="user-title1 ">  Salem</p>
+                               <p className="user-title1 "> {user.present_address}</p>
                               </div>
                             </div>
                       </div>
