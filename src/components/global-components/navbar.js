@@ -89,7 +89,7 @@ class Navbar extends Component {
                     target="_blank"
                     type="button"
                     className="btn btn-sm magazine btn-tvchannel top-content-size hide-mobile-view color-white tab-hide"
-                    style={{ "margin-right": "15px" }}
+                    style={{ marginRight: "15px" }}
                   >
                     <i className="fa fa-book" />{" "}
                     <span className="tab">EMS</span> Magazine{" "}
