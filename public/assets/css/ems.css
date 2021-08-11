@@ -267,7 +267,7 @@
 }
 .webVideo {
   background-color: #eee;
- 
+  /* height: 200px; */
 }
 .webVideo h6 {
   text-align: center !important;
@@ -487,13 +487,13 @@
   /* font-weight: bold; */
 }
 .ant-picker-header button {
-  color: rgba(0, 0, 0)!important;
+  color: rgba(0, 0, 0) !important;
 }
 .navbar-area {
-  z-index: 999!important;
+  z-index: 999 !important;
 }
 .article-content {
-  max-height: 250px!important;
+  max-height: 250px !important;
   overflow: hidden;
 }
 #shop-menu {

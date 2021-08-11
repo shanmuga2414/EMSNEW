@@ -50,6 +50,9 @@ class RegisterForm extends Component {
   selectRegion(val) {
     this.setState({ region: val });
   }
+  checkEmail(val) {
+    console.log(val);
+  }
 
   success = () => {
     message.success({
@@ -142,8 +145,8 @@ class RegisterForm extends Component {
                             className="ant-input"
                             placeholder="select your qualification"
                           >
-                            {qualification.map((qualification) => (
-                              <Option value={qualification}>
+                            {qualification.map((qualification, i) => (
+                              <Option key={i} value={qualification}>
                                 {qualification}
                               </Option>
                             ))}
@@ -217,8 +220,10 @@ class RegisterForm extends Component {
                             placeholder="select your blood group"
                             hasFeedback
                           >
-                            {bloodGroup.map((bg) => (
-                              <Option value={bg}>{bg}</Option>
+                            {bloodGroup.map((bg, j) => (
+                              <Option key={j} value={bg}>
+                                {bg}
+                              </Option>
                             ))}
                           </Select>
                         </Form.Item>
@@ -382,7 +387,7 @@ class RegisterForm extends Component {
                           ]}
                           hasFeedback
                         >
-                          <Input />
+                          <Input onBlur={this.checkEmail(this.value)} />
                         </Form.Item>
                       </div>
                       <div className="col-md-6">
@@ -393,6 +398,10 @@ class RegisterForm extends Component {
                             {
                               required: true,
                               message: "Please input your password!",
+                            },
+                            {
+                              min: 6,
+                              message: "Password should be minimum 6 chars",
                             },
                           ]}
                           hasFeedback

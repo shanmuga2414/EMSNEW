@@ -229,14 +229,14 @@ function videoComponent(video, key) {
   return (
     <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
       <div className="product-style-03 webVideo imageHover margin-top-40">
-        <Link
+        <a
           className="thumb youtubeVideo"
           type="button"
-          to="/videos"
+          onClick={window.videoPopupComponent.openModal(video.url)}
           target="_blank"
         >
           <img src={`http://img.youtube.com/vi/${video.url}/0.jpg`}></img>
-        </Link>
+        </a>
 
         <h6 className="title stone-go-top margin-top-20">
           <span></span>

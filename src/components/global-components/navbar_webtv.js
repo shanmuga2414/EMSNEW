@@ -83,6 +83,7 @@ class Navbar extends Component {
                   </span>
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 text-right hide-mobile-view">
+<<<<<<< HEAD
                 <a
                 href="http://emsmedia.net/magazine/"
                 target="_blank"
@@ -95,6 +96,25 @@ class Navbar extends Component {
                 
               </a>
               {AuthLinks()}
+=======
+                  <a
+                    href="http://emsmedia.net/magazine/"
+                    target="_blank"
+                    type="button"
+                    className="btn btn-sm magazine btn-tvchannel top-content-size hide-mobile-view color-white tab-hide"
+                    style={{ marginRight: "15px" }}
+                  >
+                    <i className="fa fa-book" />{" "}
+                    <span className="tab">EMS</span> Magazine{" "}
+                  </a>
+                  <Link className="top-content-size color-white" to="login">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                  </Link>
+                  <span className="space">|</span>
+                  <Link className="top-content-size color-white" to="register">
+                    <i class="fas fa-user-plus"></i> Register
+                  </Link>
+>>>>>>> 1dad7fb8ed874fc8f1a659aeed30a36fb7fab30f
                   <Link
                     to="/"
                     target="_blank"
@@ -136,8 +156,7 @@ class Navbar extends Component {
           </div>
           <div className="container-fluid logo-bg-color">
             <div className="row">
-            <div className="col-xl-8 col-lg-5  hide-mobile-view tab-hide">
-           
+              <div className="col-xl-8 col-lg-5  hide-mobile-view tab-hide">
                 <div className="logo">
                   <a href="/">
                     <img
@@ -147,6 +166,7 @@ class Navbar extends Component {
                     />
                   </a>
                 </div>
+<<<<<<< HEAD
             </div>
             <div className="col-xl-4 col-lg-5">
               <form>
@@ -154,18 +174,31 @@ class Navbar extends Component {
                   <div className="input-icons input-size">
                     <i className="fa fa-search"></i>
                     <input
+=======
+              </div>
+              <div className="col-xl-4 col-lg-5">
+                <form>
+                  <div className="form-group searchbox hide-mobile-view tab-hide">
+                    <div className="input-icons input-size">
+                      <i className="fa fa-search"></i>
+                      <input
+>>>>>>> 1dad7fb8ed874fc8f1a659aeed30a36fb7fab30f
                         type="text"
                         className="input-field form-control"
                         id="phone"
                         placeholder="search here..."
+<<<<<<< HEAD
                         onKeyPress={this.searchChange}
                         onBlur={(e) => this.doSearch(e.target.value.trim())}
                       />
+=======
+                      />
+                    </div>
+>>>>>>> 1dad7fb8ed874fc8f1a659aeed30a36fb7fab30f
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
-          </div>
             <div className="row  logo-bg-color hide-large-view1">
               <div className="col-lg-5 col-9 ">
                 <div className="logo">
