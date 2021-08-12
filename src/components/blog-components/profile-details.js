@@ -82,7 +82,7 @@ class FounderDetails extends Component {
                                     <p className="user-title1">Gender: </p>
                                   </div>
                                   <div className="col-lg-6">
-                                    <p className="user-title1 text-capitalize"> {user.dobaiyath}</p>
+                                    <p className="user-title1 text-capitalize"> {user.gender}</p>
                                   </div>
                                 </div>   
                                 <div className="row">
@@ -106,7 +106,7 @@ class FounderDetails extends Component {
                                     <p className="user-title1">Permanent Addres: </p>
                                   </div>
                                   <div className="col-lg-6">
-                                  <p className="user-title1 "> {user.present_address}</p>
+                                  <p className="user-title1 "> {user.permanent_address}</p>
                                   </div>
                                 </div>       
                               </div>
@@ -125,7 +125,7 @@ class FounderDetails extends Component {
                                   <p className="user-title1"> Contact No: </p>
                                 </div>
                                 <div className="col-lg-6">
-                                  <p className="user-title1 "> {user.qualification}</p>
+                                  <p className="user-title1 "> {user.phone}</p>
                                 </div>
                               </div>
                               <div className="row profilediv set-div-width">

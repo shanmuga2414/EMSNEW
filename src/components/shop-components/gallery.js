@@ -7,7 +7,7 @@ import Modal from "react-modal";
 import ImageGallery from "react-image-gallery";
 import moment from "moment";
 import Pagination from "../global-components/pagination";
-import { paginate } from "../../paginate";
+import { paginate, paginateInfo } from "../../paginate";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 import * as homeServices from "../../Services/home-page-services";
@@ -23,7 +23,6 @@ class Gallery extends Component {
       showModal: false,
       pageSize: 9,
       currentPage: 1,
-      displayGalleryRage: 1,
       galleryImages: [],
     };
 
@@ -32,9 +31,6 @@ class Gallery extends Component {
   }
   handlePageChange = (page) => {
     this.setState({ currentPage: page });
-    this.setState({
-      displayGalleryRage: this.state.currentPage * this.state.pageSize + 1,
-    });
   };
   handleOpenModal = (values) => () => {
     this.setState({ galleryImages: values });
@@ -57,6 +53,7 @@ class Gallery extends Component {
 
   searchGallery = (e) => {
     this.setState({ filteredSearch: e.target.value.trim() });
+    this.handlePageChange(1);
   };
   handleMonthChange = (e) => {
     let filteredMonth = e.target.textContent.trim();
@@ -64,9 +61,11 @@ class Gallery extends Component {
       filteredMonth = "";
     }
     this.setState({ filteredMonth });
+    this.handlePageChange(1);
   };
   handleYearChange = (date, dateString) => {
     this.setState({ filteredYear: dateString });
+    this.handlePageChange(1);
   };
   getFilterGalleryList = () => {
     const { filteredSearch, filteredMonth, filteredYear } = this.state;
@@ -95,12 +94,10 @@ class Gallery extends Component {
 
   render() {
     const {
-      albums,
       filteredMonth,
       filteredYear,
       pageSize,
-      currentPage,
-      displayGalleryRage,
+      currentPage
     } = this.state;
 
     const monthNameList = moment.monthsShort();
@@ -125,28 +122,14 @@ class Gallery extends Component {
           <div className="row flex-row-reverse">
             <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
               <div className="row">
-                <div className="col-lg-8 col-5"></div>
-                <div className="col-lg-4 col-7">
-                  <form action="#">
-                    <select className="form-control sort-select">
-                      <option>Default sorting</option>
-                      <option>Sort by popularity</option>
-                      <option>Sort by latest</option>
-                    </select>
-                    <i className="fa fa-chevron-down" />
-                  </form>
-                </div>
-              </div>
-              <div className="row">
                 <div className="col-md-12">
                   <div className="d-flex justify-content-between pagination">
                     <h6>
-                      Showing {displayGalleryRage} to {currentPage * pageSize}{" "}
-                      of {albums.length} Albums
+                    {paginateInfo(filteredGallerys, currentPage, pageSize)} Albums
                     </h6>
 
                     <Pagination
-                      itemsCount={albums.length}
+                      itemsCount={filteredGallerys.length}
                       pageSize={pageSize}
                       currentPage={currentPage}
                       onPageChange={this.handlePageChange}
@@ -184,12 +167,11 @@ class Gallery extends Component {
                 <div className="col-md-12">
                   <div className="d-flex justify-content-between pagination">
                     <h6>
-                      Showing {displayGalleryRage} to {currentPage * pageSize}{" "}
-                      of {albums.length} Albums
+                    {paginateInfo(filteredGallerys, currentPage, pageSize)} Albums
                     </h6>
 
                     <Pagination
-                      itemsCount={albums.length}
+                      itemsCount={filteredGallerys.length}
                       pageSize={pageSize}
                       currentPage={currentPage}
                       onPageChange={this.handlePageChange}

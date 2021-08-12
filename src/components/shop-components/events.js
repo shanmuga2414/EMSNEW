@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { DatePicker, Divider, Space } from "antd";
 import moment from "moment";
 import Pagination from "../global-components/pagination";
-import { paginate } from "../../paginate";
+import { paginate, paginateInfo } from "../../paginate";
 import * as homeServices from "../../Services/home-page-services";
 
 class Events extends Component {
@@ -14,8 +14,7 @@ class Events extends Component {
     filteredMonth: "",
     filteredYear: "",
     pageSize: 6,
-    currentPage: 1,
-    displayEventsRage: 1,
+    currentPage: 1
   };
 
   async componentDidMount() {
@@ -26,13 +25,11 @@ class Events extends Component {
   }
   handlePageChange = (page) => {
     this.setState({ currentPage: page });
-    this.setState({
-      displayEventsRage: this.state.currentPage * this.state.pageSize + 1,
-    });
   };
 
   searchEvents = (e) => {
     this.setState({ filteredSearch: e.target.value.trim() });
+    this.handlePageChange(1);
   };
   handleMonthChange = (e) => {
     let filteredMonth = e.target.textContent.trim();
@@ -40,9 +37,11 @@ class Events extends Component {
       filteredMonth = "";
     }
     this.setState({ filteredMonth });
+    this.handlePageChange(1);
   };
   handleYearChange = (date, dateString) => {
     this.setState({ filteredYear: dateString });
+    this.handlePageChange(1);
   };
   getFilterEventsList = () => {
     const { filteredSearch, filteredMonth, filteredYear } = this.state;
@@ -74,18 +73,16 @@ class Events extends Component {
   render() {
     const regex = /(<([^>]+)>)/gi;
     const {
-      events,
       filteredMonth,
       filteredYear,
       pageSize,
-      currentPage,
-      displayEventsRage,
+      currentPage
     } = this.state;
 
     const monthNameList = moment.monthsShort();
 
-    const filteredEventss = this.getFilterEventsList();
-    const getEventss = paginate(filteredEventss, currentPage, pageSize);
+    const filteredEvents = this.getFilterEventsList();
+    const getEvents = paginate(filteredEvents, currentPage, pageSize);
 
     return (
       <div className="collection-area ">
@@ -93,28 +90,14 @@ class Events extends Component {
           <div className="row flex-row-reverse">
             <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
               <div className="row">
-                <div className="col-lg-8 col-5"></div>
-                <div className="col-lg-4 col-7">
-                  <form action="#">
-                    <select className="form-control sort-select">
-                      <option>Default sorting</option>
-                      <option>Sort by popularity</option>
-                      <option>Sort by latest</option>
-                    </select>
-                    <i className="fa fa-chevron-down" />
-                  </form>
-                </div>
-              </div>
-              <div className="row">
                 <div className="col-md-12">
                   <div className="d-flex justify-content-between pagination">
                     <h6>
-                      Showing {displayEventsRage} to {currentPage * pageSize} of{" "}
-                      {events.length} Events
+                    {paginateInfo(filteredEvents, currentPage, pageSize)} Events
                     </h6>
 
                     <Pagination
-                      itemsCount={events.length}
+                      itemsCount={filteredEvents.length}
                       pageSize={pageSize}
                       currentPage={currentPage}
                       onPageChange={this.handlePageChange}
@@ -127,7 +110,7 @@ class Events extends Component {
                   className="tab-pane fade in show active list-item"
                   id="two"
                 >
-                  {getEventss.map((event) => (
+                  {getEvents.map((event) => (
                     <div key={event.id} className="row product-style-03 ">
                       <div className="col-md-3 col-sm-12 col-12 eventList">
                         <div className="thumb">
@@ -161,12 +144,11 @@ class Events extends Component {
                 <div className="col-md-12 mb-5">
                   <div className="d-flex justify-content-between pagination">
                     <h6>
-                      Showing {displayEventsRage} to {currentPage * pageSize} of{" "}
-                      {events.length} Events
+                    {paginateInfo(filteredEvents, currentPage, pageSize)} Events
                     </h6>
 
                     <Pagination
-                      itemsCount={events.length}
+                      itemsCount={filteredEvents.length}
                       pageSize={pageSize}
                       currentPage={currentPage}
                       onPageChange={this.handlePageChange}

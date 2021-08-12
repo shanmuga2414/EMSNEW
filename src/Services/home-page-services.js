@@ -77,5 +77,9 @@ export async function getSingleEvent(payload) {
 }
 
 export async function resendActivation(payload) {
-  return axios.post(`${apiUrl}/resend_mail.php`, payload);
+  return axios.post(`${apiUrl}resend_mail.php`, payload);
+}
+
+export async function logout() {
+  return axios.get(`${apiUrl}logout.php`);
 }
