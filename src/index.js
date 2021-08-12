@@ -27,14 +27,9 @@ import Forgot from "./components/forgot";
 import ProfileDetails from "./components/profile";
 import GetEmail from "./components/getemail";
 import webtv_videos from "./components/webtv_videos";
-<<<<<<< HEAD
-import single_event from "./components/single_event"; 
-import ResendVerificationPage from "./components/ResendVerificationPage"; 
-import ems_live from "./components/ems_live";
-=======
 import single_event from "./components/single_event";
 import ResendVerificationPage from "./components/ResendVerificationPage";
->>>>>>> 118d431c04c2bef440f9507e46b203037752fb5c
+import ems_live from "./components/ems_live";
 
 import "antd/dist/antd.css";
 import Contact from "./components/contact";

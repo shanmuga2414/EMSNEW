@@ -271,7 +271,7 @@ function bookComponent(book, key) {
           Buy Now
         </Link>
       </div>
-    
+    </div>
   );
 }
 
