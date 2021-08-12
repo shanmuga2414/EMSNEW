@@ -502,3 +502,6 @@
 .main-searchbox-lg .fa {
   margin-left: 93% !important;
 }
+.ant-message-error-bg .ant-message-notice-content {
+  background-color: #f8d7da !important;
+}

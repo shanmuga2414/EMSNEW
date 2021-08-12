@@ -35,7 +35,7 @@ class Search extends Component {
   async componentDidMount() {
     this.setState({ query: this.props.query });
 
-    const result = await homeServices.doSearch({ id: this.props.id });
+    const result = await homeServices.doSearch({ search: this.props.query });
     this.setState({ searchList: result.data.records || [] });
   }
   handlePageChange = (page) => {

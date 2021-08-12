@@ -405,7 +405,8 @@ function AuthLinks() {
   );
 }
 
-function logout() {
+async function logout() {
   localStorage.removeItem("user");
+  const result = await homeServices.logout();
 }
 export default Navbar;

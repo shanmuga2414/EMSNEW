@@ -6,7 +6,7 @@ import "antd/dist/antd.css";
 import { DatePicker, Space } from "antd";
 import moment from 'moment';
 import Pagination from "../global-components/pagination";
-import { paginate } from "../../paginate";
+import { paginate, paginateInfo } from "../../paginate";
 import * as homeServices from "../../Services/home-page-services";
 
 class Audios extends Component {
@@ -18,8 +18,7 @@ class Audios extends Component {
     filteredMonth: '',
     filteredYear: '',
     pageSize: 6,
-    currentPage: 1,
-    displayAudioRange: 1,
+    currentPage: 1
   };
 
   async componentDidMount() {
@@ -31,9 +30,6 @@ class Audios extends Component {
   }
   handlePageChange = (page) => {
     this.setState({ currentPage: page });
-    this.setState({
-      displayAudioRange: this.state.currentPage * this.state.pageSize + 1,
-    });
   };
   searchCategory = (e) => {
     this.setState({ audioCategorySearch: e.target.value.trim() });
@@ -48,6 +44,7 @@ class Audios extends Component {
     }
 
     this.setState({ filteredCategories });
+    this.handlePageChange(1);
   }
   handleMonthChange = (e) => {
     let filteredMonth = e.target.textContent.trim();
@@ -55,9 +52,11 @@ class Audios extends Component {
       filteredMonth = '';
     }
     this.setState({ filteredMonth });
+    this.handlePageChange(1);
   }
   handleYearChange = (date, dateString) => {
     this.setState({ filteredYear: dateString });
+    this.handlePageChange(1);
   }
   getFilterAudioCategories = () => {
     const { audioCategories, audioCategorySearch } = this.state;
@@ -81,12 +80,10 @@ class Audios extends Component {
   render() {
     let publicUrl = process.env.PUBLIC_URL + "/";
     const {
-      audioList,
       filteredMonth,
       filteredYear,
       pageSize,
-      currentPage,
-      displayAudioRange,
+      currentPage
     } = this.state;
 
     const monthNameList = moment.monthsShort();
@@ -100,29 +97,15 @@ class Audios extends Component {
         <div className="container">
           <div className="row flex-row-reverse">
             <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
-              <div className="row">
-                <div className="col-lg-8 col-5"></div>
-                <div className="col-lg-4 col-7">
-                  <form action="#">
-                    <select className="form-control sort-select">
-                      <option>Default sorting</option>
-                      <option>Sort by popularity</option>
-                      <option>Sort by latest</option>
-                    </select>
-                    <i className="fa fa-chevron-down" />
-                  </form>
-                </div>
-              </div>
               <div className="row mb-5">
                 <div className="col-md-12">
                   <div className="d-flex justify-content-between pagination">
                     <h6>
-                      Showing {displayAudioRange} to {currentPage * pageSize} of{" "}
-                      {audioList.length} Audios
+                      {paginateInfo(filteredAudios, currentPage, pageSize)} Audios
                     </h6>
 
                     <Pagination
-                      itemsCount={audioList.length}
+                      itemsCount={filteredAudios.length}
                       pageSize={pageSize}
                       currentPage={currentPage}
                       onPageChange={this.handlePageChange}
@@ -157,12 +140,11 @@ class Audios extends Component {
                 <div className="col-md-12">
                   <div className="d-flex justify-content-between pagination">
                     <h6>
-                      Showing {displayAudioRange} to {currentPage * pageSize} of{" "}
-                      {audioList.length} Audios
+                      {paginateInfo(filteredAudios, currentPage, pageSize)} Audios
                     </h6>
 
                     <Pagination
-                      itemsCount={audioList.length}
+                      itemsCount={filteredAudios.length}
                       pageSize={pageSize}
                       currentPage={currentPage}
                       onPageChange={this.handlePageChange}

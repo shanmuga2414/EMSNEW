@@ -3,7 +3,7 @@ import Navbar from "./global-components/navbar";
 import PageHeader from "./global-components/page-header";
 import Footer from "./global-components/footer";
 import { Link } from "react-router-dom";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Component } from "react";
 import * as authServices from "../Services/authService";
@@ -25,7 +25,18 @@ class LoginForm extends Component {
     try {
       const response = await authServices.checkUser(values);
       if (response.status >= 200) {
-        if (response.data === 0) {
+        if (response.data &&
+          response.data[0] &&
+          response.data[0].status == 0
+        ) {
+          message.error({
+            content: "Invalid email or password",
+            duration: 10,
+            className: "ant-message-error-bg",
+            style: {
+              marginTop: "40vh",
+            },
+          });
           this.props.history.push("/login");
         } else if (
           response.data &&
@@ -35,7 +46,12 @@ class LoginForm extends Component {
           this.props.history.push(
             `/resend-verification/${response.data[0].id}`
           );
-        } else {
+        } else if (
+          response.data &&
+          response.data[0] &&
+          response.data[0].status == 1
+        ) {
+          delete response.data.records[0].password;
           localStorage.setItem(
             "user",
             JSON.stringify(response.data.records[0])
