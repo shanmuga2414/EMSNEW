@@ -143,14 +143,14 @@ class Footer_v1 extends Component {
                     </li>
 
                     <li>
-                      <a href="http://yaseenrali.com/">
+                      <a target="_blank" href="http://yaseenrali.com/">
                         {" "}
                         <i className="fa fa-angle-right" />
                         Yaseenrali
                       </a>
                     </li>
                     <li>
-                      <a href="/webtv">
+                      <a target="_blank" href="/webtv">
                         {" "}
                         <i className="fa fa-angle-right" />
                         EMS Web TV channel
@@ -210,7 +210,7 @@ class Footer_v1 extends Component {
                   <h4 className="widget-title">INFORMATION</h4>
                   <ul className="stone-go-top">
                     <li>
-                      <Link to="/cotact">
+                      <Link to="/contact">
                         <i className="fa fa-angle-right" /> Contact Us
                       </Link>
                     </li>

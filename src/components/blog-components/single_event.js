@@ -28,7 +28,18 @@ class SingleEvent extends Component {
       <div className="blog-area margin-top-65">
         <div className="container">
           <div className="row justify-content-center">
+          <div className="col-md-9">
+            <div className="">
+              <a id="goback-btn"
+              href={"#/events"}
+              className="btn btn-orange float-right"
+              >
+                Back
+              </a>
+            </div>
+          </div>
             <div className="col-md-9">
+              
               <div className="blog-content single_event_bg">
                 <h3 className="event-head">{event.title}</h3>
                 <img src={event.image} alt={event.title} />

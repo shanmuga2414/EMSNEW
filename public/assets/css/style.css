@@ -10162,4 +10162,8 @@ button {
 .subscribe-btn{
   margin-left:-32px;
 }
+#goback-btn{
+  margin: -15px 10px 10px;
+  padding: 6px 20px;
+}
 

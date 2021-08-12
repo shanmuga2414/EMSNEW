@@ -151,7 +151,7 @@ class Footer_v1 extends Component {
                     </a>
                   </li>
                   <li>
-                    <a href="/webtv">
+                    <a target="_blank" href="/webtv">
                       {" "}
                       <i className="fa fa-angle-right" />
                       EMS Web TV channel
@@ -173,30 +173,30 @@ class Footer_v1 extends Component {
                 <h4 className="widget-title">USEFUL LINKS</h4>
                 <ul className="stone-go-top">
                   <li>
-                    <Link to="/books">
+                    <Link to="#/books">
                       <i className="fa fa-angle-right" />  நூற்கள்
                     </Link>
                   </li>
                   <li>
-                    <Link to="/gallery">
+                    <Link to="#/gallery">
                       <i className="fa fa-angle-right" />
                       புகைப்படங்கள்
                     </Link>
                   </li>
                   <li>
-                    <Link to="/videos">
+                    <Link to="#/videos">
                       <i className="fa fa-angle-right" />
                       காணொளி
                     </Link>
                   </li>
                   <li>
-                    <Link to="/audios">
+                    <Link to="#/audios">
                       <i className="fa fa-angle-right" />
                       ஆடியோ
                     </Link>
                   </li>
                   <li>
-                    <Link to="/events">
+                    <Link to="#/events">
                       <i className="fa fa-angle-right" />
                       நிகழ்வுகள்
                     </Link>
@@ -211,7 +211,7 @@ class Footer_v1 extends Component {
                 <h4 className="widget-title">INFORMATION</h4>
                 <ul className="stone-go-top">
                   <li>
-                    <Link to="/cotact">
+                    <Link to="/contact">
                       <i className="fa fa-angle-right" /> Contact Us
                     </Link>
                   </li>

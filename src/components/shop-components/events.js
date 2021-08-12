@@ -139,7 +139,7 @@ class Events extends Component {
                         </div>
                         <a
                           href={"#/single_event/" + event.id}
-                          class="btn btn-native"
+                          className="btn btn-native"
                         >
                           Read more
                         </a>
