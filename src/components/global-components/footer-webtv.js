@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Form, Input, Button, message } from "antd";
+import * as authServices from "../../Services/authService";
 
 class Footer_v1 extends Component {
   componentDidMount() {
@@ -10,6 +12,28 @@ class Footer_v1 extends Component {
 
     document.body.appendChild(minscript);
   }
+  success = () => {
+    message.success({
+      content: "Your E-mail has been subscribed!",
+      duration: 10,
+      className: "custom-class",
+      style: {
+        marginTop: "20vh",
+      },
+    });
+  };
+  onFinish = async (values) => {
+    try {
+      const response = await authServices.sendSubscriberEmail(values);
+      if (response.status >= 200) {
+        this.success();
+      }
+    } catch (ex) {
+      const errors = { ...this.state.errors };
+      // errors.name = ex.response.data;
+      this.setState({ errors });
+    }
+  };
 
   render() {
     let publicUrl = process.env.PUBLIC_URL + "/";
@@ -28,7 +52,7 @@ class Footer_v1 extends Component {
                     </div>
                     <div className="method-box__content tab-contact">
                       <span>+123-456-789</span>
-                      <p class="address-additional">Free support line!</p>
+                      <p class="address-additional" style={{"color":"white"}}>Free support line!</p>
                     </div>
                   </div>
                 </div>
@@ -39,7 +63,7 @@ class Footer_v1 extends Component {
                     </div>
                     <div className="method-box__content tab-contact">
                       <span>contact@onlinbookshops.com</span>
-                      <p class="address-additional">Orders Support!</p>
+                      <p class="address-additional" style={{"color":"white"}}>Orders Support!</p>
                     </div>
                   </div>
                 </div>
@@ -50,79 +74,138 @@ class Footer_v1 extends Component {
                     </div>
                     <div className="method-box__content">
                       <span>888 South Avenue Street, New York City. </span>
-                      <p class="address-additional">Our Address</p>
+                      <p class="address-additional" style={{"color":"white"}}>Our Address</p>
                     </div>
                   </div>
                 </div>
                 <div className="col-xl-3 col-lg-4 col-md-6 mob-newsletter">
-                  <div className="input-group mb-3">
-                    <input
-                      type="text"
-                      className="form-control newsletter"
-                      placeholder="Enter email for Newsletter"
-                    />
-                    <div className="input-group-append">
-                      <button
-                        className="btn btn-orange"
-                        type="button"
-                        id="button-addon2"
-                      >
-                        Subscribe
-                      </button>
-                    </div>
+                <Form
+                name="normal_login"
+                className="login-form"
+                initialValues={{ remember: true }}
+                onFinish={this.onFinish}
+              >
+                <div className="input-group mb-3">
+                <div className="row">
+                  <div className="col-lg-9">
+                  <Form.Item
+                    name="email"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your E-Mail!",
+                        placeholder: "Please input your E-Mail!",
+                      },
+                    ]}
+                    hasFeedback
+                  >
+                    <Input />
+                  </Form.Item>
+                  </div> 
+                  <div className="col-lg-3 subscribe-btn">
+                  <Form.Item>
+                    <Button
+                      type="danger"
+                      htmlType="submit"
+                      className="btn btn-style-1"
+                    >
+                      Subscribe
+                    </Button>
+                  </Form.Item>
                   </div>
+                  </div>
+                </div>
+              </Form>
                 </div>
               </div>
             </div>
           </div>
           <div className="container">
           <div className="row">
-          <div className="col-lg-1 col-md-6"></div>
+         
             <div className="col-lg-3 col-md-6">
               <div className="widget widget_nav_menu">
-                <h4 className="widget-title">OUR WEBSITE LINK</h4>
+                <h4 className="widget-title">OUR WEBSITE LINKS</h4>
 
                 <ul className="stone-go-top">
+                  <li>
+                    <a target="_blank" href="http://emsmedia.net/magazine/">
+                      {" "}
+                      <i className="fa fa-angle-right" />
+                      EMS Magazine
+                    </a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="https://awniyyabookstore.com/">
+                      {" "}
+                      <i className="fa fa-angle-right" />
+                      Awniyya Books Store
+                    </a>
+                  </li>
+
+                  <li>
+                    <a target="_blank" href="http://yaseenrali.com/">
+                      {" "}
+                      <i className="fa fa-angle-right" />
+                      Yaseenrali
+                    </a>
+                  </li>
                   <li>
                     <a href="/webtv">
                       {" "}
                       <i className="fa fa-angle-right" />
-                      EMS Web TV Channel
-                    </a>
-                  </li>
-                  <li>
-                  <a href="/books">
-                    {" "}
-                    <i className="fa fa-angle-right" />
-                    நூற்கள்
-                  </a>
-                </li>
-                  
-                  <li>
-                    <a href="/blog/amutha_mozhigal">
-                    {" "}
-                    <i className="fa fa-angle-right" />
-                    அமுத மொழிகள்
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/blog/kolgaigal">
-                      {" "}
-                      <i className="fa fa-angle-right" />
-                      கொள்கைகள்
+                      EMS Web TV channel
                     </a>
                   </li>
                   <li>
                     <Link to="/">
                       {" "}
                       <i className="fa fa-angle-right" />
-                      நிகழ்வுகள்
+                      EMS Media
                     </Link>
                   </li>
                  
                 </ul>
               </div>
             </div>
+            <div className="col-lg-3 col-md-6">
+              <div className="widget widget_nav_menu">
+                <h4 className="widget-title">USEFUL LINKS</h4>
+                <ul className="stone-go-top">
+                  <li>
+                    <Link to="/books">
+                      <i className="fa fa-angle-right" />  நூற்கள்
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/gallery">
+                      <i className="fa fa-angle-right" />
+                      புகைப்படங்கள்
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/videos">
+                      <i className="fa fa-angle-right" />
+                      காணொளி
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/audios">
+                      <i className="fa fa-angle-right" />
+                      ஆடியோ
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/events">
+                      <i className="fa fa-angle-right" />
+                      நிகழ்வுகள்
+                    </Link>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+
             <div className="col-lg-3 col-md-6">
               <div className="widget widget_nav_menu">
                 <h4 className="widget-title">INFORMATION</h4>
@@ -147,6 +230,12 @@ class Footer_v1 extends Component {
                   <li>
                     <Link to="/construction">
                       <i className="fa fa-angle-right" />
+                      Privacy Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/construction">
+                      <i className="fa fa-angle-right" />
                       Terms & Conditions
                     </Link>
                   </li>
@@ -154,7 +243,7 @@ class Footer_v1 extends Component {
                 </ul>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6">
+            <div className="col-lg-3 col-md-6">
               <div className="widget">
                 <h4 className="widget-title">DOWNLOAD APP</h4>
                 <Link to="/">
@@ -197,7 +286,7 @@ class Footer_v1 extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-lg-1 col-md-6"></div>
+            
           </div>
         </div>
         </div>
@@ -216,9 +305,9 @@ class Footer_v1 extends Component {
               <div className="col-md-6 align-right">
                 <p>
                   Powered by{" "}
-                  <a href="/">
+                  <Link to="https://ilifetech.in/" target="_black">
                     <span className="color-black">ilife Technologies.</span>
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>

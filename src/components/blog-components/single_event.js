@@ -29,10 +29,15 @@ class SingleEvent extends Component {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-9">
-              <div className="blog-content">
-                <h2>{event.title}</h2>
+              <div className="blog-content single_event_bg">
+                <h3 className="event-head">{event.title}</h3>
                 <img src={event.image} alt={event.title} />
-                <span>{event.date}</span>
+                <br></br>
+                <div className="event_date_tag">
+                <span class="date ">
+                <i class="fa fa-calendar"></i> {event.date}{" "}
+              </span>
+              </div>
                 <div
                   dangerouslySetInnerHTML={{
                     __html: event.description,

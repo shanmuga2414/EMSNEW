@@ -385,7 +385,7 @@ function AuthLinks() {
             className="ant-dropdown-link"
             onClick={(e) => e.preventDefault()}
           >
-            {user.name} <i className="fas fa-chevron-down"></i>
+          <i class="fas fa-user"></i>{user.name} <i className="fas fa-chevron-down"></i>
           </a>
         </Dropdown>
       </Fragment>

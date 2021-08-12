@@ -84,7 +84,7 @@ class Brand extends Component {
                         <p className="card-text">
                           {activity.description.replace(regex, "")}
                         </p>
-                        <a href="/" className="blue-link">
+                        <a href={"/single_event/" + activity.id} className="blue-link">
                           Read more{" "}
                           <i className="fa fa-angle-double-right fa-lg" />
                         </a>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+
 import {
   BrowserRouter as Router,
   HashRouter,
@@ -19,6 +20,7 @@ import ConstructionDetails from "./components/construction";
 import Spiritual from "./components/spiritual";
 import Blog from "./components/blog-details";
 import Login from "./components/loginForm";
+
 import Register from "./components/registerForm";
 import WebTv from "./components/webTv";
 import Forgot from "./components/forgot";
@@ -27,6 +29,7 @@ import GetEmail from "./components/getemail";
 import webtv_videos from "./components/webtv_videos";
 import single_event from "./components/single_event";
 import ResendVerificationPage from "./components/ResendVerificationPage";
+import ems_live from "./components/ems_live";
 
 import "antd/dist/antd.css";
 import Contact from "./components/contact";
@@ -93,6 +96,7 @@ class Root extends Component {
             </Switch>
           </div>
         </HashRouter>
+       
       </Router>
     );
   }

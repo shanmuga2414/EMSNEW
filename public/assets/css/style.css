@@ -10109,7 +10109,7 @@ button {
 }
 
 #webtv-card .webtv-card-header{
-  background-color: #00C9FC !important;
+  background-color: #593574 !important;
 }
 #webtv_view{
   background: #e2521a;
@@ -10121,7 +10121,7 @@ button {
 }
 .magazine{
   background:white;
-  color: #593574 !important;
+  color: #28505d !important;
   border: 1px solid white !important;
 }
 #event-btn{
@@ -10152,5 +10152,14 @@ button {
 }
 .related_videos_head{
   color: #593574;
+}
+.audio_div{
+  min-height: 230px;
+}
+#normal_login_email{
+  height:41px;
+}
+.subscribe-btn{
+  margin-left:-32px;
 }
 
