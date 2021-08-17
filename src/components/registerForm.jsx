@@ -22,6 +22,7 @@ import {
   AutoComplete,
   DatePicker,
   message,
+  Modal,
 } from "antd";
 const { Option } = Select;
 // import * as employeeServices from "../services/employeeServices";
@@ -48,11 +49,45 @@ class RegisterForm extends Component {
   };
 
   selectRegion(val) {
+    console.log(val);
     this.setState({ region: val });
   }
-  checkEmail(val) {
-    console.log(val);
+  ErrorMessage(msg) {
+    const modal = Modal.success({
+      title: "This is a notification message",
+      content: msg,
+    });
   }
+  checkEmail = async () => {
+    const email = document.getElementById("register_email").value;
+    if (email !== "") {
+      const response = await authServices.checkEmailAlreadyExist(email);
+      if (response.status >= 200) {
+        if (response.data.status === "2") {
+          this.ErrorMessage(
+            `This "${email}" email already exist. Give new E-mail...`
+          );
+          document.getElementById("register_email").value = "";
+        } else {
+        }
+      }
+    }
+  };
+  checkUsername = async () => {
+    const username = document.getElementById("register_username").value;
+    if (username !== "") {
+      const response = await authServices.checkUsernameAlreadyExist(username);
+      if (response.status >= 200) {
+        if (response.data.status === "2") {
+          this.ErrorMessage(
+            `This "${username}" username already exist. Give new username...`
+          );
+          document.getElementById("register_username").value = "";
+        } else {
+        }
+      }
+    }
+  };
 
   success = () => {
     message.success({
@@ -304,13 +339,6 @@ class RegisterForm extends Component {
                             value={country}
                             onChange={(val) => this.selectCountry(val)}
                           />
-                          {/* <Select
-                            className="ant-input"
-                            placeholder="select your country"
-                          >
-                            <Option value="male">Male</Option>
-                            <Option value="female">Female</Option>
-                          </Select> */}
                         </Form.Item>
                       </div>
                       <div className="col-lg-6 col-md-6">
@@ -332,13 +360,6 @@ class RegisterForm extends Component {
                             value={region}
                             onChange={(val) => this.selectRegion(val)}
                           />
-                          {/* <Select
-                            className="ant-input"
-                            placeholder="select your State"
-                          >
-                            <Option value="male">Male</Option>
-                            <Option value="female">Female</Option>
-                          </Select> */}
                         </Form.Item>
                       </div>
                     </div>
@@ -363,9 +384,8 @@ class RegisterForm extends Component {
                               message: "Please input your username!",
                             },
                           ]}
-                          hasFeedback
                         >
-                          <Input />
+                          <Input onBlur={this.checkUsername} />
                         </Form.Item>
                       </div>
                     </div>
@@ -385,9 +405,8 @@ class RegisterForm extends Component {
                               message: "Please input your E-mail!",
                             },
                           ]}
-                          hasFeedback
                         >
-                          <Input onBlur={this.checkEmail(this.value)} />
+                          <Input onBlur={this.checkEmail} />
                         </Form.Item>
                       </div>
                       <div className="col-md-6">

@@ -21,6 +21,17 @@ export async function sendEmail(user) {
     email: user.email,
   });
 }
+export async function checkEmailAlreadyExist(user) {
+  return http.post(`${apiUrl}validation.php`, {
+    email: user,
+  });
+}
+export async function checkUsernameAlreadyExist(user) {
+  return http.post(`${apiUrl}user_name_validation.php`, {
+    username: user,
+  });
+}
+
 export async function sendSubscriberEmail(user) {
   return http.post(`${apiUrl}subscribe.php`, {
     email: user.email,
