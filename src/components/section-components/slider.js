@@ -35,46 +35,6 @@ class Banner extends Component {
           ))}
         </Slider>
       </div>
-      // {banners.map((banner) => (
-      //     <div
-      //       className="banner__bg d-flex align-items-center img-fluid index-banner"
-      //       style={{
-      //         background:
-      //           'url("' +
-      //           banner.slider_image +
-      //           '") no-repeat center center/cover',
-      //       }}
-      //     ></div>
-      //   ))}
-      //  <div>
-      //     <div
-      //       className="banner__bg d-flex align-items-center"
-      //       style={{
-      //         background:
-      //           'url("' +
-      //           publicUrl +
-      //           'assets/img/banner/11.png") no-repeat center center/cover',
-      //       }}
-      //     >
-      //       <div className="container-fluid px-5 dis">
-      //         <div className="banner-content">
-      //           <h3 className="subtitle" data-animation-in="fadeInLeft">
-      //             30% OFF
-      //           </h3>
-      //           <h2 className="title" data-animation-in="fadeInRight">
-      //             EGATHUVA MEIGNANA SABAI
-      //           </h2>
-      //           <div className="margin-top-50 pl-1">
-      //             <div className="btn-wrapper" data-animation-in="fadeInDown">
-      //               <Link className="btn btn-white" to="/collection-full">
-      //                 EXPLORE <i className="icon-arrow-buttom" />
-      //               </Link>
-      //             </div>
-      //           </div>
-      //         </div>
-      //       </div>
-      //     </div>
-      //   </div>
     );
   }
 }

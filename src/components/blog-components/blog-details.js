@@ -6,20 +6,27 @@ import * as homeServices from "../../Services/home-page-services";
 class BlogDetails extends React.Component {
   state = {
     blog: "",
+    title: "",
   };
 
   async componentDidMount() {
     const path = window.location.href.split("/");
-
+    this.setState({ title: path[5] });
     const response = await homeServices.getBlogContent(path[5]);
     if (response.status >= 200) {
       this.setState({ blog: response.data });
     }
   }
+  toCamelCase(s) {
+    return s.replace(/\w\S*/g, function (t) {
+      return t.charAt(0).toUpperCase() + t.substr(1).toLowerCase();
+    });
+  }
+
   render() {
     let publicUrl = process.env.PUBLIC_URL + "/";
     let imagealt = "image";
-    const { blog } = this.state;
+    const { blog, title } = this.state;
     const renderHTML = (escapedHTML: String) =>
       React.createElement("div", {
         dangerouslySetInnerHTML: { __html: escapedHTML },
@@ -32,6 +39,7 @@ class BlogDetails extends React.Component {
               <div className="row">
                 <div className="col-md-12">
                   <div className="blog-content">
+                    <h2>{this.toCamelCase(title)}</h2>
                     {/* {renderHTML({ blog })} */}
                     <div
                       dangerouslySetInnerHTML={{
