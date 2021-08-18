@@ -660,10 +660,20 @@
     });
   });
 
-  $(window).on("scroll", function () {
+  //var mybutton = document.getElementsByClass("back-to-top");
+
+// When the user scrolls down 20px from the top of the document, show the button
+$(document).ready(function(){
+  $(window).scroll(function(){
+    alert('test');
+  });
+});
+  
+  $(window).on("scroll", function() {
+    alert('test');
     /*---------------------------------------
-        sticky menu activation && Sticky Icon Bar
-        -----------------------------------------*/
+    sticky menu activation && Sticky Icon Bar
+    -----------------------------------------*/
     // var mainMenuTop = $(".navbar-area");
     // if ($(window).scrollTop() >= 1) {
     //     mainMenuTop.addClass('navbar-area-fixed');
@@ -671,14 +681,14 @@
     // else {
     //     mainMenuTop.removeClass('navbar-area-fixed');
     // }
-
-    var ScrollTop = $(".back-to-top");
-    if ($(window).scrollTop() > 1000) {
-      ScrollTop.fadeIn(1000);
+    
+    var ScrollTop = $('.back-to-top');
+    if ($(window).ScrollTop() > 100) {
+        ScrollTop.fadeIn(100);
     } else {
-      ScrollTop.fadeOut(1000);
+        ScrollTop.fadeOut(100);
     }
-  });
+});
 
   // instagram slider
   $(".instagram-slider").slick({
@@ -774,8 +784,9 @@
     /*-----------------
             back to top
         ------------------*/
-    var backtoTop = $(".back-to-top");
-    backtoTop.fadeOut();
+        var backtoTop = $('.back-to-top')
+        backtoTop.fadeOut();
+
 
     /*---------------------
             Cancel Preloader

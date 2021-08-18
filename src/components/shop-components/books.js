@@ -105,82 +105,8 @@ class Books extends Component {
     return (
       <div className="collection-area">
         <div className="container">
-          <div className="row flex-row-reverse">
-            <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
-              <div className="row">
-                <div className="col-md-12">
-                  <div className="d-flex justify-content-between pagination">
-                    <h6>
-                    {paginateInfo(filteredBooks, currentPage, pageSize)} Books
-                    </h6>
-
-                    <Pagination
-                      itemsCount={filteredBooks.length}
-                      pageSize={pageSize}
-                      currentPage={currentPage}
-                      onPageChange={this.handlePageChange}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="tab-content">
-                <div className="tab-pane fade in show active" id="one">
-                  <div className="row">
-                    {getBooks.map((book) => (
-                      <div
-                        key={book.bid}
-                        className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 "
-                      >
-                        <div className="product-style-03  border-grey margin-top-40 book-div">
-                          <div className="thumb ">
-                            <img
-                              src={book.original_image}
-                              alt={book.book_name}
-                            />
-                          </div>
-                          <div className=" align-center">
-                            <div className="content book_content">
-                              <h6 className="title stone-go-top">
-                                {book.book_name}
-                              </h6>
-                              <div className="content-price d-flex align-self-center justify-content-center">
-                                <span className="new-price">
-                                  &#8377; {book.book_price}
-                                </span>
-                              </div>
-                            </div>
-                            <a
-                              className="btn btn-sm buyButton"
-                              href={book.book_url}
-                              target="_blank"
-                            >
-                              {" "}
-                              Buy Now
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="row mb-5">
-                <div className="col-md-12">
-                  <div className="d-flex justify-content-between pagination">
-                    <h6>
-                    {paginateInfo(filteredBooks, currentPage, pageSize)} Books
-                    </h6>
-
-                    <Pagination
-                      itemsCount={filteredBooks.length}
-                      pageSize={pageSize}
-                      currentPage={currentPage}
-                      onPageChange={this.handlePageChange}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="row ">
+            
             <div className="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 margin-top-20">
               <div className="widget search-widget">
                 <form className="search" action="#">
@@ -368,6 +294,81 @@ class Books extends Component {
                         <div id="slider-range" />
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="d-flex justify-content-between pagination">
+                    <h6>
+                    {paginateInfo(filteredBooks, currentPage, pageSize)} Books
+                    </h6>
+
+                    <Pagination
+                      itemsCount={filteredBooks.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="tab-content">
+                <div className="tab-pane fade in show active" id="one">
+                  <div className="row">
+                    {getBooks.map((book) => (
+                      <div
+                        key={book.bid}
+                        className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 "
+                      >
+                        <div className="product-style-03  border-grey margin-top-40 book-div">
+                          <div className="thumb ">
+                            <img
+                              src={book.original_image}
+                              alt={book.book_name}
+                            />
+                          </div>
+                          <div className=" align-center">
+                            <div className="content book_content">
+                              <h6 className="title stone-go-top">
+                                {book.book_name}
+                              </h6>
+                              <div className="content-price d-flex align-self-center justify-content-center">
+                                <span className="new-price">
+                                  &#8377; {book.book_price}
+                                </span>
+                              </div>
+                            </div>
+                            <a
+                              className="btn btn-sm buyButton buy-btn"
+                              href={book.book_url}
+                              target="_blank"
+                            >
+                              {" "}
+                              View/Buy
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="row mb-5">
+                <div className="col-md-12">
+                  <div className="d-flex justify-content-between pagination">
+                    <h6>
+                    {paginateInfo(filteredBooks, currentPage, pageSize)} Books
+                    </h6>
+
+                    <Pagination
+                      itemsCount={filteredBooks.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
                   </div>
                 </div>
               </div>

@@ -200,78 +200,237 @@ class Navbar extends Component {
               </div>
 
               <div className="col-2 ">
-                <button
-                  className="navbar-toggler mobile-btn hide-large-view1"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#shop-menu"
-                >
-                  <span className="navbar-toggler-icon">
-                    <i className="fas fa-bars"></i>
-                  </span>
-                </button>
+
+              <button
+              className="navbar-toggler mobile-btn hide-large-view1"
+              type="button"
+              data-toggle="collapse"
+              data-target="#shop-menu"
+            >
+              <span className="navbar-toggler-icon">
+                <i className="fas fa-bars"></i>
+              </span>
+            </button>
               </div>
 
-              <nav className="navbar navbar-area navbar-expand-xl nav-style-01  hide-large-view1 ">
-                <div className="container-fluid nav-container">
-                  <div className="row mtop">
-                    <div className="col-lg-12 order-3 order-lg-2">
-                      <div className="collapse navbar-collapse" id="shop-menu">
+              <nav className="navbar navbar-area navbar-expand-lg nav-style-01">
+                  <div className="container-fluid nav-container">
+                    <div className="row">
+                     
+                      <div className="col-lg-6 order-3 order-lg-2">
+                        <div className="collapse navbar-collapse" id="shop-menu">
                         <ul className="navbar-nav menu-open">
-                          {mainMenu.map((item, i) => {
-                            const subMenus = menus[item];
-                            return (
-                              <li className="menu-item-has-children" key={i}>
-                                <a href="#">
-                                  {item}
-                                  <i className="fa fa-angle-down" />
-                                </a>
-                                {subMenus.length > 0 && (
-                                  <ul className="sub-menu">
-                                    {subMenus.map((childmenu, ch) => {
-                                      const subSubMenu = childmenu.third_child;
-                                      return (
-                                        <li
-                                          key={ch}
-                                          className={
-                                            subSubMenu
-                                              ? "menu-item-has-children"
-                                              : ""
-                                          }
-                                        >
-                                          <a href={childmenu.url}>
-                                            {childmenu.submenu}
-                                          </a>
-                                          {subSubMenu && (
-                                            <ul
-                                              className="sub-menu"
-                                              id="third_menu"
-                                            >
-                                              {subSubMenu.map(
-                                                (thirdMenu, tm) => (
-                                                  <li key={tm}>
-                                                    <a href={thirdMenu.url}>
-                                                      {thirdMenu.thirdmenu}
-                                                    </a>
-                                                  </li>
-                                                )
-                                              )}
-                                            </ul>
-                                          )}
-                                        </li>
-                                      );
-                                    })}
-                                  </ul>
-                                )}
+                      <li className="menu-item-has-children">
+                        <a href="#">
+                          எங்களைப் பற்றி <i className="fa fa-angle-down" />
+                        </a>
+                        <ul className="sub-menu">
+                          <li className="menu-item-has-children">
+                            <Link to="founder">நிறுவனர் </Link>
+                            <ul className="sub-menu" id="third_menu">
+                              <li>
+                                <Link to="founder">வாப்பா நாயகம்</Link>
                               </li>
-                            );
-                          })}
+                              <li>
+                                <Link to="founder">தந்தை நாயகம்</Link>
+                              </li>
+                              <li>
+                                <Link to="founder">அப்பா நாயகம்</Link>
+                              </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <Link to="construction">
+                              அஹ்லுல்பைத் <br />
+                              (அநந்தரர்கள்)
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="construction">கொள்கைகள் </Link>
+                          </li>
                         </ul>
+                      </li>
+
+                      <li className="menu-item-has-children">
+                        <Link to="books">நூற்கள்</Link>
+                      </li>
+                      <li className="menu-item-has-children">
+                        <a href="#">
+                          நிகழ்ச்சிகள் <i className="fa fa-angle-down" />
+                        </a>
+                        <ul className="sub-menu">
+                          <li>
+                            <Link to="gallery">புகைப்படங்கள்</Link>
+                          </li>
+                          <li>
+                            <Link to="videos">காணொளி</Link>
+                          </li>
+                          <li>
+                            {" "}
+                            <Link to="audios">ஆடியோ </Link>
+                          </li>
+                          <li>
+                            <Link to="events">நிகழ்வுகள்</Link>
+                          </li>
+                        </ul>
+                      </li>
+                      <li className="menu-item-has-children">
+                        <a href="#">
+                          கல்வி <i className="fa fa-angle-down" />
+                        </a>
+                        <ul className="sub-menu">
+                          <li>
+                            <Link to="construction">
+                              ஜாமீஆ யாசீன் அறபுக் கல்லூரி{" "}
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="construction">மதரஸா நிறுவனர் பற்றி </Link>
+                          </li>
+                          <li className="menu-item-has-children">
+                            <Link to="construction">கல்விக்கு உதவிடுவோம் </Link>
+                            {/* <ul>
+                            <li>
+                              <a href="#"> English and Arabic brochure </a>
+                            </li>
+                            <li>
+                              <a href="#"> தமிழ் சிற்றேடு</a>
+                            </li>
+                          </ul> */}
+                          </li>
+                        </ul>
+                      </li>
+                      <li className="menu-item-has-children">
+                        <a href="#">
+                          மனிதா <i className="fa fa-angle-down" />
+                        </a>
+
+                        <ul className="sub-menu">
+                          <li>
+                            <Link to="member-responsibilities">
+                              மனிதனின் பொறுப்புகள்
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="construction "> மஹாங்களின் சரிதைகள்</Link>
+                          </li>
+                          <li>
+                            <Link to="spiritual"> வஹ்தத்துல் வுஜூத்</Link>
+                          </li>
+
+                          <li className="menu-item-has-children">
+                            <Link to="founder">உறுப்பினர்கள் </Link>
+                            <ul className="sub-menu" id="third_menu">
+                              <li>
+                                <Link to="member-responsibilities">
+                                  சீடர்களின் பொறுப்புகள்
+                                </Link>
+                              </li>
+                              <li>
+                                <li>
+                                  <Link to="construction">
+                                    உறுப்பினர்களின் செயல்பாடுகள்
+                                  </Link>
+                                </li>
+                              </li>
+                              <li>
+                                <li>
+                                  <Link to="blog">கலந்தாய்வு</Link>
+                                </li>
+                              </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <Link to="construction">நாகரீக வளர்ச்சி </Link>
+                          </li>
+                          <li>
+                            <Link to="blog">கலந்தாய்வு </Link>
+                          </li>
+                          <li>
+                            <Link to="construction">மகான்கள் </Link>
+                          </li>
+                          <li>
+                            <Link to="construction">அமுத மொழிகள் </Link>
+                          </li>
+                          <li>
+                            <Link to="construction">
+                              சிந்திக்க சில நொடிகள்{" "}
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="construction">ஐயமும் - தெளிவும் </Link>
+                          </li>
+                        </ul>
+                      </li>
+                      <li className="menu-item-has-children">
+                        <a href="#">
+                          ஒரே உள்ளமை <i className="fa fa-angle-down" />
+                        </a>
+                        <ul className="sub-menu">
+                          <li className="menu-item-has-children">
+                            <a href="#">ஏக உள்ளமை </a>
+                            <ul className="sub-menu" id="third_menu">
+                              <li>
+                                <Link to="construction">ஏக காட்சி</Link>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <Link to="/contact">அறிவுக் களஞ்சியம்</Link>
+                      </li>
+                      <li className="menu-item-has-children">
+                        <Link to="/contact">
+                          மதரஸா <i className="fa fa-angle-down" />
+                        </Link>
+                        <ul className="sub-menu">
+                          <li>
+                            <Link to="construction">மதரஸாவைப்பற்றி</Link>
+                          </li>
+                          <li>
+                            <Link to="construction">மதரஸா நிறுவனர் பற்றி</Link>
+                          </li>
+                          <li>
+                            <Link to="construction">தொகுப்பு </Link>
+                          </li>
+                          <li>
+                            <Link to="construction">பங்குகொள்ள </Link>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li className="menu-item-has-children">
+                        <Link to="/contact">
+                          அத்வைதம் <i className="fa fa-angle-down" />
+                        </Link>
+                        <ul className="sub-menu">
+                          <li>
+                            <Link to="construction">கடவுளும் / படைப்பும்</Link>
+                          </li>
+                          <li>
+                            <Link to="construction">பிரபஜ்சவியல்</Link>
+                          </li>
+                          <li>
+                            <Link to="construction">ஐம்பூதங்கள் </Link>
+                          </li>
+                          <li>
+                            <Link to="construction">வேதநூற்கள் </Link>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                        </div>
+                      </div>
+                      <div className="col-lg-3 col-8 justify-content-end d-flex order-2 order-lg-3">
+                        <div className="nav-right-part">
+                          
+                        </div>
+                        
                       </div>
                     </div>
                   </div>
-                </div>
-              </nav>
+                </nav>
 
               <div className="col-12 hide-large-view1 tab-top hide-large">
                 <form>
@@ -298,54 +457,56 @@ class Navbar extends Component {
               <div className="row">
                 <div className="col-lg-12 order-3 order-lg-2">
                   <div className="collapse navbar-collapse" id="shop-menu">
-                    <ul className="navbar-nav menu-open">
-                      {mainMenu.map((item, i) => {
-                        const subMenus = menus[item];
-                        return (
-                          <li className="menu-item-has-children" key={i}>
-                            <a href="#">
-                              {item}
-                              <i className="fa fa-angle-down" />
-                            </a>
-                            {subMenus.length > 0 && (
-                              <ul className="sub-menu">
-                                {subMenus.map((childmenu, ch) => {
-                                  const subSubMenu = childmenu.third_child;
-                                  return (
-                                    <li
-                                      key={ch}
-                                      className={
-                                        subSubMenu
-                                          ? "menu-item-has-children"
-                                          : ""
-                                      }
+                  <ul className="navbar-nav menu-open">
+                  {mainMenu.map((item, i) => {
+                    const subMenus = menus[item];
+                    return (
+                      <li className="menu-item-has-children" key={i}>
+                        <a href="#">
+                          {item}
+                          <i className="fa fa-angle-down" />
+                        </a>
+                        {subMenus.length > 0 && (
+                          <ul className="sub-menu">
+                            {subMenus.map((childmenu, ch) => {
+                              const subSubMenu = childmenu.third_child;
+                              return (
+                                <li
+                                  key={ch}
+                                  className={
+                                    subSubMenu
+                                      ? "menu-item-has-children"
+                                      : ""
+                                  }
+                                >
+                                  <a href={childmenu.url}>
+                                    {childmenu.submenu}
+                                  </a>
+                                  {subSubMenu && (
+                                    <ul
+                                      className="sub-menu"
+                                      id="third_menu"
                                     >
-                                      <a href={childmenu.url}>
-                                        {childmenu.submenu}
-                                      </a>
-                                      {subSubMenu && (
-                                        <ul
-                                          className="sub-menu"
-                                          id="third_menu"
-                                        >
-                                          {subSubMenu.map((thirdMenu, tm) => (
-                                            <li key={tm}>
-                                              <a href={thirdMenu.url}>
-                                                {thirdMenu.thirdmenu}
-                                              </a>
-                                            </li>
-                                          ))}
-                                        </ul>
+                                      {subSubMenu.map(
+                                        (thirdMenu, tm) => (
+                                          <li key={tm}>
+                                            <a href={thirdMenu.url}>
+                                              {thirdMenu.thirdmenu}
+                                            </a>
+                                          </li>
+                                        )
                                       )}
-                                    </li>
-                                  );
-                                })}
-                              </ul>
-                            )}
-                          </li>
-                        );
-                      })}
-                    </ul>
+                                    </ul>
+                                  )}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
                   </div>
                 </div>
               </div>

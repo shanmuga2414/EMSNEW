@@ -18,6 +18,8 @@ import Magazine from "./section-components/magazine";
 import Categories from "./section-components/categories";
 import Footer from "./global-components/footer";
 
+import ScrollButton from './ScrollButton';
+
 
 
 const Home_V1 = () => {
@@ -31,6 +33,7 @@ const Home_V1 = () => {
       <CollectionBanner />
       <WebChannel />
       <Books />
+      <ScrollButton />
        
 
       {/* <Magazine /> */}

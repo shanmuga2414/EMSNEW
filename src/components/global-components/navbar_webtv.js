@@ -83,28 +83,9 @@ class Navbar extends Component {
                   </span>
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 text-right hide-mobile-view">
-                <a
-                href="http://emsmedia.net/magazine/"
-                target="_blank"
-                type="button"
-                className="btn btn-sm magazine btn-tvchannel top-content-size hide-mobile-view color-white tab-hide"
-                style={{"margin-right":"15px"}}
-              >
-                <i className="fa fa-book" />{" "}
-                <span className="tab">EMS</span> Magazine{" "}
                 
-              </a>
               {AuthLinks()}
-                  <Link
-                    to="/"
-                    target="_blank"
-                    type="button"
-                    className="btn btn-sm btn-tvchannel top-content-size hide-mobile-view color-white"
-                  >
-                    <i className="fa fa-play-circle fa-lg" />{" "}
-                    <span className="tab">EMS</span> Media{" "}
-                    <span className="tab">Home</span>
-                  </Link>
+                  
                 </div>
                 <div className="col-lg-6 col-md-6 col-12 hide-large-view">
                   <div className="row mobile-tv">
@@ -120,15 +101,7 @@ class Navbar extends Component {
                         <i class="fas fa-user-plus"></i> Register
                       </Link>
                     </div>
-                    <div className="col-4">
-                      <Link
-                        type="button"
-                        to="/"
-                        className="btn btn-sm btn-tvchannel top-content-size hide-large-view"
-                      >
-                        <i className="fa fa-play-circle fa-lg" /> Web TV
-                      </Link>
-                    </div>
+                   
                   </div>
                 </div>
               </div>
@@ -147,23 +120,7 @@ class Navbar extends Component {
                   </a>
                 </div>
             </div>
-            <div className="col-xl-4 col-lg-5">
-              <form>
-                <div className="form-group searchbox hide-mobile-view tab-hide">
-                  <div className="input-icons input-size">
-                    <i className="fa fa-search"></i>
-                    <input
-                        type="text"
-                        className="input-field form-control"
-                        id="phone"
-                        placeholder="search here..."
-                        onKeyPress={this.searchChange}
-                        onBlur={(e) => this.doSearch(e.target.value.trim())}
-                      />
-                  </div>
-                  </div>
-                </form>
-              </div>
+            
             </div>
             <div className="row  logo-bg-color hide-large-view1">
               <div className="col-lg-5 col-9 ">
@@ -174,23 +131,7 @@ class Navbar extends Component {
                 </div>
               </div>
 
-              <div className=" col-lg-5 view-large mt-2">
-                <form className="">
-                  <div className="form-group searchbox ">
-                    <div className="input-icons">
-                      <i className="fa fa-search"></i>
-                      <input
-                      type="text"
-                      className="input-field form-control"
-                      id="phone"
-                      placeholder="search here..."
-                      onKeyPress={this.searchChange}
-                      onBlur={(e) => this.doSearch(e.target.value.trim())}
-                    />
-                    </div>
-                  </div>
-                </form>
-              </div>
+              
 
               <div className="col-2 ">
                 <button
@@ -205,145 +146,13 @@ class Navbar extends Component {
                 </button>
               </div>
 
-              <nav className="navbar navbar-area navbar-expand-xl nav-style-01  hide-large-view1 ">
-                <div className="container-fluid nav-container">
-                  <div className="row mtop">
-                    <div className="col-lg-12 order-3 order-lg-2">
-                      <div className="collapse navbar-collapse" id="shop-menu">
-                        <ul className="navbar-nav menu-open">
-                        {mainMenu.map((item, i) => {
-                          const subMenus = menus[item];
-                          return (
-                            <li className="menu-item-has-children" key={i}>
-                              <a href="#">
-                                {item}
-                                <i className="fa fa-angle-down" />
-                              </a>
-                              {subMenus.length > 0 && (
-                                <ul className="sub-menu">
-                                  {subMenus.map((childmenu, ch) => {
-                                    const subSubMenu = childmenu.third_child;
-                                    return (
-                                      <li
-                                        key={ch}
-                                        className={
-                                          subSubMenu
-                                            ? "menu-item-has-children"
-                                            : ""
-                                        }
-                                      >
-                                        <a href={childmenu.url}>
-                                          {childmenu.submenu}
-                                        </a>
-                                        {subSubMenu && (
-                                          <ul
-                                            className="sub-menu"
-                                            id="third_menu"
-                                          >
-                                            {subSubMenu.map(
-                                              (thirdMenu, tm) => (
-                                                <li key={tm}>
-                                                  <a href={thirdMenu.url}>
-                                                    {thirdMenu.thirdmenu}
-                                                  </a>
-                                                </li>
-                                              )
-                                            )}
-                                          </ul>
-                                        )}
-                                      </li>
-                                    );
-                                  })}
-                                </ul>
-                              )}
-                            </li>
-                          );
-                        })}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
+            
 
-              <div className="col-12 hide-large-view1 tab-top hide-large">
-                <form>
-                  <div className="form-group searchbox">
-                    <div className="input-icons">
-                      <i className="fa fa-search"></i>
-                      <input
-                        type="text"
-                        className="input-field form-control"
-                        id="phone"
-                        placeholder="search here..."
-                        onKeyPress={this.searchChange}
-                        onBlur={(e) => this.doSearch(e.target.value.trim())}
-                      />
-                    </div>
-                  </div>
-                </form>
-              </div>
+              
             </div>
           </div>
 
-          <nav className="navbar navbar-area navbar-expand-xl nav-style-01 hide-mobile-view mtwo tab-hide logo-bg-color">
-            <div className="container-fluid nav-container">
-              <div className="row">
-                <div className="col-lg-12 order-3 order-lg-2">
-                  <div className="collapse navbar-collapse" id="shop-menu">
-                    <ul className="navbar-nav menu-open">
-                    {mainMenu.map((item, i) => {
-                      const subMenus = menus[item];
-                      return (
-                        <li className="menu-item-has-children" key={i}>
-                          <a href="#">
-                            {item}
-                            <i className="fa fa-angle-down" />
-                          </a>
-                          {subMenus.length > 0 && (
-                            <ul className="sub-menu">
-                              {subMenus.map((childmenu, ch) => {
-                                const subSubMenu = childmenu.third_child;
-                                return (
-                                  <li
-                                    key={ch}
-                                    className={
-                                      subSubMenu
-                                        ? "menu-item-has-children"
-                                        : ""
-                                    }
-                                  >
-                                    <a href={childmenu.url}>
-                                      {childmenu.submenu}
-                                    </a>
-                                    {subSubMenu && (
-                                      <ul
-                                        className="sub-menu"
-                                        id="third_menu"
-                                      >
-                                        {subSubMenu.map((thirdMenu, tm) => (
-                                          <li key={tm}>
-                                            <a href={thirdMenu.url}>
-                                              {thirdMenu.thirdmenu}
-                                            </a>
-                                          </li>
-                                        ))}
-                                      </ul>
-                                    )}
-                                  </li>
-                                );
-                              })}
-                            </ul>
-                          )}
-                        </li>
-                      );
-                    })}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </nav>
+          
         </div>
       </div>
     );

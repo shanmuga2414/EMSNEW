@@ -101,7 +101,7 @@ class LoginForm extends Component {
                             <UserOutlined className="site-form-item-icon" />
                           }
                           type="text"
-                          placeholder="email"
+                          placeholder="User Name"
                         />
                       </Form.Item>
 

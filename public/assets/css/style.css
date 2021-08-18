@@ -2355,6 +2355,7 @@ ul {
 }
 
 .toggle-btn {
+     
   left: auto;
   top: -12px;
   position: absolute;
@@ -2363,6 +2364,7 @@ ul {
   -webkit-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
+  margin-top: 56px;
 }
 .toggle-btn .icon-left {
   -webkit-transition-duration: 0.5s;
@@ -2373,6 +2375,7 @@ ul {
   width: 15px;
   top: 30px;
   background-color: #000;
+  
 }
 .toggle-btn .icon-left:before {
   -webkit-transition-duration: 0.5s;
@@ -9113,6 +9116,9 @@ h6 {
     margin-top: 2px !important;
     height:139px;
   }
+  #normal_login_email {
+    height: 42px !important;
+  }
 }
 @media only screen and (max-width: 1025px) and (min-width: 900px) {
   .mobile-btn {
@@ -9123,6 +9129,18 @@ h6 {
   }
   .slick-track {
     height: 293px !important;
+  }
+  .subscribe-div{
+    margin-top: 27px;
+    margin-left: 30%;
+    margin-bottom: -14px;
+  }
+  #normal_login_email {
+    height: 42px !important;
+  }
+  .categories {
+    
+    min-height: 330px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -9146,7 +9164,7 @@ h6 {
   }
 
   .slick-next {
-    right: -13px !important;
+    right: -12px !important;
   }
  
   .btn-blue {
@@ -9239,8 +9257,9 @@ h6 {
   }
   .mob-newsletter {
     width: 95%;
-    padding: 10px;
-    margin-left: 10px;
+    padding: 23px;
+    margin-left: 3%;
+    margin-bottom: -30px;
   }
   .method-box__icon i {
     font-size: 18px;
@@ -9326,12 +9345,10 @@ h6 {
     height: auto;
   }
   .webVideo img {
-    width: 312px !important;
+    width: 100% !important;
     height: 312px;
   }
-  .slick-next {
-    right: -25px !important;
-}
+  
 .webtv-head {
   margin-left: 8%;
   font-size: 25px;
@@ -9354,6 +9371,15 @@ h6 {
   padding:5px 19px !important;
   height: 34px !important;
 }
+.slick-prev {
+  left: -12px !important;
+} 
+.register-btn {
+  width: 100% !important;
+}
+  #normal_login_email{
+    width: 277px;
+  }
 }
 /* end mobile view 600 */
 
@@ -9445,7 +9471,18 @@ h6 {
     text-transform: uppercase;
     font-weight: 600;
   }
-  
+  .buy-btn {
+    position: absolute;
+    width: 89%;
+    bottom: 2px;
+    margin-left: -160px;
+  }
+  .buy-btn-search{
+    position: absolute;
+    width: 90%;
+    bottom: 2px;
+    margin-left: -3px;
+  }
 }
 @media only screen and (min-width: 1025px) {
   .hide-large-view1,
@@ -9481,6 +9518,18 @@ h6 {
   #webtv_view{
     margin-left:77%;
   }
+  .buy-btn{
+    position: absolute;
+    width: 90%;
+    bottom: 2px;
+    margin-left: -154px;
+  }
+  .buy-btn-search{
+    position: absolute;
+    width: 89%;
+    bottom: 2px;
+    margin-left: -3px;
+  }
 }
 @media only screen and (max-width: 1025px) {
   .tab-hide {
@@ -9495,6 +9544,10 @@ h6 {
   .webtv-head{
     margin-left:8%;
   }
+  #normal_login_email{
+    height:42px;
+  }
+  
 }
 @media only screen and (max-width: 1025px) and (min-width: 800px) {
   .hide-large {
@@ -9519,6 +9572,21 @@ h6 {
   }
   #webtv_view{
     margin-left:67%;
+  }
+  .buy-btn {
+    position: absolute;
+    width: 88%;
+    bottom: 2px;
+    margin-left: -141px;
+  }
+  .buy-btn-search{
+    position: absolute;
+    width: 89%;
+    bottom: 2px;
+    margin-left: -3px;
+  }
+  .event-height{
+    height: 421px;
   }
 }
 @media only screen and (min-width: 601px) {
@@ -9578,6 +9646,12 @@ h6 {
   .section-title h3 {
     font-size: 26px;
   }
+  .mb-3, .my-3 {
+    margin-bottom: 0 !important;
+  }
+  .register-btn {
+    width: 30% !important;
+  }
 }
 .index-banner {
   background-size: 100% !important;
@@ -9613,10 +9687,54 @@ h6 {
   .brant-item {
     min-height: 369px !important;
   }
+  #register {
+    
+    margin-left: -15%;
+    margin-right: -15%;
+  }
+  .buy-btn {
+    position: absolute;
+    width: 88%;
+    bottom: 2px;
+    margin-left: -141px;
+  }
+  .buy-btn-search{
+    position: absolute;
+    width: 88%;
+    bottom: 2px;
+    margin-left: -3px;
+  }
   
-
-
+ 
   
+}
+@media only screen and (max-width: 600px) and (min-width: 424px) {
+  .buy-btn {
+    position: absolute;
+    width: 91%;
+    bottom: 2px;
+    margin-left: -194px;
+  }
+  .buy-btn-search{
+    position: absolute;
+    width: 91%;
+    bottom: 2px;
+    margin-left: -3px;
+  }
+}
+@media only screen and (max-width: 424px) and (min-width: 377px) {
+  .buy-btn {
+    position: absolute;
+    width: 91%;
+    bottom: 2px;
+    margin-left: -189px;
+  }
+  .buy-btn-search{
+    position: absolute;
+    width: 91%;
+    bottom: 2px;
+    margin-left: -3px;
+  }
 }
 @media only screen and (max-width: 600px) and (min-width: 377px) {
   .fa-bars {
@@ -9638,6 +9756,13 @@ h6 {
     text-transform: uppercase;
     font-weight: 600;
   }
+  #register {
+    
+    margin-left: -10%;
+    margin-right: -10%;
+  }
+
+  
   /* .slick-prev {
     left: -13px !important;
   } */
@@ -9672,6 +9797,23 @@ h6 {
     text-transform: uppercase;
     font-weight: 600;
   }
+  #register {
+    
+    margin-left: -12%;
+    margin-right: -12%;
+  }
+  .buy-btn {
+    position: absolute;
+    width: 90%;
+    bottom: 2px;
+    margin-left: -169px;
+    }
+    .buy-btn-search{
+      position: absolute;
+      width: 90%;
+      bottom: 2px;
+      margin-left: -3px;
+    }
 }
 @media only screen and (max-width: 1200px) and (min-width: 800px) {
   .gridm-top {
@@ -9683,6 +9825,7 @@ h6 {
   .ant-picker-input {
     width: 202px !important;
   }
+
 }
 
 .ant-space-vertical {
@@ -10010,7 +10153,7 @@ button {
   border: 1px solid #28505d8a;
 }
 .register-btn{
-  width:30% !important;
+  
   text-align: center;
   margin-top: 20px;
 }
@@ -10156,9 +10299,7 @@ button {
 .audio_div{
   min-height: 230px;
 }
-#normal_login_email{
-  height:41px;
-}
+
 .subscribe-btn{
   margin-left:-32px;
 }
@@ -10166,4 +10307,28 @@ button {
   margin: -15px 10px 10px;
   padding: 6px 20px;
 }
-
+.article-div-style{
+  border: 1px solid #e6e1e3db;
+  padding: 10px;
+}
+.search-article-btn{
+  margin-top:15px;
+}
+@media only screen and (max-width: 1399px) and (min-width: 1025px) {
+  .btn-blue-webtv {
+    margin-left: 41% !important;
+  }
+  .buy-btn { 
+    width: 88%;
+    margin-left: -125px;
+  }
+}
+@media only screen and (max-width: 1199px) and (min-width: 1025px) {
+  .btn-blue-webtv {
+    margin-left: 41% !important;
+  }
+  .buy-btn { 
+    width: 88%;
+    margin-left: -141px;
+  }
+}

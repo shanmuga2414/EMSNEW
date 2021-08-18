@@ -58,7 +58,7 @@ class Brand extends Component {
     };
 
     return (
-      <div className="brand-area padding-top-30 ">
+      <div className="brand-area padding-top-30 event-height">
         <div className="container">
           <div className="row">
             <div className="col-lg-11 ems-heading">

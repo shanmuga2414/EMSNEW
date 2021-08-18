@@ -52,7 +52,7 @@ class Footer_v1 extends Component {
                     </div>
                     <div className="method-box__content tab-contact">
                       <span>+123-456-789</span>
-                      <p class="address-additional" style={{"color":"white"}}>Free support line!</p>
+                      <p class="" style={{"color":"white"}}>Free support line!</p>
                     </div>
                   </div>
                 </div>
@@ -63,7 +63,7 @@ class Footer_v1 extends Component {
                     </div>
                     <div className="method-box__content tab-contact">
                       <span>contact@onlinbookshops.com</span>
-                      <p class="address-additional" style={{"color":"white"}}>Orders Support!</p>
+                      <p class="" style={{"color":"white"}}>Orders Support!</p>
                     </div>
                   </div>
                 </div>
@@ -74,48 +74,48 @@ class Footer_v1 extends Component {
                     </div>
                     <div className="method-box__content">
                       <span>888 South Avenue Street, New York City. </span>
-                      <p class="address-additional" style={{"color":"white"}}>Our Address</p>
+                      <p class="" style={{"color":"white"}}>Our Address</p>
                     </div>
                   </div>
                 </div>
-                <div className="col-xl-3 col-lg-4 col-md-6 mob-newsletter">
+                <div className="col-xl-3 col-lg-4 col-md-6 mob-newsletter subscribe-div">
                 <Form
-                name="normal_login"
-                className="login-form"
-                initialValues={{ remember: true }}
-                onFinish={this.onFinish}
-              >
-                <div className="input-group mb-3">
-                <div className="row">
-                  <div className="col-lg-9">
-                  <Form.Item
-                    name="email"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please input your E-Mail!",
-                        placeholder: "Please input your E-Mail!",
-                      },
-                    ]}
-                    hasFeedback
+                    name="normal_login"
+                    className="login-form"
+                    initialValues={{ remember: true }}
+                    onFinish={this.onFinish}
                   >
-                    <Input />
-                  </Form.Item>
-                  </div> 
-                  <div className="col-lg-3 subscribe-btn">
-                  <Form.Item>
-                    <Button
-                      type="danger"
-                      htmlType="submit"
-                      className="btn btn-style-1"
-                    >
-                      Subscribe
-                    </Button>
-                  </Form.Item>
-                  </div>
-                  </div>
-                </div>
-              </Form>
+                    <div className="input-group mb-3">
+                    <div className="row">
+                      <div className="col-lg-9 col-md-7 col-sm-6 col-8">
+                      <Form.Item
+                        name="email"
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please input your E-Mail!",
+                            placeholder: "Please input your E-Mail!",
+                          },
+                        ]}
+                        hasFeedback
+                      >
+                        <Input />
+                      </Form.Item>
+                      </div> 
+                      <div className="col-lg-3 col-md-5 col-sm-6 col-4 subscribe-btn">
+                      <Form.Item>
+                        <Button
+                          type="danger"
+                          htmlType="submit"
+                          className="btn btn-style-1"
+                        >
+                          Subscribe
+                        </Button>
+                      </Form.Item>
+                      </div>
+                      </div>
+                    </div>
+                  </Form>
                 </div>
               </div>
             </div>
@@ -151,7 +151,7 @@ class Footer_v1 extends Component {
                     </a>
                   </li>
                   <li>
-                    <a target="_blank" href="/webtv">
+                    <a target="_blank" href="#/webtv">
                       {" "}
                       <i className="fa fa-angle-right" />
                       EMS Web TV channel

@@ -118,67 +118,8 @@ class Videos extends Component {
     return (
       <div className="collection-area">
         <div className="container">
-          <div className="row flex-row-reverse">
-            <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
-              <div className="row">
-                <div className="col-md-12">
-                  <div className="d-flex justify-content-between pagination">
-                    <h6>
-                    {paginateInfo(filteredVideos, currentPage, pageSize)} Videos
-                    </h6>
-                    <Pagination
-                      itemsCount={filteredVideos.length}
-                      pageSize={pageSize}
-                      currentPage={currentPage}
-                      onPageChange={this.handlePageChange}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="tab-content">
-                <div className="tab-pane fade in show active" id="one">
-                  <div className="row">
-                    {getVideos.map((video) => (
-                      <div
-                        key={video.vid}
-                        className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12"
-                      >
-                        <div className="product-style-03 webVideo imageHover margin-top-40">
-                          <div className="thumb youtubeVideo">
-                            <img
-                              onClick={this.openModal(video.url)}
-                              src={`http://img.youtube.com/vi/${video.url}/0.jpg`}
-                            ></img>
-                          </div>
-
-                          <h6 className="title stone-go-top margin-top-20">
-                            <span></span>
-                            <span onClick={this.openModal(video.url)}>
-                              {video.video_name}
-                            </span>
-                          </h6>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="row mb-5">
-                <div className="col-md-12">
-                  <div className="d-flex justify-content-between pagination">
-                    <h6>
-                    {paginateInfo(filteredVideos, currentPage, pageSize)} Videos
-                    </h6>
-                    <Pagination
-                      itemsCount={filteredVideos.length}
-                      pageSize={pageSize}
-                      currentPage={currentPage}
-                      onPageChange={this.handlePageChange}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="row">
+            
             <div className="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 margin-top-20">
               <div className="widget search-widget">
                 <form className="search" action="#">
@@ -334,6 +275,66 @@ class Videos extends Component {
                   </div>
                 </div>
               )}
+            </div>
+            <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="d-flex justify-content-between pagination">
+                    <h6>
+                    {paginateInfo(filteredVideos, currentPage, pageSize)} Videos
+                    </h6>
+                    <Pagination
+                      itemsCount={filteredVideos.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="tab-content">
+                <div className="tab-pane fade in show active" id="one">
+                  <div className="row">
+                    {getVideos.map((video) => (
+                      <div
+                        key={video.vid}
+                        className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12"
+                      >
+                        <div className="product-style-03 webVideo imageHover margin-top-40">
+                          <div className="thumb youtubeVideo">
+                            <img
+                              onClick={this.openModal(video.url)}
+                              src={`http://img.youtube.com/vi/${video.url}/0.jpg`}
+                            ></img>
+                          </div>
+
+                          <h6 className="title stone-go-top margin-top-20">
+                            <span></span>
+                            <span onClick={this.openModal(video.url)}>
+                              {video.video_name}
+                            </span>
+                          </h6>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="row mb-5">
+                <div className="col-md-12">
+                  <div className="d-flex justify-content-between pagination">
+                    <h6>
+                    {paginateInfo(filteredVideos, currentPage, pageSize)} Videos
+                    </h6>
+                    <Pagination
+                      itemsCount={filteredVideos.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <ModalVideo

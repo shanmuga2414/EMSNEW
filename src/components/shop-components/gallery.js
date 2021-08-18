@@ -119,67 +119,8 @@ class Gallery extends Component {
     return (
       <div className="collection-area">
         <div className="container">
-          <div className="row flex-row-reverse">
-            <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
-              <div className="row">
-                <div className="col-md-12">
-                  <div className="d-flex justify-content-between pagination">
-                    <h6>
-                    {paginateInfo(filteredGallerys, currentPage, pageSize)} Albums
-                    </h6>
-
-                    <Pagination
-                      itemsCount={filteredGallerys.length}
-                      pageSize={pageSize}
-                      currentPage={currentPage}
-                      onPageChange={this.handlePageChange}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="tab-content">
-                <div className="tab-pane fade in show active" id="one">
-                  <div className="row">
-                    {getGallerys.map((album) => (
-                      <div
-                        key={album.gid}
-                        className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12"
-                      >
-                        <div className="product-style-03 imageHover webVideo margin-top-40">
-                          <div className="thumb">
-                            <span onClick={this.handleOpenModal(album.gallery)}>
-                              <img src={album.image} alt="" />
-                            </span>
-                          </div>
-                          <h6 className="title stone-go-top  margin-top-20">
-                            <span onClick={this.handleOpenModal(album.gallery)}>
-                              {album.title}
-                            </span>
-                          </h6>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="row mb-5">
-                <div className="col-md-12">
-                  <div className="d-flex justify-content-between pagination">
-                    <h6>
-                    {paginateInfo(filteredGallerys, currentPage, pageSize)} Albums
-                    </h6>
-
-                    <Pagination
-                      itemsCount={filteredGallerys.length}
-                      pageSize={pageSize}
-                      currentPage={currentPage}
-                      onPageChange={this.handlePageChange}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="row ">
+            
             <div className="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 margin-top-20">
               <div className="widget search-widget">
                 <form className="search" action="#">
@@ -279,6 +220,66 @@ class Gallery extends Component {
                   </div>
                 </div>
               )}
+            </div>
+            <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="d-flex justify-content-between pagination">
+                    <h6>
+                    {paginateInfo(filteredGallerys, currentPage, pageSize)} Albums
+                    </h6>
+
+                    <Pagination
+                      itemsCount={filteredGallerys.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="tab-content">
+                <div className="tab-pane fade in show active" id="one">
+                  <div className="row">
+                    {getGallerys.map((album) => (
+                      <div
+                        key={album.gid}
+                        className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12"
+                      >
+                        <div className="product-style-03 imageHover webVideo margin-top-40">
+                          <div className="thumb">
+                            <span onClick={this.handleOpenModal(album.gallery)}>
+                              <img src={album.image} alt="" />
+                            </span>
+                          </div>
+                          <h6 className="title stone-go-top  margin-top-20">
+                            <span onClick={this.handleOpenModal(album.gallery)}>
+                              {album.title}
+                            </span>
+                          </h6>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="row mb-5">
+                <div className="col-md-12">
+                  <div className="d-flex justify-content-between pagination">
+                    <h6>
+                    {paginateInfo(filteredGallerys, currentPage, pageSize)} Albums
+                    </h6>
+
+                    <Pagination
+                      itemsCount={filteredGallerys.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

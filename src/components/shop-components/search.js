@@ -212,7 +212,7 @@ function eventComponent(event, key) {
 
 function audioComponent(audio, key) {
   return (
-    <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+    <div key={key} className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
       <div className="product-style-audio webVideo margin-top-40">
         <Link className="thumb " type="button" to="/audios" target="_blank">
           <img src={publicUrl + "assets/img/audio.jpg"} alt="" />
@@ -227,7 +227,7 @@ function audioComponent(audio, key) {
 
 function videoComponent(video, key) {
   return (
-    <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+    <div key={key} className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
       <div className="product-style-03 webVideo imageHover margin-top-40">
         <a
           className="thumb youtubeVideo"
@@ -251,7 +251,7 @@ function videoComponent(video, key) {
 
 function bookComponent(book, key) {
   return (
-    <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 ">
+    <div key={key} className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 ">
       <div className="product-style-03  border-grey margin-top-40 book-div">
         <div className="thumb ">
           <a href="#/books" target="_blank">
@@ -262,13 +262,13 @@ function bookComponent(book, key) {
           <div className="content book_content">
             <h6 className="title stone-go-top">{book.name}</h6>
             <div className="content-price d-flex align-self-center justify-content-center">
-              <span className="new-price">${book.price}</span>
+              <span className="new-price">&#8377;{book.price}</span>
             </div>
           </div>
         </div>
-        <Link className="btn btn-sm buyButton" to={book.url} target="_blank">
+        <Link className="btn btn-sm buyButton buy-btn-search" to={book.url} target="_blank">
           {" "}
-          Buy Now
+          View/Buy
         </Link>
       </div>
     </div>
@@ -277,8 +277,8 @@ function bookComponent(book, key) {
 
 function articleComponent(article, key) {
   return (
-    <div key={key} className="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 ">
-      <div className="col-sm-12 col-12 margin-top-40">
+    <div key={key} className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 ">
+      <div className="col-sm-12 col-12 margin-top-40 article-div-style">
         <div className="content article-content">
           <h6 className="title stone-go-top" id="event-title">
             <Link to="/product-details">{article.name}</Link>
@@ -287,7 +287,7 @@ function articleComponent(article, key) {
           <p>{article.description.replace(/(<([^>]+)>)/gi, "")}</p>
         </div>
         <Link
-          class="btn btn-native"
+          class="btn btn-block btn-native search-article-btn"
           to={article.page_url.replace(/^#/, "")}
           target="_blank"
         >

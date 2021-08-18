@@ -437,7 +437,7 @@ class RegisterForm extends Component {
                             block
                             type="danger"
                             htmlType="submit"
-                            className="btn btn-style-1 register-btn"
+                            className="btn btn-block btn-style-1 register-btn"
                           >
                             Register
                           </Button>

@@ -87,76 +87,8 @@ class Events extends Component {
     return (
       <div className="collection-area ">
         <div className="container">
-          <div className="row flex-row-reverse">
-            <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
-              <div className="row">
-                <div className="col-md-12">
-                  <div className="d-flex justify-content-between pagination">
-                    <h6>
-                    {paginateInfo(filteredEvents, currentPage, pageSize)} Events
-                    </h6>
-
-                    <Pagination
-                      itemsCount={filteredEvents.length}
-                      pageSize={pageSize}
-                      currentPage={currentPage}
-                      onPageChange={this.handlePageChange}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="tab-content tab-margin-43">
-                <div
-                  className="tab-pane fade in show active list-item"
-                  id="two"
-                >
-                  {getEvents.map((event) => (
-                    <div key={event.id} className="row product-style-03 ">
-                      <div className="col-md-3 col-sm-12 col-12 eventList">
-                        <div className="thumb">
-                          <img src={event.image} alt={event.title} />
-                        </div>
-                      </div>
-                      <div className="col-md-9 col-sm-12 col-12">
-                        <div className="content">
-                          <h6 className="title stone-go-top" id="event-title">
-                            <a href={"#/single_event/" + event.id}>
-                              {event.title}
-                            </a>
-                          </h6>
-
-                          <p>{event.description.replace(regex, "")}</p>
-                        </div>
-                        <a
-                          href={"#/single_event/" + event.id}
-                          className="btn btn-native"
-                        >
-                          Read more
-                        </a>
-                      </div>
-                      <Divider />
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col-md-12 mb-5">
-                  <div className="d-flex justify-content-between pagination">
-                    <h6>
-                    {paginateInfo(filteredEvents, currentPage, pageSize)} Events
-                    </h6>
-
-                    <Pagination
-                      itemsCount={filteredEvents.length}
-                      pageSize={pageSize}
-                      currentPage={currentPage}
-                      onPageChange={this.handlePageChange}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="row">
+            
             <div className="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 margin-top-20">
               <div className="widget search-widget">
                 <form className="search" action="#">
@@ -256,6 +188,75 @@ class Events extends Component {
                   </div>
                 </div>
               )}
+            </div>
+            <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="d-flex justify-content-between pagination">
+                    <h6>
+                    {paginateInfo(filteredEvents, currentPage, pageSize)} Events
+                    </h6>
+
+                    <Pagination
+                      itemsCount={filteredEvents.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="tab-content tab-margin-43">
+                <div
+                  className="tab-pane fade in show active list-item"
+                  id="two"
+                >
+                  {getEvents.map((event) => (
+                    <div key={event.id} className="row product-style-03 ">
+                      <div className="col-md-3 col-sm-12 col-12 eventList">
+                        <div className="thumb">
+                          <img src={event.image} alt={event.title} />
+                        </div>
+                      </div>
+                      <div className="col-md-9 col-sm-12 col-12">
+                        <div className="content">
+                          <h6 className="title stone-go-top" id="event-title">
+                            <a href={"#/single_event/" + event.id}>
+                              {event.title}
+                            </a>
+                          </h6>
+
+                          <p>{event.description.replace(regex, "")}</p>
+                        </div>
+                        <a
+                          href={"#/single_event/" + event.id}
+                          className="btn btn-native"
+                        >
+                          Read more
+                        </a>
+                      </div>
+                      <Divider />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col-md-12 mb-5">
+                  <div className="d-flex justify-content-between pagination">
+                    <h6>
+                    {paginateInfo(filteredEvents, currentPage, pageSize)} Events
+                    </h6>
+
+                    <Pagination
+                      itemsCount={filteredEvents.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -77,7 +77,7 @@ class Footer_v1 extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="col-xl-3 col-lg-4 col-md-6 mob-newsletter">
+                <div className="col-xl-3 col-lg-4 col-md-6 col-12 mob-newsletter subscribe-div">
                   <Form
                     name="normal_login"
                     className="login-form"
@@ -86,7 +86,7 @@ class Footer_v1 extends Component {
                   >
                     <div className="input-group mb-3">
                     <div className="row">
-                      <div className="col-lg-9">
+                      <div className="col-lg-9 col-md-7 col-sm-6 col-8">
                       <Form.Item
                         name="email"
                         rules={[
@@ -101,7 +101,7 @@ class Footer_v1 extends Component {
                         <Input />
                       </Form.Item>
                       </div> 
-                      <div className="col-lg-3 subscribe-btn">
+                      <div className="col-lg-3 col-md-5 col-sm-6 col-4 subscribe-btn">
                       <Form.Item>
                         <Button
                           type="danger"
@@ -150,7 +150,7 @@ class Footer_v1 extends Component {
                       </a>
                     </li>
                     <li>
-                      <a target="_blank" href="/webtv">
+                      <a target="_blank" href="#/webtv">
                         {" "}
                         <i className="fa fa-angle-right" />
                         EMS Web TV channel

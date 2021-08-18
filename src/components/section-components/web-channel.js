@@ -79,7 +79,7 @@ class Webchannel extends Component {
                   <h3 className="tvchannel-head">EMS Web TV Channel</h3>
                 </div>
                 <div className="col-lg-1 m-3">
-                  <a href="/webtv" className="btn btn-blue tv-head-btn" id="event-btn">View All</a>
+                  <a href="#/webtv" className="btn btn-blue tv-head-btn" id="event-btn">View All</a>
                 </div>
               </div>
 

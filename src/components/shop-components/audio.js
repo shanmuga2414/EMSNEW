@@ -95,64 +95,8 @@ class Audios extends Component {
     return (
       <div className="collection-area">
         <div className="container">
-          <div className="row flex-row-reverse">
-            <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
-              <div className="row mb-5">
-                <div className="col-md-12">
-                  <div className="d-flex justify-content-between pagination">
-                    <h6>
-                      {paginateInfo(filteredAudios, currentPage, pageSize)} Audios
-                    </h6>
-
-                    <Pagination
-                      itemsCount={filteredAudios.length}
-                      pageSize={pageSize}
-                      currentPage={currentPage}
-                      onPageChange={this.handlePageChange}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="tab-content">
-                <div className="tab-pane fade in show active" id="one">
-                  <div className="row">
-                    {getAudios.map((audio) => (
-                      <div key={audio.aid} className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div className="product-style-audio webVideo margin-top-40 audio_div" >
-                        <div className="thumb ">
-                        <img src={publicUrl + "assets/img/audio.jpg"} alt="" />
-                        </div>
-                          <div className="thumb ">
-                            <ReactAudioPlayer src={audio.audio} controls />
-                          </div>
-                          <hr></hr>
-                          <div class="audio_name_div"><span className="audio_name">{audio.name}</span></div>
-                          {/* <h6 className="title stone-go-top margin-top-20">
-                          <Link to="/"></Link>
-                        </h6> */}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="row mb-5">
-                <div className="col-md-12">
-                  <div className="d-flex justify-content-between pagination">
-                    <h6>
-                      {paginateInfo(filteredAudios, currentPage, pageSize)} Audios
-                    </h6>
-
-                    <Pagination
-                      itemsCount={filteredAudios.length}
-                      pageSize={pageSize}
-                      currentPage={currentPage}
-                      onPageChange={this.handlePageChange}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="row ">
+            
             <div className="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 margin-top-20">
               <div className="widget search-widget">
                 <form className="search" action="#">
@@ -292,6 +236,63 @@ class Audios extends Component {
                   </div>
                 </div>
               }
+            </div>
+            <div className="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
+              <div className="row mb-5">
+                <div className="col-md-12">
+                  <div className="d-flex justify-content-between pagination">
+                    <h6>
+                      {paginateInfo(filteredAudios, currentPage, pageSize)} Audios
+                    </h6>
+
+                    <Pagination
+                      itemsCount={filteredAudios.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="tab-content">
+                <div className="tab-pane fade in show active" id="one">
+                  <div className="row">
+                    {getAudios.map((audio) => (
+                      <div key={audio.aid} className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div className="product-style-audio webVideo margin-top-40 audio_div" >
+                        <div className="thumb ">
+                        <img src={publicUrl + "assets/img/audio.jpg"} alt="" />
+                        </div>
+                          <div className="thumb ">
+                            <ReactAudioPlayer src={audio.audio} controls />
+                          </div>
+                          <hr></hr>
+                          <div class="audio_name_div"><span className="audio_name">{audio.name}</span></div>
+                          {/* <h6 className="title stone-go-top margin-top-20">
+                          <Link to="/"></Link>
+                        </h6> */}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="row mb-5">
+                <div className="col-md-12">
+                  <div className="d-flex justify-content-between pagination">
+                    <h6>
+                      {paginateInfo(filteredAudios, currentPage, pageSize)} Audios
+                    </h6>
+
+                    <Pagination
+                      itemsCount={filteredAudios.length}
+                      pageSize={pageSize}
+                      currentPage={currentPage}
+                      onPageChange={this.handlePageChange}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
