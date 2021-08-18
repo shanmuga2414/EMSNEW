@@ -14,14 +14,14 @@ const About = () => {
   }
 
   const path = window.location.href.split("/");
-  console.log();
+
   let subtitle = path[5];
-  subtitle = toCamelCase(subtitle.replace("_", " "));
+  let subtitleNew = toCamelCase(subtitle.replace("_", " "));
   return (
     <div>
       <Navbar />
-      <PageHeader headertitle={subtitle}  />
-      <BlogDetails />
+      <PageHeader headertitle={subtitleNew} />
+      <BlogDetails blogTitle={subtitle} />
 
       <Footer />
     </div>

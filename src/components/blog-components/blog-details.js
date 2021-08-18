@@ -9,10 +9,10 @@ class BlogDetails extends React.Component {
     title: "",
   };
 
-  async componentDidMount() {
-    const path = window.location.href.split("/");
-    this.setState({ title: path[5] });
-    const response = await homeServices.getBlogContent(path[5]);
+  async componentDidUpdate() {
+    const blogTitle = this.props.blogTitle;
+
+    const response = await homeServices.getBlogContent(blogTitle);
     if (response.status >= 200) {
       this.setState({ blog: response.data });
     }
