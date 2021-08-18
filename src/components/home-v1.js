@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./global-components/navbar";
-import Slider from "./section-components/slider";
+import Banner from "./section-components/slider";
 import CollectionBanner from "./section-components/collection-banner";
 import WebChannel from "./section-components/web-channel";
 import NewArrival from "./section-components/new-arrival";
@@ -18,22 +18,16 @@ import Magazine from "./section-components/magazine";
 import Categories from "./section-components/categories";
 import Footer from "./global-components/footer";
 
-
-
-
-
 const Home_V1 = () => {
-  
-  
   return (
     <div>
       <Navbar />
-      <Slider />
+      <Banner />
       <Brand />
       <CollectionBanner />
       <WebChannel />
       <Books />
-     
+
       {/* <Magazine /> */}
 
       {/* <NewArrival />

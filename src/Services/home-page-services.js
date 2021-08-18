@@ -56,6 +56,9 @@ export async function getBookCategories() {
 export async function getWebTvVideos() {
   return axios.get(`${apiUrl}web-tv.php`);
 }
+export async function getBanners() {
+  return axios.get(`${apiUrl}slider.php`);
+}
 
 export async function getMenu() {
   return axios.get(`${apiUrl}menu.php`);
