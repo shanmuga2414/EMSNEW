@@ -31,7 +31,12 @@ export async function checkUsernameAlreadyExist(user) {
     username: user,
   });
 }
-
+export async function savePassword(user) {
+  return http.post(`${apiUrl}reset_password.php`, {
+    id: user.id,
+    password: user.password,
+  });
+}
 export async function sendSubscriberEmail(user) {
   return http.post(`${apiUrl}subscribe.php`, {
     email: user.email,

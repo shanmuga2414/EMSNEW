@@ -104,7 +104,7 @@ class RegisterForm extends Component {
   onFinish = async (values) => {
     values.dateOfBirth = this.state.dateOfBirth;
     values.dateOfBaiyath = this.state.dateOfBaiyath;
-    console.log(values);
+
     try {
       const response = await authServices.saveUser(values);
       if (response.status >= 200) {
