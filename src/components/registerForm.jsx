@@ -35,6 +35,7 @@ class RegisterForm extends Component {
       region: "",
       dateOfBirth: "",
       dateOfBaiyath: "",
+      username: "",
     };
   }
   selectCountry(val) {
@@ -49,7 +50,6 @@ class RegisterForm extends Component {
   };
 
   selectRegion(val) {
-    console.log(val);
     this.setState({ region: val });
   }
   ErrorMessage(msg) {
@@ -58,8 +58,7 @@ class RegisterForm extends Component {
       content: msg,
     });
   }
-  checkEmail = async () => {
-    const email = document.getElementById("register_email").value;
+  checkEmail = async (email) => {
     if (email !== "") {
       const response = await authServices.checkEmailAlreadyExist(email);
       if (response.status >= 200) {
@@ -73,8 +72,8 @@ class RegisterForm extends Component {
       }
     }
   };
-  checkUsername = async () => {
-    const username = document.getElementById("register_username").value;
+  checkUsername = async (username) => {
+    console.log(username);
     if (username !== "") {
       const response = await authServices.checkUsernameAlreadyExist(username);
       if (response.status >= 200) {
@@ -82,7 +81,9 @@ class RegisterForm extends Component {
           this.ErrorMessage(
             `This "${username}" username already exist. Give new username...`
           );
-          document.getElementById("register_username").value = "";
+          this.checkUsername("");
+          this.setState({ username: "qqqq" });
+          //document.getElementById("register_username").value = "";
         } else {
         }
       }
@@ -125,7 +126,7 @@ class RegisterForm extends Component {
   render() {
     const qualification = ["S.S.L.C", "Engineer", "UG", "PG", "Doctorate[Phd]"];
     const bloodGroup = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
-    const { country, region } = this.state;
+    const { country, region, username } = this.state;
     return (
       <div>
         <Navbar />
@@ -385,7 +386,10 @@ class RegisterForm extends Component {
                             },
                           ]}
                         >
-                          <Input onBlur={this.checkUsername} />
+                          <Input
+                            value={username}
+                            onBlur={(e) => this.checkUsername(e.target.value)}
+                          />
                         </Form.Item>
                       </div>
                     </div>
@@ -406,7 +410,9 @@ class RegisterForm extends Component {
                             },
                           ]}
                         >
-                          <Input onBlur={this.checkEmail} />
+                          <Input
+                            onBlur={(e) => this.checkEmail(e.target.value)}
+                          />
                         </Form.Item>
                       </div>
                       <div className="col-md-6">

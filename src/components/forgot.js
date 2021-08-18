@@ -84,6 +84,21 @@ class Forgot extends Component {
                             required: true,
                             message: "Please input your Confirm Password!",
                           },
+                          ({ getFieldValue }) => ({
+                            validator(_, value) {
+                              if (
+                                !value ||
+                                getFieldValue("password") === value
+                              ) {
+                                return Promise.resolve();
+                              }
+                              return Promise.reject(
+                                new Error(
+                                  "The two passwords that you entered do not match!"
+                                )
+                              );
+                            },
+                          }),
                         ]}
                       >
                         <Input
@@ -103,10 +118,7 @@ class Forgot extends Component {
                         >
                           Submit
                         </Button>
-                       
                       </Form.Item>
-                          
-                      
                     </Form>
                   </div>
                 </div>
