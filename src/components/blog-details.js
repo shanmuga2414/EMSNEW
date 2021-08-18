@@ -20,7 +20,7 @@ const About = () => {
   return (
     <div>
       <Navbar />
-      <PageHeader headertitle="Blog Details" subheader={subtitle} />
+      <PageHeader headertitle={subtitle}  />
       <BlogDetails />
 
       <Footer />
