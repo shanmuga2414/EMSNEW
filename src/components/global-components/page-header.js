@@ -5,8 +5,8 @@ class Page_header extends Component {
   render() {
     let HeaderTitle = this.props.headertitle;
     let publicUrl = process.env.PUBLIC_URL + "/";
-    let Subheader = this.props.subheader ? this.props.subheader : HeaderTitle;
-
+    let Subheader = this.props.subheader ? this.props.subheader : "";
+    console.log(Subheader);
     return (
       <div className="breadcrumb-area">
         <div className="container">
@@ -21,6 +21,11 @@ class Page_header extends Component {
                   <li>
                     <Link to="/">{HeaderTitle}</Link>
                   </li>
+                  {Subheader && (
+                    <li>
+                      <Link to="/">{Subheader ? Subheader : ""}</Link>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>

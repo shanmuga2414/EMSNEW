@@ -3,10 +3,11 @@ import Navbar from "./global-components/navbar";
 import PageHeader from "./global-components/page-header";
 import Footer from "./global-components/footer";
 import { Link } from "react-router-dom";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import queryString from "query-string";
 import { Component } from "react";
-// import auth from "../Services/authService";
+import * as authServices from "../Services/authService";
 
 class Forgot extends Component {
   constructor() {
@@ -20,20 +21,36 @@ class Forgot extends Component {
       value: 2,
     };
   }
+  success = () => {
+    message.success({
+      content: "Password has been updated successfully !",
+      duration: 10,
+      className: "custom-class",
+      style: {
+        marginTop: "40vh",
+      },
+    });
+  };
+  onFinish = async (values) => {
+    let queries = queryString.parse(this.props.location.search);
 
-  onFinish = async () => {
-    // try {
-    //   const { data } = this.state;
-    //   await auth.login(data.email, data.password);
-    //   window.location = "/dashboard";
-    // } catch (ex) {
-    //   if (ex.response && ex.response.status === 400) {
-    //     const errors = { ...this.state.errors };
-    //     errors.email = ex.response.data;
-    //     this.setState({ errors });
-    //     console.log("errors->", this.state.errors);
-    //   }
-    // }
+    values.id = queries.id;
+
+    try {
+      const response = await authServices.savePassword(values);
+      if (response.status >= 200) {
+        console.log("success");
+        this.success();
+        this.props.history.push("/login");
+        // } else {
+      } else {
+        this.props.history.push("/forgot");
+      }
+    } catch (ex) {
+      const errors = { ...this.state.errors };
+      // errors.name = ex.response.data;
+      this.setState({ errors });
+    }
   };
 
   render() {
@@ -84,6 +101,21 @@ class Forgot extends Component {
                             required: true,
                             message: "Please input your Confirm Password!",
                           },
+                          ({ getFieldValue }) => ({
+                            validator(_, value) {
+                              if (
+                                !value ||
+                                getFieldValue("password") === value
+                              ) {
+                                return Promise.resolve();
+                              }
+                              return Promise.reject(
+                                new Error(
+                                  "The two passwords that you entered do not match!"
+                                )
+                              );
+                            },
+                          }),
                         ]}
                       >
                         <Input
@@ -103,10 +135,7 @@ class Forgot extends Component {
                         >
                           Submit
                         </Button>
-                       
                       </Form.Item>
-                          
-                      
                     </Form>
                   </div>
                 </div>
