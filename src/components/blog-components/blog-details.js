@@ -10,10 +10,9 @@ class BlogDetails extends React.Component {
 
   async componentDidMount() {
     const path = window.location.href.split("/");
-    console.log(path[5]);
+
     const response = await homeServices.getBlogContent(path[5]);
     if (response.status >= 200) {
-      console.log(response.data);
       this.setState({ blog: response.data });
     }
   }

@@ -9,10 +9,10 @@ const About = () => {
   return (
     <div>
       <Navbar />
-      <PageHeader headertitle="Founder" />
-      
+      <PageHeader headertitle="Contruction" />
+
       <Construction />
-      
+
       <Footer />
     </div>
   );
